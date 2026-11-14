@@ -1,5 +1,15 @@
 [
   {
+    "key": "5abbf6631cb345b4",
+    "title": "Show HN: Deterministic prompt injection detector using formal logic",
+    "url": "https://nischoy.ai/",
+    "publisher": "nischoy.ai",
+    "source_id": "hn",
+    "reason": "out of scope: Product launch / security defense tool announcement without a specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-14T21:48:59.576Z"
+  },
+  {
     "key": "a5090cfbce20a9b6",
     "title": "Challenges in red teaming AI systems",
     "url": "https://anthropic.com/news/challenges-in-red-teaming-ai-systems",
