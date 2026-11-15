@@ -1,5 +1,67 @@
 [
   {
+    "id": "AIR-2026-1977",
+    "slug": "fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberatta",
+    "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+    "summary": "The FBI issued an alert regarding the ARTEX AI penetration testing framework being used to automate intrusions globally. The campaign includes a supply-chain breach affecting ConnectWise and compromising Microsoft 365 environments.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "Microsoft",
+      "enterprise_deployment"
+    ],
+    "products": [
+      "ARTEX",
+      "ConnectWise",
+      "Microsoft 365"
+    ],
+    "incident_date": "2026-11-15",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-15",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks",
+        "publisher": "BleepingComputer",
+        "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+        "published_at": "2026-11-15"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "artex",
+      "fbi",
+      "connectwise",
+      "microsoft-365",
+      "supply-chain"
+    ],
+    "created_at": "2026-11-15T18:48:13.772Z",
+    "updated_at": "2026-11-15T18:48:13.772Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-15",
+        "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+        "source_url": "https://bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks",
+        "added_at": "2026-11-15T18:48:13.772Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world exploitation in enterprise environments.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1976",
     "slug": "cve-2026-129356-a-race-condition-vulnerability-was-found-in",
     "title": "CVE-2026-129356: A race condition vulnerability was found in vllm-project vllm",
