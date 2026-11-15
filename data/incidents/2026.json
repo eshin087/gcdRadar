@@ -7563,9 +7563,15 @@
         "publisher": "SecurityWeek",
         "title": "Notion Customer Data Compromised in Fireworks AI Hack",
         "published_at": "2026-11-12"
+      },
+      {
+        "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach",
+        "publisher": "TechCrunch",
+        "title": "Uber confirms hackers stole drivers' license information in breach",
+        "published_at": "2026-11-15"
       }
     ],
-    "source_count": 5,
+    "source_count": 6,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -7575,7 +7581,7 @@
       "supply-chain"
     ],
     "created_at": "2026-11-10T08:11:07.578Z",
-    "updated_at": "2026-11-12T11:41:18.318Z",
+    "updated_at": "2026-11-15T16:19:17.165Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -7601,6 +7607,12 @@
         "title": "Breach confirmed to have exposed Notion AI chat transcripts in a small number of workspaces",
         "source_url": "https://bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts",
         "added_at": "2026-11-11T21:11:22.437Z"
+      },
+      {
+        "date": "2026-11-15",
+        "title": "Breach confirmed to have exposed drivers license information stored at Fireworks AI",
+        "source_url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach",
+        "added_at": "2026-11-15T16:19:17.165Z"
       }
     ],
     "action": "",
