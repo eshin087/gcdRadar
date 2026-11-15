@@ -1,5 +1,15 @@
 [
   {
+    "key": "6a948d9962194add",
+    "title": "Prompt Injection Attacks in Large Language Model Systems",
+    "url": "https://zenodo.org/records/21357273",
+    "publisher": "zenodo.org",
+    "source_id": "hn",
+    "reason": "out of scope: Survey or general discussion paper without a specific new incident or attack.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-15T15:18:54.931Z"
+  },
+  {
     "key": "5abbf6631cb345b4",
     "title": "Show HN: Deterministic prompt injection detector using formal logic",
     "url": "https://nischoy.ai/",
