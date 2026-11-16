@@ -1,5 +1,120 @@
 [
   {
+    "id": "AIR-2026-1990",
+    "slug": "unpatched-danfoss-refrigeration-controller-flaws-allow-remot",
+    "title": "Unpatched Danfoss Refrigeration Controller Flaws Allow Remote Takeover",
+    "summary": "Six unpatched vulnerabilities in Danfoss AK-SM800A refrigeration controllers allow unauthenticated remote attackers to take over the devices. Government cybersecurity agencies have advised operators of the risk as no patch currently exists.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "AK-SM800A"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html",
+        "publisher": "The Hacker News",
+        "title": "Six Unpatched Danfoss Refrigeration Controller Flaws Could Allow Remote Takeover Without Login",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "iot",
+      "unpatched",
+      "remotetakeover"
+    ],
+    "created_at": "2026-11-16T13:48:25.681Z",
+    "updated_at": "2026-11-16T13:48:25.681Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [
+      "AK-SM800A <= 5.4.0"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Six Unpatched Danfoss Refrigeration Controller Flaws Could Allow Remote Takeover Without Login",
+        "source_url": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html",
+        "added_at": "2026-11-16T13:48:25.681Z"
+      }
+    ],
+    "action": "Review network exposure and follow guidance from national cybersecurity agencies.",
+    "severity_note": "Critical unpatched vulnerabilities allowing remote takeover without login.",
+    "cvss": 9.8
+  },
+  {
+    "id": "AIR-2026-1989",
+    "slug": "criminal-marketplace-sells-infostealer-logs-with-ai-written",
+    "title": "Criminal marketplace sells infostealer logs with AI-written profiles",
+    "summary": "A criminal marketplace is selling infostealer logs bundled with AI-generated profiles of victims to help buyers identify valuable accounts. The service allows attackers to search the compromised data using plain language queries.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion",
+      "other"
+    ],
+    "severity": 3,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/16/ai-powered-infostealer-marketplace-victim-profiles",
+        "publisher": "Help Net Security",
+        "title": "Criminal marketplace sells infostealer logs with AI-written profiles of their owners",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "infostealer",
+      "marketplace",
+      "profiling"
+    ],
+    "created_at": "2026-11-16T13:48:25.681Z",
+    "updated_at": "2026-11-16T13:48:25.681Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Criminal marketplace sells infostealer logs with AI-written profiles of their owners",
+        "source_url": "https://helpnetsecurity.com/2026/11/16/ai-powered-infostealer-marketplace-victim-profiles",
+        "added_at": "2026-11-16T13:48:25.681Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world malicious campaign exploiting stolen credentials and AI profiling.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1988",
     "slug": "telegram-widgets-hit-by-remote-code-execution-demos-and-malw",
     "title": "Telegram Widgets Hit by Remote Code Execution Demos and Malware Attacks",
