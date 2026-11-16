@@ -1,5 +1,15 @@
 [
   {
+    "key": "1a13d7025b37d20c",
+    "title": "BO Team Exploits Log4Shell in VMware vCenter, Compromises Russian Firm's Code-Signing Server",
+    "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: The victim Russian software developer is unnamed, failing the in-scope criteria requiring a named organisation or victim.",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-16T08:21:26.031Z"
+  },
+  {
     "key": "ccb385c95765cc1d",
     "title": "Google Project Zero will disclose bugs after 90 days, fixed or not",
     "url": "https://helpnetsecurity.com/2026/11/16/google-project-zero-disclosure-policy",
