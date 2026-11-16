@@ -1,5 +1,170 @@
 [
   {
+    "id": "AIR-2026-1980",
+    "slug": "can-llms-write-backdoors-an-empirical-security-study-of-weig",
+    "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
+    "summary": "Researchers evaluate whether large language models can directly inspect and modify neural network weights to inject backdoors. The empirical study explores the security implications of weight-space programming capabilities.",
+    "type": "attack_on_ai",
+    "categories": [
+      "supply_chain"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.17395",
+        "publisher": "arXiv",
+        "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "backdoor",
+      "weight-space-programming",
+      "supply-chain"
+    ],
+    "created_at": "2026-11-16T06:24:59.316Z",
+    "updated_at": "2026-11-16T06:24:59.316Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
+        "source_url": "https://arxiv.org/abs/2611.17395",
+        "added_at": "2026-11-16T06:24:59.316Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating weight manipulation with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-1979",
+    "slug": "securing-multi-agent-systems-by-design",
+    "title": "Securing Multi-Agent Systems by Design",
+    "summary": "Researchers propose response manipulation attacks to exploit multi-agent systems by iteratively optimizing malicious subtask responses. The study formulates both targeted and untargeted attack strategies to manipulate final system outputs.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.17883",
+        "publisher": "arXiv",
+        "title": "Securing Multi-Agent Systems by Design",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "multi-agent",
+      "agent-hijack",
+      "manipulation"
+    ],
+    "created_at": "2026-11-16T06:24:59.316Z",
+    "updated_at": "2026-11-16T06:24:59.316Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Securing Multi-Agent Systems by Design",
+        "source_url": "https://arxiv.org/abs/2611.17883",
+        "added_at": "2026-11-16T06:24:59.316Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating multi-agent attacks with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-1978",
+    "slug": "llms-are-vulnerable-to-malicious-requests-with-indistinguish",
+    "title": "LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent",
+    "summary": "Researchers introduce the Detail Guidance Attack framework to bypass LLM safety mechanisms using requests that resemble normal user queries. The study demonstrates improved jailbreak success rates when requests lack obvious anomalous patterns.",
+    "type": "attack_on_ai",
+    "categories": [
+      "jailbreak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.17818",
+        "publisher": "arXiv",
+        "title": "LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "jailbreak",
+      "llm",
+      "safety-bypass"
+    ],
+    "created_at": "2026-11-16T06:24:59.316Z",
+    "updated_at": "2026-11-16T06:24:59.316Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent",
+        "source_url": "https://arxiv.org/abs/2611.17818",
+        "added_at": "2026-11-16T06:24:59.316Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating a jailbreak attack with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1977",
     "slug": "fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberatta",
     "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",

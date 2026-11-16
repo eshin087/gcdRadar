@@ -1,5 +1,55 @@
 [
   {
+    "key": "363a1c70cf8f8cc7",
+    "title": "CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving",
+    "url": "https://arxiv.org/abs/2611.18442",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Privacy study on vehicle trajectory reconstruction without a specific software vulnerability or AI security angle.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T06:24:59.316Z"
+  },
+  {
+    "key": "7a786d98c966d8fb",
+    "title": "Game-Theoretic Analysis of RIS-Assisted Challenge-Response PLA - Part II: Partial Channel Knowledge",
+    "url": "https://arxiv.org/abs/2611.17907",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Theoretical game-theoretic analysis of physical layer authentication involving communication channels, not an AI model or agent attack.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-16T06:24:59.316Z"
+  },
+  {
+    "key": "095b494531425a88",
+    "title": "Deterministic ECDSA on secp256k1: the RFC 6979 assumption, a counterexample, and the state of deployed implementations",
+    "url": "https://arxiv.org/abs/2611.18449",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Research paper analyzing cryptographic assumptions without demonstrating a working attack or vulnerability in named software.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T06:24:59.316Z"
+  },
+  {
+    "key": "72d5d955cd0b8726",
+    "title": "Condensing Law of Security Information",
+    "url": "https://arxiv.org/abs/2611.17918",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Research paper discussing scaling laws and generalization limits in security without demonstrating an attack or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T06:24:59.316Z"
+  },
+  {
+    "key": "58b2de43fab31385",
+    "title": "Fair and Efficient Distributed EV Charging Coordination Using Threshold Cryptography and Machine Learning",
+    "url": "https://arxiv.org/abs/2611.17577",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Research paper proposing a defense and coordination protocol for EV charging without demonstrating a specific active exploit.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T06:24:59.316Z"
+  },
+  {
     "key": "41b57044c63b9ede",
     "title": "Product showcase: ESET Mobile Security brings phishing protection and security checks to iOS",
     "url": "https://helpnetsecurity.com/2026/11/16/product-showcase-eset-mobile-security-ios",
