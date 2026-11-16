@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-1985",
+    "slug": "unpatched-geovision-camera-software-used-to-compromise-13-or",
+    "title": "Unpatched GeoVision camera software used to compromise 13 organizations",
+    "summary": "Attackers exploited unpatched GeoVision camera management software to compromise Windows systems across 13 organizations and install cryptocurrency miners. The intrusions occurred primarily between November 8 and 10.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "GeoVision camera software"
+    ],
+    "incident_date": "2026-11-08",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/16/geovision-camera-software-vulnerabilities",
+        "publisher": "Help Net Security",
+        "title": "Unpatched GeoVision camera software gave cryptojackers a side door into 13 organizations",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cryptojacking",
+      "geovision",
+      "huntress",
+      "unpatched"
+    ],
+    "created_at": "2026-11-16T10:49:27.873Z",
+    "updated_at": "2026-11-16T10:49:27.873Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Unpatched GeoVision camera software gave cryptojackers a side door into 13 organizations",
+        "source_url": "https://helpnetsecurity.com/2026/11/16/geovision-camera-software-vulnerabilities",
+        "added_at": "2026-11-16T10:49:27.873Z"
+      }
+    ],
+    "action": "Audit and restrict exposure of GeoVision camera management services until a vendor patch becomes available.",
+    "severity_note": "Confirmed real-world intrusion and cryptojacking campaign against 13 organizations.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1984",
     "slug": "noisytcp-vulnerability-in-linux-kernel-allows-server-crashes",
     "title": "NoisyTCP vulnerability in Linux kernel allows server crashes",
