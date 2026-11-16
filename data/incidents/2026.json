@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-1991",
+    "slug": "lithuanian-customs-agency-restores-services-after-cyberattac",
+    "title": "Lithuanian customs agency restores services after cyberattack, possible data breach",
+    "summary": "A cyberattack on November 10 forced the Lithuanian Customs agency to shut down its main user management portal. The agency restored services over the weekend while investigating a possible data breach.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-10",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://therecord.media/lithuania-customs-agency-cyberattack",
+        "publisher": "The Record",
+        "title": "Lithuanian customs agency restores services after cyberattack, possible data breach",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cyberattack",
+      "lithuania",
+      "customs",
+      "data-breach"
+    ],
+    "created_at": "2026-11-16T14:41:20.905Z",
+    "updated_at": "2026-11-16T14:41:20.905Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Lithuanian customs agency restores services after cyberattack, possible data breach",
+        "source_url": "https://therecord.media/lithuania-customs-agency-cyberattack",
+        "added_at": "2026-11-16T14:41:20.905Z"
+      }
+    ],
+    "action": "Investigate the breach thoroughly and secure the user management portal.",
+    "severity_note": "Confirmed exploitation of Lithuanian Customs portal, no confirmed data loss",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1990",
     "slug": "unpatched-danfoss-refrigeration-controller-flaws-allow-remot",
     "title": "Unpatched Danfoss Refrigeration Controller Flaws Allow Remote Takeover",

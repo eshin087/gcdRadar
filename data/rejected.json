@@ -1,5 +1,15 @@
 [
   {
+    "key": "b360f2c4a3574459",
+    "title": "EU sanctions pro-Russia hackers, two dozen staff at Kremlin disinformation contractor",
+    "url": "https://therecord.media/russia-europe-sanctions-doppelganger",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Policy/sanctions announcement without a specific technical incident",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-16T14:41:20.905Z"
+  },
+  {
     "key": "c2fb696d2a52dc81",
     "title": "GTIG AI Threat Tracker: Agentic Threat Activity Crosses a Significant Threshold",
     "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold",
