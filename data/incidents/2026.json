@@ -1,5 +1,65 @@
 [
   {
+    "id": "AIR-2026-1982",
+    "slug": "tor-0-4-9-17-released-to-mitigate-ongoing-relay-denial-of-se",
+    "title": "Tor 0.4.9.17 Released to Mitigate Ongoing Relay Denial-of-Service Attacks",
+    "summary": "The Tor Project released version 0.4.9.17 to address several security issues affecting built-in denial-of-service protections. The update responds to ongoing DoS attacks targeting Tor network relays.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Tor"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://securityweek.com/tor-updates-dos-defenses-again-as-relay-attacks-continue",
+        "publisher": "SecurityWeek",
+        "title": "Tor Updates DoS Defenses Again as Relay Attacks Continue",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "tor",
+      "dos",
+      "patch",
+      "relay-attack"
+    ],
+    "created_at": "2026-11-16T09:20:57.671Z",
+    "updated_at": "2026-11-16T09:20:57.671Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [
+      "Tor 0.4.9.17"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Tor Updates DoS Defenses Again as Relay Attacks Continue",
+        "source_url": "https://securityweek.com/tor-updates-dos-defenses-again-as-relay-attacks-continue",
+        "added_at": "2026-11-16T09:20:57.671Z"
+      }
+    ],
+    "action": "Upgrade Tor relay and node installations to version 0.4.9.17 or later.",
+    "severity_note": "Denial-of-service flaws are actively exploited against Tor network relays in the wild.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1981",
     "slug": "ai-agent-campaign-targets-litellm-dify-and-one-api-instances",
     "title": "AI Agent Campaign Targets LiteLLM, Dify, and One API Instances to Steal AI API Keys",
