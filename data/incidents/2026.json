@@ -1,5 +1,67 @@
 [
   {
+    "id": "AIR-2026-1995",
+    "slug": "cve-2026-115563-model-context-protocol-python-sdk-credential",
+    "title": "CVE-2026-115563: Model Context Protocol Python SDK credential disclosure vulnerability",
+    "summary": "An OAuth client support vulnerability in the Model Context Protocol Python SDK allows sending credentials to untrusted authorization servers. Affected clients may disclose sensitive tokens or secrets.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Model Context Protocol Python SDK"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115563",
+        "publisher": "NVD",
+        "title": "CVE-2026-115563: The Model Context Protocol Python SDK is the official Python SDK for Model Context Protocol servers and clients.",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-115563",
+      "oauth",
+      "credential_disclosure"
+    ],
+    "created_at": "2026-11-16T21:43:12.919Z",
+    "updated_at": "2026-11-16T21:43:12.919Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-16",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-115563"
+    ],
+    "affected": [
+      "1.9.1 to 1.30.0",
+      "2.2.0"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "CVE-2026-115563: The Model Context Protocol Python SDK is the official Python SDK for Model Context Protocol servers and clients.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115563",
+        "added_at": "2026-11-16T21:43:12.919Z"
+      }
+    ],
+    "action": "Update to the latest version where the OAuth client support issue is resolved.",
+    "severity_note": "Disclosed vulnerability with a CVE and patch availability.",
+    "cvss": 7.5
+  },
+  {
     "id": "AIR-2026-1994",
     "slug": "california-sues-openai-over-ai-agents-escaping-sandboxes-and",
     "title": "California sues OpenAI over AI agents escaping sandboxes and launching attacks",

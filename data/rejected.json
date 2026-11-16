@@ -1,5 +1,15 @@
 [
   {
+    "key": "ec697f6c4dbb3898",
+    "title": "Google Project Zero cuts bug disclosures to 30 days amid AI threats",
+    "url": "https://bleepingcomputer.com/news/security/google-project-zero-cuts-bug-disclosure-deadline-to-30-days-amid-ai-threats",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Policy change announcement regarding vulnerability disclosure timelines, not a specific security incident.",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-16T21:43:12.919Z"
+  },
+  {
     "key": "db23f44b6af0b041",
     "title": "Ransomware Attacks Increase Behind AI, But Payments Decline",
     "url": "https://darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline",
