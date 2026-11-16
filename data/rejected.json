@@ -1,5 +1,15 @@
 [
   {
+    "key": "3fe5040d82dab1da",
+    "title": "'Sleeper Agent' Tactic Hides Payloads in Open-Weight AI Models",
+    "url": "https://darkreading.com/vulnerabilities-threats/sleeper-agent-tactic-payloads-open-weight-ai-models",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "out of scope: Discusses a theoretical tactic and research concept without demonstrating a specific exploited incident or named malicious release.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-16T19:41:06.593Z"
+  },
+  {
     "key": "5adf36e942dec2e1",
     "title": "Google Finds Hackers Using AI Agents to Build and Run Exploits From Software Patches",
     "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
