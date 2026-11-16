@@ -1,5 +1,15 @@
 [
   {
+    "key": "a3f7edf86886008e",
+    "title": "AI uncovers flaws in discontinued devices with no vendor left to patch them",
+    "url": "https://helpnetsecurity.com/2026/11/16/forescout-ai-models-vulnerability-research",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Survey or research methodology piece discussing an AI-assisted testing tool without reporting a specific named software incident or vendor exploitation.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T05:22:16.343Z"
+  },
+  {
     "key": "3bc6cdb34c17f840",
     "title": "datasette 1.0a43",
     "url": "https://simonwillison.net/2026/Nov/15/datasette",
