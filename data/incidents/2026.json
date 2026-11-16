@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-1988",
+    "slug": "telegram-widgets-hit-by-remote-code-execution-demos-and-malw",
+    "title": "Telegram Widgets Hit by Remote Code Execution Demos and Malware Attacks",
+    "summary": "Kaspersky suspects exploitation of Telegram widgets to deliver WebRAT after researchers demonstrated remote code execution. Telegram leadership has disputed the claims.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Telegram"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://securityweek.com/telegram-widgets-hit-by-rce-demos-malware-warning-days-after-launch",
+        "publisher": "SecurityWeek",
+        "title": "Telegram Widgets Hit by RCE Demos, Malware Warning Days After Launch",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "rce",
+      "webrat",
+      "telegram",
+      "malware"
+    ],
+    "created_at": "2026-11-16T13:21:03.117Z",
+    "updated_at": "2026-11-16T13:21:03.117Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Telegram Widgets Hit by RCE Demos, Malware Warning Days After Launch",
+        "source_url": "https://securityweek.com/telegram-widgets-hit-by-rce-demos-malware-warning-days-after-launch",
+        "added_at": "2026-11-16T13:21:03.117Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Suspected exploitation in the wild with malware delivery.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1987",
     "slug": "uber-data-breach-impacts-150-000-people",
     "title": "Uber Data Breach Impacts 150,000 People",
