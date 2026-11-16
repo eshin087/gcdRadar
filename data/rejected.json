@@ -1,5 +1,15 @@
 [
   {
+    "key": "db23f44b6af0b041",
+    "title": "Ransomware Attacks Increase Behind AI, But Payments Decline",
+    "url": "https://darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "out of scope: This is a statistical overview and report commentary about ransomware trends, not a specific named incident or attack campaign with identified victims.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T20:41:18.850Z"
+  },
+  {
     "key": "3fe5040d82dab1da",
     "title": "'Sleeper Agent' Tactic Hides Payloads in Open-Weight AI Models",
     "url": "https://darkreading.com/vulnerabilities-threats/sleeper-agent-tactic-payloads-open-weight-ai-models",
