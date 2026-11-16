@@ -1,5 +1,45 @@
 [
   {
+    "key": "5adf36e942dec2e1",
+    "title": "Google Finds Hackers Using AI Agents to Build and Run Exploits From Software Patches",
+    "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Survey and overview of threat actor trends involving autonomous AI agents, lacking a specific targeted incident.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-16T17:41:25.625Z"
+  },
+  {
+    "key": "f9828b77234b7e3a",
+    "title": "⚡ Weekly Recap: N-able 0-Days, Windows 0-Days, Chrome 0-Days, Fridge 0-Days, and More Bad Days",
+    "url": "https://thehackernews.com/2026/11/weekly-recap-n-able-0-days-windows-0.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Weekly roundup newsletter of general security news with no single specific incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T17:41:25.625Z"
+  },
+  {
+    "key": "2ebc983e1e5fe4b4",
+    "title": "King Charles opens new HQ for National Cyber Force, UK’s offensive hacking unit",
+    "url": "https://therecord.media/uk-national-cyber-force-headquarters-opens",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: News about a new government military headquarters opening, not a specific cyber incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T17:41:25.625Z"
+  },
+  {
+    "key": "b1c71d07875ac772",
+    "title": "Strengthening the fight against online child sexual abuse with new tools and support",
+    "url": "https://openai.com/index/strengthening-online-child-safety",
+    "publisher": "OpenAI",
+    "source_id": "openai",
+    "reason": "out of scope: Product launch and safety initiative announcement rather than a security incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T17:41:25.625Z"
+  },
+  {
     "key": "6bde6c886ad3a824",
     "title": "Russia denies intercepting Romanian government emails",
     "url": "https://therecord.media/romania-russia-cyberattack-espionage",
