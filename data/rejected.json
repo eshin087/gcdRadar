@@ -1,5 +1,15 @@
 [
   {
+    "key": "ccb385c95765cc1d",
+    "title": "Google Project Zero will disclose bugs after 90 days, fixed or not",
+    "url": "https://helpnetsecurity.com/2026/11/16/google-project-zero-disclosure-policy",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Policy change announcement rather than a specific software incident or vulnerability disclosure.",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-16T06:53:24.297Z"
+  },
+  {
     "key": "363a1c70cf8f8cc7",
     "title": "CANTraj: Recovering Vehicle Trajectories from CAN Signals in Naturalistic Driving",
     "url": "https://arxiv.org/abs/2611.18442",
