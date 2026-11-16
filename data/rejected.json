@@ -1,5 +1,15 @@
 [
   {
+    "key": "5411f53d2a3c883d",
+    "title": "Microsoft previews remote lock for lost or stolen Windows devices",
+    "url": "https://helpnetsecurity.com/2026/11/16/microsoft-remote-lock-feature-preview",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launches and vendor feature announcements are out of scope",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T12:17:33.876Z"
+  },
+  {
     "key": "e745cd3111e43e09",
     "title": "Microsoft Rules Out Cyberattack in Outage, Warns of Phishing Campaign",
     "url": "https://securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign",
