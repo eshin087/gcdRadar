@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-1987",
+    "slug": "uber-data-breach-impacts-150-000-people",
+    "title": "Uber Data Breach Impacts 150,000 People",
+    "summary": "Hackers compromised a third-party services provider to steal personal data including names, addresses, and driver's license numbers. The incident affected 150,000 individuals.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Uber"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://securityweek.com/uber-data-breach-impacts-150000-people",
+        "publisher": "SecurityWeek",
+        "title": "Uber Data Breach Impacts 150,000 People",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "third-party-risk",
+      "uber"
+    ],
+    "created_at": "2026-11-16T11:41:05.999Z",
+    "updated_at": "2026-11-16T11:41:05.999Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Uber Data Breach Impacts 150,000 People",
+        "source_url": "https://securityweek.com/uber-data-breach-impacts-150000-people",
+        "added_at": "2026-11-16T11:41:05.999Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world PII breach affecting 150,000 people",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1986",
     "slug": "sansar-linux-cryptomining-malware-uses-modified-nvidia-libra",
     "title": "SANSAR Linux Cryptomining Malware Uses Modified NVIDIA Library to Hide GPU Activity",
@@ -804,9 +861,15 @@
         "publisher": "CyberScoop",
         "title": "Researchers continue to find serious vulnerabilities in internet connected refrigerators",
         "published_at": "2026-11-13"
+      },
+      {
+        "url": "https://securityweek.com/hackers-probe-newly-disclosed-flaws-in-copeland-refrigeration-controllers",
+        "publisher": "SecurityWeek",
+        "title": "Hackers Probe Newly Disclosed Flaws in Copeland Refrigeration Controllers",
+        "published_at": "2026-11-16"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -816,7 +879,7 @@
       "honeypot"
     ],
     "created_at": "2026-11-13T21:48:33.676Z",
-    "updated_at": "2026-11-13T21:48:33.676Z",
+    "updated_at": "2026-11-16T11:41:05.999Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -867,9 +930,15 @@
         "publisher": "The Hacker News",
         "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
         "published_at": "2026-11-14"
+      },
+      {
+        "url": "https://securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks",
+        "publisher": "SecurityWeek",
+        "title": "Recent UnrealIRCd Vulnerability Exploited in Attacks",
+        "published_at": "2026-11-16"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "seed_nvd",
@@ -879,7 +948,7 @@
       "command-injection"
     ],
     "created_at": "2026-11-13T21:48:33.676Z",
-    "updated_at": "2026-11-14T13:19:46.872Z",
+    "updated_at": "2026-11-16T11:41:05.999Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
