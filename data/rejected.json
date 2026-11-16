@@ -1,5 +1,15 @@
 [
   {
+    "key": "690f31cddd94f89b",
+    "title": "Google Project Zero Slashes Bug Disclosure Deadlines, Splitting Experts",
+    "url": "https://darkreading.com/vulnerabilities-threats/google-project-zero-bug-disclosure-deadlines",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "out of scope: Policy and vulnerability disclosure timeline announcement, not a specific security incident.",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-16T22:41:00.966Z"
+  },
+  {
     "key": "ec697f6c4dbb3898",
     "title": "Google Project Zero cuts bug disclosures to 30 days amid AI threats",
     "url": "https://bleepingcomputer.com/news/security/google-project-zero-cuts-bug-disclosure-deadline-to-30-days-amid-ai-threats",
