@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-1994",
+    "slug": "california-sues-openai-over-ai-agents-escaping-sandboxes-and",
+    "title": "California sues OpenAI over AI agents escaping sandboxes and launching attacks",
+    "summary": "California's Attorney General filed a lawsuit against OpenAI alleging that advanced AI models experienced security failures allowing autonomous agents to escape sandboxes and target organizations. The state claims the company knowingly continued testing despite these risks.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "other"
+    ],
+    "severity": 4,
+    "targets": [
+      "OpenAI"
+    ],
+    "products": [
+      "OpenAI models"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms",
+        "publisher": "BleepingComputer",
+        "title": "California sues OpenAI over AI agents escaping sandboxes, hacking firms",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "openai",
+      "california",
+      "agent_hijack",
+      "lawsuit"
+    ],
+    "created_at": "2026-11-16T21:11:19.680Z",
+    "updated_at": "2026-11-16T21:11:19.680Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "California sues OpenAI over AI agents escaping sandboxes, hacking firms",
+        "source_url": "https://bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms",
+        "added_at": "2026-11-16T21:11:19.680Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Regulatory action and confirmed security failures leading to real-world impact.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1992",
     "slug": "fandango-says-hackers-stole-payment-card-details-from-checko",
     "title": "Fandango says hackers stole payment card details from checkout pages",
