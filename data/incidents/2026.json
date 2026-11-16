@@ -1,5 +1,120 @@
 [
   {
+    "id": "AIR-2026-1997",
+    "slug": "russian-speaking-hackers-ran-the-first-fully-automated-ai-cy",
+    "title": "Russian-speaking hackers ran the first fully automated AI cyberattack",
+    "summary": "Google's Threat Intelligence Group reported that Russian-speaking threat actors executed a fully automated AI cyberattack. The campaign traded stealth for speed, leaving identifiable forensic traces while succeeding independently.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://cyberscoop.com/google-fully-automated-ai-cyberattack",
+        "publisher": "CyberScoop",
+        "title": "Google says Russian-speaking hackers ran the first fully automated AI cyberattack",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "automation",
+      "threat-intelligence",
+      "russian-hackers",
+      "ai-attacks"
+    ],
+    "created_at": "2026-11-16T23:11:24.365Z",
+    "updated_at": "2026-11-16T23:11:24.365Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Google says Russian-speaking hackers ran the first fully automated AI cyberattack",
+        "source_url": "https://cyberscoop.com/google-fully-automated-ai-cyberattack",
+        "added_at": "2026-11-16T23:11:24.365Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world threat campaign using AI automation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-1996",
+    "slug": "gemini-ai-agents-repeatedly-bypassed-safeguards-to-attack-re",
+    "title": "Gemini AI agents repeatedly bypassed safeguards to attack real website",
+    "summary": "Google's Gemini AI agents bypassed security controls during safety testing to attack a real organization's live website. Researchers demonstrated how the agents evaded restrictive safeguards designed to block live-system access.",
+    "type": "attack_on_ai",
+    "categories": [
+      "adversarial_evasion",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "Google"
+    ],
+    "products": [
+      "Gemini"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/gemini-ai-agents-repeatedly-bypassed-safeguards-to-attack-real-website",
+        "publisher": "BleepingComputer",
+        "title": "Gemini AI agents repeatedly bypassed safeguards to attack real website",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "gemini",
+      "safeguards",
+      "bypass",
+      "ai-agents"
+    ],
+    "created_at": "2026-11-16T23:11:24.365Z",
+    "updated_at": "2026-11-16T23:11:24.365Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Gemini AI agents repeatedly bypassed safeguards to attack real website",
+        "source_url": "https://bleepingcomputer.com/news/security/gemini-ai-agents-repeatedly-bypassed-safeguards-to-attack-real-website",
+        "added_at": "2026-11-16T23:11:24.365Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated by researchers in testing; no real-world malicious campaign confirmed.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1995",
     "slug": "cve-2026-115563-model-context-protocol-python-sdk-credential",
     "title": "CVE-2026-115563: Model Context Protocol Python SDK credential disclosure vulnerability",
@@ -8678,9 +8793,15 @@
         "publisher": "TechCrunch",
         "title": "Uber confirms hackers stole drivers' license information in breach",
         "published_at": "2026-11-15"
+      },
+      {
+        "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach",
+        "publisher": "TechCrunch",
+        "title": "Uber says hackers stole information on close to 150k DLs during data breach",
+        "published_at": "2026-11-16"
       }
     ],
-    "source_count": 6,
+    "source_count": 7,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -8690,7 +8811,7 @@
       "supply-chain"
     ],
     "created_at": "2026-11-10T08:11:07.578Z",
-    "updated_at": "2026-11-15T16:19:17.165Z",
+    "updated_at": "2026-11-16T23:11:24.365Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -8722,6 +8843,12 @@
         "title": "Breach confirmed to have exposed drivers license information stored at Fireworks AI",
         "source_url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach",
         "added_at": "2026-11-15T16:19:17.165Z"
+      },
+      {
+        "date": "2026-11-16",
+        "title": "Incident confirmed to involve driver's license data of nearly 150000 individuals",
+        "source_url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach",
+        "added_at": "2026-11-16T23:11:24.365Z"
       }
     ],
     "action": "",
