@@ -1,5 +1,15 @@
 [
   {
+    "key": "41b57044c63b9ede",
+    "title": "Product showcase: ESET Mobile Security brings phishing protection and security checks to iOS",
+    "url": "https://helpnetsecurity.com/2026/11/16/product-showcase-eset-mobile-security-ios",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and vendor feature announcement",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-16T05:49:36.423Z"
+  },
+  {
     "key": "a3f7edf86886008e",
     "title": "AI uncovers flaws in discontinued devices with no vendor left to patch them",
     "url": "https://helpnetsecurity.com/2026/11/16/forescout-ai-models-vulnerability-research",
