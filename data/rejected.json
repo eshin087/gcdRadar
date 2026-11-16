@@ -1,5 +1,15 @@
 [
   {
+    "key": "e745cd3111e43e09",
+    "title": "Microsoft Rules Out Cyberattack in Outage, Warns of Phishing Campaign",
+    "url": "https://securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Out of scope: general security news and phishing campaign warnings without a specific confirmed breach or named victim.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T08:52:41.169Z"
+  },
+  {
     "key": "1a13d7025b37d20c",
     "title": "BO Team Exploits Log4Shell in VMware vCenter, Compromises Russian Firm's Code-Signing Server",
     "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html",
