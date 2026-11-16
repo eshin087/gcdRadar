@@ -1,5 +1,25 @@
 [
   {
+    "key": "c2fb696d2a52dc81",
+    "title": "GTIG AI Threat Tracker: Agentic Threat Activity Crosses a Significant Threshold",
+    "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold",
+    "publisher": "Google Threat Intelligence",
+    "source_id": "gtig",
+    "reason": "out of scope: Survey or threat report discussing trends and statistics rather than a specific single incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T14:12:12.341Z"
+  },
+  {
+    "key": "c84201c80c743267",
+    "title": "Google warns that fully-automated AI attacks are coming soon",
+    "url": "https://bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: General warning and overview article about future AI attack trends rather than a specific named attack or incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-16T14:12:12.341Z"
+  },
+  {
     "key": "8c37ef3c2776f4da",
     "title": "Retadup Worm Resurfaces 7 Years After Takedown to Spread CoffeeLoader Malware",
     "url": "https://thehackernews.com/2026/11/retadup-worm-resurfaces-7-years-after.html",
