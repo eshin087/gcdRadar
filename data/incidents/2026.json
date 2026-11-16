@@ -1,5 +1,128 @@
 [
   {
+    "id": "AIR-2026-1984",
+    "slug": "noisytcp-vulnerability-in-linux-kernel-allows-server-crashes",
+    "title": "NoisyTCP vulnerability in Linux kernel allows server crashes",
+    "summary": "An 11-year-old vulnerability known as NoisyTCP impacts nearly all Linux distributions. Attackers can exploit it to crash Linux servers running services like Nginx, Apache, and SSH with default configurations.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Linux kernel"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/linux/new-noisytcp-linux-kernel-flaw-lets-attackers-crash-servers",
+        "publisher": "BleepingComputer",
+        "title": "New NoisyTCP vulnerability lets attackers crash Linux servers",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "noisytcp",
+      "linux",
+      "kernel",
+      "dos",
+      "cve"
+    ],
+    "created_at": "2026-11-16T09:52:01.251Z",
+    "updated_at": "2026-11-16T09:52:01.251Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "Linux kernel"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "New NoisyTCP vulnerability lets attackers crash Linux servers",
+        "source_url": "https://bleepingcomputer.com/news/linux/new-noisytcp-linux-kernel-flaw-lets-attackers-crash-servers",
+        "added_at": "2026-11-16T09:52:01.251Z"
+      }
+    ],
+    "action": "Apply available kernel updates from Linux distributions as they become available.",
+    "severity_note": "Disclosed vulnerability affecting default configurations across Linux distributions without exploitation confirmed.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-1983",
+    "slug": "rspamd-4-3-0-fixes-denial-of-service-and-authentication-bypa",
+    "title": "Rspamd 4.3.0 fixes denial of service and authentication bypass bugs",
+    "summary": "Rspamd version 4.3.0 addresses multiple bugs allowing unauthenticated attackers to crash spam filter workers or forge authentication results. The update includes fixes for HTTP request handling and milter proxy issues.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Rspamd"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/16/rspamd-4-3-0-released",
+        "publisher": "Help Net Security",
+        "title": "Rspamd 4.3.0 stops forwarded mail from softening DMARC rejects",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "rspamd",
+      "dos",
+      "dmarc",
+      "email"
+    ],
+    "created_at": "2026-11-16T09:52:01.251Z",
+    "updated_at": "2026-11-16T09:52:01.251Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [
+      "Rspamd 4.0.0 through 4.2.3"
+    ],
+    "fixed_in": [
+      "Rspamd 4.3.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Rspamd 4.3.0 stops forwarded mail from softening DMARC rejects",
+        "source_url": "https://helpnetsecurity.com/2026/11/16/rspamd-4-3-0-released",
+        "added_at": "2026-11-16T09:52:01.251Z"
+      }
+    ],
+    "action": "Update to Rspamd 4.3.0 to resolve worker crash and authentication bugs.",
+    "severity_note": "Vendor advisory and patch released for multiple vulnerabilities with no exploitation reported.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1982",
     "slug": "tor-0-4-9-17-released-to-mitigate-ongoing-relay-denial-of-se",
     "title": "Tor 0.4.9.17 Released to Mitigate Ongoing Relay Denial-of-Service Attacks",
