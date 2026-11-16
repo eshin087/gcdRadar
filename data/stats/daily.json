@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-15T08:47:40.349Z",
+ "fetched_at": "2026-11-16T04:49:51.556Z",
  "source": {"name":"NVD","url":"https://nvd.nist.gov/developers/vulnerabilities","license":"NIST data, public domain. This product uses data from the NVD API but is not endorsed or certified by the NVD."},
  "days": {
   "2026-10-15": {"cves":546,"critical":48},
@@ -32,6 +32,7 @@
   "2026-11-11": {"cves":664,"critical":51},
   "2026-11-12": {"cves":358,"critical":28},
   "2026-11-13": {"cves":792,"critical":67},
-  "2026-11-14": {"cves":64,"critical":7}
+  "2026-11-14": {"cves":64,"critical":7},
+  "2026-11-15": {"cves":112,"critical":8}
  }
 }
