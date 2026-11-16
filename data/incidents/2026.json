@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-1992",
+    "slug": "fandango-says-hackers-stole-payment-card-details-from-checko",
+    "title": "Fandango says hackers stole payment card details from checkout pages",
+    "summary": "Fandango Media disclosed that attackers accessed and exfiltrated payment card information entered on its checkout pages. The breach exposed customers' card details, posing a risk of fraud.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Fandango"
+    ],
+    "incident_date": "2026-11-16",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-16",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages",
+        "publisher": "BleepingComputer",
+        "title": "Fandango says hackers stole payment card details from checkout pages",
+        "published_at": "2026-11-16"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.96,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "payment-card",
+      "fandango"
+    ],
+    "created_at": "2026-11-16T17:12:10.160Z",
+    "updated_at": "2026-11-16T17:12:10.160Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-16",
+        "title": "Fandango says hackers stole payment card details from checkout pages",
+        "source_url": "https://bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages",
+        "added_at": "2026-11-16T17:12:10.160Z"
+      }
+    ],
+    "action": "Notify affected customers and monitor for fraudulent activity",
+    "severity_note": "Confirmed theft of payment card data affecting customers",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1991",
     "slug": "lithuanian-customs-agency-restores-services-after-cyberattac",
     "title": "Lithuanian customs agency restores services after cyberattack, possible data breach",
@@ -9361,7 +9418,7 @@
       "code-execution"
     ],
     "created_at": "2026-11-09T17:11:31.516Z",
-    "updated_at": "2026-11-09T17:11:31.516Z",
+    "updated_at": "2026-11-16T17:12:10.160Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -9369,8 +9426,12 @@
     "cve_ids": [
       "CVE-2026-102895"
     ],
-    "affected": [],
-    "fixed_in": [],
+    "affected": [
+      "gpustack < 2.2.0"
+    ],
+    "fixed_in": [
+      "gpustack 2.2.0"
+    ],
     "timeline": [
       {
         "date": "2026-11-09",
@@ -9381,7 +9442,7 @@
     ],
     "action": "Apply mitigations in accordance with vendor instructions and CISA BOD 26-04 guidance.",
     "severity_note": "Exploitation in the wild is confirmed by CISA KEV entry.",
-    "cvss": null
+    "cvss": 9.8
   },
   {
     "id": "AIR-2026-1837",
@@ -20122,9 +20183,15 @@
         "publisher": "SecurityWeek",
         "title": "Malicious Claude Code Extension Served in Cursor Supply Chain Attack",
         "published_at": "2026-11-02"
+      },
+      {
+        "url": "https://securityweek.com/cursor-supply-chain-attack-started-at-fireworks",
+        "publisher": "SecurityWeek",
+        "title": "Cursor Supply Chain Attack Started at Fireworks AI",
+        "published_at": "2026-11-16"
       }
     ],
-    "source_count": 5,
+    "source_count": 6,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -20135,7 +20202,7 @@
       "vscode"
     ],
     "created_at": "2026-10-30T13:27:13.057Z",
-    "updated_at": "2026-11-02T20:57:03.700Z",
+    "updated_at": "2026-11-16T17:12:10.160Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
@@ -20163,6 +20230,12 @@
         "title": "Report confirms exposure duration of 11 hours and up to 5,000 developers affected on the marketplace",
         "source_url": "https://bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors",
         "added_at": "2026-10-30T18:43:14.146Z"
+      },
+      {
+        "date": "2026-11-16",
+        "title": "Investigation reveals the attacker stole an access key from Fireworks AI to push the malicious extension copies",
+        "source_url": "https://securityweek.com/cursor-supply-chain-attack-started-at-fireworks",
+        "added_at": "2026-11-16T17:12:10.160Z"
       }
     ],
     "action": "Remove the malicious Claude Code extension version and check systems for unauthorized SSH keys.",
