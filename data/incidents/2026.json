@@ -92,9 +92,15 @@
         "publisher": "The Hacker News",
         "title": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites",
+        "publisher": "SecurityWeek",
+        "title": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -104,7 +110,7 @@
       "javascript"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-17T08:11:25.845Z",
+    "updated_at": "2026-11-17T10:41:22.663Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
@@ -126,6 +132,12 @@
         "title": "Vendor confirms an attacker exploited a flaw in Optimizely Web Experimentation to plant malicious code affecting at least 178 organizations",
         "source_url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
         "added_at": "2026-11-17T08:11:25.845Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "New report identifies additional affected organizations including GitLab, Salesforce, Equifax, HSBC, and IKEA.",
+        "source_url": "https://securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites",
+        "added_at": "2026-11-17T10:41:22.663Z"
       }
     ],
     "action": "",
