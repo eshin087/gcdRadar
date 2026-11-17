@@ -1,5 +1,15 @@
 [
   {
+    "key": "dc73a46310e9cdb8",
+    "title": "Microsoft testing Remote Lock for lost or stolen Windows devices",
+    "url": "https://bleepingcomputer.com/news/microsoft/microsoft-testing-remote-lock-for-lost-or-stolen-windows-devices",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Product launch and feature announcement by a vendor.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T11:40:57.072Z"
+  },
+  {
     "key": "36af8c2d2875d9f3",
     "title": "The Super Intelligence Task Force should open the door to defenders",
     "url": "https://cyberscoop.com/super-intelligence-task-force-cybersecurity-defenders-op-ed",
