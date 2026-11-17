@@ -1,5 +1,55 @@
 [
   {
+    "key": "2040c07e1a185911",
+    "title": "ConnectSecure brings adaptive AI testing to vulnerability management",
+    "url": "https://helpnetsecurity.com/2026/11/17/connectsecure-agentic-ai-penetration-testing",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and vendor feature announcement",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T14:11:27.970Z"
+  },
+  {
+    "key": "5374351d84a4b282",
+    "title": "Airlock Digital blocks unauthorized AI agent actions at the endpoint",
+    "url": "https://helpnetsecurity.com/2026/11/17/airlock-digital-agentic-control",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and vendor feature announcement",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T14:11:27.970Z"
+  },
+  {
+    "key": "bd36c662344c36bd",
+    "title": "AppGate Optimizer helps teams narrow access without disrupting users",
+    "url": "https://helpnetsecurity.com/2026/11/17/appgate-optimizer",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and vendor feature announcement",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T14:11:27.970Z"
+  },
+  {
+    "key": "ea34b3170c3c6eff",
+    "title": "Suspected ransomware affiliate extradited to US over $500 million in extortion demands",
+    "url": "https://helpnetsecurity.com/2026/11/17/8-digits-team-ransomware-suspect-extradited-us-italy",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Extradition and legal follow-up regarding past ransomware campaigns",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T14:11:27.970Z"
+  },
+  {
+    "key": "c829a55a48021560",
+    "title": "Pakistani hackers are spying on defense workers with fake job sites",
+    "url": "https://cyberscoop.com/pakistani-hackers-defense-workers-fake-job-sites",
+    "publisher": "CyberScoop",
+    "source_id": "cyberscoop",
+    "reason": "out of scope: Brief summary lacks named specific targets, indicators or verified breach impact",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-17T14:11:27.970Z"
+  },
+  {
     "key": "1750e5b669c43fa0",
     "title": "Alleged ransomware group member extradited from Italy to face US charges in hospital, school extortion case",
     "url": "https://cyberscoop.com/roman-khlynovskiy-ransomware-extradition",
