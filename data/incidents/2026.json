@@ -158,9 +158,15 @@
         "publisher": "SecurityWeek",
         "title": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/17/optimizely-vulnerability-malicious-javascript",
+        "publisher": "Help Net Security",
+        "title": "Malware spread through Optimizely hits 178 organizations, including BBC, CNN and Zoom",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 4,
+    "source_count": 5,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -170,11 +176,11 @@
       "javascript"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-17T10:41:22.663Z",
+    "updated_at": "2026-11-17T12:11:51.567Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
-    "patch_status": "no_fix_needed",
+    "patch_status": "patched",
     "cve_ids": [],
     "affected": [
       "Optimizely"
@@ -198,9 +204,15 @@
         "title": "New report identifies additional affected organizations including GitLab, Salesforce, Equifax, HSBC, and IKEA.",
         "source_url": "https://securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites",
         "added_at": "2026-11-17T10:41:22.663Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "Vendor fixed the exploited vulnerability and removed the malicious code from affected sites",
+        "source_url": "https://helpnetsecurity.com/2026/11/17/optimizely-vulnerability-malicious-javascript",
+        "added_at": "2026-11-17T12:11:51.567Z"
       }
     ],
-    "action": "",
+    "action": "Deploy the vendor's fix to remediate the vulnerability",
     "severity_note": "Confirmed real-world supply chain incident affecting third-party websites.",
     "cvss": null
   },
