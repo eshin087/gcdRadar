@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2020",
+    "slug": "critical-memory-corruption-vulnerability-disclosed-in-java",
+    "title": "Critical memory corruption vulnerability disclosed in Java",
+    "summary": "Oracle released a patch for a critical memory corruption vulnerability in Java that could allow attackers to gain server control. Researchers used AI to assist in discovering the flaw.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Java"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://cyberscoop.com/java4shell-critical-java-flaw-openjdk",
+        "publisher": "CyberScoop",
+        "title": "A vulnpocalypse bug worthy of attention: Researchers disclose critical flaw in Java with help of AI",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "java",
+      "memory-corruption",
+      "oracle"
+    ],
+    "created_at": "2026-11-17T22:41:09.132Z",
+    "updated_at": "2026-11-17T22:41:09.132Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "A vulnpocalypse bug worthy of attention: Researchers disclose critical flaw in Java with help of AI",
+        "source_url": "https://cyberscoop.com/java4shell-critical-java-flaw-openjdk",
+        "added_at": "2026-11-17T22:41:09.132Z"
+      }
+    ],
+    "action": "Update Java to the latest patched version provided by Oracle.",
+    "severity_note": "Critical rating with an available patch from Oracle.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2019",
     "slug": "themailer-phishing-kit-uses-ai-for-personalized-lures",
     "title": "TheMailer Phishing Kit Uses AI for Personalized Lures",
