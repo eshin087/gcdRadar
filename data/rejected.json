@@ -1,5 +1,15 @@
 [
   {
+    "key": "8028f18c18931552",
+    "title": "NATO’s AI cyber defense work hits up to 300 billion OpenAI tokens a month",
+    "url": "https://helpnetsecurity.com/2026/11/17/openai-nato-ai-cyber-defense",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch or vendor program adoption overview without a specific security incident, breach, or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T08:42:58.341Z"
+  },
+  {
     "key": "9327b06c53314264",
     "title": "Ransomware affiliate suspect extradited to US, faces 27 years in prison",
     "url": "https://bleepingcomputer.com/news/security/alleged-inc-lynx-ransomware-affiliate-extradited-to-us-faces-27-years-in-prison",
