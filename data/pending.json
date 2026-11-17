@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "key": "39b807e1f9376cda",
+    "source_id": "helpnetsecurity",
+    "origin": "news",
+    "url": "https://helpnetsecurity.com/2026/11/17/detectify-agentic-tooling",
+    "title": "Detectify launches Agentic Tooling to verify vulnerabilities in live applications",
+    "published_at": "2026-11-17",
+    "publisher": "Help Net Security",
+    "hint": "Detectify has launched Agentic Tooling. It lets organizations’ own AI agents, running in their own environments, proactively investigate suspected vulnerabilities and test whether they can be exploited in running applications. A new Security Ledger lets security teams verify agents’ findings against objective evidence, ensuring informed decisions rather than relying solely on probabilistic conclusions. The tools address a growing gap in DevSecOps. Engineering teams have built software factories that move code from commit to production in … More →",
+    "cve_ids": [],
+    "discovered_at": "2026-11-17T14:29:13.202Z",
+    "extra": {
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "3dd23ca798a15ea7",
+    "source_id": "therecord",
+    "origin": "news",
+    "url": "https://therecord.media/autistic-teen-hacker-guilty-plea-britain-gta6-leak",
+    "title": "Autistic teen hacker pleads guilty to leak of Grand Theft Auto VI footage",
+    "published_at": "2026-11-17",
+    "publisher": "The Record",
+    "hint": "Now 21, Artion Kurtaj pleaded guilty to a 2022 spree that included leaking clips of Grand Theft Auto VI while it was still years away from release.",
+    "cve_ids": [],
+    "discovered_at": "2026-11-17T14:29:13.334Z",
+    "extra": {
+      "ai_hint": false
+    }
+  },
+  {
+    "key": "94a126b5c73d8d35",
+    "source_id": "nvd",
+    "origin": "seed_nvd",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130615",
+    "title": "CVE-2026-130615: Flowise through 3.1.4 contains a server-side request forgery vulnerability that allows authenticated users to reach internal…",
+    "published_at": "2026-11-17",
+    "publisher": "NVD",
+    "hint": "Flowise through 3.1.4 contains a server-side request forgery vulnerability that allows authenticated users to reach internal services by exploiting unpinned DNS validation in checkDenyList(). Attackers can configure a chatflow with Playwright or Puppeteer loaders using a DNS-rebinding domain so headless Chromium fetches internal or cloud metadata endpoints, returning responses as document content. CVSS 7.6 HIGH. Published 2026-11-17.",
+    "cve_ids": [
+      "CVE-2026-130615"
+    ],
+    "discovered_at": "2026-11-17T14:30:45.433Z",
+    "extra": {
+      "classifier_hint": "NVD CVE record matched by an allow-listed AI product keyword. In scope as attack_on_ai / infra_vuln when the affected software is an AI framework, model server, agent tool or AI product; out of scope if the keyword is a false positive. Severity 2 (disclosed vulnerability) unless exploitation is confirmed (CISA KEV or vendor statement → 3). incident_date is the published date.",
+      "cvss": 7.6,
+      "kev": false,
+      "matched_keyword": "Flowise",
+      "incident_date": "2026-11-17",
+      "ai_hint": true
+    }
+  }
+]
