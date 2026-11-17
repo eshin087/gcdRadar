@@ -1,5 +1,15 @@
 [
   {
+    "key": "1750e5b669c43fa0",
+    "title": "Alleged ransomware group member extradited from Italy to face US charges in hospital, school extortion case",
+    "url": "https://cyberscoop.com/roman-khlynovskiy-ransomware-extradition",
+    "publisher": "CyberScoop",
+    "source_id": "cyberscoop",
+    "reason": "out of scope: Out of scope: legal extradition and indictment, not a new security incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T13:41:20.223Z"
+  },
+  {
     "key": "dc73a46310e9cdb8",
     "title": "Microsoft testing Remote Lock for lost or stolen Windows devices",
     "url": "https://bleepingcomputer.com/news/microsoft/microsoft-testing-remote-lock-for-lost-or-stolen-windows-devices",

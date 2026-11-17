@@ -5640,9 +5640,15 @@
         "publisher": "The Hacker News",
         "title": "ConnectWise Warns ScreenConnect Attacks Continue as SCKit Targets Unpatched Systems",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://securityweek.com/msp-screenconnect-servers-targeted-in-month-long-campaign",
+        "publisher": "SecurityWeek",
+        "title": "MSP ScreenConnect Servers Targeted in Month-Long Campaign",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 7,
+    "source_count": 8,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -5654,7 +5660,7 @@
       "CVE-2026-84869"
     ],
     "created_at": "2026-11-11T23:11:05.000Z",
-    "updated_at": "2026-11-17T06:41:13.168Z",
+    "updated_at": "2026-11-17T13:41:20.223Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -5702,6 +5708,12 @@
         "title": "Vendor recommends updating to version 26.6.5 or later and advises that attacks continue against on-premises environments with third-party extensions enabled",
         "source_url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html",
         "added_at": "2026-11-17T06:41:13.168Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "MSP ScreenConnect Servers Targeted in Month-Long Campaign",
+        "source_url": "https://securityweek.com/msp-screenconnect-servers-targeted-in-month-long-campaign",
+        "added_at": "2026-11-17T13:41:20.223Z"
       }
     ],
     "action": "Update ScreenConnect to version 26.6.5 or later and ensure vulnerable third-party extensions are disabled.",
