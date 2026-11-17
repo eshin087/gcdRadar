@@ -1,5 +1,15 @@
 [
   {
+    "key": "36af8c2d2875d9f3",
+    "title": "The Super Intelligence Task Force should open the door to defenders",
+    "url": "https://cyberscoop.com/super-intelligence-task-force-cybersecurity-defenders-op-ed",
+    "publisher": "CyberScoop",
+    "source_id": "cyberscoop",
+    "reason": "out of scope: Opinion and trend piece about vulnerability backlogs and AI capabilities without a specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T11:11:44.097Z"
+  },
+  {
     "key": "7a28afcc09199be6",
     "title": "Court clears brothers of $25 million Ethereum crypto heist charges",
     "url": "https://bleepingcomputer.com/news/security/court-clears-brothers-of-25-million-ethereum-crypto-heist-charges",
