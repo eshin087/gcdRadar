@@ -1,5 +1,15 @@
 [
   {
+    "key": "0d86a2adddb45d1c",
+    "title": "AI Framework Autonomously Weaponized Flaws in Real Attacks, Google Says",
+    "url": "https://securityweek.com/ai-framework-autonomously-weaponized-flaws-in-real-attacks-google-says",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: General threat intelligence overview regarding threat actors deploying AI frameworks without naming specific victims or breaches.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T18:41:11.160Z"
+  },
+  {
     "key": "d69abafe058d52c2",
     "title": "Inside Modern Phishing Kits Built to Steal Microsoft 365 Sessions",
     "url": "https://bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions",

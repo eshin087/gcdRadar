@@ -1,8 +1,9 @@
 {
- "fetched_at": "2026-11-17T17:12:13.640Z",
+ "fetched_at": "2026-11-17T18:41:16.446Z",
  "source": {"name":"CISA Known Exploited Vulnerabilities catalog","url":"https://www.cisa.gov/known-exploited-vulnerabilities-catalog","license":"CC0 1.0"},
  "catalog_version": "2026.11.17",
  "entries": [
+  {"cve":"CVE-2026-115731","added":"2026-11-17","due":"2026-12-01","vendor":"Perforce","product":"Puppet Enterprise","name":"Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability","ransomware":false,"published":null,"cvss":null},
   {"cve":"CVE-2026-114713","added":"2026-11-13","due":"2026-11-16","vendor":"UnrealIRCd","product":"UnrealIRCd","name":"UnrealIRCd Improper Neutralization of Delimiters Vulnerability","ransomware":false,"published":"2026-11-08","cvss":8.6},
   {"cve":"CVE-2026-123039","added":"2026-11-13","due":"2026-11-16","vendor":"Check Point","product":"Multiple Products","name":"Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability","ransomware":false,"published":"2026-11-12","cvss":7.8},
   {"cve":"CVE-2026-111560","added":"2026-11-10","due":"2026-11-13","vendor":"Barracuda Networks","product":"Multiple Products","name":"Barracuda Networks Multiple Products OS Command Injection Vulnerability","ransomware":false,"published":"2026-11-02","cvss":8.6},
