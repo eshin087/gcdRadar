@@ -30,9 +30,15 @@
         "publisher": "BleepingComputer",
         "title": "Optimizely supply chain attack served malware on CNN, Fox News, BBC sites",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
+        "publisher": "The Hacker News",
+        "title": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -42,7 +48,7 @@
       "javascript"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-17T04:12:03.005Z",
+    "updated_at": "2026-11-17T08:11:25.845Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
@@ -58,6 +64,12 @@
         "title": "Optimizely supply chain attack infects major brands' sites with malware",
         "source_url": "https://bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware",
         "added_at": "2026-11-17T02:42:20.238Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "Vendor confirms an attacker exploited a flaw in Optimizely Web Experimentation to plant malicious code affecting at least 178 organizations",
+        "source_url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
+        "added_at": "2026-11-17T08:11:25.845Z"
       }
     ],
     "action": "",
@@ -9068,7 +9080,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-10T06:41:55.248Z",
-    "updated_at": "2026-11-11T18:27:53.292Z",
+    "updated_at": "2026-11-17T08:11:25.845Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -9094,7 +9106,7 @@
     ],
     "action": "Update Google Chrome to the latest version immediately.",
     "severity_note": "Confirmed exploitation in the wild.",
-    "cvss": null
+    "cvss": 8.8
   },
   {
     "id": "AIR-2026-1848",
