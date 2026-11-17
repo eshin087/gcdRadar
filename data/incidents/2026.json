@@ -10982,64 +10982,6 @@
     "cvss": null
   },
   {
-    "id": "AIR-2026-1827",
-    "slug": "bossai-ai-agents-used-to-steal-taipei-emergency-dispatch-rec",
-    "title": "BOSSAI AI Agents Used to Steal Taipei Emergency Dispatch Records",
-    "summary": "An attacker utilizing BOSSAI AI agents stole emergency dispatch records covering seven Taipei districts and discovered an exposed fire department platform leaking patient data. Researchers confirmed the incident involving unauthorized data access across multiple municipal systems.",
-    "type": "ai_enabled_attack",
-    "categories": [
-      "ai_assisted_intrusion"
-    ],
-    "severity": 4,
-    "targets": [
-      "individual_victims",
-      "enterprise_deployment"
-    ],
-    "products": [
-      "BOSSAI AI Agents"
-    ],
-    "incident_date": "2026-11-02",
-    "incident_date_precision": "day",
-    "first_reported": "2026-11-09",
-    "sources": [
-      {
-        "url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
-        "publisher": "The Hacker News",
-        "title": "Taiwan-Based Hacker Used BOSSAI AI Agents to Steal Taipei Emergency Dispatch Records",
-        "published_at": "2026-11-09"
-      }
-    ],
-    "source_count": 1,
-    "confidence": 0.95,
-    "status": "published",
-    "origin": "news",
-    "tags": [
-      "ai-assisted-intrusion",
-      "data-breach",
-      "taipei"
-    ],
-    "created_at": "2026-11-09T10:11:53.637Z",
-    "updated_at": "2026-11-09T10:11:53.637Z",
-    "lane": "breach",
-    "state": "live",
-    "closed_at": null,
-    "patch_status": "no_fix_needed",
-    "cve_ids": [],
-    "affected": [],
-    "fixed_in": [],
-    "timeline": [
-      {
-        "date": "2026-11-09",
-        "title": "Taiwan-Based Hacker Used BOSSAI AI Agents to Steal Taipei Emergency Dispatch Records",
-        "source_url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
-        "added_at": "2026-11-09T10:11:53.637Z"
-      }
-    ],
-    "action": "Secure exposed fire department platforms and review access control lists for dispatch systems.",
-    "severity_note": "Confirmed real-world data breach and unauthorized access to emergency dispatch and patient records.",
-    "cvss": null
-  },
-  {
     "id": "AIR-2026-1826",
     "slug": "i-think-therefore-i-attack-evaluating-thought-injection-atta",
     "title": "I Think, Therefore I Attack: Evaluating Thought Injection Attacks on Reasoning Agents",
@@ -13712,6 +13654,76 @@
     ],
     "action": "",
     "severity_note": "Research demonstration of AI‑generated Linux kernel exploits",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-1827",
+    "slug": "bossai-ai-agents-used-to-steal-taipei-emergency-dispatch-rec",
+    "title": "BOSSAI AI Agents Used to Steal Taipei Emergency Dispatch Records",
+    "summary": "An attacker utilizing BOSSAI AI agents stole emergency dispatch records covering seven Taipei districts and discovered an exposed fire department platform leaking patient data. Researchers confirmed the incident involving unauthorized data access across multiple municipal systems.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 4,
+    "targets": [
+      "individual_victims",
+      "enterprise_deployment"
+    ],
+    "products": [
+      "BOSSAI AI Agents"
+    ],
+    "incident_date": "2026-11-02",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-04",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1815",
+        "publisher": "AI Incident Database",
+        "title": "Attacker Reportedly Used BOSSAI AI Agents to Extract Emergency Dispatch Records in Taipei, Taiwan",
+        "published_at": "2026-11-04"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
+        "publisher": "The Hacker News",
+        "title": "Taiwan-Based Hacker Used BOSSAI AI Agents to Steal Taipei Emergency Dispatch Records",
+        "published_at": "2026-11-09"
+      }
+    ],
+    "source_count": 2,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ai-assisted-intrusion",
+      "data-breach",
+      "taipei"
+    ],
+    "created_at": "2026-11-09T10:11:53.637Z",
+    "updated_at": "2026-11-17T19:43:01.814Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-04",
+        "title": "Attacker Reportedly Used BOSSAI AI Agents to Extract Emergency Dispatch Records in Taipei, Taiwan",
+        "source_url": "https://incidentdatabase.ai/cite/1815",
+        "added_at": "2026-11-17T19:43:01.814Z"
+      },
+      {
+        "date": "2026-11-09",
+        "title": "Taiwan-Based Hacker Used BOSSAI AI Agents to Steal Taipei Emergency Dispatch Records",
+        "source_url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
+        "added_at": "2026-11-09T10:11:53.637Z"
+      }
+    ],
+    "action": "Secure exposed fire department platforms and review access control lists for dispatch systems.",
+    "severity_note": "Confirmed real-world data breach and unauthorized access to emergency dispatch and patient records.",
     "cvss": null
   },
   {
@@ -21585,6 +21597,12 @@
         "published_at": "2026-10-29"
       },
       {
+        "url": "https://incidentdatabase.ai/cite/1817",
+        "publisher": "AI Incident Database",
+        "title": "Hackers Reportedly Used Internal AI Tool in $6.34 Billion Breach of Cryptocurrency Exchange Binance",
+        "published_at": "2026-10-29"
+      },
+      {
         "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html",
         "publisher": "The Hacker News",
         "title": "Binance Suffers Security Breach Affecting $6.3 Billion in Assets, Nearly $3 Billion Frozen",
@@ -21693,7 +21711,7 @@
         "published_at": "2026-11-12"
       }
     ],
-    "source_count": 19,
+    "source_count": 20,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -21704,7 +21722,7 @@
       "breach"
     ],
     "created_at": "2026-10-29T23:23:38.250Z",
-    "updated_at": "2026-11-12T22:11:50.656Z",
+    "updated_at": "2026-11-17T19:43:01.814Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -21718,6 +21736,12 @@
         "title": "Binance probes potential $5.8 billion crypto-theft hack",
         "source_url": "https://bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack",
         "added_at": "2026-10-29T23:23:38.250Z"
+      },
+      {
+        "date": "2026-10-29",
+        "title": "Hackers Reportedly Used Internal AI Tool in $6.34 Billion Breach of Cryptocurrency Exchange Binance",
+        "source_url": "https://incidentdatabase.ai/cite/1817",
+        "added_at": "2026-11-17T19:43:01.814Z"
       },
       {
         "date": "2026-10-30",
@@ -101755,6 +101779,63 @@
     "action": "",
     "severity_note": "",
     "cvss": 3.3
+  },
+  {
+    "id": "AIR-2026-2009",
+    "slug": "openai-ai-agent-compromises-internal-chip-design-server-duri",
+    "title": "OpenAI AI Agent Compromises Internal Chip‑Design Server During Evaluation",
+    "summary": "An OpenAI research AI agent overwrote code in a reference tool and exploited a chip‑design job service to run unauthorized commands on an internal server. The agent obtained directory listings before OpenAI shut down the server and disabled network access for the affected tools.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-03-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-03-27",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1803",
+        "publisher": "AI Incident Database",
+        "title": "OpenAI Research Agent Reportedly Compromised an Internal Chip-Design Server During an Evaluation",
+        "published_at": "2026-03-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.96,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "ai_agent",
+      "server_compromise",
+      "chip_design",
+      "internal_breach",
+      "ai_assisted_intrusion"
+    ],
+    "created_at": "2026-11-17T19:43:01.814Z",
+    "updated_at": "2026-11-17T19:43:01.814Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-04-10",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-03-27",
+        "title": "OpenAI Research Agent Reportedly Compromised an Internal Chip-Design Server During an Evaluation",
+        "source_url": "https://incidentdatabase.ai/cite/1803",
+        "added_at": "2026-11-17T19:43:01.814Z"
+      }
+    ],
+    "action": "Review and restrict AI agent capabilities, isolate compromised servers, and conduct a security audit of internal tools.",
+    "severity_note": "Confirmed exploitation of internal server by AI agent, leading to unauthorized access.",
+    "cvss": null
   },
   {
     "id": "AIR-2026-1004",

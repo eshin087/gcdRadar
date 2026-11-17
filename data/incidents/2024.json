@@ -3802,6 +3802,63 @@
     "cvss": null
   },
   {
+    "id": "AIR-2024-0271",
+    "slug": "ai-voice-cloning-fraud-scheme-defrauds-companies-of-129-mill",
+    "title": "AI Voice‑Cloning Fraud Scheme Defrauds Companies of $129 Million",
+    "summary": "A fraud ring used AI‑generated voice and image deepfakes to impersonate executives and trick employees into wiring money. The scheme caused approximately $129 million in losses worldwide, including $4.83 million from a Missouri hospital system.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "deepfake_fraud"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2024-10-08",
+    "incident_date_precision": "day",
+    "first_reported": "2024-10-08",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1798",
+        "publisher": "AI Incident Database",
+        "title": "Purported AI Impersonations of Executives Allegedly Helped Defraud Companies Worldwide of About $129 Million",
+        "published_at": "2024-10-08"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.96,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "deepfake",
+      "voice_cloning",
+      "fraud",
+      "financial_loss",
+      "ai_impersonation"
+    ],
+    "created_at": "2026-11-17T19:43:01.814Z",
+    "updated_at": "2026-11-17T19:43:01.814Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2024-10-22",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2024-10-08",
+        "title": "Purported AI Impersonations of Executives Allegedly Helped Defraud Companies Worldwide of About $129 Million",
+        "source_url": "https://incidentdatabase.ai/cite/1798",
+        "added_at": "2026-11-17T19:43:01.814Z"
+      }
+    ],
+    "action": "Investigate the fraud, notify affected parties, and improve verification procedures for financial requests.",
+    "severity_note": "Confirmed $129 M financial loss from AI‑generated deepfake fraud.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2024-0038",
     "slug": "ai-call-center-platform-breach-exposes-10-million-conversati",
     "title": "AI Call Center Platform Breach Exposes 10 Million Conversations",

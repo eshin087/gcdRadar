@@ -1,5 +1,35 @@
 [
   {
+    "key": "67b504eec37cbc29",
+    "title": "Kentucky Police Detective Allegedly Relied on False AI Facial Recognition Match, Leading to Nebraska Man's Arrest and Detention",
+    "url": "https://incidentdatabase.ai/cite/1816",
+    "publisher": "AI Incident Database",
+    "source_id": "aiid",
+    "reason": "out of scope: AI facial‑recognition misuse leading to wrongful arrest, not a cybersecurity attack",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-17T19:43:01.814Z"
+  },
+  {
+    "key": "156f3b52c30707b8",
+    "title": "Paraguay Convenience Store Customer Reportedly Accused of Theft and Denied Service After Facial Recognition False Match",
+    "url": "https://incidentdatabase.ai/cite/1822",
+    "publisher": "AI Incident Database",
+    "source_id": "aiid",
+    "reason": "out of scope: Facial‑recognition false match caused service denial, not a cyberattack",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-17T19:43:01.814Z"
+  },
+  {
+    "key": "2fbc1f02022a66b4",
+    "title": "Apparently AI-Assisted Conviction Draft Compromised a Defendant's Fair-Trial Rights in Cali, Colombia",
+    "url": "https://incidentdatabase.ai/cite/1801",
+    "publisher": "AI Incident Database",
+    "source_id": "aiid",
+    "reason": "out of scope: AI‑assisted legal draft impacted trial rights, not a cybersecurity attack",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-17T19:43:01.814Z"
+  },
+  {
     "key": "3910748ba894887e",
     "title": "Chinese state group developing automated attack tool for cyber espionage, Google says",
     "url": "https://therecord.media/chinese-state-group-developing-automated-attack-tool-espionage",
