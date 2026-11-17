@@ -8311,6 +8311,10 @@
   "status": "rejected",
   "at": "2026-11-06T00:23:41.043Z"
  },
+ "590cb0b9c5dd23f2": {
+  "status": "rejected",
+  "at": "2026-11-17T07:41:45.607Z"
+ },
  "590f48c9e2705c6b": {
   "status": "merged",
   "id": "AIR-2026-1743",
@@ -13667,6 +13671,10 @@
   "status": "merged",
   "id": "AIR-2026-0775",
   "at": "2026-10-18T10:04:21.885Z"
+ },
+ "9327b06c53314264": {
+  "status": "rejected",
+  "at": "2026-11-17T07:41:45.607Z"
  },
  "9334cd1644dd3b0c": {
   "status": "rejected",

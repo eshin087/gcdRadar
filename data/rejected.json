@@ -1,5 +1,25 @@
 [
   {
+    "key": "9327b06c53314264",
+    "title": "Ransomware affiliate suspect extradited to US, faces 27 years in prison",
+    "url": "https://bleepingcomputer.com/news/security/alleged-inc-lynx-ransomware-affiliate-extradited-to-us-faces-27-years-in-prison",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Follow-up on an existing law enforcement action and extradition rather than a new incident disclosure.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T07:41:45.607Z"
+  },
+  {
+    "key": "590cb0b9c5dd23f2",
+    "title": "Strengthening NATO and allied cyber defenses with AI",
+    "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+    "publisher": "OpenAI",
+    "source_id": "openai",
+    "reason": "out of scope: Product launch and vendor collaboration announcement with no specific attack or vulnerability incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T07:41:45.607Z"
+  },
+  {
     "key": "98546f48c6fa5f9f",
     "title": "Too many instructions can hold back AI security audits",
     "url": "https://helpnetsecurity.com/2026/11/17/peter-stockli-github-ai-security-audits",
