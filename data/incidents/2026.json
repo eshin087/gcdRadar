@@ -516,9 +516,15 @@
         "publisher": "Help Net Security",
         "title": "Malware spread through Optimizely hits 178 organizations, including BBC, CNN and Zoom",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://malwarebytes.com/blog/news/2026/11/cnn-bbc-zoom-and-other-sites-served-malicious-code-in-supply-chain-attack",
+        "publisher": "malwarebytes.com",
+        "title": "CNN, BBC, Zoom, and other sites served malicious code in supply-chain attack",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 5,
+    "source_count": 6,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -528,7 +534,7 @@
       "javascript"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-17T12:11:51.567Z",
+    "updated_at": "2026-11-17T16:41:16.743Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
