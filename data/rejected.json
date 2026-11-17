@@ -1,5 +1,15 @@
 [
   {
+    "key": "458f67c75f2ed1ec",
+    "title": "Updating our coordinated vulnerability disclosure policy timelines",
+    "url": "https://anthropic.com/research/coordinated-vulnerability-disclosure-timelines",
+    "publisher": "Anthropic",
+    "source_id": "anthropic",
+    "reason": "out of scope: Policy update rather than a specific security incident or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T02:42:20.238Z"
+  },
+  {
     "key": "225dafd7d4001d81",
     "title": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
     "url": "https://microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",

@@ -1,5 +1,128 @@
 [
   {
+    "id": "AIR-2026-1999",
+    "slug": "optimizely-supply-chain-attack-injects-malware-into-major-we",
+    "title": "Optimizely supply chain attack injects malware into major websites",
+    "summary": "A suspected supply chain attack targeting Optimizely injected malicious JavaScript into popular websites like Zoom, CNN, and BBC. The injected scripts expose visitors to data theft and browser exploitation risks.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Optimizely"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware",
+        "publisher": "BleepingComputer",
+        "title": "Optimizely supply chain attack infects major brands' sites with malware",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "supply-chain",
+      "malware",
+      "javascript"
+    ],
+    "created_at": "2026-11-17T02:42:20.238Z",
+    "updated_at": "2026-11-17T02:42:20.238Z",
+    "lane": "supply_chain",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [
+      "Optimizely"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Optimizely supply chain attack infects major brands' sites with malware",
+        "source_url": "https://bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware",
+        "added_at": "2026-11-17T02:42:20.238Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world supply chain incident affecting third-party websites.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-1998",
+    "slug": "cve-2026-130358-adminneo-authentication-bypass-in-ai-plugins",
+    "title": "CVE-2026-130358: AdminNeo authentication bypass in AI plugins",
+    "summary": "AdminNeo before 5.9.1 contains a missing authentication flaw in multiple AI integration plugins. Unauthenticated attackers can relay arbitrary prompts using operator credentials.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "AdminNeo",
+      "Open WebUI"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130358",
+        "publisher": "NVD",
+        "title": "CVE-2026-130358: AdminNeo before 5.9.1 contains a missing authentication vulnerability in the ClaudeSqlPlugin, GeminiSqlPlugin, and…",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-130358",
+      "missing-auth",
+      "infra_vuln"
+    ],
+    "created_at": "2026-11-17T02:42:20.238Z",
+    "updated_at": "2026-11-17T02:42:20.238Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-17",
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-130358"
+    ],
+    "affected": [
+      "AdminNeo < 5.9.1"
+    ],
+    "fixed_in": [
+      "AdminNeo 5.9.1"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "CVE-2026-130358: AdminNeo before 5.9.1 contains a missing authentication vulnerability in the ClaudeSqlPlugin, GeminiSqlPlugin, and…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130358",
+        "added_at": "2026-11-17T02:42:20.238Z"
+      }
+    ],
+    "action": "Update AdminNeo to version 5.9.1 or later.",
+    "severity_note": "Disclosed vulnerability with a fix and no exploitation reported.",
+    "cvss": 6.9
+  },
+  {
     "id": "AIR-2026-1997",
     "slug": "russian-speaking-hackers-ran-the-first-fully-automated-ai-cy",
     "title": "Russian-speaking hackers ran the first fully automated AI cyberattack",
