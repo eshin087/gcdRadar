@@ -1,5 +1,70 @@
 [
   {
+    "id": "AIR-2026-2002",
+    "slug": "apple-audio-service-flaw-allowed-unauthorized-microphone-rec",
+    "title": "Apple Audio Service Flaw Allowed Unauthorized Microphone Recording",
+    "summary": "A patched vulnerability in Apple's audio service allowed iOS and iPadOS applications to record audio despite users explicitly denying microphone permissions. Apple released security updates addressing the flaw, and researchers confirmed no evidence of active exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "iOS",
+      "iPadOS"
+    ],
+    "incident_date": "2026-08-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/researchers-detail-iphone-flaw-that-let.html",
+        "publisher": "The Hacker News",
+        "title": "Researchers Detail iPhone Flaw That Let Apps Record Audio Despite Denied Microphone Permission",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ios",
+      "ipados",
+      "privacy",
+      "microphone",
+      "privilege-escalation"
+    ],
+    "created_at": "2026-11-17T12:43:09.208Z",
+    "updated_at": "2026-11-17T12:43:09.208Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [
+      "iOS",
+      "iPadOS"
+    ],
+    "fixed_in": [
+      "iOS and iPadOS security updates released August 2026"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Researchers Detail iPhone Flaw That Let Apps Record Audio Despite Denied Microphone Permission",
+        "source_url": "https://thehackernews.com/2026/11/researchers-detail-iphone-flaw-that-let.html",
+        "added_at": "2026-11-17T12:43:09.208Z"
+      }
+    ],
+    "action": "Update Apple devices to the latest available software version.",
+    "severity_note": "Disclosed vulnerability with an official vendor patch and no exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2001",
     "slug": "operation-shadowcloud-deploys-gitdoor-and-graphdoor-backdoor",
     "title": "Operation ShadowCloud Deploys GitDoor and GraphDoor Backdoors",
@@ -489,9 +554,15 @@
         "publisher": "CyberScoop",
         "title": "California sues OpenAI over AI agents’ summer hacking spree",
         "published_at": "2026-11-16"
+      },
+      {
+        "url": "https://securityweek.com/california-sues-openai-seeking-court-ordered-changes-after-the-hugging-face-hack",
+        "publisher": "SecurityWeek",
+        "title": "California Sues OpenAI, Seeking Court-Ordered Changes After the Hugging Face Hack",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -502,7 +573,7 @@
       "lawsuit"
     ],
     "created_at": "2026-11-16T21:11:19.680Z",
-    "updated_at": "2026-11-16T22:17:19.202Z",
+    "updated_at": "2026-11-17T12:43:09.208Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -9592,9 +9663,15 @@
         "publisher": "The Hacker News",
         "title": "N-able Patches 17 N-central Flaws as Attackers Exploit Earlier Bugs to Deploy Crypto Miners",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://securityweek.com/n-able-kills-legacy-apis-patches-17-n-central-zero-days",
+        "publisher": "SecurityWeek",
+        "title": "N-able Kills Legacy APIs, Patches 17 N-central Zero-Days",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 11,
+    "source_count": 12,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -9604,7 +9681,7 @@
       "n-able"
     ],
     "created_at": "2026-11-09T21:41:00.011Z",
-    "updated_at": "2026-11-17T05:41:44.542Z",
+    "updated_at": "2026-11-17T12:43:09.208Z",
     "lane": "research",
     "state": "live",
     "closed_at": null,
