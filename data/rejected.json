@@ -1,5 +1,15 @@
 [
   {
+    "key": "d69abafe058d52c2",
+    "title": "Inside Modern Phishing Kits Built to Steal Microsoft 365 Sessions",
+    "url": "https://bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Roundup and analysis of general phishing kits targeting Microsoft 365 without a specific new breach or novel vulnerability",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T15:41:30.346Z"
+  },
+  {
     "key": "39b807e1f9376cda",
     "title": "Detectify launches Agentic Tooling to verify vulnerabilities in live applications",
     "url": "https://helpnetsecurity.com/2026/11/17/detectify-agentic-tooling",

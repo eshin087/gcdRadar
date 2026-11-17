@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2006",
+    "slug": "device-code-phishing-risks-demonstrated-against-ai-coding-ag",
+    "title": "Device code phishing risks demonstrated against AI coding agents",
+    "summary": "Researchers demonstrated how device code phishing techniques can be applied to compromise AI coding agents. The study uses GitHub Copilot CLI as an illustrative example to highlight authentication risks.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "Microsoft"
+    ],
+    "products": [
+      "GitHub Copilot CLI"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://microsoft.com/en-us/security/blog/2026/11/17/the-risks-of-device-code-authentication-for-ai-coding-agents",
+        "publisher": "Microsoft Security",
+        "title": "The risks of device code authentication for AI coding agents",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "device-code-flow",
+      "phishing",
+      "github-copilot",
+      "authentication"
+    ],
+    "created_at": "2026-11-17T15:41:30.346Z",
+    "updated_at": "2026-11-17T15:41:30.346Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "The risks of device code authentication for AI coding agents",
+        "source_url": "https://microsoft.com/en-us/security/blog/2026/11/17/the-risks-of-device-code-authentication-for-ai-coding-agents",
+        "added_at": "2026-11-17T15:41:30.346Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research proof of concept demonstrating an attack vector without reported exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2005",
     "slug": "market-research-giant-ipsos-investigating-breach-of-internal",
     "title": "Market Research Giant Ipsos Investigating Breach of Internal System",
