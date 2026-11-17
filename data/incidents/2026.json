@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2003",
+    "slug": "access-dental-management-suffers-data-breach-impacting-340-0",
+    "title": "Access Dental Management Suffers Data Breach Impacting 340,000",
+    "summary": "Hackers breached Access Dental's network and stole personal and health information. The incident impacted over 340,000 individuals.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Access Dental"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://securityweek.com/access-dental-management-data-breach-impacts-over-340000",
+        "publisher": "SecurityWeek",
+        "title": "Access Dental Management Data Breach Impacts Over 340,000",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "healthcare",
+      "ransomware"
+    ],
+    "created_at": "2026-11-17T13:11:41.593Z",
+    "updated_at": "2026-11-17T13:11:41.593Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Access Dental Management Data Breach Impacts Over 340,000",
+        "source_url": "https://securityweek.com/access-dental-management-data-breach-impacts-over-340000",
+        "added_at": "2026-11-17T13:11:41.593Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world PII breach affecting over 340,000 people.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2002",
     "slug": "apple-audio-service-flaw-allowed-unauthorized-microphone-rec",
     "title": "Apple Audio Service Flaw Allowed Unauthorized Microphone Recording",
