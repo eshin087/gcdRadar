@@ -1,5 +1,67 @@
 [
   {
+    "id": "AIR-2026-2016",
+    "slug": "cve-2026-130796-flowise-information-disclosure-vulnerability",
+    "title": "CVE-2026-130796: Flowise information disclosure vulnerability exposes MCP server tokens",
+    "summary": "Flowise versions 3.1.3 through 3.1.4 contain an information disclosure flaw allowing unauthenticated attackers to read MCP server bearer tokens. Attackers can exploit this token to invoke chatflows and bypass API key protections.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln",
+      "agent_hijack"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Flowise"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130796",
+        "publisher": "NVD",
+        "title": "CVE-2026-130796: Flowise 3.1.3 through 3.1.4 contains an information disclosure vulnerability that allows unauthenticated attackers to read MCP…",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-130796",
+      "information-disclosure",
+      "mcp"
+    ],
+    "created_at": "2026-11-17T20:41:38.730Z",
+    "updated_at": "2026-11-17T20:41:38.730Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-17",
+    "patch_status": "unpatched",
+    "cve_ids": [
+      "CVE-2026-130796"
+    ],
+    "affected": [
+      "Flowise 3.1.3 to 3.1.4"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "CVE-2026-130796: Flowise 3.1.3 through 3.1.4 contains an information disclosure vulnerability that allows unauthenticated attackers to read MCP…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130796",
+        "added_at": "2026-11-17T20:41:38.730Z"
+      }
+    ],
+    "action": "Review vendor advisories and monitor for a patch release for Flowise.",
+    "severity_note": "Disclosed vulnerability with a high CVSS rating and no exploitation confirmed yet.",
+    "cvss": 8.8
+  },
+  {
     "id": "AIR-2026-2008",
     "slug": "researchers-hijack-hugging-face-account-for-popular-kokoro-a",
     "title": "Researchers hijack Hugging Face account for popular Kokoro AI model",
@@ -1206,9 +1268,15 @@
         "publisher": "SecurityWeek",
         "title": "Telegram Widgets Hit by RCE Demos, Malware Warning Days After Launch",
         "published_at": "2026-11-16"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
+        "publisher": "The Hacker News",
+        "title": "Researchers Claim Two RCE Exploits That Bypass Telegram’s New Android Defenses",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1219,7 +1287,7 @@
       "malware"
     ],
     "created_at": "2026-11-16T13:21:03.117Z",
-    "updated_at": "2026-11-16T13:21:03.117Z",
+    "updated_at": "2026-11-17T20:41:38.730Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -1233,9 +1301,15 @@
         "title": "Telegram Widgets Hit by RCE Demos, Malware Warning Days After Launch",
         "source_url": "https://securityweek.com/telegram-widgets-hit-by-rce-demos-malware-warning-days-after-launch",
         "added_at": "2026-11-16T13:21:03.117Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "Researchers demonstrate two remote code execution exploits that bypass Telegram's Android security filters for widgets",
+        "source_url": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
+        "added_at": "2026-11-17T20:41:38.730Z"
       }
     ],
-    "action": "",
+    "action": "Disable Telegram chat widgets on Android devices until an official patch is released.",
     "severity_note": "Suspected exploitation in the wild with malware delivery.",
     "cvss": null
   },
