@@ -5348,9 +5348,15 @@
         "publisher": "Microsoft Security",
         "title": "SCKit abuses ScreenConnect to deploy remote access and target technician sessions",
         "published_at": "2026-11-13"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html",
+        "publisher": "The Hacker News",
+        "title": "ConnectWise Warns ScreenConnect Attacks Continue as SCKit Targets Unpatched Systems",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 6,
+    "source_count": 7,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -5362,7 +5368,7 @@
       "CVE-2026-84869"
     ],
     "created_at": "2026-11-11T23:11:05.000Z",
-    "updated_at": "2026-11-13T22:18:03.339Z",
+    "updated_at": "2026-11-17T06:41:13.168Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -5371,7 +5377,9 @@
       "CVE-2026-84869"
     ],
     "affected": [],
-    "fixed_in": [],
+    "fixed_in": [
+      "26.6.5"
+    ],
     "timeline": [
       {
         "date": "2026-11-11",
@@ -5402,9 +5410,15 @@
         "title": "New worm-like malware toolkit named SCKit identified spreading across MSP and customer environments in ongoing attacks",
         "source_url": "https://bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks",
         "added_at": "2026-11-12T23:11:36.143Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "Vendor recommends updating to version 26.6.5 or later and advises that attacks continue against on-premises environments with third-party extensions enabled",
+        "source_url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html",
+        "added_at": "2026-11-17T06:41:13.168Z"
       }
     ],
-    "action": "Apply the patch for CVE‑2026‑84869 to all ScreenConnect installations.",
+    "action": "Update ScreenConnect to version 26.6.5 or later and ensure vulnerable third-party extensions are disabled.",
     "severity_note": "Confirmed real-world exploitation and attacks against multiple organizations.",
     "cvss": null
   },
