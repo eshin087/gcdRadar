@@ -1,5 +1,25 @@
 [
   {
+    "key": "98546f48c6fa5f9f",
+    "title": "Too many instructions can hold back AI security audits",
+    "url": "https://helpnetsecurity.com/2026/11/17/peter-stockli-github-ai-security-audits",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Interview article, no specific incident, flaw, breach, or malicious artifact reported",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T07:11:56.414Z"
+  },
+  {
+    "key": "c7941e147da364cc",
+    "title": "Anthropic vulnerability disclosure deadline drops to 30 days for serious bugs",
+    "url": "https://helpnetsecurity.com/2026/11/17/anthropic-vulnerability-disclosure-days",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Policy announcement, no specific vulnerability or incident disclosed",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T07:11:56.414Z"
+  },
+  {
     "key": "458f67c75f2ed1ec",
     "title": "Updating our coordinated vulnerability disclosure policy timelines",
     "url": "https://anthropic.com/research/coordinated-vulnerability-disclosure-timelines",
