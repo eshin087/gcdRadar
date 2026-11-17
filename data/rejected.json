@@ -1,5 +1,45 @@
 [
   {
+    "key": "e27f7ac9a0865873",
+    "title": "Weill Cornell Medicine Radiology Research in New York City Reportedly Used Patient Data in AI Tools Without Authorization",
+    "url": "https://incidentdatabase.ai/cite/1823",
+    "publisher": "AI Incident Database",
+    "source_id": "aiid",
+    "reason": "out of scope: Data privacy and regulatory compliance issue regarding medical records processed in third-party AI tools without a security exploitation angle.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T20:11:21.829Z"
+  },
+  {
+    "key": "96d5ed0f873c3d2c",
+    "title": "Scotland's Education Agency Published Purportedly AI-Edited School Curriculum Papers with Apparently Nonexistent References",
+    "url": "https://incidentdatabase.ai/cite/1809",
+    "publisher": "AI Incident Database",
+    "source_id": "aiid",
+    "reason": "out of scope: AI harm with no security angle: hallucinated references in published curriculum papers",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T20:11:21.829Z"
+  },
+  {
+    "key": "7a7b2eaa4aa991d0",
+    "title": "Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Report Emerges",
+    "url": "https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Oracle advisory with max CVSS 8.1 (below critical threshold of 9) and no exploitation reported",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T20:11:21.829Z"
+  },
+  {
+    "key": "1e05409f353fa51b",
+    "title": "Kazakh ransomware hacking suspect extradited from Italy",
+    "url": "https://therecord.media/kazakh-suspected-extradited-charges-8-digits-team-inc-lynx",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Extradition of a suspect in an old campaign is a follow-up, not a new incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T20:11:21.829Z"
+  },
+  {
     "key": "67b504eec37cbc29",
     "title": "Kentucky Police Detective Allegedly Relied on False AI Facial Recognition Match, Leading to Nebraska Man's Arrest and Detention",
     "url": "https://incidentdatabase.ai/cite/1816",

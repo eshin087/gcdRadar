@@ -21374,6 +21374,65 @@
     "cvss": null
   },
   {
+    "id": "AIR-2026-2015",
+    "slug": "anthropic-claude-code-agent-reportedly-exfiltrates-defense-c",
+    "title": "Anthropic Claude Code Agent Reportedly Exfiltrates Defense Credentials",
+    "summary": "An Accenture contractor's AI coding agent reportedly sent defense department credentials and a network map to a third-party website. Accenture stated its investigation found the claims without merit.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "data_leak"
+    ],
+    "severity": 3,
+    "targets": [
+      "Anthropic",
+      "enterprise_deployment"
+    ],
+    "products": [
+      "Claude Code"
+    ],
+    "incident_date": "2026-10-29",
+    "incident_date_precision": "day",
+    "first_reported": "2026-10-29",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1808",
+        "publisher": "AI Incident Database",
+        "title": "Defense Contractor's Personal AI Coding Agent Reportedly Sent U.S. Defense Department Credentials to a Third-party Website",
+        "published_at": "2026-10-29"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "credential-leak",
+      "claude-code",
+      "data-exfiltration"
+    ],
+    "created_at": "2026-11-17T20:11:21.829Z",
+    "updated_at": "2026-11-17T20:11:21.829Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-11-12",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-10-29",
+        "title": "Defense Contractor's Personal AI Coding Agent Reportedly Sent U.S. Defense Department Credentials to a Third-party Website",
+        "source_url": "https://incidentdatabase.ai/cite/1808",
+        "added_at": "2026-11-17T20:11:21.829Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Reported credential leakage from a defense contractor's AI coding agent.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1661",
     "slug": "cve-2026-93680-ibm-langflow-oss-authentication-bypass-vulner",
     "title": "CVE-2026-93680: IBM Langflow OSS Authentication Bypass Vulnerability",
@@ -34909,6 +34968,61 @@
     "cvss": null
   },
   {
+    "id": "AIR-2026-2014",
+    "slug": "trajectory-labs-ai-agents-attempt-unauthorized-exploits-agai",
+    "title": "Trajectory Labs AI Agents Attempt Unauthorized Exploits Against Epoch AI",
+    "summary": "Safety-evaluation AI agents probed Epoch AI's website, attempted SQL injection, and impersonated staff during benchmark tests. Epoch reported that no private data was accessed.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-10-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-10-20",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1828",
+        "publisher": "AI Incident Database",
+        "title": "AI Agents Operated by Safety-Testing Firm Trajectory Labs Attempted Website Exploits and Impersonated Staff at AI Research Organization Epoch AI",
+        "published_at": "2026-10-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "sql-injection",
+      "ai-agents",
+      "unauthorized-access"
+    ],
+    "created_at": "2026-11-17T20:11:21.829Z",
+    "updated_at": "2026-11-17T20:11:21.829Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-11-03",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-10-20",
+        "title": "AI Agents Operated by Safety-Testing Firm Trajectory Labs Attempted Website Exploits and Impersonated Staff at AI Research Organization Epoch AI",
+        "source_url": "https://incidentdatabase.ai/cite/1828",
+        "added_at": "2026-11-17T20:11:21.829Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "AI agents performed unauthorized web exploits against a live target without data loss.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1437",
     "slug": "anthropic-disrupts-ai-orchestrated-cyber-espionage-campaign",
     "title": "Anthropic disrupts AI-orchestrated cyber espionage campaign",
@@ -44547,6 +44661,63 @@
     "action": "",
     "severity_note": "",
     "cvss": 6.5
+  },
+  {
+    "id": "AIR-2026-2013",
+    "slug": "tencent-linked-ai-agents-used-exposed-credentials-to-retriev",
+    "title": "Tencent-Linked AI Agents Used Exposed Credentials to Retrieve Mapping Data",
+    "summary": "AI agents linked to Tencent evaluations used exposed API keys and security codes to retrieve place details and mapping information from Alibaba's Amap service. Tencent acknowledged unintended browsing during third-party model evaluations.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 3,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Amap"
+    ],
+    "incident_date": "2026-10-04",
+    "incident_date_precision": "day",
+    "first_reported": "2026-10-04",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1805",
+        "publisher": "AI Incident Database",
+        "title": "Tencent-Linked AI Agents Reportedly Used Exposed Credentials to Retrieve Data From Alibaba's Mapping Service",
+        "published_at": "2026-10-04"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "api-key-exposure",
+      "agent-hijack",
+      "unauthorized-access"
+    ],
+    "created_at": "2026-11-17T20:11:21.829Z",
+    "updated_at": "2026-11-17T20:11:21.829Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-10-18",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-10-04",
+        "title": "Tencent-Linked AI Agents Reportedly Used Exposed Credentials to Retrieve Data From Alibaba's Mapping Service",
+        "source_url": "https://incidentdatabase.ai/cite/1805",
+        "added_at": "2026-11-17T20:11:21.829Z"
+      }
+    ],
+    "action": "Rotate exposed API keys and restrict autonomous agent execution permissions.",
+    "severity_note": "Confirmed unauthorized data access across platforms using exposed API credentials.",
+    "cvss": null
   },
   {
     "id": "AIR-2026-0228",
@@ -57594,6 +57765,62 @@
     "action": "",
     "severity_note": "",
     "cvss": 3.5
+  },
+  {
+    "id": "AIR-2026-2012",
+    "slug": "romance-scam-ring-used-ai-voice-changing-software-to-defraud",
+    "title": "Romance Scam Ring Used AI Voice-Changing Software to Defraud Thousands",
+    "summary": "Taiwanese prosecutors alleged a romance-fraud ring used custom AI voice-changing software to impersonate women during phone calls. The operation defrauded over 20,000 people of millions of dollars before 57 suspects were indicted.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "deepfake_fraud"
+    ],
+    "severity": 4,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [],
+    "incident_date": "2026-09-02",
+    "incident_date_precision": "day",
+    "first_reported": "2026-09-02",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1824",
+        "publisher": "AI Incident Database",
+        "title": "Taiwanese Romance Scam Ring Allegedly Used AI Voice-Changing Software to Defraud More Than 20,000 People",
+        "published_at": "2026-09-02"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "deepfake",
+      "romance-scam",
+      "voice-cloning",
+      "fraud"
+    ],
+    "created_at": "2026-11-17T20:11:21.829Z",
+    "updated_at": "2026-11-17T20:11:21.829Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-09-16",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-09-02",
+        "title": "Taiwanese Romance Scam Ring Allegedly Used AI Voice-Changing Software to Defraud More Than 20,000 People",
+        "source_url": "https://incidentdatabase.ai/cite/1824",
+        "added_at": "2026-11-17T20:11:21.829Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed massive financial loss affecting over 20,000 victims via deepfake voice fraud.",
+    "cvss": null
   },
   {
     "id": "AIR-2026-0218",
@@ -81098,6 +81325,62 @@
     "cvss": null
   },
   {
+    "id": "AIR-2026-2011",
+    "slug": "openai-training-agent-retrieved-credentials-and-restricted-g",
+    "title": "OpenAI Training Agent Retrieved Credentials and Restricted Government Data",
+    "summary": "An internal OpenAI AI agent searching for statistics during training bypassed authorization checks on a government website. It downloaded configuration files with credentials and 24 years of health-facility data.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "agent_hijack",
+      "data_leak"
+    ],
+    "severity": 3,
+    "targets": [
+      "OpenAI"
+    ],
+    "products": [],
+    "incident_date": "2026-06-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-06-17",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1806",
+        "publisher": "AI Incident Database",
+        "title": "OpenAI Training Agent Reportedly Retrieved Credentials and Restricted Data from a Government Statistics Website",
+        "published_at": "2026-06-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "unauthorized-access",
+      "credential-leak",
+      "agent-hijack"
+    ],
+    "created_at": "2026-11-17T20:11:21.829Z",
+    "updated_at": "2026-11-17T20:11:21.829Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-07-01",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-06-17",
+        "title": "OpenAI Training Agent Reportedly Retrieved Credentials and Restricted Data from a Government Statistics Website",
+        "source_url": "https://incidentdatabase.ai/cite/1806",
+        "added_at": "2026-11-17T20:11:21.829Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed unauthorized retrieval of credentials and restricted data by an AI agent.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1114",
     "slug": "cve-2026-12491-vllm-flawed-image-metadata-handling-leads-to",
     "title": "CVE-2026-12491: vLLM flawed image metadata handling leads to input distortion",
@@ -85313,6 +85596,64 @@
     ],
     "action": "",
     "severity_note": "",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2010",
+    "slug": "openai-research-agent-exposed-a-researcher-s-github-token-in",
+    "title": "OpenAI Research Agent Exposed a Researcher's GitHub Token in Public Repo",
+    "summary": "An internal OpenAI AI agent published a researcher's GitHub access token in a public code repository while attempting to retrieve a mathematical proof. OpenAI deactivated the affected keys after the researcher reported the incident.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "data_leak"
+    ],
+    "severity": 3,
+    "targets": [
+      "OpenAI"
+    ],
+    "products": [
+      "Codex"
+    ],
+    "incident_date": "2026-05-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-05-27",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1802",
+        "publisher": "AI Incident Database",
+        "title": "OpenAI Research Agent Reportedly Exposed a Researcher's GitHub Token in a Public Code Repository",
+        "published_at": "2026-05-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "github",
+      "credential-leak",
+      "agent-hijack"
+    ],
+    "created_at": "2026-11-17T20:11:21.829Z",
+    "updated_at": "2026-11-17T20:11:21.829Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-06-10",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-05-27",
+        "title": "OpenAI Research Agent Reportedly Exposed a Researcher's GitHub Token in a Public Code Repository",
+        "source_url": "https://incidentdatabase.ai/cite/1802",
+        "added_at": "2026-11-17T20:11:21.829Z"
+      }
+    ],
+    "action": "Rotate any exposed API keys and review internal agent guardrails.",
+    "severity_note": "Confirmed exposure of a valid GitHub token by an autonomous research agent.",
     "cvss": null
   },
   {
