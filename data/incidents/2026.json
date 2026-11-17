@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2000",
+    "slug": "google-discovers-threat-actors-using-autonomous-ai-agents-to",
+    "title": "Google discovers threat actors using autonomous AI agents to write and launch live exploits",
+    "summary": "Google Threat Intelligence Group and Mandiant revealed that threat actors have begun using AI agents to autonomously conduct full stages of live intrusions. The operation demonstrated that attackers can turn unpatched vulnerabilities into working exploits without human intervention.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/17/ai-powered-cyberattacks-gtig-report",
+        "publisher": "Help Net Security",
+        "title": "Google finds AI agent writing and launching exploits with no human in the loop",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "gtig",
+      "mandiant",
+      "ai-assisted-intrusion",
+      "exploitation"
+    ],
+    "created_at": "2026-11-17T09:12:51.041Z",
+    "updated_at": "2026-11-17T09:12:51.041Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Google finds AI agent writing and launching exploits with no human in the loop",
+        "source_url": "https://helpnetsecurity.com/2026/11/17/ai-powered-cyberattacks-gtig-report",
+        "added_at": "2026-11-17T09:12:51.041Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world use of autonomous AI agents in live cyberattack operations.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1999",
     "slug": "optimizely-supply-chain-attack-injects-malware-into-major-we",
     "title": "Optimizely supply chain attack injects malware into major websites",
