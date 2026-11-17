@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2007",
+    "slug": "cold-relic-intrusion-campaign-compromises-us-organization",
+    "title": "COLD RELIC Intrusion Campaign Compromises US Organization",
+    "summary": "Mandiant investigated a 2026 compromise at a US organization where the Russian espionage group COLD RELIC weaponized stolen data for further third-party compromises. The attackers leveraged initial cloud access to conduct extensive follow-on cyber espionage operations.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise",
+        "publisher": "Google Threat Intelligence",
+        "title": "COLD RELIC: A Case Study in Impersonation and Compromise",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cold-relic",
+      "unc4057",
+      "espionage",
+      "cloud-compromise"
+    ],
+    "created_at": "2026-11-17T16:11:20.934Z",
+    "updated_at": "2026-11-17T16:11:20.934Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "COLD RELIC: A Case Study in Impersonation and Compromise",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise",
+        "added_at": "2026-11-17T16:11:20.934Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world intrusion and data weaponization by a threat actor.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2006",
     "slug": "device-code-phishing-risks-demonstrated-against-ai-coding-ag",
     "title": "Device code phishing risks demonstrated against AI coding agents",
