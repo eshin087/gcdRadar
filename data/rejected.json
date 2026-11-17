@@ -1,5 +1,15 @@
 [
   {
+    "key": "cbc91379ad0e4cde",
+    "title": "Cloud keys leaked in Docker Hub images are stolen within seconds",
+    "url": "https://bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: General trend piece about credentials leaked in Docker Hub without a single specific named breach incident.",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-17T21:42:29.664Z"
+  },
+  {
     "key": "43f2b7c2fbb34bec",
     "title": "Borrowed Code, Real Consequences: What OPTIMJACK Teaches Us",
     "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack",

@@ -1,5 +1,121 @@
 [
   {
+    "id": "AIR-2026-2019",
+    "slug": "themailer-phishing-kit-uses-ai-for-personalized-lures",
+    "title": "TheMailer Phishing Kit Uses AI for Personalized Lures",
+    "summary": "The commercial phishing kit leverages integrated AI models to personalize lures, bypass spam filters, and scale attack campaigns. Security researchers highlighted its capability to target large numbers of users.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_phishing_social_engineering"
+    ],
+    "severity": 1,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [
+      "TheMailer"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://darkreading.com/perimeter/themailer-phishing-kit-ai-drivers-seat",
+        "publisher": "Dark Reading",
+        "title": "'TheMailer' Phishing Kit Puts AI in the Driver's Seat",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "phishing",
+      "ai_enabled_attack",
+      "social_engineering"
+    ],
+    "created_at": "2026-11-17T21:42:29.664Z",
+    "updated_at": "2026-11-17T21:42:29.664Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "'TheMailer' Phishing Kit Puts AI in the Driver's Seat",
+        "source_url": "https://darkreading.com/perimeter/themailer-phishing-kit-ai-drivers-seat",
+        "added_at": "2026-11-17T21:42:29.664Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated attack capability in a commercial kit.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2018",
+    "slug": "cve-2026-115731-perforce-puppet-enterprise-deserialization-f",
+    "title": "CVE-2026-115731: Perforce Puppet Enterprise Deserialization Flaw",
+    "summary": "Perforce Puppet Enterprise contains a deserialization flaw allowing authenticated agents or attackers with a valid certificate to execute arbitrary code. CISA added the vulnerability to its Known Exploited Vulnerabilities catalog.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Puppet Enterprise"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-115731",
+        "publisher": "CISA",
+        "title": "CVE-2026-115731: Perforce Puppet Enterprise — Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-115731",
+      "deserialization",
+      "rce"
+    ],
+    "created_at": "2026-11-17T21:42:29.664Z",
+    "updated_at": "2026-11-17T21:42:29.664Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-115731"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "CVE-2026-115731: Perforce Puppet Enterprise — Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-115731",
+        "added_at": "2026-11-17T21:42:29.664Z"
+      }
+    ],
+    "action": "Apply the updates provided by the vendor.",
+    "severity_note": "Exploitation in the wild is confirmed by CISA KEV.",
+    "cvss": 9.9
+  },
+  {
     "id": "AIR-2026-2017",
     "slug": "japan-takes-fugaku-supercomputer-offline-after-cyberattack",
     "title": "Japan takes Fugaku supercomputer offline after cyberattack",
@@ -701,9 +817,15 @@
         "publisher": "malwarebytes.com",
         "title": "CNN, BBC, Zoom, and other sites served malicious code in supply-chain attack",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://therecord.media/optimizely-malicious-code-customer-sites",
+        "publisher": "The Record",
+        "title": "Website management platform Optimizely confirms hackers put malicious code into customer sites",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 6,
+    "source_count": 7,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -713,7 +835,7 @@
       "javascript"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-17T16:41:16.743Z",
+    "updated_at": "2026-11-17T21:42:29.664Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
