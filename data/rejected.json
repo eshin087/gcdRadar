@@ -1,5 +1,25 @@
 [
   {
+    "key": "39b807e1f9376cda",
+    "title": "Detectify launches Agentic Tooling to verify vulnerabilities in live applications",
+    "url": "https://helpnetsecurity.com/2026/11/17/detectify-agentic-tooling",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch with no specific security incident",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T14:51:50.489Z"
+  },
+  {
+    "key": "3dd23ca798a15ea7",
+    "title": "Autistic teen hacker pleads guilty to leak of Grand Theft Auto VI footage",
+    "url": "https://therecord.media/autistic-teen-hacker-guilty-plea-britain-gta6-leak",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Legal case about copyrighted leak, not a security incident",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T14:51:50.489Z"
+  },
+  {
     "key": "2040c07e1a185911",
     "title": "ConnectSecure brings adaptive AI testing to vulnerability management",
     "url": "https://helpnetsecurity.com/2026/11/17/connectsecure-agentic-ai-penetration-testing",
