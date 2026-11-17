@@ -1,5 +1,15 @@
 [
   {
+    "key": "225dafd7d4001d81",
+    "title": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
+    "url": "https://microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",
+    "publisher": "Microsoft Security",
+    "source_id": "ms-threat-intel",
+    "reason": "out of scope: Attack campaign report lacks specific named victims or affected organisations",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-17T00:41:32.553Z"
+  },
+  {
     "key": "690f31cddd94f89b",
     "title": "Google Project Zero Slashes Bug Disclosure Deadlines, Splitting Experts",
     "url": "https://darkreading.com/vulnerabilities-threats/google-project-zero-bug-disclosure-deadlines",
