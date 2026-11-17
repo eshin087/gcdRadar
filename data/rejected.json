@@ -1,5 +1,265 @@
 [
   {
+    "key": "c60558e98558e0e7",
+    "title": "External sandboxes for coding agents",
+    "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents",
+    "publisher": "Simon Willison",
+    "source_id": "simonw-sec",
+    "reason": "out of scope: Opinion piece and explainer about coding agent sandboxes without a specific incident",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "5c193f73d2c37491",
+    "title": "Protecting the System, Stranding the User: The Limits of Multi-Agent Authorization",
+    "url": "https://arxiv.org/abs/2611.19598",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Research paper focused on authorization architectures and human outcomes rather than a specific demonstrated attack or vulnerability",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "0d58ec0ceaf20f42",
+    "title": "The Cybersecurity Dataset Observatory: Which Data for AI in Cybersecurity?",
+    "url": "https://arxiv.org/abs/2611.20812",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Survey paper cataloging cybersecurity datasets for AI training and evaluation",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "7de1bac0086242ea",
+    "title": "The CYBER-BRIDGE project: An AI-Powered Platform for Cross-Border Cybersecurity, Compliance and Forensics in the EU",
+    "url": "https://arxiv.org/abs/2611.21497",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Project overview and research paper presenting an EU-funded platform for cross-border cybersecurity and compliance",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "543cde3554bf26df",
+    "title": "Replay-Augmented Regularisation for Class-Incremental Network Intrusion Detection: A Three-Dataset Evaluation of EWC and LwF",
+    "url": "https://arxiv.org/abs/2611.20498",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defence-only or benchmark papers are out of scope",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "b60df3a98ca31770",
+    "title": "Local Order Matters: A Lightweight CPU-Trainable CNN for Website Fingerprinting on Defended Tor Traffic",
+    "url": "https://arxiv.org/abs/2611.19864",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defence-only or benchmark papers are out of scope",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "37638498cd5552d7",
+    "title": "VAST: Compiling Grounded Vulnerability Scenarios into Verifiable, Multi-Step Environments for Evaluating LLM Red-Team Agents",
+    "url": "https://arxiv.org/abs/2611.19465",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defence-only or benchmark papers are out of scope",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "b0b2be4d1b642f5a",
+    "title": "A First Look at System One Decision Models for Malware Detection",
+    "url": "https://arxiv.org/abs/2611.20699",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defence-only or benchmark papers are out of scope",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "4e6c7cfcdf7e4ae9",
+    "title": "TRIAGE-CPG: A Cross-Model Study of Budgeted Static Malware Triage with Large Language Models",
+    "url": "https://arxiv.org/abs/2611.21331",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defence-only or benchmark papers are out of scope",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "36fc9e1a64a4b4c0",
+    "title": "ScenarioForge: Resource-Grounded Generation and Execution Validation of Cyber Exercises",
+    "url": "https://arxiv.org/abs/2611.21579",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defence-only or benchmark paper proposing a tool-building framework without a demonstrated attack or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "fda8101c47c1814f",
+    "title": "ST-GAT: A Leakage-Free Spatio-Temporal Graph Attention Framework for Robust Network Intrusion Detection",
+    "url": "https://arxiv.org/abs/2611.19109",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defence-only or benchmark paper focusing on intrusion detection systems methodology and evaluation.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "f61bd797d5c4fc71",
+    "title": "ProcReverser: Multi-Agent Black-Box Microarchitectural Reverse Engineering for Processor Vulnerability Analysis",
+    "url": "https://arxiv.org/abs/2611.20827",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defence-only or benign automation framework for hardware vulnerability discovery without a malicious exploitation angle.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "ebf729a18c99fcb4",
+    "title": "TRACE: Topological Representations for Anomaly detection through Contrastive Embeddings",
+    "url": "https://arxiv.org/abs/2611.21548",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a defence and detection framework rather than an attack or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "ece2b2a8aa97023a",
+    "title": "Where Is Rank-1 DiM Refusal Intervenable in Multimodal LM Derivatives?",
+    "url": "https://arxiv.org/abs/2611.19826",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper investigates safety intervention localization and safety guards rather than demonstrating a new attack or vulnerability.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "e50353f462badaac",
+    "title": "HalluProbe: Exploiting VLM Hallucinations for Backdoor Detection",
+    "url": "https://arxiv.org/abs/2611.19868",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a backdoor detection method using hallucinations rather than demonstrating a novel exploit or attack.",
+    "confidence": 0.92,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "3f6dc9c46e97907c",
+    "title": "Found, but Not Fixed : From Software Vulnerability Discovery to Fixes with Iterative LLM Pipelines",
+    "url": "https://arxiv.org/abs/2611.19719",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper focuses on automated vulnerability repair via LLM pipelines rather than demonstrating an attack or vulnerability on AI.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "b55b04b60da425bd",
+    "title": "Beyond Semantic Prompts: Unified Watermarking and Access Control for Text-to-Image Diffusion Models",
+    "url": "https://arxiv.org/abs/2611.20470",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a defense and watermarking framework for diffusion models rather than an attack or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "728d442c7c11e86e",
+    "title": "Agent-ZTA: A chain-Aware Zero Trust Model for Bidirectional Security-State Propagation and Runtime Containment in Multi-Agent Delegation",
+    "url": "https://arxiv.org/abs/2611.18999",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a Zero Trust authorization model and defense architecture for multi-agent systems rather than an attack.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "50558f0b1234cd63",
+    "title": "Security of Deep Research Agents: Attack Surface, Defenses, Benchmarks, and Agenda Seeding against Research Planning",
+    "url": "https://arxiv.org/abs/2611.20045",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Systematizes security research, threat models and benchmarks rather than demonstrating a specific working exploit",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "142eaf6616115a8d",
+    "title": "AudioTrace: File-Level Membership Detection for Audio Large Language Models",
+    "url": "https://arxiv.org/abs/2611.21088",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Proposes membership detection and auditing methods rather than an attack or vulnerability",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "99541859a70f4883",
+    "title": "Selection-Aware Certification of Client-Constrained Fraud Rule Portfolios Under Synthetic Distribution Shift",
+    "url": "https://arxiv.org/abs/2611.18687",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Statistical and machine learning paper on fraud rule portfolios with no security vulnerability or attack angle",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "67111ac71374c21a",
+    "title": "Agent Authenticator: Passkey-Grade, Hardware-Bound Authentication for AI Agents",
+    "url": "https://arxiv.org/abs/2611.19536",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Proposes a defensive architecture (hardware-bound authentication) rather than a specific incident or attack",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "9ab1d66570d64c6b",
+    "title": "Sequential Semantic-Non-Semantic Watermarking: Robustness Against UnMarker Attacks",
+    "url": "https://arxiv.org/abs/2611.20115",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks are out of scope",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "aadcaef279ad72d7",
+    "title": "Type-Confusion Security",
+    "url": "https://arxiv.org/abs/2611.20298",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks are out of scope",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "8fa7105a7abdba2b",
+    "title": "Attacker Diversity Reduction in Adaptive LLM Red Teaming",
+    "url": "https://arxiv.org/abs/2611.19680",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks are out of scope",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
+    "key": "49b10f7db36810da",
+    "title": "HEAMS: Holistic Evaluation of Agent Memory Systems",
+    "url": "https://arxiv.org/abs/2611.20144",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks are out of scope",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-17T23:11:16.529Z"
+  },
+  {
     "key": "cbc91379ad0e4cde",
     "title": "Cloud keys leaked in Docker Hub images are stolen within seconds",
     "url": "https://bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds",

@@ -1,5 +1,664 @@
 [
   {
+    "id": "AIR-2026-2031",
+    "slug": "stubhub-data-breach-exposes-customer-names-and-contact-detai",
+    "title": "StubHub data breach exposes customer names and contact details",
+    "summary": "StubHub International suffered a data breach that exposed customer names and contact details. Affected users should monitor for potential phishing or targeted contact attempts.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "StubHub"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://cypro.co.uk/insights/cyber-bulletins/stubhub-data-breach-exposes-customer-details",
+        "publisher": "cypro.co.uk",
+        "title": "StubHub Data Breach Exposes Customer Details",
+        "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://news.pollstar.com/2026/11/17/stubhub-international-announces-data-breach",
+        "publisher": "news.pollstar.com",
+        "title": "StubHub International Announces Data Breach",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 2,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "stubhub",
+      "pii-leak"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [
+      "StubHub"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "StubHub Data Breach Exposes Customer Details",
+        "source_url": "https://cypro.co.uk/insights/cyber-bulletins/stubhub-data-breach-exposes-customer-details",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "StubHub International Announces Data Breach",
+        "source_url": "https://news.pollstar.com/2026/11/17/stubhub-international-announces-data-breach",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "Monitor accounts and remain vigilant against phishing lures using the leaked contact details.",
+    "severity_note": "Confirmed real-world PII breach at StubHub.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2030",
+    "slug": "openjdk-java4shell-vulnerability-allows-remote-code-executio",
+    "title": "OpenJDK Java4Shell vulnerability allows remote code execution",
+    "summary": "A critical remote code execution vulnerability in OpenJDK affects multiple enterprise applications including Jenkins, Jira, and Confluence. Unauthenticated attackers can exploit the flaw to execute arbitrary code.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "OpenJDK",
+      "Jenkins",
+      "Atlassian Jira",
+      "Confluence",
+      "Keycloak"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications",
+        "publisher": "BleepingComputer",
+        "title": "Critical Java4Shell flaw allows RCE attacks on major Java applications",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "java4shell",
+      "rce",
+      "openjdk"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [
+      "OpenJDK"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Critical Java4Shell flaw allows RCE attacks on major Java applications",
+        "source_url": "https://bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "Check for vendor advisories and updates for OpenJDK and dependent enterprise applications.",
+    "severity_note": "Rated critical with unauthenticated remote code execution potential.",
+    "cvss": 9.8
+  },
+  {
+    "id": "AIR-2026-2029",
+    "slug": "injection-attacks-on-llm-generated-compliance-artifacts",
+    "title": "Injection Attacks on LLM-Generated Compliance Artifacts",
+    "summary": "This research paper investigates prompt injection attacks targeting Large Language Models utilized for generating compliance artifacts. The study highlights the vulnerability of model outputs to malicious instructions inserted into prompts.",
+    "type": "attack_on_ai",
+    "categories": [
+      "prompt_injection"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.19090",
+        "publisher": "arXiv",
+        "title": "When the Spec Sheet Lies: Injection Attacks on LLM-Generated Compliance Artifacts",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt-injection",
+      "llm",
+      "compliance"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "When the Spec Sheet Lies: Injection Attacks on LLM-Generated Compliance Artifacts",
+        "source_url": "https://arxiv.org/abs/2611.19090",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research attack on LLM outputs.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2028",
+    "slug": "compositional-exploits-in-autonomous-coding-agents-attack-me",
+    "title": "Compositional Exploits in Autonomous Coding Agents: Attack Mechanics and Ephemeral Defense",
+    "summary": "Researchers demonstrated compositional exploits where autonomous coding agents chain multiple third-party tools to achieve unauthorized actions. The paper exposes the flaw of isolated tool auditing in agentic environments.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "infra_vuln"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling",
+      "Anthropic"
+    ],
+    "products": [
+      "Antigravity",
+      "Claude Code",
+      "Cursor",
+      "OpenHands"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.19764",
+        "publisher": "arXiv",
+        "title": "Compositional Exploits in Autonomous Coding Agents: Attack Mechanics and Ephemeral Defense",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "agent",
+      "coding",
+      "compositional-exploit",
+      "tool-use"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Compositional Exploits in Autonomous Coding Agents: Attack Mechanics and Ephemeral Defense",
+        "source_url": "https://arxiv.org/abs/2611.19764",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating a novel attack vector with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2027",
+    "slug": "beyond-the-patch-reconstructing-an-incomplete-fix-patch-bypa",
+    "title": "Beyond the Patch: Reconstructing an Incomplete-Fix Patch Bypass in LLM Agent Frameworks",
+    "summary": "Researchers present a control-gated reconstruction method that uncovers incomplete-fix patch bypasses across PraisonAI, Langroid, Agno, and CrewAI. The study demonstrates that original security invariants fail under alternative sibling-path probes.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln",
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "PraisonAI",
+      "Langroid",
+      "Agno",
+      "CrewAI"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.20514",
+        "publisher": "arXiv",
+        "title": "Beyond the Patch: Reconstructing an Incomplete-Fix Patch Bypass in LLM Agent Frameworks with Control-Gated, Benign Probes",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "patch-bypass",
+      "llm-agent-frameworks",
+      "praisonai",
+      "crewai"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "PraisonAI",
+      "Langroid",
+      "Agno",
+      "CrewAI"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Beyond the Patch: Reconstructing an Incomplete-Fix Patch Bypass in LLM Agent Frameworks with Control-Gated, Benign Probes",
+        "source_url": "https://arxiv.org/abs/2611.20514",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated by researchers as a proof-of-concept patch bypass.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2026",
+    "slug": "swarm-shepherd-securing-multi-agent-ecosystems-against-persi",
+    "title": "Swarm Shepherd: Securing Multi-Agent Ecosystems Against Persistent Latent Compromise",
+    "summary": "Researchers define Agentic Sleeper, a system-level adversary that accumulates latent compromise across sessions in multi-agent ecosystems before activating. The paper demonstrates cross-layer attacks spanning agent logic, shared memory, and tool interfaces.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "supply_chain"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18693",
+        "publisher": "arXiv",
+        "title": "Swarm Shepherd: Securing Multi-Agent Ecosystems Against Persistent Latent Compromise",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "multi-agent",
+      "persistent-compromise",
+      "agentic-sleeper"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Swarm Shepherd: Securing Multi-Agent Ecosystems Against Persistent Latent Compromise",
+        "source_url": "https://arxiv.org/abs/2611.18693",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated by researchers with no real-world exploitation confirmed.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2025",
+    "slug": "optional-traps-an-empirical-study-of-llm-agents-against-cred",
+    "title": "Optional Traps: An Empirical Study of LLM Agents Against Credential Deception",
+    "summary": "Researchers conducted an empirical study examining how large language model agents interact with honeypots, decoys, and canary credentials in an isolated lab environment. The findings evaluate agent behavior when encountering fake assets and leaked service keys.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion",
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [
+      "Records API"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.19295",
+        "publisher": "arXiv",
+        "title": "Optional Traps: An Empirical Study of LLM Agents Against Credential Deception and Alert-Driven Revocation",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "llm-agents",
+      "honeypots",
+      "credential-deception"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Optional Traps: An Empirical Study of LLM Agents Against Credential Deception and Alert-Driven Revocation",
+        "source_url": "https://arxiv.org/abs/2611.19295",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research study on LLM agent behavior against decoys, no real-world breach reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2024",
+    "slug": "adversarial-reinforcement-learning-for-adaptive-eavesdroppin",
+    "title": "Adversarial Reinforcement Learning for Adaptive Eavesdropping in BB84 QKD",
+    "summary": "Researchers applied classical reinforcement learning models like Q-Learning and SARSA to simulate adaptive eavesdropping strategies against BB84 quantum key distribution. The study evaluates how learning agents optimize attacks beyond fixed-rate baselines.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2606.22962",
+        "publisher": "arXiv",
+        "title": "Adversarial Reinforcement Learning for Adaptive Eavesdropping in BB84 Quantum Key Distribution",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "reinforcement-learning",
+      "quantum-cryptography",
+      "eavesdropping"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Adversarial Reinforcement Learning for Adaptive Eavesdropping in BB84 Quantum Key Distribution",
+        "source_url": "https://arxiv.org/abs/2606.22962",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating an adaptive attack model with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2023",
+    "slug": "when-tool-names-are-not-identities-measuring-provider-misbin",
+    "title": "When Tool Names Are Not Identities: Measuring Provider Misbinding in MCP-Based AI Agents",
+    "summary": "Researchers study tool-provider misbinding in Model Context Protocol agents, demonstrating how requests intended for legitimate providers can be resolved to attacker-controlled tools.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Model Context Protocol"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21577",
+        "publisher": "arXiv",
+        "title": "When Tool Names Are Not Identities: Measuring Provider Misbinding in MCP-Based AI Agents",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "mcp",
+      "agent-hijack",
+      "tool-misbinding"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "When Tool Names Are Not Identities: Measuring Provider Misbinding in MCP-Based AI Agents",
+        "source_url": "https://arxiv.org/abs/2611.21577",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating tool-provider misbinding in AI agents.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2022",
+    "slug": "kvmark-fragile-watermarking-for-kv-cache-integrity-in-latent",
+    "title": "KVMARK: Fragile Watermarking for KV-Cache Integrity in Latent Multi-Agent Systems",
+    "summary": "Researchers demonstrate that latent multi-agent communication via transferred KV-cache tensors is vulnerable to man-in-the-middle tampering, and propose a watermarking framework to detect it.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.20454",
+        "publisher": "arXiv",
+        "title": "KVMARK: Fragile Watermarking for KV-Cache Integrity in Latent Multi-Agent Systems",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "kv-cache",
+      "multi-agent",
+      "watermarking",
+      "tensor-tampering"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "KVMARK: Fragile Watermarking for KV-Cache Integrity in Latent Multi-Agent Systems",
+        "source_url": "https://arxiv.org/abs/2611.20454",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating an attack on multi-agent KV-cache tensor transfer.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2021",
+    "slug": "securing-agent-cards-at-the-operational-trust-boundary-of-th",
+    "title": "Securing Agent Cards at the Operational Trust Boundary of the A2A Protocol",
+    "summary": "Researchers characterize a discovery-time attack surface in the Agent2Agent protocol through a taxonomy of ten Agent Card manipulation attacks. They propose SECCARD, a layered validation framework to secure agent selection.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Agent2Agent protocol"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.18887",
+        "publisher": "arXiv",
+        "title": "We Have All the Cards: Securing Agent Cards at the Operational Trust Boundary of the Agent2Agent Protocol",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "agent-cards",
+      "protocol-security",
+      "multi-agent"
+    ],
+    "created_at": "2026-11-17T23:11:16.529Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "We Have All the Cards: Securing Agent Cards at the Operational Trust Boundary of the Agent2Agent Protocol",
+        "source_url": "https://arxiv.org/abs/2611.18887",
+        "added_at": "2026-11-17T23:11:16.529Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating theoretical attack taxonomy with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2020",
     "slug": "critical-memory-corruption-vulnerability-disclosed-in-java",
     "title": "Critical memory corruption vulnerability disclosed in Java",
@@ -24,24 +683,33 @@
         "publisher": "CyberScoop",
         "title": "A vulnpocalypse bug worthy of attention: Researchers disclose critical flaw in Java with help of AI",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching",
+        "publisher": "CISA",
+        "title": "Critical Java Vulnerability Requires Immediate Patching",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
     "tags": [
       "java",
       "memory-corruption",
-      "oracle"
+      "oracle",
+      "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-17T22:41:09.132Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
     "patch_status": "patched",
-    "cve_ids": [],
+    "cve_ids": [
+      "CVE-2026-114938"
+    ],
     "affected": [],
     "fixed_in": [],
     "timeline": [
@@ -50,9 +718,15 @@
         "title": "A vulnpocalypse bug worthy of attention: Researchers disclose critical flaw in Java with help of AI",
         "source_url": "https://cyberscoop.com/java4shell-critical-java-flaw-openjdk",
         "added_at": "2026-11-17T22:41:09.132Z"
+      },
+      {
+        "date": "2026-11-17",
+        "title": "CISA assigns CVE-2026-114938 to the Java memory corruption vulnerability and urges immediate patching.",
+        "source_url": "https://cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching",
+        "added_at": "2026-11-17T23:11:16.529Z"
       }
     ],
-    "action": "Update Java to the latest patched version provided by Oracle.",
+    "action": "Identify affected Java installations and immediately patch the Oracle Java vulnerability CVE-2026-114938.",
     "severity_note": "Critical rating with an available patch from Oracle.",
     "cvss": null
   },
@@ -880,9 +1554,15 @@
         "publisher": "The Record",
         "title": "Website management platform Optimizely confirms hackers put malicious code into customer sites",
         "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://darkreading.com/cyber-risk/optimizely-malware-attacks-third-party-vendor-risks",
+        "publisher": "Dark Reading",
+        "title": "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
+        "published_at": "2026-11-17"
       }
     ],
-    "source_count": 7,
+    "source_count": 8,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -892,7 +1572,7 @@
       "javascript"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-17T21:42:29.664Z",
+    "updated_at": "2026-11-17T23:11:16.529Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
