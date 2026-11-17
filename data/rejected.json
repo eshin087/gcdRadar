@@ -1,5 +1,15 @@
 [
   {
+    "key": "43f2b7c2fbb34bec",
+    "title": "Borrowed Code, Real Consequences: What OPTIMJACK Teaches Us",
+    "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack",
+    "publisher": "Unit 42",
+    "source_id": "unit42",
+    "reason": "out of scope: Summary discussion and analysis of a supply chain attack without naming a specific newly disclosed incident or specific victim organisation.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-17T21:11:08.393Z"
+  },
+  {
     "key": "e27f7ac9a0865873",
     "title": "Weill Cornell Medicine Radiology Research in New York City Reportedly Used Patient Data in AI Tools Without Authorization",
     "url": "https://incidentdatabase.ai/cite/1823",

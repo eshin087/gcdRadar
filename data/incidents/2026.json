@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2017",
+    "slug": "japan-takes-fugaku-supercomputer-offline-after-cyberattack",
+    "title": "Japan takes Fugaku supercomputer offline after cyberattack",
+    "summary": "Japan's RIKEN Center for Computational Science took the Fugaku supercomputer offline following a security breach. Operators responded by disconnecting systems to contain the impact.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Fugaku supercomputer"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack",
+        "publisher": "BleepingComputer",
+        "title": "Japan takes Fugaku supercomputer offlline after cyberattack",
+        "published_at": "2026-11-17"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "breach",
+      "supercomputer"
+    ],
+    "created_at": "2026-11-17T21:11:08.393Z",
+    "updated_at": "2026-11-17T21:11:08.393Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "Japan takes Fugaku supercomputer offlline after cyberattack",
+        "source_url": "https://bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack",
+        "added_at": "2026-11-17T21:11:08.393Z"
+      }
+    ],
+    "action": "Investigate the intrusion vector and restore systems securely.",
+    "severity_note": "Confirmed real-world security breach and operational outage at a named institution.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2016",
     "slug": "cve-2026-130796-flowise-information-disclosure-vulnerability",
     "title": "CVE-2026-130796: Flowise information disclosure vulnerability exposes MCP server tokens",
@@ -7880,7 +7936,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-10T20:42:12.887Z",
-    "updated_at": "2026-11-11T08:41:10.687Z",
+    "updated_at": "2026-11-17T21:11:08.393Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -7914,7 +7970,7 @@
     ],
     "action": "Apply the latest security updates provided by Microsoft for Outlook.",
     "severity_note": "Confirmed exploitation in the wild during Patch Tuesday.",
-    "cvss": null
+    "cvss": 6.5
   },
   {
     "id": "AIR-2026-1875",
