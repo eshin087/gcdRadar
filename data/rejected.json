@@ -1,5 +1,15 @@
 [
   {
+    "key": "8659836e2ec2ef23",
+    "title": "Consensus mounts that tech outages were fueled by patching of AI-discovered vulnerabilities",
+    "url": "https://cyberscoop.com/tech-outages-ai-vulnerability-patching",
+    "publisher": "CyberScoop",
+    "source_id": "cyberscoop",
+    "reason": "out of scope: It is a retrospective report discussing trends and statistics regarding tech outages rather than a specific incident.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T21:13:31.339Z"
+  },
+  {
     "key": "dd8574f33b70b642",
     "title": "Show HN: Intrusive.ai – open-source AI attack simulation",
     "url": "https://intrusive.ai/",
