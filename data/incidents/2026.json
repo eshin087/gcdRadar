@@ -211,9 +211,15 @@
         "publisher": "SecurityWeek",
         "title": "Microsoft Agent Framework Releases Poisoned With Credential Stealer",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials",
+        "publisher": "BleepingComputer",
+        "title": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -224,7 +230,7 @@
       "agent-framework"
     ],
     "created_at": "2026-11-18T07:41:16.321Z",
-    "updated_at": "2026-11-18T11:41:50.536Z",
+    "updated_at": "2026-11-18T17:14:10.870Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
@@ -1223,9 +1229,15 @@
         "publisher": "Cisco",
         "title": "Vulnerability in Oracle OpenJDK (Java4Shell) Affecting Cisco Products: November 2026",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-278",
+        "publisher": "Fortinet",
+        "title": "Java4Shell Vulnerability - CVE-2026-114938",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 9,
+    "source_count": 10,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1236,7 +1248,7 @@
       "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-18T16:11:36.259Z",
+    "updated_at": "2026-11-18T17:14:10.870Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
