@@ -23472,6 +23472,11 @@
   "status": "rejected",
   "at": "2026-10-18T10:14:26.300Z"
  },
+ "f72f95a291db7a88": {
+  "status": "merged",
+  "id": "AIR-2026-1999",
+  "at": "2026-11-18T01:11:27.892Z"
+ },
  "f73b930cb0950b1c": {
   "status": "published",
   "id": "AIR-2022-0032",
