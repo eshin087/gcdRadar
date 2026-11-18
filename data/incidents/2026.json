@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2049",
+    "slug": "data-breach-impacts-40-irish-credit-unions-in-reported-it-pr",
+    "title": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
+    "summary": "Wellington IT, the IT services provider for Irish credit unions, suffered a cyberattack that exposed sensitive member information from around 40 credit unions. The breach has prompted investigations and notifications to the affected institutions.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack",
+        "publisher": "BleepingComputer",
+        "title": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "credit-unions",
+      "ireland",
+      "wellington-it"
+    ],
+    "created_at": "2026-11-18T20:11:18.364Z",
+    "updated_at": "2026-11-18T20:11:18.364Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
+        "source_url": "https://bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack",
+        "added_at": "2026-11-18T20:11:18.364Z"
+      }
+    ],
+    "action": "Conduct a forensic investigation, notify affected credit unions, and remediate the compromised systems",
+    "severity_note": "Confirmed exposure of sensitive member data constitutes real-world loss",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2048",
     "slug": "f5-big-ip-critical-vulnerabilities-allow-traffic-disruption",
     "title": "F5 BIG-IP Critical Vulnerabilities Allow Traffic Disruption and Potential RCE",
