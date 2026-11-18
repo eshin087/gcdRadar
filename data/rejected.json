@@ -1,5 +1,25 @@
 [
   {
+    "key": "18e2db11c9a35c2f",
+    "title": "Ransomware access brokers are moving their deals off public forums",
+    "url": "https://helpnetsecurity.com/2026/11/19/ransomware-access-brokers-cybercrime",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Surveys, statistics and report finds pieces are out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T23:41:29.542Z"
+  },
+  {
+    "key": "cab523c1e2b54c00",
+    "title": "Ukraine, FBI arrest ransomware gang members tied to $40M in ransoms",
+    "url": "https://bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Arrests, extraditions and law enforcement sweeps are follow-ups and out of scope unless disclosing a new attack.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T23:41:29.542Z"
+  },
+  {
     "key": "8659836e2ec2ef23",
     "title": "Consensus mounts that tech outages were fueled by patching of AI-discovered vulnerabilities",
     "url": "https://cyberscoop.com/tech-outages-ai-vulnerability-patching",
