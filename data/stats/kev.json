@@ -1,12 +1,12 @@
 {
- "fetched_at": "2026-11-18T19:42:13.228Z",
+ "fetched_at": "2026-11-18T23:11:35.200Z",
  "source": {"name":"CISA Known Exploited Vulnerabilities catalog","url":"https://www.cisa.gov/known-exploited-vulnerabilities-catalog","license":"CC0 1.0"},
  "catalog_version": "2026.11.18",
  "entries": [
-  {"cve":"CVE-2024-10441","added":"2026-11-18","due":"2026-11-21","vendor":"Synology","product":"DiskStation Manager (DSM)","name":"Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability","ransomware":false,"published":null,"cvss":null},
-  {"cve":"CVE-2026-40217","added":"2026-11-18","due":"2026-12-02","vendor":"BerriAI","product":"LiteLLM","name":"BerriAI LiteLLM Unprotected Alternate Channel Vulnerability","ransomware":false,"published":null,"cvss":null},
-  {"cve":"CVE-2026-90436","added":"2026-11-18","due":"2026-11-21","vendor":"Apache","product":"Axis","name":"Apache Axis Unsafe Reflection Vulnerability","ransomware":false,"published":null,"cvss":null},
-  {"cve":"CVE-2026-90817","added":"2026-11-18","due":"2026-11-21","vendor":"Vanderbilt University","product":"Research Electronic Data Capture (REDCap)","name":"Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability","ransomware":false,"published":null,"cvss":null},
+  {"cve":"CVE-2024-10441","added":"2026-11-18","due":"2026-11-21","vendor":"Synology","product":"DiskStation Manager (DSM)","name":"Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability","ransomware":false,"published":"2025-03-19","cvss":9.8},
+  {"cve":"CVE-2026-40217","added":"2026-11-18","due":"2026-12-02","vendor":"BerriAI","product":"LiteLLM","name":"BerriAI LiteLLM Unprotected Alternate Channel Vulnerability","ransomware":false,"published":"2026-04-10","cvss":8.8},
+  {"cve":"CVE-2026-90436","added":"2026-11-18","due":"2026-11-21","vendor":"Apache","product":"Axis","name":"Apache Axis Unsafe Reflection Vulnerability","ransomware":false,"published":"2026-11-06","cvss":9.8},
+  {"cve":"CVE-2026-90817","added":"2026-11-18","due":"2026-11-21","vendor":"Vanderbilt University","product":"Research Electronic Data Capture (REDCap)","name":"Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability","ransomware":false,"published":"2026-09-20","cvss":9.8},
   {"cve":"CVE-2026-115731","added":"2026-11-17","due":"2026-12-01","vendor":"Perforce","product":"Puppet Enterprise","name":"Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability","ransomware":false,"published":"2026-11-03","cvss":9.4},
   {"cve":"CVE-2026-114713","added":"2026-11-13","due":"2026-11-16","vendor":"UnrealIRCd","product":"UnrealIRCd","name":"UnrealIRCd Improper Neutralization of Delimiters Vulnerability","ransomware":false,"published":"2026-11-08","cvss":8.6},
   {"cve":"CVE-2026-123039","added":"2026-11-13","due":"2026-11-16","vendor":"Check Point","product":"Multiple Products","name":"Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability","ransomware":false,"published":"2026-11-12","cvss":7.8},
