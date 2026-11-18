@@ -101679,7 +101679,7 @@
     "categories": [
       "infra_vuln"
     ],
-    "severity": 2,
+    "severity": 3,
     "targets": [
       "framework_or_tooling"
     ],
@@ -101701,28 +101701,39 @@
         "publisher": "GitHub Advisory Database",
         "title": "CVE-2026-40217: LiteLLM has a sandbox escape in custom-code guardrail",
         "published_at": "2026-05-11"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-40217",
+        "publisher": "CISA",
+        "title": "CVE-2026-40217: BerriAI LiteLLM — BerriAI LiteLLM Unprotected Alternate Channel Vulnerability",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "seed_ghsa",
     "tags": [
       "CVE-2026-40217",
       "sandbox-escape",
-      "rce"
+      "rce",
+      "cisa-kev"
     ],
     "created_at": "2026-10-18T07:00:14.101Z",
-    "updated_at": "2026-10-18T10:04:21.885Z",
+    "updated_at": "2026-11-18T21:42:18.407Z",
     "lane": "patch",
-    "state": "closed",
-    "closed_at": "2026-04-10",
-    "patch_status": "unknown",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
     "cve_ids": [
       "CVE-2026-40217"
     ],
-    "affected": [],
-    "fixed_in": [],
+    "affected": [
+      "litellm >= 1.81.8, < 1.83.10"
+    ],
+    "fixed_in": [
+      "litellm 1.83.10"
+    ],
     "timeline": [
       {
         "date": "2026-04-10",
@@ -101735,6 +101746,12 @@
         "title": "CVE-2026-40217: LiteLLM has a sandbox escape in custom-code guardrail",
         "source_url": "https://github.com/advisories/GHSA-wxxx-gvqv-xp7p",
         "added_at": "2026-10-18T07:00:14.101Z"
+      },
+      {
+        "date": "2026-11-18",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-40217",
+        "added_at": "2026-11-18T21:42:18.407Z"
       }
     ],
     "action": "",
