@@ -1,5 +1,15 @@
 [
   {
+    "key": "45f66c2197572fe0",
+    "title": "Once a scam ends the victim blaming begins",
+    "url": "https://helpnetsecurity.com/2026/11/18/nicola-fox-hamilton-victim-blaming-scams-phishing",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Opinion and discussion piece on victim blaming without a specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T07:11:59.961Z"
+  },
+  {
     "key": "4d0d9bf8c997d473",
     "title": "Product showcase: iVerify Basic helps users check device security and improve privacy",
     "url": "https://helpnetsecurity.com/2026/11/18/product-showcase-iverify-basic",
