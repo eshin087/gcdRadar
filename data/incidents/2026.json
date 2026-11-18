@@ -1749,9 +1749,15 @@
         "publisher": "Straiker",
         "title": "Coruna and DarkSword iOS Exploits in the Optimizely Attack",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites",
+        "publisher": "Krebs on Security",
+        "title": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 9,
+    "source_count": 10,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1761,7 +1767,7 @@
       "javascript"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-18T01:11:27.892Z",
+    "updated_at": "2026-11-18T03:11:24.739Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
