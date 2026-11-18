@@ -1,5 +1,55 @@
 [
   {
+    "key": "1737ff7a53e5148a",
+    "title": "CVE-2026-130685: vLLM from 0.28.0 before 0.33.0 contains an improper input validation vulnerability that allows unauthenticated attackers to crash…",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130685",
+    "publisher": "NVD",
+    "source_id": "nvd",
+    "reason": "out of scope: Vulnerability not critical (CVSS 8.7 <9) and no exploitation reported, fails newsworthiness criteria.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T12:41:33.951Z"
+  },
+  {
+    "key": "2644f8a316c14dd5",
+    "title": "CVE-2026-130684: vLLM before 0.33.0 contains a path traversal vulnerability that allows malicious model publishers to redirect the served model…",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130684",
+    "publisher": "NVD",
+    "source_id": "nvd",
+    "reason": "out of scope: Vulnerability not critical (CVSS 5.3) and no exploitation reported, fails newsworthiness criteria.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T12:41:33.951Z"
+  },
+  {
+    "key": "0eb77ee405d70037",
+    "title": "CVE-2026-130686: vLLM from 0.6.0 before 0.33.0 lacks a request-wide media budget, allowing remote inference clients to exhaust frontend resources…",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130686",
+    "publisher": "NVD",
+    "source_id": "nvd",
+    "reason": "out of scope: Vulnerability not critical (CVSS 8.7 <9) and no exploitation reported, fails newsworthiness criteria.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T12:41:33.951Z"
+  },
+  {
+    "key": "c9f8dc26d8d07054",
+    "title": "AI Pentesting Checklist for Web Apps: 15 Questions to Ask Before Choosing a Vendor",
+    "url": "https://thehackernews.com/2026/11/ai-pentesting-checklist-for-web-apps-15.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Checklist article provides vendor guidance without reporting a concrete security incident; out of scope.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T12:41:33.951Z"
+  },
+  {
+    "key": "4fcc73e079c9a216",
+    "title": "Microsoft Takes Perception Agentic Security Platform Out of Preview",
+    "url": "https://securityweek.com/microsoft-takes-perception-agentic-security-platform-out-of-preview",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Out of scope: product announcement, not a specific security incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T12:41:33.951Z"
+  },
+  {
     "key": "87638be8c10c2480",
     "title": "Chrome 158 Patches 204 Vulnerabilities",
     "url": "https://securityweek.com/chrome-158-patches-204-vulnerabilities",
