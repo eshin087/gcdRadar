@@ -1,5 +1,15 @@
 [
   {
+    "key": "569017a70fd8b933",
+    "title": "Quoting Daniel Stenberg",
+    "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg",
+    "publisher": "Simon Willison",
+    "source_id": "simonw-sec",
+    "reason": "out of scope: Opinion and commentary piece without a specific security incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T16:11:36.259Z"
+  },
+  {
     "key": "55016e2da81bf79e",
     "title": "New EggStreme Malware Variant Goes Silent to Evade Security Tools in Government Attacks",
     "url": "https://thehackernews.com/2026/11/eggstreme-hackers-rebuild-malware-with.html",
