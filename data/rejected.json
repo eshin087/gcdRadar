@@ -1,5 +1,25 @@
 [
   {
+    "key": "87638be8c10c2480",
+    "title": "Chrome 158 Patches 204 Vulnerabilities",
+    "url": "https://securityweek.com/chrome-158-patches-204-vulnerabilities",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Roundup or bulk patch announcement without specific critical vulnerabilities detailed.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T12:11:17.569Z"
+  },
+  {
+    "key": "4a4e9a9e47747cde",
+    "title": "CISO Conversations: Patti Degnan – Part of the Job Is Deciding What Not to Do",
+    "url": "https://securityweek.com/ciso-conversations-patti-degnan-part-of-the-job-is-deciding-what-not-to-do",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Interview and career profile piece without a specific security incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T12:11:17.569Z"
+  },
+  {
     "key": "4f0864e5e3454300",
     "title": "The challenge of defending against bulletproof dead drops on public blockchains",
     "url": "https://blog.talosintelligence.com/the-challenge-of-defending-against-bulletproof-dead-drops-on-public-blockchains",
