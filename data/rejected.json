@@ -1,5 +1,15 @@
 [
   {
+    "key": "7e6b0b115472eb30",
+    "title": "CVE-2026-130007: k8s-mcp-server manages Kubernetes clusters through the Model Context Protocol.",
+    "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130007",
+    "publisher": "NVD",
+    "source_id": "nvd",
+    "reason": "out of scope: Vulnerability does not involve an AI product despite keyword match; out of scope per policy",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-18T17:41:26.654Z"
+  },
+  {
     "key": "569017a70fd8b933",
     "title": "Quoting Daniel Stenberg",
     "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg",
