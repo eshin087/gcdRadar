@@ -1,5 +1,45 @@
 [
   {
+    "key": "55016e2da81bf79e",
+    "title": "New EggStreme Malware Variant Goes Silent to Evade Security Tools in Government Attacks",
+    "url": "https://thehackernews.com/2026/11/eggstreme-hackers-rebuild-malware-with.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "below the curation bar: Fails newsworthy bar: does not name a specific organization affected, only a sector.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T15:12:06.177Z"
+  },
+  {
+    "key": "673161c1ba465e5c",
+    "title": "From Deepfakes to Helpdesk Impersonation: Why Stronger Verification Matters",
+    "url": "https://bleepingcomputer.com/news/security/from-deepfakes-to-helpdesk-impersonation-why-stronger-verification-matters",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope, no AI role (0.60): Out of scope: article discusses trends without a specific incident or vulnerability.",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-18T15:12:06.177Z"
+  },
+  {
+    "key": "69958fa42ac429e6",
+    "title": "British hacker gets 6 year sentence for $11.6M crypto theft scheme",
+    "url": "https://therecord.media/british-hacker-gets-six-year-sentence-scattered-spider",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope, no AI role (0.60): Out of scope: report covers sentencing, not a new incident.",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-18T15:12:06.177Z"
+  },
+  {
+    "key": "438fdc8f3d8c49b2",
+    "title": "Major Brazilian Signature Apps Enable RCE & Fraud",
+    "url": "https://darkreading.com/vulnerabilities-threats/major-brazilian-signature-app-rce-fraud",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "below the curation bar: Fails bar: no exploitation reported and no critical rating provided.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-18T15:12:06.177Z"
+  },
+  {
     "key": "3eb058b80bf04737",
     "title": "Last of Five Defendants Sentenced in US Scattered Spider Hacking Case",
     "url": "https://securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case",
