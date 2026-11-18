@@ -88,9 +88,15 @@
         "publisher": "The Hacker News",
         "title": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer",
+        "publisher": "SecurityWeek",
+        "title": "Microsoft Agent Framework Releases Poisoned With Credential Stealer",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -101,7 +107,7 @@
       "agent-framework"
     ],
     "created_at": "2026-11-18T07:41:16.321Z",
-    "updated_at": "2026-11-18T07:41:16.321Z",
+    "updated_at": "2026-11-18T11:41:50.536Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
@@ -1082,9 +1088,15 @@
         "publisher": "The Hacker News",
         "title": "CISA Urges Immediate Patching of Java4Shell Flaw That Could Allow Remote Code Execution",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/18/java4shell-openjdk-vulnerability-cve-2026-114938",
+        "publisher": "Help Net Security",
+        "title": "Java4Shell OpenJDK flaw: Exploitation is tricky and hinges on specific CPUs (CVE-2026-114938)",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 6,
+    "source_count": 7,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1095,7 +1107,7 @@
       "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-18T10:11:29.590Z",
+    "updated_at": "2026-11-18T11:41:50.536Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
