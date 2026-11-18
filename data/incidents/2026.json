@@ -1,5 +1,243 @@
 [
   {
+    "id": "AIR-2026-2054",
+    "slug": "cve-2026-127222-sglang-missing-authorization-vulnerability",
+    "title": "CVE-2026-127222: SGLang Missing Authorization Vulnerability",
+    "summary": "SGLang through 0.5.23 contains a missing authorization vulnerability in the LoRA adapter loading endpoint allowing unauthenticated network-reachable attackers to invoke it without an API key. A patch is available in commit 7b5fb39.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "SGLang"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127222",
+        "publisher": "NVD",
+        "title": "CVE-2026-127222: SGLang through 0.5.23, fixed in commit 7b5fb39, contains a missing authorization vulnerability in the POST…",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-127222",
+      "missing-authorization",
+      "rce"
+    ],
+    "created_at": "2026-11-18T22:04:47.800Z",
+    "updated_at": "2026-11-18T22:04:47.800Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-18",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-127222"
+    ],
+    "affected": [
+      "SGLang <= 0.5.23"
+    ],
+    "fixed_in": [
+      "7b5fb39"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "CVE-2026-127222: SGLang through 0.5.23, fixed in commit 7b5fb39, contains a missing authorization vulnerability in the POST…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127222",
+        "added_at": "2026-11-18T22:04:47.800Z"
+      }
+    ],
+    "action": "Update SGLang to the patched commit.",
+    "severity_note": "Disclosed vulnerability with a known fix",
+    "cvss": 8.7
+  },
+  {
+    "id": "AIR-2026-2053",
+    "slug": "cve-2026-90436-apache-axis-unsafe-reflection-vulnerability",
+    "title": "CVE-2026-90436: Apache Axis Unsafe Reflection Vulnerability",
+    "summary": "Apache Axis contains an unsafe reflection vulnerability allowing unauthenticated remote attackers to execute arbitrary code via SOAP fault messages. CISA confirmed exploitation in the wild.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Axis"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-90436",
+        "publisher": "CISA",
+        "title": "CVE-2026-90436: Apache Axis — Apache Axis Unsafe Reflection Vulnerability",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-90436",
+      "unsafe-reflection"
+    ],
+    "created_at": "2026-11-18T22:04:47.800Z",
+    "updated_at": "2026-11-18T22:04:47.800Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [
+      "CVE-2026-90436"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "CVE-2026-90436: Apache Axis — Apache Axis Unsafe Reflection Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-90436",
+        "added_at": "2026-11-18T22:04:47.800Z"
+      }
+    ],
+    "action": "Discontinue use and/or transition to a supported version.",
+    "severity_note": "Exploitation in the wild confirmed",
+    "cvss": 9.8
+  },
+  {
+    "id": "AIR-2026-2052",
+    "slug": "cve-2024-10441-synology-dsm-and-beestation-os-output-escapin",
+    "title": "CVE-2024-10441: Synology DSM and BeeStation OS Output Escaping Vulnerability",
+    "summary": "Synology DiskStation Manager and BeeStation OS contain an improper encoding vulnerability in the system plugin daemon allowing arbitrary code execution. CISA confirmed exploitation in the wild.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "DiskStation Manager",
+      "BeeStation OS"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2024-10441",
+        "publisher": "CISA",
+        "title": "CVE-2024-10441: Synology DiskStation Manager (DSM) — Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2024-10441",
+      "code-execution"
+    ],
+    "created_at": "2026-11-18T22:04:47.800Z",
+    "updated_at": "2026-11-18T22:04:47.800Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2024-10441"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "CVE-2024-10441: Synology DiskStation Manager (DSM) — Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2024-10441",
+        "added_at": "2026-11-18T22:04:47.800Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions.",
+    "severity_note": "Exploitation in the wild confirmed",
+    "cvss": 9.8
+  },
+  {
+    "id": "AIR-2026-2051",
+    "slug": "cve-2026-90817-vanderbilt-university-redcap-code-injection-v",
+    "title": "CVE-2026-90817: Vanderbilt University REDCap Code Injection Vulnerability",
+    "summary": "Vanderbilt University REDCap contains a code injection vulnerability allowing unauthenticated attackers to execute arbitrary code via crafted HTTP requests. CISA confirmed exploitation in the wild.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "REDCap"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-90817",
+        "publisher": "CISA",
+        "title": "CVE-2026-90817: Vanderbilt University Research Electronic Data Capture (REDCap) — Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-90817",
+      "code-injection"
+    ],
+    "created_at": "2026-11-18T22:04:47.800Z",
+    "updated_at": "2026-11-18T22:04:47.800Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-90817"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "CVE-2026-90817: Vanderbilt University Research Electronic Data Capture (REDCap) — Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-90817",
+        "added_at": "2026-11-18T22:04:47.800Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions.",
+    "severity_note": "Exploitation in the wild confirmed",
+    "cvss": 9.8
+  },
+  {
     "id": "AIR-2026-2050",
     "slug": "coinbase-blocks-4-7-million-in-transfers-to-elon-musk-deepfa",
     "title": "Coinbase blocks $4.7 million in transfers to Elon Musk deepfake scam",
