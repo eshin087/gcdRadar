@@ -1,5 +1,182 @@
 [
   {
+    "id": "AIR-2026-2034",
+    "slug": "cve-2026-126974-llama-cpp-gguf-file-parsing-integer-overflow",
+    "title": "CVE-2026-126974: llama.cpp GGUF File Parsing Integer Overflow",
+    "summary": "An integer overflow vulnerability exists within GGUF file parsing in llama.cpp. Successful exploitation enables remote code execution through a crafted file or page.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "llama.cpp"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126974",
+        "publisher": "NVD",
+        "title": "CVE-2026-126974: llama.cpp GGUF File Parsing Integer Overflow Remote Code Execution Vulnerability.",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-126974",
+      "integer-overflow",
+      "rce"
+    ],
+    "created_at": "2026-11-18T00:41:32.694Z",
+    "updated_at": "2026-11-18T00:41:32.694Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-18",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-126974"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "CVE-2026-126974: llama.cpp GGUF File Parsing Integer Overflow Remote Code Execution Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126974",
+        "added_at": "2026-11-18T00:41:32.694Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Disclosed vulnerability with no confirmed exploitation.",
+    "cvss": 7.8
+  },
+  {
+    "id": "AIR-2026-2033",
+    "slug": "cve-2026-126976-llama-cpp-multimodal-gguf-file-integer-overf",
+    "title": "CVE-2026-126976: llama.cpp Multimodal GGUF File Integer Overflow",
+    "summary": "An integer overflow flaw in llama.cpp's multimodal GGUF parser permits remote code execution. Attackers require user interaction to trick a victim into opening a malicious file.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "llama.cpp"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126976",
+        "publisher": "NVD",
+        "title": "CVE-2026-126976: llama.cpp MTMD Multimodal GGUF File Parsing Integer Overflow Remote Code Execution Vulnerability.",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-126976",
+      "integer-overflow",
+      "rce"
+    ],
+    "created_at": "2026-11-18T00:41:32.694Z",
+    "updated_at": "2026-11-18T00:41:32.694Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-18",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-126976"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "CVE-2026-126976: llama.cpp MTMD Multimodal GGUF File Parsing Integer Overflow Remote Code Execution Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126976",
+        "added_at": "2026-11-18T00:41:32.694Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Disclosed vulnerability with no confirmed exploitation.",
+    "cvss": 7
+  },
+  {
+    "id": "AIR-2026-2032",
+    "slug": "cve-2026-126975-llama-cpp-gguf-file-parsing-heap-based-buffe",
+    "title": "CVE-2026-126975: llama.cpp GGUF File Parsing Heap-based Buffer Overflow",
+    "summary": "A heap-based buffer overflow in llama.cpp allows remote attackers to execute arbitrary code via a malicious GGUF file. Exploitation requires user interaction to open the crafted file.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "llama.cpp"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126975",
+        "publisher": "NVD",
+        "title": "CVE-2026-126975: llama.cpp GGUF File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability.",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-126975",
+      "buffer-overflow",
+      "rce"
+    ],
+    "created_at": "2026-11-18T00:41:32.694Z",
+    "updated_at": "2026-11-18T00:41:32.694Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-18",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-126975"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "CVE-2026-126975: llama.cpp GGUF File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126975",
+        "added_at": "2026-11-18T00:41:32.694Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Disclosed vulnerability with no confirmed exploitation.",
+    "cvss": 7.8
+  },
+  {
     "id": "AIR-2026-2031",
     "slug": "stubhub-data-breach-exposes-customer-names-and-contact-detai",
     "title": "StubHub data breach exposes customer names and contact details",
