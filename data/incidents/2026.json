@@ -1,5 +1,68 @@
 [
   {
+    "id": "AIR-2026-2036",
+    "slug": "microsoft-agent-framework-pypi-package-compromised-to-steal",
+    "title": "Microsoft Agent Framework PyPI Package Compromised to Steal Credentials",
+    "summary": "Threat actors compromised Microsoft's agent-framework package on PyPI, releasing malicious versions 1.26.1 and 1.26.2. These versions execute a credential stealer upon every Python startup.",
+    "type": "attack_on_ai",
+    "categories": [
+      "supply_chain",
+      "infra_vuln"
+    ],
+    "severity": 3,
+    "targets": [
+      "Microsoft",
+      "framework_or_tooling"
+    ],
+    "products": [
+      "agent-framework"
+    ],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
+        "publisher": "The Hacker News",
+        "title": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "supply_chain",
+      "pypi",
+      "credential_stealer",
+      "agent-framework"
+    ],
+    "created_at": "2026-11-18T07:41:16.321Z",
+    "updated_at": "2026-11-18T07:41:16.321Z",
+    "lane": "supply_chain",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [
+      "agent-framework 1.26.1",
+      "agent-framework 1.26.2"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
+        "source_url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
+        "added_at": "2026-11-18T07:41:16.321Z"
+      }
+    ],
+    "action": "Downgrade or remove the compromised agent-framework package and rotate any exposed cloud credentials immediately.",
+    "severity_note": "Confirmed malicious package distributed in the wild via PyPI.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2035",
     "slug": "bubbleloader-malware-uses-modified-legitimate-windows-execut",
     "title": "BubbleLoader malware uses modified legitimate Windows executables as carriers",
