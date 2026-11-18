@@ -1,5 +1,15 @@
 [
   {
+    "key": "4f0864e5e3454300",
+    "title": "The challenge of defending against bulletproof dead drops on public blockchains",
+    "url": "https://blog.talosintelligence.com/the-challenge-of-defending-against-bulletproof-dead-drops-on-public-blockchains",
+    "publisher": "Cisco Talos",
+    "source_id": "talos",
+    "reason": "out of scope: Opinion and explanatory piece on blockchain C2 infrastructure without a specific incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T11:11:10.761Z"
+  },
+  {
     "key": "0d6cb8c52ac0fb6e",
     "title": "Ubuntu AI security patches are here, if you’re willing to test them yourself",
     "url": "https://helpnetsecurity.com/2026/11/18/ubuntu-ai-security-patches-edge-archive",
