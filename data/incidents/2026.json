@@ -1,5 +1,66 @@
 [
   {
+    "id": "AIR-2026-2035",
+    "slug": "bubbleloader-malware-uses-modified-legitimate-windows-execut",
+    "title": "BubbleLoader malware uses modified legitimate Windows executables as carriers",
+    "summary": "Threat actors are distributing the BubbleLoader malware by modifying the entry points of legitimate Windows applications to load hidden payloads stored in PNG images. ReversingLabs identified multiple targeted programs, including WinRAR and Windows Media Player, being used to propagate the threat.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "WinRAR",
+      "Windows Media Player",
+      "Firefox",
+      "x64dbg"
+    ],
+    "incident_date": "2026-02",
+    "incident_date_precision": "month",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/18/winrar-bubbleloader-malware",
+        "publisher": "Help Net Security",
+        "title": "BubbleLoader malware turns copies of WinRAR and Windows Media Player into carriers",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "bubbleloader",
+      "malware",
+      "loader",
+      "winrar"
+    ],
+    "created_at": "2026-11-18T06:11:35.153Z",
+    "updated_at": "2026-11-18T06:11:35.153Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "BubbleLoader malware turns copies of WinRAR and Windows Media Player into carriers",
+        "source_url": "https://helpnetsecurity.com/2026/11/18/winrar-bubbleloader-malware",
+        "added_at": "2026-11-18T06:11:35.153Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world malware deployment with named carrier applications.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2034",
     "slug": "cve-2026-126974-llama-cpp-gguf-file-parsing-integer-overflow",
     "title": "CVE-2026-126974: llama.cpp GGUF File Parsing Integer Overflow",
