@@ -1,5 +1,15 @@
 [
   {
+    "key": "63ab0fd187977a4a",
+    "title": "Quality Isn’t The Main Worry About AI Pentesting — Data Privacy and Production Safety Are",
+    "url": "https://thehackernews.com/2026/11/quality-isnt-main-worry-about-ai.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope, no AI role (0.60): Opinion/explainer article without a specific incident, flaw, breach, or research demonstration.",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-18T13:12:07.512Z"
+  },
+  {
     "key": "1737ff7a53e5148a",
     "title": "CVE-2026-130685: vLLM from 0.28.0 before 0.33.0 contains an improper input validation vulnerability that allows unauthenticated attackers to crash…",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130685",

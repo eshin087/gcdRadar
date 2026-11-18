@@ -1094,9 +1094,15 @@
         "publisher": "Help Net Security",
         "title": "Java4Shell OpenJDK flaw: Exploitation is tricky and hinges on specific CPUs (CVE-2026-114938)",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://checkmarx.com/zero-post/cve-2026-114938-java4shell-rce-vulnerability-gives-new-meaning-to-run-anywhere",
+        "publisher": "Checkmarx",
+        "title": "CVE-2026-114938—Java4Shell RCE Vulnerability Gives New Meaning to “Run Anywhere”",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 7,
+    "source_count": 8,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1107,7 +1113,7 @@
       "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-18T11:41:50.536Z",
+    "updated_at": "2026-11-18T13:12:07.512Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
