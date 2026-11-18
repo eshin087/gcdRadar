@@ -1,5 +1,15 @@
 [
   {
+    "key": "4f002e6fb70a1a1d",
+    "title": "Fraudsters feed the right face into identity checks through virtual cameras",
+    "url": "https://helpnetsecurity.com/2026/11/18/entrust-document-verification-fraud-report",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Survey or statistics piece discussing report findings without a specific incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T05:11:25.663Z"
+  },
+  {
     "key": "c60558e98558e0e7",
     "title": "External sandboxes for coding agents",
     "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents",
