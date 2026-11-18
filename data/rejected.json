@@ -1,5 +1,115 @@
 [
   {
+    "key": "dd8574f33b70b642",
+    "title": "Show HN: Intrusive.ai – open-source AI attack simulation",
+    "url": "https://intrusive.ai/",
+    "publisher": "intrusive.ai",
+    "source_id": "hn",
+    "reason": "out of scope: Product launch and testing platform release rather than a specific security incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "321007b44284282c",
+    "title": "CNN Architecture Comparison for Malware Classification with Limited Training Data",
+    "url": "https://arxiv.org/abs/2611.21936",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Research paper proposing a defense or model improvement (malware classification CNN architecture), out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "5b59e3233433a1ac",
+    "title": "Evolution Under Fire: Evolving Agent Safety Harnesses with Adaptive Injection Stressors",
+    "url": "https://arxiv.org/abs/2611.22583",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Research paper proposing a defense mechanism (safety-harness evolution and stressor evolution), out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "232bbaa66f029531",
+    "title": "CaFe: Causally Faithful Conditional Traffic Scenario Generation",
+    "url": "https://arxiv.org/abs/2611.22855",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper focuses on simulation artifacts and traffic scenario generation rather than demonstrating an attack, vulnerability, or offensive AI abuse.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "6a43b2749fef148c",
+    "title": "SEAM: Computer-Use Agents Know the Harm Between Screens, and Commit It Anyway",
+    "url": "https://arxiv.org/abs/2611.22971",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper introduces a safety benchmark for computer-use agents rather than demonstrating a specific working exploit or active attack.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "3ee84a29160e1708",
+    "title": "GuardAgent: A Memory-Augmented Agentic Framework for Adaptive Detection of Adversarial Promotions in LLM-Based Recommendation",
+    "url": "https://arxiv.org/abs/2611.22274",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper proposes a defense framework (GuardAgent) for LLM-based recommender systems rather than demonstrating an attack or vulnerability.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "261402c31d5e3881",
+    "title": "ConfGuard: a physics-grounded reference monitor for predictive-maintenance large-language-model agents",
+    "url": "https://arxiv.org/abs/2611.22288",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper only proposes a defence mechanism for predictive-maintenance LLM agents without demonstrating a specific new attack.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "04da331a4eaf4335",
+    "title": "Missing Security-Fix Backporting for GitHub Actions Workflows",
+    "url": "https://arxiv.org/abs/2611.22519",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is an empirical study on software maintenance and backporting gaps in CI/CD workflows, lacking a specific incident or named software flaw.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "713596f8446f1da3",
+    "title": "Adaptive LLM-Driven Honeypots vs. LLM-Driven Attackers: Does Narrative Coherence Improve Deception?",
+    "url": "https://arxiv.org/abs/2611.22589",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper proposes a defensive honeypot strategy and evaluates its narrative coherence without demonstrating a working attack or real-world compromise.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "322fcfca5ed6e482",
+    "title": "Dissecting the GPU Load/Store Unit and Exposing Its Security Risks",
+    "url": "https://arxiv.org/abs/2611.23022",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defence or hardware microarchitecture analysis paper without a demonstrated working AI-specific attack.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
+    "key": "b150cf833ca2d85e",
+    "title": "LLMs as Validators for Cross-Chain Bridges: Evaluating Source-Level and Transaction-Level Attack Detection on Solana",
+    "url": "https://arxiv.org/abs/2611.21777",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Evaluation paper studying LLMs as defensive validators for blockchain bridges, proposing a defense mechanism.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-18T19:41:51.600Z"
+  },
+  {
     "key": "7e6b0b115472eb30",
     "title": "CVE-2026-130007: k8s-mcp-server manages Kubernetes clusters through the Model Context Protocol.",
     "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130007",

@@ -1,5 +1,487 @@
 [
   {
+    "id": "AIR-2026-2048",
+    "slug": "f5-big-ip-critical-vulnerabilities-allow-traffic-disruption",
+    "title": "F5 BIG-IP Critical Vulnerabilities Allow Traffic Disruption and Potential RCE",
+    "summary": "F5 disclosed six critical vulnerabilities in BIG-IP that let unauthenticated attackers crash the Traffic Management Microkernel or potentially achieve remote code execution in specific setups. The flaws require targeted configurations involving iRules or APM policies to trigger.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "BIG-IP"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html",
+        "publisher": "The Hacker News",
+        "title": "F5 Warns 6 Critical BIG-IP Flaws Can Crash Traffic in Specific Setups, May Allow RCE",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "big-ip",
+      "dos",
+      "rce"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [
+      "BIG-IP"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "F5 Warns 6 Critical BIG-IP Flaws Can Crash Traffic in Specific Setups, May Allow RCE",
+        "source_url": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "Review advisory details and apply vendor mitigations or updates for affected BIG-IP configurations.",
+    "severity_note": "Critical rating declared by vendor for specific configurations.",
+    "cvss": 9.8
+  },
+  {
+    "id": "AIR-2026-2047",
+    "slug": "cve-2026-123007-critical-vulnerabilities-in-nginx-allow-remo",
+    "title": "CVE-2026-123007: Critical vulnerabilities in NGINX allow remote code execution",
+    "summary": "F5 disclosed five vulnerabilities in NGINX enabling unauthenticated remote attackers to execute code with worker process privileges. While researchers demonstrated CVE-2026-123007, no active in-the-wild exploitation has been reported.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "NGINX"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://cert.europa.eu/publications/security-advisories/2026-022",
+        "publisher": "CERT-EU",
+        "title": "2026-022: Critical vulnerabilities in Nginx",
+        "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+        "publisher": "The Hacker News",
+        "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 2,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "CVE-2026-123007",
+      "rce",
+      "nginx"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-123007"
+    ],
+    "affected": [
+      "NGINX"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "2026-022: Critical vulnerabilities in Nginx",
+        "source_url": "https://cert.europa.eu/publications/security-advisories/2026-022",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      },
+      {
+        "date": "2026-11-18",
+        "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers",
+        "source_url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "Update NGINX to the latest patched version immediately, prioritizing internet-facing appliances.",
+    "severity_note": "Critical vulnerability with researcher demonstration but no exploitation yet.",
+    "cvss": 9.8
+  },
+  {
+    "id": "AIR-2026-2046",
+    "slug": "from-token-changes-to-task-failures-bit-flips-in-a-shared-kv",
+    "title": "From Token Changes to Task Failures: Bit Flips in a Shared KV-Cache Block",
+    "summary": "Researchers evaluated the impact of software fault injection into vLLM serving Qwen3-8B by flipping bits in shared KV-cache blocks. The experiment measured how induced bit flips corrupt model responses across shared prompt requests.",
+    "type": "attack_on_ai",
+    "categories": [
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling",
+      "open_weight_model"
+    ],
+    "products": [
+      "vLLM",
+      "Qwen3-8B"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.22243",
+        "publisher": "arXiv",
+        "title": "From Token Changes to Task Failures: Bit Flips in a Shared KV-Cache Block",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "vllm",
+      "kv-cache",
+      "fault-injection",
+      "bit-flip"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "vLLM"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "From Token Changes to Task Failures: Bit Flips in a Shared KV-Cache Block",
+        "source_url": "https://arxiv.org/abs/2611.22243",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Academic fault injection demonstration with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2045",
+    "slug": "stopping-is-not-the-limit-understanding-and-eliciting-agent",
+    "title": "Stopping Is Not the Limit: Understanding and Eliciting Agent Capability in Long-Horizon Vulnerability Exploitation",
+    "summary": "Researchers investigated long-horizon vulnerability exploitation using DeepSeek-V4-Flash-0731 and MiMo-V2.6-Pro on ExploitBench. The study found that extending execution beyond standard stopping points yields additional verified exploitation gains.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [
+      "DeepSeek-V4-Flash-0731",
+      "MiMo-V2.6-Pro"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.22888",
+        "publisher": "arXiv",
+        "title": "Stopping Is Not the Limit: Understanding and Eliciting Agent Capability in Long-Horizon Vulnerability Exploitation",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "exploitbench",
+      "agent-capability",
+      "vulnerability-exploitation"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "Stopping Is Not the Limit: Understanding and Eliciting Agent Capability in Long-Horizon Vulnerability Exploitation",
+        "source_url": "https://arxiv.org/abs/2611.22888",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research capability with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2044",
+    "slug": "network-exposed-configuration-attacks-on-llm-controlled-robo",
+    "title": "Network-Exposed Configuration Attacks on LLM-Controlled Robots",
+    "summary": "Researchers investigated configuration attacks on the Pollen Robotics Reachy Mini Lite, allowing unauthenticated attackers to replace system prompts and personality settings. The work demonstrates physical behavioural changes through configuration-layer manipulation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "prompt_injection"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Pollen Robotics Reachy Mini Lite"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.22761",
+        "publisher": "arXiv",
+        "title": "Network-Exposed Configuration Attacks on LLM-Controlled Social Robots",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "robotics",
+      "prompt_injection",
+      "config_attack"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "Pollen Robotics Reachy Mini Lite"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "Network-Exposed Configuration Attacks on LLM-Controlled Social Robots",
+        "source_url": "https://arxiv.org/abs/2611.22761",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research attack with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2043",
+    "slug": "practical-black-box-jailbreaking-of-mllms-via-visual-trust-b",
+    "title": "Practical Black-Box Jailbreaking of MLLMs via Visual Trust Bias",
+    "summary": "Researchers proposed the Visual Trust Bias Attack, a practical black-box jailbreaking framework targeting multimodal large language models using natural harmful image-text pairs. The study demonstrates attack efficacy on current MLLM architectures without requiring token-level perturbations.",
+    "type": "attack_on_ai",
+    "categories": [
+      "jailbreak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.22292",
+        "publisher": "arXiv",
+        "title": "Dressed in Authority: Practical Black-Box Jailbreaking of MLLMs via Visual Trust Bias",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "jailbreak",
+      "mllm",
+      "adversarial_evasion"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "Dressed in Authority: Practical Black-Box Jailbreaking of MLLMs via Visual Trust Bias",
+        "source_url": "https://arxiv.org/abs/2611.22292",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research attack with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2042",
+    "slug": "gapleak-privacy-risks-in-llm-based-web-agents",
+    "title": "GapLeak: Privacy Risks in LLM-based Web Agents",
+    "summary": "Researchers demonstrated that LLM-based web agents attempting to fulfill user requests can be tricked into escalating to unauthorized sources to bridge information gaps, thereby leaking sensitive user data. The study formalizes this vulnerability as GapLeak.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.22223",
+        "publisher": "arXiv",
+        "title": "GapLeak: When Privacy-Preserving LLM-based Web Agents Become a Privacy Risk",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "web-agents",
+      "data-privacy",
+      "research"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "GapLeak: When Privacy-Preserving LLM-based Web Agents Become a Privacy Risk",
+        "source_url": "https://arxiv.org/abs/2611.22223",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating agent data leakage vulnerabilities.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2041",
+    "slug": "eight-in-ten-llms-leak-system-prompt-secrets-nevan-study",
+    "title": "Eight in Ten LLMs Leak System-Prompt Secrets: Nevan Study",
+    "summary": "Researchers audited instruction-hierarchy enforcement across 363 text models and successfully exfiltrated protected system prompt secrets from 296 of them using an AI agent. The study highlights widespread vulnerabilities in how large language models guard sensitive prompt instructions.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [
+      "OpenRouter"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.21956",
+        "publisher": "arXiv",
+        "title": "Eight in Ten LLMs Leak System-Prompt Secrets: Nevan, an Agentic Capture-the-Flag Study",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt-leak",
+      "llm",
+      "research"
+    ],
+    "created_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "OpenRouter models"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "Eight in Ten LLMs Leak System-Prompt Secrets: Nevan, an Agentic Capture-the-Flag Study",
+        "source_url": "https://arxiv.org/abs/2611.21956",
+        "added_at": "2026-11-18T19:41:51.600Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating prompt extraction across multiple models without exploitation in the wild.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2040",
     "slug": "cve-2026-130008-sqlite-mcp-allows-bypass-of-read-only-mode-v",
     "title": "CVE-2026-130008: sqlite-mcp allows bypass of read‑only mode via crafted queries",
@@ -205,9 +687,15 @@
         "publisher": "BleepingComputer",
         "title": "Apache warns of Roller RCE vulnerability exploited in attacks",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
+        "publisher": "The Hacker News",
+        "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -215,15 +703,18 @@
       "rce",
       "apache",
       "roller",
-      "exploitation"
+      "exploitation",
+      "CVE-2026-129448"
     ],
     "created_at": "2026-11-18T11:11:10.761Z",
-    "updated_at": "2026-11-18T11:11:10.761Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
     "patch_status": "patched",
-    "cve_ids": [],
+    "cve_ids": [
+      "CVE-2026-129448"
+    ],
     "affected": [
       "Apache Roller"
     ],
@@ -1305,9 +1796,15 @@
         "publisher": "Fortinet",
         "title": "Java4Shell Vulnerability - CVE-2026-114938",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://cert.europa.eu/publications/security-advisories/2026-021",
+        "publisher": "CERT-EU",
+        "title": "2026-021: High Severity Vulnerability in Java SE and OpenJDK",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 10,
+    "source_count": 11,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1318,7 +1815,7 @@
       "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-18T17:14:10.870Z",
+    "updated_at": "2026-11-18T19:41:51.600Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
