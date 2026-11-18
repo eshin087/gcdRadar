@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2038",
+    "slug": "researchers-bypass-tpm-lockout-to-crack-windows-hello-and-bi",
+    "title": "Researchers Bypass TPM Lockout to Crack Windows Hello and BitLocker PINs",
+    "summary": "Researchers demonstrated a hardware attack on AMD and Intel PCs that resets TPM lockout mechanisms for Windows Hello and BitLocker PINs. The technique allows short PINs to be successfully guessed within days in lab testing.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Windows Hello",
+      "BitLocker"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-18",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html",
+        "publisher": "The Hacker News",
+        "title": "New Attack Bypasses TPM Lockout to Crack Windows Hello and BitLocker PINs in Days, Not Years",
+        "published_at": "2026-11-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "tpm",
+      "windows-hello",
+      "bitlocker",
+      "hardware-attack"
+    ],
+    "created_at": "2026-11-18T13:41:51.252Z",
+    "updated_at": "2026-11-18T13:41:51.252Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-18",
+        "title": "New Attack Bypasses TPM Lockout to Crack Windows Hello and BitLocker PINs in Days, Not Years",
+        "source_url": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html",
+        "added_at": "2026-11-18T13:41:51.252Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated by researchers with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2037",
     "slug": "apache-warns-of-roller-rce-vulnerability-exploited-in-attack",
     "title": "Apache warns of Roller RCE vulnerability exploited in attacks",
@@ -1483,9 +1542,15 @@
         "publisher": "The Hacker News",
         "title": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://securityweek.com/russian-apt-poses-as-employee-of-hacked-firm-to-breach-another-us-organization",
+        "publisher": "SecurityWeek",
+        "title": "Russian APT Poses as Employee of Hacked Firm to Breach Another US Organization",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1496,7 +1561,7 @@
       "cloud-compromise"
     ],
     "created_at": "2026-11-17T16:11:20.934Z",
-    "updated_at": "2026-11-18T06:41:08.123Z",
+    "updated_at": "2026-11-18T13:41:51.252Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -1510,6 +1575,12 @@
         "title": "COLD RELIC: A Case Study in Impersonation and Compromise",
         "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise",
         "added_at": "2026-11-17T16:11:20.934Z"
+      },
+      {
+        "date": "2026-11-18",
+        "title": "Star Blizzard weaponized stolen data and identities from a late 2025 hack to compromise another US organization",
+        "source_url": "https://securityweek.com/russian-apt-poses-as-employee-of-hacked-firm-to-breach-another-us-organization",
+        "added_at": "2026-11-18T13:41:51.252Z"
       }
     ],
     "action": "",

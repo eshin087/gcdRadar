@@ -1,5 +1,15 @@
 [
   {
+    "key": "3eb058b80bf04737",
+    "title": "Last of Five Defendants Sentenced in US Scattered Spider Hacking Case",
+    "url": "https://securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Sentencings and court updates about old campaigns are follow-ups and out of scope as new incidents.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-18T13:41:51.252Z"
+  },
+  {
     "key": "63ab0fd187977a4a",
     "title": "Quality Isn’t The Main Worry About AI Pentesting — Data Privacy and Production Safety Are",
     "url": "https://thehackernews.com/2026/11/quality-isnt-main-worry-about-ai.html",
