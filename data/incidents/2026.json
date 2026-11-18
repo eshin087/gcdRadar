@@ -872,9 +872,15 @@
         "publisher": "Cisco Talos",
         "title": "CVE-2026-114938: Critical vulnerability in OpenJDK JAVA",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+        "publisher": "The Hacker News",
+        "title": "Java4Shell (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak on Java 17+ AVX-512 VBMI Servers",
+        "published_at": "2026-11-18"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -885,7 +891,7 @@
       "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-18T02:13:52.707Z",
+    "updated_at": "2026-11-18T05:41:22.607Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -907,6 +913,12 @@
         "title": "CISA assigns CVE-2026-114938 to the Java memory corruption vulnerability and urges immediate patching.",
         "source_url": "https://cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching",
         "added_at": "2026-11-17T23:11:16.529Z"
+      },
+      {
+        "date": "2026-11-18",
+        "title": "Researchers reveal that CVE-2026-114938 enables pre-authentication remote code execution in Jira, Jenkins, Keycloak, and other applications on specific Java versions and hardware.",
+        "source_url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+        "added_at": "2026-11-18T05:41:22.607Z"
       }
     ],
     "action": "Identify affected Java installations and immediately patch the Oracle Java vulnerability CVE-2026-114938.",

@@ -1,5 +1,15 @@
 [
   {
+    "key": "4d0d9bf8c997d473",
+    "title": "Product showcase: iVerify Basic helps users check device security and improve privacy",
+    "url": "https://helpnetsecurity.com/2026/11/18/product-showcase-iverify-basic",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and feature announcement for a security app, not an incident.",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-18T05:41:22.607Z"
+  },
+  {
     "key": "4f002e6fb70a1a1d",
     "title": "Fraudsters feed the right face into identity checks through virtual cameras",
     "url": "https://helpnetsecurity.com/2026/11/18/entrust-document-verification-fraud-report",
