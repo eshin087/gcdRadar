@@ -1,5 +1,15 @@
 [
   {
+    "key": "3c22a4a362d13e84",
+    "title": "Navigating Vulnerability Hysteria in the AI Era",
+    "url": "https://darkreading.com/vulnerabilities-threats/navigating-vulnerability-hysteria-ai-era",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "out of scope: opinion piece and commentary discussing vulnerability management and warning fatigue without a specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T20:11:30.088Z"
+  },
+  {
     "key": "648f4746253c461c",
     "title": "phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution",
     "url": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
