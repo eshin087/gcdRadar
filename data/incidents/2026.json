@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2062",
+    "slug": "cve-2026-115560-php-critical-security-release-advisory",
+    "title": "CVE-2026-115560: PHP Critical Security Release Advisory",
+    "summary": "PHP published an emergency security release regarding CVE-2026-115560. Technical details and fixed versions are currently developing.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "PHP"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://checkmarx.com/zero-post/php-rings-the-alarm-again-what-we-know-and-dont-about-todays-critical-php-security-release",
+        "publisher": "Checkmarx",
+        "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.8,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "CVE-2026-115560",
+      "php",
+      "vulnerability"
+    ],
+    "created_at": "2026-11-19T13:11:05.476Z",
+    "updated_at": "2026-11-19T13:11:05.476Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-115560"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
+        "source_url": "https://checkmarx.com/zero-post/php-rings-the-alarm-again-what-we-know-and-dont-about-todays-critical-php-security-release",
+        "added_at": "2026-11-19T13:11:05.476Z"
+      }
+    ],
+    "action": "Monitor PHP advisories and apply patches as soon as fixed versions become available.",
+    "severity_note": "Critical security release announced for PHP.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2061",
     "slug": "cisa-kev-adds-exploited-flaws-in-litellm-synology-axis-and-r",
     "title": "CISA KEV Adds Exploited Flaws in LiteLLM, Synology, Axis, and REDCap",
@@ -1564,9 +1623,15 @@
         "publisher": "BleepingComputer",
         "title": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/19/microsoft-agent-framework-package-pypi-compromised",
+        "publisher": "Help Net Security",
+        "title": "Credential stealer slipped into Microsoft’s official Python agent framework",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1577,7 +1642,7 @@
       "agent-framework"
     ],
     "created_at": "2026-11-18T07:41:16.321Z",
-    "updated_at": "2026-11-18T17:14:10.870Z",
+    "updated_at": "2026-11-19T13:11:05.476Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
@@ -32967,9 +33032,15 @@
         "publisher": "The Record",
         "title": "Limited reports of PHP bug exploitation emerge",
         "published_at": "2026-10-29"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/everything-is-web-application-including.html",
+        "publisher": "The Hacker News",
+        "title": "Everything Is a Web Application, Including Your Firewall",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 12,
+    "source_count": 13,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -32981,10 +33052,10 @@
       "cisa-kev"
     ],
     "created_at": "2026-10-26T14:52:59.139Z",
-    "updated_at": "2026-11-13T00:11:31.354Z",
+    "updated_at": "2026-11-19T13:11:05.476Z",
     "lane": "patch",
-    "state": "closed",
-    "closed_at": "2026-11-12",
+    "state": "live",
+    "closed_at": null,
     "patch_status": "patched",
     "cve_ids": [
       "CVE-2026-109619",
