@@ -1,5 +1,126 @@
 [
   {
+    "id": "AIR-2026-2057",
+    "slug": "researcher-demonstrates-rce-exploits-affecting-postgresql-my",
+    "title": "Researcher Demonstrates RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
+    "summary": "A researcher published proof-of-concept exploits showing how low-privilege database accounts can trigger memory-corruption bugs to achieve remote code execution. The research covers PostgreSQL, MySQL, ClickHouse, and Oracle databases.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "PostgreSQL",
+      "MySQL",
+      "Oracle",
+      "ClickHouse"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html",
+        "publisher": "The Hacker News",
+        "title": "Researcher Demonstrates Database RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "postgresql",
+      "mysql",
+      "oracle",
+      "clickhouse",
+      "rce",
+      "memory-corruption"
+    ],
+    "created_at": "2026-11-19T09:11:32.698Z",
+    "updated_at": "2026-11-19T09:11:32.698Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Researcher Demonstrates Database RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
+        "source_url": "https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html",
+        "added_at": "2026-11-19T09:11:32.698Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated by researchers with proof-of-concept exploits, no real-world exploitation reported yet.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2056",
+    "slug": "ruby-releases-fixes-for-multiple-regex-and-string-memory-saf",
+    "title": "Ruby Releases Fixes for Multiple Regex and String Memory-Safety Flaws",
+    "summary": "Ruby released fixes for seven memory-safety flaws in its regular expression and string case-conversion engines. Maintainers warned that proof-of-concept exploits exist for five of the vulnerabilities to achieve remote code execution.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Ruby"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html",
+        "publisher": "The Hacker News",
+        "title": "Ruby Releases Fixes for 7 Regex and String Flaws, Warns 5 Have Proof-of-Concept RCE",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ruby",
+      "rce",
+      "memory-safety",
+      "regex"
+    ],
+    "created_at": "2026-11-19T09:11:32.698Z",
+    "updated_at": "2026-11-19T09:11:32.698Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Ruby Releases Fixes for 7 Regex and String Flaws, Warns 5 Have Proof-of-Concept RCE",
+        "source_url": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html",
+        "added_at": "2026-11-19T09:11:32.698Z"
+      }
+    ],
+    "action": "Update Ruby to the latest fixed versions.",
+    "severity_note": "Demonstrated with proof-of-concept RCE by researchers, with fixes released.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2055",
     "slug": "cve-2026-75612-yt-mcp-lacks-directory-confinement-in-file-at",
     "title": "CVE-2026-75612: yt-mcp lacks directory confinement in file attachments",
