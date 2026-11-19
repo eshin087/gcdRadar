@@ -1,5 +1,66 @@
 [
   {
+    "id": "AIR-2026-2076",
+    "slug": "asus-warns-of-critical-hard-coded-key-flaw-in-control-center",
+    "title": "ASUS warns of critical hard-coded key flaw in Control Center Express",
+    "summary": "ASUS patched three critical vulnerabilities in Control Center Express that could allow remote administrative control. Users are advised to update to version 1.7.29.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Control Center Express"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/asus-warns-of-critical-hard-coded-key-flaw-in-control-center-express",
+        "publisher": "BleepingComputer",
+        "title": "ASUS warns of critical hard-coded key flaw in Control Center Express",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "asus",
+      "hard-coded key",
+      "remote code execution"
+    ],
+    "created_at": "2026-11-19T21:41:26.992Z",
+    "updated_at": "2026-11-19T21:41:26.992Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [
+      "Control Center Express < 1.7.29"
+    ],
+    "fixed_in": [
+      "Control Center Express 1.7.29"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "ASUS warns of critical hard-coded key flaw in Control Center Express",
+        "source_url": "https://bleepingcomputer.com/news/security/asus-warns-of-critical-hard-coded-key-flaw-in-control-center-express",
+        "added_at": "2026-11-19T21:41:26.992Z"
+      }
+    ],
+    "action": "Update to Control Center Express version 1.7.29.",
+    "severity_note": "Critical rating with a vendor fix available.",
+    "cvss": 9.8
+  },
+  {
     "id": "AIR-2026-2075",
     "slug": "transport-for-london-data-breach-exposes-265-000-oyster-card",
     "title": "Transport for London data breach exposes 265,000 Oyster card user accounts",
@@ -817,9 +878,15 @@
         "publisher": "BleepingComputer",
         "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://darkreading.com/application-security/critical-php-flaws-code-execution-panic-php2shell",
+        "publisher": "Dark Reading",
+        "title": "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.8,
     "status": "published",
     "origin": "news",
@@ -829,7 +896,7 @@
       "vulnerability"
     ],
     "created_at": "2026-11-19T13:11:05.476Z",
-    "updated_at": "2026-11-19T16:50:40.862Z",
+    "updated_at": "2026-11-19T21:41:26.992Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
