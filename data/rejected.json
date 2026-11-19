@@ -1,5 +1,15 @@
 [
   {
+    "key": "120427cbb9ff8f05",
+    "title": "Splunk Patches Nearly 140 Flaws Across Three Core Products",
+    "url": "https://securityweek.com/splunk-patches-nearly-140-flaws-across-three-core-products",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Roundup or summary piece reporting multiple product patches without detailing a specific single incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T11:21:49.153Z"
+  },
+  {
     "key": "8499c380578ee31c",
     "title": "Ukraine arrests key members of ransomware gang that extorted $40.5 million posing as IT support",
     "url": "https://helpnetsecurity.com/2026/11/19/ukraine-ransomware-gang-arrests-fake-it-support-calls",
