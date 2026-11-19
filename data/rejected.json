@@ -1,5 +1,15 @@
 [
   {
+    "key": "8e05d5806f2f8514",
+    "title": "StepSecurity Secures $20 Million to Expand Supply Chain Protection",
+    "url": "https://securityweek.com/stepsecurity-secures-20-million-to-expand-supply-chain-protection",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Product launches and vendor feature announcements, including security products, are out of scope.",
+    "confidence": 1,
+    "rejected_at": "2026-11-19T12:41:16.027Z"
+  },
+  {
     "key": "8bb09f6a08c30bdb",
     "title": "Microsoft tests new Edge Lockdown Mode that disables GPU APIs",
     "url": "https://bleepingcomputer.com/news/microsoft/microsoft-tests-new-edge-lockdown-mode-that-disables-gpu-apis",

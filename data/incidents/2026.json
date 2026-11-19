@@ -1479,9 +1479,15 @@
         "publisher": "The Hacker News",
         "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks",
+        "publisher": "SecurityWeek",
+        "title": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1493,7 +1499,7 @@
       "CVE-2026-129448"
     ],
     "created_at": "2026-11-18T11:11:10.761Z",
-    "updated_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-19T12:41:16.027Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
