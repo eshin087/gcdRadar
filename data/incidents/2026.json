@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2063",
+    "slug": "drupal-patches-critical-remote-code-execution-vulnerability",
+    "title": "Drupal patches critical remote code execution vulnerability",
+    "summary": "The Drupal Security Team patched a critical remote code execution vulnerability that allows attackers to take over vulnerable sites. Administrators should apply the latest security updates immediately.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Drupal"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaw-warns-exploits-may-surface-quickly",
+        "publisher": "BleepingComputer",
+        "title": "Drupal patches critical RCE flaw, warns exploits may surface quickly",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "drupal",
+      "rce",
+      "remote-code-execution"
+    ],
+    "created_at": "2026-11-19T13:19:56.132Z",
+    "updated_at": "2026-11-19T13:19:56.132Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Drupal patches critical RCE flaw, warns exploits may surface quickly",
+        "source_url": "https://bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaw-warns-exploits-may-surface-quickly",
+        "added_at": "2026-11-19T13:19:56.132Z"
+      }
+    ],
+    "action": "Update Drupal to the latest security release.",
+    "severity_note": "Critical rating with a patch issued by the vendor.",
+    "cvss": 9.8
+  },
+  {
     "id": "AIR-2026-2062",
     "slug": "cve-2026-115560-php-critical-security-release-advisory",
     "title": "CVE-2026-115560: PHP Critical Security Release Advisory",
@@ -2800,9 +2857,15 @@
         "publisher": "SecurityWeek",
         "title": "Critical Perforce Puppet RCE Exploited in Attacks",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/19/puppet-enterprise-vulnerability-cve-2026-115731-exploited",
+        "publisher": "Help Net Security",
+        "title": "Exploited Puppet flaw puts the server that configures your endpoint fleet at risk (CVE-2026-115731)",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.95,
     "status": "published",
     "origin": "seed_nvd",
@@ -2812,7 +2875,7 @@
       "rce"
     ],
     "created_at": "2026-11-17T21:42:29.664Z",
-    "updated_at": "2026-11-18T11:11:10.761Z",
+    "updated_at": "2026-11-19T13:19:56.132Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
