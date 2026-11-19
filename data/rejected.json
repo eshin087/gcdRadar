@@ -1,5 +1,25 @@
 [
   {
+    "key": "c0b2110866740c07",
+    "title": "CISA nominee LoSapio vows to bolster cyber defenses while denying Jan. 6 Capitol attack",
+    "url": "https://therecord.media/cisa-losapio-nomination-trump",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Political news regarding a CISA nominee confirmation hearing.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T17:41:36.266Z"
+  },
+  {
+    "key": "4692e0d9ed573f96",
+    "title": "DOJ, DHS partner on new unit tackling scams and cybercrime",
+    "url": "https://therecord.media/doj-dhs-partner-on-new-unit-tackling-scams-cybercrime",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Government agency initiative announcement.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T17:41:36.266Z"
+  },
+  {
     "key": "9ac65580a3d25d13",
     "title": "JEV vs. LLMs: A Comparative Analysis for Phishing Email Detection",
     "url": "https://arxiv.org/abs/2611.23683",

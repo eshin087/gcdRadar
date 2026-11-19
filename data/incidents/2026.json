@@ -1,5 +1,131 @@
 [
   {
+    "id": "AIR-2026-2074",
+    "slug": "cve-2026-77359-jupyter-mcp-server-dns-rebinding-vulnerabilit",
+    "title": "CVE-2026-77359: Jupyter MCP Server DNS rebinding vulnerability in management routes",
+    "summary": "Jupyter MCP Server before 1.0.3 lacks browser-origin controls on management routes, allowing malicious websites to exploit DNS rebinding. This permits attackers to connect kernel clients to rogue infrastructure via arbitrary browser requests.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Jupyter MCP Server"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77359",
+        "publisher": "NVD",
+        "title": "CVE-2026-77359: Jupyter MCP Server is a Model Context Protocol server for Jupyter.",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-77359",
+      "dns-rebinding",
+      "mcp"
+    ],
+    "created_at": "2026-11-19T17:41:36.266Z",
+    "updated_at": "2026-11-19T17:41:36.266Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-19",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-77359"
+    ],
+    "affected": [
+      "Jupyter MCP Server < 1.0.3"
+    ],
+    "fixed_in": [
+      "Jupyter MCP Server 1.0.3"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "CVE-2026-77359: Jupyter MCP Server is a Model Context Protocol server for Jupyter.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77359",
+        "added_at": "2026-11-19T17:41:36.266Z"
+      }
+    ],
+    "action": "Update to Jupyter MCP Server 1.0.3.",
+    "severity_note": "Disclosed vulnerability with a patch available and no confirmed active exploitation.",
+    "cvss": 9.3
+  },
+  {
+    "id": "AIR-2026-2073",
+    "slug": "cve-2026-77318-jupyter-mcp-server-unauthenticated-management",
+    "title": "CVE-2026-77318: Jupyter MCP Server unauthenticated management routes vulnerability",
+    "summary": "Jupyter MCP Server before 1.0.3 fails to authenticate management routes like /api/connect and /api/stop, allowing unauthenticated network callers to redirect traffic to attacker-controlled infrastructure. The vendor released a fix in version 1.0.3.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Jupyter MCP Server"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77318",
+        "publisher": "NVD",
+        "title": "CVE-2026-77318: Jupyter MCP Server is a Model Context Protocol server for Jupyter.",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-77318",
+      "mcp",
+      "authentication-bypass"
+    ],
+    "created_at": "2026-11-19T17:41:36.266Z",
+    "updated_at": "2026-11-19T17:41:36.266Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-19",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-77318"
+    ],
+    "affected": [
+      "Jupyter MCP Server < 1.0.3"
+    ],
+    "fixed_in": [
+      "Jupyter MCP Server 1.0.3"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "CVE-2026-77318: Jupyter MCP Server is a Model Context Protocol server for Jupyter.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77318",
+        "added_at": "2026-11-19T17:41:36.266Z"
+      }
+    ],
+    "action": "Update to Jupyter MCP Server 1.0.3 or later.",
+    "severity_note": "Disclosed vulnerability with a vendor fix available and no confirmed wild exploitation.",
+    "cvss": 7.3
+  },
+  {
     "id": "AIR-2026-2072",
     "slug": "llm-guided-cyber-physical-attack-path-identification-in-smar",
     "title": "LLM-Guided Cyber-Physical Attack Path Identification in Smart Grids",
