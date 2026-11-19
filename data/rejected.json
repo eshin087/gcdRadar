@@ -1,5 +1,15 @@
 [
   {
+    "key": "e6aae7b2d2201b9a",
+    "title": "Quantum position verification could lock remote hackers out, NIST shows",
+    "url": "https://helpnetsecurity.com/2026/11/19/nist-quantum-position-verification",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Describes a research physics experiment on quantum positioning rather than a specific security incident, vulnerability, or attack.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T00:41:20.162Z"
+  },
+  {
     "key": "18e2db11c9a35c2f",
     "title": "Ransomware access brokers are moving their deals off public forums",
     "url": "https://helpnetsecurity.com/2026/11/19/ransomware-access-brokers-cybercrime",
