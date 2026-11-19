@@ -1,5 +1,25 @@
 [
   {
+    "key": "0f09b51c842c8e31",
+    "title": "AI agents inherit employee access, and nobody’s watching how they use it",
+    "url": "https://helpnetsecurity.com/2026/11/19/ai-agents-employee-credentials-nudge-security-report",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Survey or report finding about AI usage and access control risks without a specific security incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T05:11:25.935Z"
+  },
+  {
+    "key": "d1202d3392a4ec40",
+    "title": "PHP Warns of Critical Security Flaws Affecting All Supported Versions, Fixes Coming November 19",
+    "url": "https://thehackernews.com/2026/11/php-warns-of-critical-security-flaws.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Advance advisory of upcoming security fixes without specific vulnerability details or exploitation",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-19T05:11:25.935Z"
+  },
+  {
     "key": "e6aae7b2d2201b9a",
     "title": "Quantum position verification could lock remote hackers out, NIST shows",
     "url": "https://helpnetsecurity.com/2026/11/19/nist-quantum-position-verification",
