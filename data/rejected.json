@@ -1,5 +1,75 @@
 [
   {
+    "key": "b7a81c659ac0ee44",
+    "title": "What Survives the Shift from Text to Pixels? Conditional Protection against Prompt Injection in Image-Rendered Documents",
+    "url": "https://arxiv.org/abs/2611.24231",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Academic empirical study measuring prompt injection resilience across document image rendering rather than demonstrating a novel exploit",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-19T16:15:34.005Z"
+  },
+  {
+    "key": "7b8371ec98cfc7a5",
+    "title": "PIPETTE: Prompt Injection Purple-Teaming for Robust LLM Agents",
+    "url": "https://arxiv.org/abs/2611.24362",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a purple-teaming methodology and adversarial training defense framework rather than disclosing an incident",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-19T16:15:34.005Z"
+  },
+  {
+    "key": "4f2a5fa1e27dec6b",
+    "title": "ACaM: Automated Capability Modeling for Agentic AI Security",
+    "url": "https://arxiv.org/abs/2611.23507",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a security capability modeling and verification defense framework",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-19T16:15:34.005Z"
+  },
+  {
+    "key": "674cfbc32cef2f0c",
+    "title": "When Do Decision Models Help LLM-Driven Network Discovery?",
+    "url": "https://arxiv.org/abs/2611.23947",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Empirical evaluation of decision models for penetration testing tooling in a simulated environment",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-19T16:15:34.005Z"
+  },
+  {
+    "key": "24673aeae097caf5",
+    "title": "PGPO: Prototype-Guided Progressive Obfuscation for Privacy-Preserving LLM-Enhanced Recommendation",
+    "url": "https://arxiv.org/abs/2611.23236",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): Defense paper, no attack demonstrated",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-19T16:15:34.005Z"
+  },
+  {
+    "key": "4be10769c28cfa90",
+    "title": "FlowSH: Detecting Web Attacks by Correlating Anomalous Network Flows and Endpoint Logs",
+    "url": "https://arxiv.org/abs/2611.23669",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): Detection research, no AI attack demonstrated",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-19T16:15:34.005Z"
+  },
+  {
+    "key": "dd8796b34a77731a",
+    "title": "Protecting Web Applications using a Multimodal AI-based System for Classifying Web Injection Attacks",
+    "url": "https://arxiv.org/abs/2611.23660",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): Defense‑oriented AI system for web‑attack classification, no attack demonstrated",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-19T16:15:34.005Z"
+  },
+  {
     "key": "b8ae93803d26caf9",
     "title": "Five warning signs of ransomware breach before encryption or data theft",
     "url": "https://bleepingcomputer.com/news/security/five-warning-signs-of-ransomware-breach-before-encryption-or-data-theft",

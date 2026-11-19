@@ -3592,6 +3592,10 @@
   "status": "rejected",
   "at": "2026-10-21T17:47:10.255Z"
  },
+ "24673aeae097caf5": {
+  "status": "rejected",
+  "at": "2026-11-19T16:15:34.005Z"
+ },
  "2467ded21ddba86a": {
   "status": "published",
   "id": "AIR-2026-0205",
@@ -7366,6 +7370,10 @@
   "id": "AIR-2026-0347",
   "at": "2026-10-18T06:55:08.239Z"
  },
+ "4be10769c28cfa90": {
+  "status": "rejected",
+  "at": "2026-11-19T16:15:34.005Z"
+ },
  "4be623212243bb98": {
   "status": "published",
   "id": "AIR-2026-0012",
@@ -7760,6 +7768,10 @@
   "status": "published",
   "id": "AIR-2026-1819",
   "at": "2026-11-08T18:56:10.862Z"
+ },
+ "4f2a5fa1e27dec6b": {
+  "status": "rejected",
+  "at": "2026-11-19T16:15:34.005Z"
  },
  "4f406c1503327647": {
   "status": "rejected",
@@ -10049,6 +10061,10 @@
   "id": "AIR-2026-0681",
   "at": "2026-10-18T10:04:21.885Z"
  },
+ "674cfbc32cef2f0c": {
+  "status": "rejected",
+  "at": "2026-11-19T16:15:34.005Z"
+ },
  "6780a2fb710364b9": {
   "status": "published",
   "id": "AIR-2026-0760",
@@ -10404,6 +10420,11 @@
   "status": "published",
   "id": "AIR-2026-1257",
   "at": "2026-10-18T10:04:21.885Z"
+ },
+ "6a6aa7f9ab51505c": {
+  "status": "published",
+  "id": "AIR-2026-2069",
+  "at": "2026-11-19T16:15:34.005Z"
  },
  "6a701d202bef5067": {
   "status": "published",
@@ -12076,6 +12097,10 @@
   "status": "rejected",
   "at": "2026-10-18T10:14:26.300Z"
  },
+ "7b8371ec98cfc7a5": {
+  "status": "rejected",
+  "at": "2026-11-19T16:15:34.005Z"
+ },
  "7b9ad71367c9464e": {
   "status": "merged",
   "id": "AIR-2026-0589",
@@ -13415,6 +13440,11 @@
   "status": "published",
   "id": "AIR-2024-0238",
   "at": "2026-10-18T10:04:21.885Z"
+ },
+ "89c0ce6b226bbbe6": {
+  "status": "published",
+  "id": "AIR-2026-2068",
+  "at": "2026-11-19T16:15:34.005Z"
  },
  "89c167bcfa4290b4": {
   "status": "merged",
@@ -17838,6 +17868,10 @@
   "status": "rejected",
   "at": "2026-10-18T10:14:26.300Z"
  },
+ "b7a81c659ac0ee44": {
+  "status": "rejected",
+  "at": "2026-11-19T16:15:34.005Z"
+ },
  "b7b5ebabe0ad37a2": {
   "status": "rejected",
   "at": "2026-10-18T06:56:23.100Z"
@@ -21505,6 +21539,10 @@
   "status": "published",
   "id": "AIR-2026-1224",
   "at": "2026-10-18T10:04:21.885Z"
+ },
+ "dd8796b34a77731a": {
+  "status": "rejected",
+  "at": "2026-11-19T16:15:34.005Z"
  },
  "dd9a50f127f7844f": {
   "status": "published",

@@ -1,5 +1,121 @@
 [
   {
+    "id": "AIR-2026-2069",
+    "slug": "rented-oscillations-multi-tenant-data-center-workload-synchr",
+    "title": "Rented Oscillations: Multi-Tenant Data Center Workload Synchronization Attacks and Mitigation",
+    "summary": "Researchers demonstrate that an adversary can rent compute resources to run large‑scale LLM training workloads that synchronize to create periodic power consumption spikes, disrupting multi‑tenant data‑center operations. The attack remains stealthy as each workload appears benign in isolation.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23666",
+        "publisher": "arXiv",
+        "title": "Rented Oscillations: Multi-Tenant Data Center Workload Synchronization Attacks and Mitigation",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.8,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ddos",
+      "resource-exhaustion",
+      "llm",
+      "cloud",
+      "attack"
+    ],
+    "created_at": "2026-11-19T16:15:34.005Z",
+    "updated_at": "2026-11-19T16:15:34.005Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Rented Oscillations: Multi-Tenant Data Center Workload Synchronization Attacks and Mitigation",
+        "source_url": "https://arxiv.org/abs/2611.23666",
+        "added_at": "2026-11-19T16:15:34.005Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept attack, no real‑world exploitation",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2068",
+    "slug": "weighing-the-envelope-component-weight-and-arbitration-in-en",
+    "title": "Weighing the Envelope: Component Weight and Arbitration in Envelope-Layer Defenses for a Single LLM Agent",
+    "summary": "The study models an attack where a malicious tool pre‑planted in an LLM agent poisons its long‑term memory, causing unauthorized actions when a benign request triggers it. Experiments measure the impact of label, memory, and tool roles on the agent’s behavior.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "data_poisoning"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.23844",
+        "publisher": "arXiv",
+        "title": "Weighing the Envelope: Component Weight and Arbitration in Envelope-Layer Defenses for a Single LLM Agent",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.8,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "agent",
+      "memory-poisoning",
+      "llm",
+      "envelope",
+      "attack"
+    ],
+    "created_at": "2026-11-19T16:15:34.005Z",
+    "updated_at": "2026-11-19T16:15:34.005Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Weighing the Envelope: Component Weight and Arbitration in Envelope-Layer Defenses for a Single LLM Agent",
+        "source_url": "https://arxiv.org/abs/2611.23844",
+        "added_at": "2026-11-19T16:15:34.005Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept attack, no real‑world exploitation",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2067",
     "slug": "critical-vmware-vcenter-flaw-allows-network-attackers-to-byp",
     "title": "Critical VMware vCenter Flaw Allows Network Attackers to Bypass Authentication",
