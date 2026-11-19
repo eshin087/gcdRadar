@@ -1,5 +1,15 @@
 [
   {
+    "key": "8499c380578ee31c",
+    "title": "Ukraine arrests key members of ransomware gang that extorted $40.5 million posing as IT support",
+    "url": "https://helpnetsecurity.com/2026/11/19/ukraine-ransomware-gang-arrests-fake-it-support-calls",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Arrests and law enforcement sweeps are follow-ups and out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T10:42:43.321Z"
+  },
+  {
     "key": "8f06c466b157a476",
     "title": "US enlists private firms to cut scammers off from victims’ cash",
     "url": "https://helpnetsecurity.com/2026/11/19/us-threat-disruption-center-scam-sextortion-funds",

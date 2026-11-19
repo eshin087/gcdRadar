@@ -1,5 +1,124 @@
 [
   {
+    "id": "AIR-2026-2061",
+    "slug": "cisa-kev-adds-exploited-flaws-in-litellm-synology-axis-and-r",
+    "title": "CISA KEV Adds Exploited Flaws in LiteLLM, Synology, Axis, and REDCap",
+    "summary": "CISA added four vulnerabilities affecting LiteLLM, Synology DiskStation Manager, Apache Axis, and REDCap to its Known Exploited Vulnerabilities catalog. The additions follow evidence of active exploitation in the wild.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 3,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LiteLLM",
+      "DiskStation Manager",
+      "Apache Axis",
+      "REDCap"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+        "publisher": "The Hacker News",
+        "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cisa",
+      "kev",
+      "active-exploitation",
+      "llmjacking"
+    ],
+    "created_at": "2026-11-19T10:42:43.321Z",
+    "updated_at": "2026-11-19T10:42:43.321Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+        "source_url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+        "added_at": "2026-11-19T10:42:43.321Z"
+      }
+    ],
+    "action": "Apply vendor patches or mitigations listed in the CISA KEV catalog.",
+    "severity_note": "Confirmed exploitation in the wild listed in CISA KEV.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2060",
+    "slug": "n-able-cloud-server-breach-disrupts-email-security-managemen",
+    "title": "N-able Cloud Server Breach Disrupts Email Security Management",
+    "summary": "N-able reported unauthorized access to a server within its hosted email security cloud environment. The incident caused the temporary disabling of management interfaces and APIs across three regions.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Mail Assure and Spam Experts Hosted Cloud"
+    ],
+    "incident_date": "2026-11-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
+        "publisher": "The Hacker News",
+        "title": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cloud-breach",
+      "unauthorized-access",
+      "n-able",
+      "disruption"
+    ],
+    "created_at": "2026-11-19T10:42:43.321Z",
+    "updated_at": "2026-11-19T10:42:43.321Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
+        "source_url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
+        "added_at": "2026-11-19T10:42:43.321Z"
+      }
+    ],
+    "action": "Review N-able advisory updates and monitor cloud service status.",
+    "severity_note": "Confirmed unauthorized access to cloud server.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2059",
     "slug": "java4shell-exploitation-attempts-begin-as-vendors-rush-out-a",
     "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
@@ -744,9 +863,15 @@
         "publisher": "The Hacker News",
         "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public",
+        "publisher": "SecurityWeek",
+        "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -756,7 +881,7 @@
       "nginx"
     ],
     "created_at": "2026-11-18T19:41:51.600Z",
-    "updated_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-19T10:42:43.321Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -780,6 +905,12 @@
         "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers",
         "source_url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
         "added_at": "2026-11-18T19:41:51.600Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "Proof-of-concept exploits for the critical NGINX vulnerabilities go public",
+        "source_url": "https://securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public",
+        "added_at": "2026-11-19T10:42:43.321Z"
       }
     ],
     "action": "Update NGINX to the latest patched version immediately, prioritizing internet-facing appliances.",
@@ -6194,9 +6325,15 @@
         "publisher": "Help Net Security",
         "title": "Fake GTA 6 download goes after Steam logins and crypto wallet data",
         "published_at": "2026-11-13"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/19/gta-6-scams-threats",
+        "publisher": "Help Net Security",
+        "title": "GTA 6 scams are after your Google password, money, and crypto wallet",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -6207,7 +6344,7 @@
       "credential-theft"
     ],
     "created_at": "2026-11-13T15:23:22.184Z",
-    "updated_at": "2026-11-13T15:23:22.184Z",
+    "updated_at": "2026-11-19T10:42:43.321Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
