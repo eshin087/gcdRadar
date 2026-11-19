@@ -1,5 +1,55 @@
 [
   {
+    "key": "9ac65580a3d25d13",
+    "title": "JEV vs. LLMs: A Comparative Analysis for Phishing Email Detection",
+    "url": "https://arxiv.org/abs/2611.23683",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: out of scope: benchmark/comparative analysis paper, no attack or vulnerability demonstrated",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T17:12:22.633Z"
+  },
+  {
+    "key": "4f7bffa93cbdadcb",
+    "title": "DetectViT: Test-time Backdoor Detection for Vision Transformers via Inter-Head Attention Discrepancy",
+    "url": "https://arxiv.org/abs/2611.23770",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: out of scope: defensive backdoor detection research, no new attack or vulnerability disclosed",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T17:12:22.633Z"
+  },
+  {
+    "key": "0fa7c88f1777fa07",
+    "title": "Gradient-Based Defensive Poisoning Against System Identification Attacks on Cyber-Physical Systems",
+    "url": "https://arxiv.org/abs/2611.24662",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: out of scope: defensive poisoning technique, no new attack or vulnerability disclosed",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T17:12:22.633Z"
+  },
+  {
+    "key": "4cada68caea82105",
+    "title": "\"I Don't Think It's a Scam\": A First Look at Family Intervention Barriers in Elder Abuse Discussions on Reddit and Baidu Tieba",
+    "url": "https://arxiv.org/abs/2611.24899",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: out of scope: sociological study of elder‑abuse discussions, no security incident or vulnerability",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T17:12:22.633Z"
+  },
+  {
+    "key": "8d427bf46d192815",
+    "title": "LLMs for Software Vulnerability Prediction and Prioritization: A Review",
+    "url": "https://arxiv.org/abs/2611.23304",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: literature review on vulnerability prediction and defense, no specific demonstrated attack or vulnerability",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T17:12:22.633Z"
+  },
+  {
     "key": "d97e362c3b8311d1",
     "title": "RECLAIM: Robot-Vision-Informed Adversarial Patch Defense via Embodied Attention Feedback",
     "url": "https://arxiv.org/abs/2611.24494",

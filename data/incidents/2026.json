@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2072",
+    "slug": "llm-guided-cyber-physical-attack-path-identification-in-smar",
+    "title": "LLM-Guided Cyber-Physical Attack Path Identification in Smart Grids",
+    "summary": "Researchers present a method that uses large language models to generate realistic attack paths against smart‑grid cyber‑physical systems. The approach shows how LLMs can assist attackers in planning high‑impact exploits, but no real‑world incidents are reported.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 1,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.24765",
+        "publisher": "arXiv",
+        "title": "LLM-Guided Cyber-Physical Attack Path Identification in Smart Grids",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.96,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "llm",
+      "smart‑grid",
+      "attack‑path",
+      "ai_assisted_intrusion"
+    ],
+    "created_at": "2026-11-19T17:12:22.633Z",
+    "updated_at": "2026-11-19T17:12:22.633Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "LLM-Guided Cyber-Physical Attack Path Identification in Smart Grids",
+        "source_url": "https://arxiv.org/abs/2611.24765",
+        "added_at": "2026-11-19T17:12:22.633Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept AI‑enabled attack path identification, no known exploitation",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2071",
     "slug": "gradient-inversion-attack-extracts-exact-training-text-in-fe",
     "title": "Gradient Inversion Attack Extracts Exact Training Text in Federated Learning",
