@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2064",
+    "slug": "hackers-exploit-cisco-expressway-vulnerability-soon-after-po",
+    "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
+    "summary": "Attackers exploited a vulnerability in Cisco Expressway after a proof‑of‑concept was released, compromising a clustered deployment at a Russian organization. They used the access to set up tooling for lateral movement within the network.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Cisco Expressway"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release",
+        "publisher": "SecurityWeek",
+        "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cisco",
+      "expressway",
+      "vulnerability",
+      "exploitation"
+    ],
+    "created_at": "2026-11-19T13:41:53.079Z",
+    "updated_at": "2026-11-19T13:41:53.079Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
+        "source_url": "https://securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release",
+        "added_at": "2026-11-19T13:41:53.079Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Exploitation confirmed in the wild against Cisco Expressway devices",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2063",
     "slug": "drupal-patches-critical-remote-code-execution-vulnerability",
     "title": "Drupal patches critical remote code execution vulnerability",
