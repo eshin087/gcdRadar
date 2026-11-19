@@ -1,5 +1,67 @@
 [
   {
+    "id": "AIR-2026-2066",
+    "slug": "armory-castle-exploits-vmware-vsphere-in-post-compromise-int",
+    "title": "ARMORY CASTLE exploits VMware vSphere in post-compromise intrusions",
+    "summary": "Mandiant and Google Threat Intelligence observed threat actor ARMORY CASTLE targeting VMware vSphere environments during post-exploitation activities following initial access via BeyondTrust Remote Support. The campaign demonstrates active lateral movement and persistence within compromised virtual infrastructure.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "VMware vSphere",
+      "BeyondTrust Remote Support"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere",
+        "publisher": "Google Threat Intelligence",
+        "title": "ARMORY CASTLE Exploits vSphere",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "armory castle",
+      "unc5221",
+      "vmware vsphere",
+      "CVE-2026-102764",
+      "zero-day"
+    ],
+    "created_at": "2026-11-19T14:41:36.811Z",
+    "updated_at": "2026-11-19T14:41:36.811Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [
+      "CVE-2026-102764"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "ARMORY CASTLE Exploits vSphere",
+        "source_url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere",
+        "added_at": "2026-11-19T14:41:36.811Z"
+      }
+    ],
+    "action": "Audit VMware vSphere and BeyondTrust environments for unauthorized lateral movement and enforce credential isolation.",
+    "severity_note": "Confirmed real-world exploitation in intrusion campaigns targeting enterprise infrastructure",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2065",
     "slug": "ukraine-exposes-ransomware-network-extorting-us-oil-healthca",
     "title": "Ukraine exposes ransomware network extorting US oil, healthcare firms",
@@ -432,9 +494,15 @@
         "publisher": "BleepingComputer",
         "title": "NVIDIA investigating Gentlemen ransomware breach claims",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://securityweek.com/nvidia-responds-to-gentlemen-ransomware-claim",
+        "publisher": "SecurityWeek",
+        "title": "Nvidia Responds to Gentlemen Ransomware Claim",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -444,7 +512,7 @@
       "gentlemen"
     ],
     "created_at": "2026-11-19T09:41:40.987Z",
-    "updated_at": "2026-11-19T09:41:40.987Z",
+    "updated_at": "2026-11-19T14:41:36.811Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -458,6 +526,12 @@
         "title": "NVIDIA investigating Gentlemen ransomware breach claims",
         "source_url": "https://bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims",
         "added_at": "2026-11-19T09:41:40.987Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "Nvidia stated that no evidence of system compromise was found following the ransomware claims.",
+        "source_url": "https://securityweek.com/nvidia-responds-to-gentlemen-ransomware-claim",
+        "added_at": "2026-11-19T14:41:36.811Z"
       }
     ],
     "action": "Monitor official updates from NVIDIA and review internal access logs.",
