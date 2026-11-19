@@ -1,5 +1,119 @@
 [
   {
+    "id": "AIR-2026-2059",
+    "slug": "java4shell-exploitation-attempts-begin-as-vendors-rush-out-a",
+    "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
+    "summary": "Security firms report probing and exploit attempts targeting Java4Shell, prompting vendors like Cisco, Elastic, Red Hat, and Siemens to issue advisories. Affected organisations must apply available patches and monitor perimeter telemetry.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Java4Shell"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories",
+        "publisher": "SecurityWeek",
+        "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "java4shell",
+      "exploitation",
+      "vulnerability"
+    ],
+    "created_at": "2026-11-19T09:41:40.987Z",
+    "updated_at": "2026-11-19T09:41:40.987Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
+        "source_url": "https://securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories",
+        "added_at": "2026-11-19T09:41:40.987Z"
+      }
+    ],
+    "action": "Review vendor advisories and apply available patches immediately.",
+    "severity_note": "Active exploitation in the wild confirmed by security researchers.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2058",
+    "slug": "nvidia-investigating-gentlemen-ransomware-breach-claims",
+    "title": "NVIDIA investigating Gentlemen ransomware breach claims",
+    "summary": "NVIDIA is investigating claims of a security breach after the Gentlemen ransomware group listed the company on its dark web leak site. The impact of the alleged intrusion remains under review.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "NVIDIA"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims",
+        "publisher": "BleepingComputer",
+        "title": "NVIDIA investigating Gentlemen ransomware breach claims",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ransomware",
+      "data-leak",
+      "gentlemen"
+    ],
+    "created_at": "2026-11-19T09:41:40.987Z",
+    "updated_at": "2026-11-19T09:41:40.987Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "NVIDIA investigating Gentlemen ransomware breach claims",
+        "source_url": "https://bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims",
+        "added_at": "2026-11-19T09:41:40.987Z"
+      }
+    ],
+    "action": "Monitor official updates from NVIDIA and review internal access logs.",
+    "severity_note": "Ransomware group claimed a breach against a named organisation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2057",
     "slug": "researcher-demonstrates-rce-exploits-affecting-postgresql-my",
     "title": "Researcher Demonstrates RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
