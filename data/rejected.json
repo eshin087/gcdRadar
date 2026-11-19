@@ -1,5 +1,15 @@
 [
   {
+    "key": "648f4746253c461c",
+    "title": "phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution",
+    "url": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "below the curation bar: advisory with a fix and no exploitation reported",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T18:12:32.521Z"
+  },
+  {
     "key": "c0b2110866740c07",
     "title": "CISA nominee LoSapio vows to bolster cyber defenses while denying Jan. 6 Capitol attack",
     "url": "https://therecord.media/cisa-losapio-nomination-trump",
