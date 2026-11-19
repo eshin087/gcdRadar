@@ -1,5 +1,25 @@
 [
   {
+    "key": "7515f0fe0af12d81",
+    "title": "Second Norwegian Energy Company Breached in Two Days",
+    "url": "https://darkreading.com/cyberattacks-data-breaches/second-norwegian-energy-company-breached",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "out of scope: General news roundup without specific incident details for named entities",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-19T22:11:44.413Z"
+  },
+  {
+    "key": "a16f227863687c74",
+    "title": "AI Agent Authorization That Limits the Damage of Prompt Injection",
+    "url": "https://stackbuilders.com/insights/ai-agent-authorization-that-limits-the-damage-of-prompt-injection",
+    "publisher": "stackbuilders.com",
+    "source_id": "hn",
+    "reason": "out of scope: An informational blog post and architectural proposal proposing defenses against prompt injection, not an incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T22:11:44.413Z"
+  },
+  {
     "key": "53e4a59238e8a8ae",
     "title": "ThreatsDay: GPT-6.2 Jailbreak Flaws, BubbleLoader PNG Malware, $500M Ransom Demands + 17 More Stories",
     "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
