@@ -1,5 +1,15 @@
 [
   {
+    "key": "8bb09f6a08c30bdb",
+    "title": "Microsoft tests new Edge Lockdown Mode that disables GPU APIs",
+    "url": "https://bleepingcomputer.com/news/microsoft/microsoft-tests-new-edge-lockdown-mode-that-disables-gpu-apis",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Product launch and vendor feature announcement",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T12:11:25.592Z"
+  },
+  {
     "key": "5bf3a7c112b9f337",
     "title": "Rubrik Configuration Resilience rolls back unauthorized Microsoft 365 changes",
     "url": "https://helpnetsecurity.com/2026/11/19/rubrik-configuration-resilience-for-microsoft-365",
