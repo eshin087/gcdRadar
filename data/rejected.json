@@ -1,5 +1,15 @@
 [
   {
+    "key": "b8ae93803d26caf9",
+    "title": "Five warning signs of ransomware breach before encryption or data theft",
+    "url": "https://bleepingcomputer.com/news/security/five-warning-signs-of-ransomware-breach-before-encryption-or-data-theft",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope, no AI role (0.60): general advice article, no specific incident",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-19T15:44:16.278Z"
+  },
+  {
     "key": "8e05d5806f2f8514",
     "title": "StepSecurity Secures $20 Million to Expand Supply Chain Protection",
     "url": "https://securityweek.com/stepsecurity-secures-20-million-to-expand-supply-chain-protection",

@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2067",
+    "slug": "critical-vmware-vcenter-flaw-allows-network-attackers-to-byp",
+    "title": "Critical VMware vCenter Flaw Allows Network Attackers to Bypass Authentication",
+    "summary": "VMware disclosed a critical vulnerability in vCenter that allows network‑connected attackers to bypass authentication and gain full control. The vendor released patches for all supported branches, with no workaround available.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "VMware vCenter"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+        "publisher": "The Hacker News",
+        "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "vmware",
+      "vcenter",
+      "authentication-bypass",
+      "cve",
+      "critical"
+    ],
+    "created_at": "2026-11-19T15:44:16.278Z",
+    "updated_at": "2026-11-19T15:44:16.278Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+        "source_url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+        "added_at": "2026-11-19T15:44:16.278Z"
+      }
+    ],
+    "action": "Apply the latest patched version of VMware vCenter",
+    "severity_note": "Critical CVSS 9.8, no known exploitation, vendor released patches",
+    "cvss": 9.8
+  },
+  {
     "id": "AIR-2026-2066",
     "slug": "armory-castle-exploits-vmware-vsphere-in-post-compromise-int",
     "title": "ARMORY CASTLE exploits VMware vSphere in post-compromise intrusions",
@@ -202,9 +261,15 @@
         "publisher": "BleepingComputer",
         "title": "Drupal patches critical RCE flaw, warns exploits may surface quickly",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html",
+        "publisher": "The Hacker News",
+        "title": "Drupal Patches Critical Installer Flaw That Could Give Unauthenticated Attackers Control of Sites",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -214,7 +279,7 @@
       "remote-code-execution"
     ],
     "created_at": "2026-11-19T13:19:56.132Z",
-    "updated_at": "2026-11-19T13:19:56.132Z",
+    "updated_at": "2026-11-19T15:44:16.278Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -259,9 +324,15 @@
         "publisher": "Checkmarx",
         "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
+        "publisher": "The Hacker News",
+        "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.8,
     "status": "published",
     "origin": "news",
@@ -271,11 +342,11 @@
       "vulnerability"
     ],
     "created_at": "2026-11-19T13:11:05.476Z",
-    "updated_at": "2026-11-19T13:11:05.476Z",
+    "updated_at": "2026-11-19T15:44:16.278Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
-    "patch_status": "unknown",
+    "patch_status": "patched",
     "cve_ids": [
       "CVE-2026-115560"
     ],
@@ -287,9 +358,15 @@
         "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
         "source_url": "https://checkmarx.com/zero-post/php-rings-the-alarm-again-what-we-know-and-dont-about-todays-critical-php-security-release",
         "added_at": "2026-11-19T13:11:05.476Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "Vendor releases security updates addressing seven critical vulnerabilities including remote code execution and CVE-2026-115560.",
+        "source_url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
+        "added_at": "2026-11-19T15:44:16.278Z"
       }
     ],
-    "action": "Monitor PHP advisories and apply patches as soon as fixed versions become available.",
+    "action": "Apply the latest PHP security updates immediately to mitigate remote code execution risks.",
     "severity_note": "Critical security release announced for PHP.",
     "cvss": null
   },
