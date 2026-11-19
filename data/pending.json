@@ -1,20 +1,5 @@
 [
   {
-    "key": "33e3271745305272",
-    "source_id": "securityweek",
-    "origin": "news",
-    "url": "https://securityweek.com/php-patches-seven-critical-rce-vulnerabilities",
-    "title": "PHP Patches Seven Critical RCE Vulnerabilities",
-    "published_at": "2026-11-19",
-    "publisher": "SecurityWeek",
-    "hint": "Successful exploitation could allow attackers to crash the worker process and execute code with the PHP worker’s privileges.",
-    "cve_ids": [],
-    "discovered_at": "2026-11-19T16:06:55.711Z",
-    "extra": {
-      "ai_hint": false
-    }
-  },
-  {
     "key": "9ac65580a3d25d13",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -25,23 +10,6 @@
     "hint": "Phishing remains a major source of credential theft and fraudulent payments, and email security systems must classify large message volumes reliably, quickly, and at manageable cost. Large Language Models (LLMs) offer flexible text understanding, but their token-based generation increases response time and API cost, and the reliability of their confidence values requires measurement. Jev 1.13, a typed decision model from TypeSafe AI, instead returns a structured outcome with a confidence value. This paper compares Jev 1.13 with Gemini 3.5…",
     "cve_ids": [],
     "discovered_at": "2026-11-19T16:07:00.056Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "4a3656e09a0d44a9",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.23838",
-    "title": "Plug-and-Play Multi-Licensee Robust Watermarking for Mixture-of-Experts LLMs",
-    "published_at": "2026-11-19",
-    "publisher": "arXiv",
-    "hint": "Mixture-of-Experts (MoE) architectures enable high-capacity large language models (LLMs) with high sparse computation, making them attractive for deployment on private hardware. However, distributing model weights exposes valuable intellectual property (IP) to leakage and unauthorized redistribution, creating an urgent need to both verify model ownership and trace leaked copies to individual licensees. Existing model-watermarking techniques are ill-suited for meeting this need because they are fragile under MoE's dynamic routing or require…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-19T16:07:00.057Z",
     "extra": {
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
@@ -100,57 +68,6 @@
     }
   },
   {
-    "key": "4d8e50dff2cd5909",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.24313",
-    "title": "AutoPI: Taxonomy-Guided Adaptive Red Teaming for Prompt Injection in LLM Agents",
-    "published_at": "2026-11-19",
-    "publisher": "arXiv",
-    "hint": "Prompt injection is the dominant unsolved security risk for LLM agents, and the community now agrees that robustness must be measured against adaptive attackers rather than fixed benchmark injections. Many adaptive red teamers exist, and most are built to maximize attack success rate (ASR). Yet ASR counts how often a target breaks, not in how many different ways. A red teamer can achieve a high ASR by reusing a few techniques that work, leaving the others untested and absent from the attacks used to harden models. We present AutoPI, an adaptive…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-19T16:07:00.057Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "d97e362c3b8311d1",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.24494",
-    "title": "RECLAIM: Robot-Vision-Informed Adversarial Patch Defense via Embodied Attention Feedback",
-    "published_at": "2026-11-19",
-    "publisher": "arXiv",
-    "hint": "Vision-language-action policies control embodied agents through a perception-action loop grounded in physical interaction, where adversarial patches can corrupt action predictions and thereby alter subsequent observations. To mitigate these threats, many existing defenses rely on policy adaptation or auxiliary models, but require additional training or inference. We introduce RECLAIM, a training-free, inference-time defense that uses a frozen VLA's own attention response to local visual interventions to guide purification during closed-loop…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-19T16:07:00.058Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "58401e67ffb09b5b",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.24558",
-    "title": "SCR: Detecting Backdoor-Poisoned Samples through Clean-Reference Residuals",
-    "published_at": "2026-11-19",
-    "publisher": "arXiv",
-    "hint": "Deep neural networks are vulnerable to backdoor attacks, in which adversaries manipulate model predictions by injecting poisoned samples into training data. Detecting these samples remains challenging because legitimate semantic variation can obscure poisoning-related signals in learned representations. Consequently, class-level statistics used by existing detectors may flag benign feature deviations while overlooking poisoned samples that blend into the class distribution. In this paper, we propose Semantic Counterfactual Residualization…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-19T16:07:00.058Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "4f7bffa93cbdadcb",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -176,23 +93,6 @@
     "published_at": "2026-11-19",
     "publisher": "arXiv",
     "hint": "When older adults trust scammers despite warnings, families face obstacles to intervention. Complainants aged 60 and older reported \\$4.9 billion in losses in 2024 to the U.S. Internet Crime Complaint Center. To investigate family intervention barriers to elder scams, we collected 2M Reddit posts from May 2021 to June 2026 and 2B Baidu Tieba posts from 2007 to 2026. The final corpora contain 13,082 Reddit posts and 3,933 Baidu Tieba posts, labeled using platform-specific codebooks, manual reference annotations, and LLM coding. Through a…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-19T16:07:00.058Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "611179353ab264d7",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.24689",
-    "title": "Stealing Exact Training Data from Other Clients during Federated Learning",
-    "published_at": "2026-11-19",
-    "publisher": "arXiv",
-    "hint": "Malicious adversaries can employ gradient inversion attacks to reverse-engineer private data using the model updates of a round in Federated Learning. While there have been developments in gradient inversion for text, exact text recovery by a malicious client has so far remained infeasible, as FedAvg entangles the gradient contributions of many clients and obscures the signal of any individual sentence. We introduce a novel attack pipeline that unwinds this entanglement progressively through an iterative loop, in which the gradient…",
     "cve_ids": [],
     "discovered_at": "2026-11-19T16:07:00.058Z",
     "extra": {

@@ -1,5 +1,119 @@
 [
   {
+    "id": "AIR-2026-2071",
+    "slug": "gradient-inversion-attack-extracts-exact-training-text-in-fe",
+    "title": "Gradient Inversion Attack Extracts Exact Training Text in Federated Learning",
+    "summary": "Researchers demonstrated an iterative gradient inversion technique capable of recovering exact training text from client model updates in federated learning. The method disentangles aggregated client updates under FedAvg to extract private training data without direct data access.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.24689",
+        "publisher": "arXiv",
+        "title": "Stealing Exact Training Data from Other Clients during Federated Learning",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "gradient-inversion",
+      "federated-learning",
+      "fedavg",
+      "data-leakage",
+      "privacy"
+    ],
+    "created_at": "2026-11-19T16:50:40.862Z",
+    "updated_at": "2026-11-19T16:50:40.862Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Stealing Exact Training Data from Other Clients during Federated Learning",
+        "source_url": "https://arxiv.org/abs/2611.24689",
+        "added_at": "2026-11-19T16:50:40.862Z"
+      }
+    ],
+    "action": "Implement differential privacy or secure aggregation protocols across federated learning rounds to obscure individual client gradients.",
+    "severity_note": "Severity 1 as this is a theoretical and experimental attack demonstrated in research without real-world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2070",
+    "slug": "autopi-framework-automates-adaptive-prompt-injection-attacks",
+    "title": "AutoPI framework automates adaptive prompt injection attacks against LLM agents",
+    "summary": "Researchers introduced AutoPI, an adaptive red-teaming framework that generates diverse prompt injection attacks against LLM agents. The method targets agent robustness by identifying varied attack vectors rather than optimizing solely for attack success rate.",
+    "type": "attack_on_ai",
+    "categories": [
+      "prompt_injection",
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.24313",
+        "publisher": "arXiv",
+        "title": "AutoPI: Taxonomy-Guided Adaptive Red Teaming for Prompt Injection in LLM Agents",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt-injection",
+      "red-teaming",
+      "llm-agents",
+      "adversarial-attack"
+    ],
+    "created_at": "2026-11-19T16:50:40.862Z",
+    "updated_at": "2026-11-19T16:50:40.862Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "AutoPI: Taxonomy-Guided Adaptive Red Teaming for Prompt Injection in LLM Agents",
+        "source_url": "https://arxiv.org/abs/2611.24313",
+        "added_at": "2026-11-19T16:50:40.862Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Severity 1 proof-of-concept research with no confirmed in-the-wild exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2069",
     "slug": "rented-oscillations-multi-tenant-data-center-workload-synchr",
     "title": "Rented Oscillations: Multi-Tenant Data Center Workload Synchronization Attacks and Mitigation",
@@ -446,9 +560,15 @@
         "publisher": "The Hacker News",
         "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs",
+        "publisher": "BleepingComputer",
+        "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.8,
     "status": "published",
     "origin": "news",
@@ -458,7 +578,7 @@
       "vulnerability"
     ],
     "created_at": "2026-11-19T13:11:05.476Z",
-    "updated_at": "2026-11-19T15:44:16.278Z",
+    "updated_at": "2026-11-19T16:50:40.862Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -480,6 +600,12 @@
         "title": "Vendor releases security updates addressing seven critical vulnerabilities including remote code execution and CVE-2026-115560.",
         "source_url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
         "added_at": "2026-11-19T15:44:16.278Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
+        "source_url": "https://bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs",
+        "added_at": "2026-11-19T16:50:40.862Z"
       }
     ],
     "action": "Apply the latest PHP security updates immediately to mitigate remote code execution risks.",
@@ -33496,9 +33622,15 @@
         "publisher": "The Hacker News",
         "title": "Everything Is a Web Application, Including Your Firewall",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://securityweek.com/php-patches-seven-critical-rce-vulnerabilities",
+        "publisher": "SecurityWeek",
+        "title": "PHP Patches Seven Critical RCE Vulnerabilities",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 13,
+    "source_count": 14,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -33510,7 +33642,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-10-26T14:52:59.139Z",
-    "updated_at": "2026-11-19T13:11:05.476Z",
+    "updated_at": "2026-11-19T16:50:40.862Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -33570,6 +33702,12 @@
         "title": "New reports link PHP bug exploitation to a suspected Chinese campaign targeting government affiliated servers",
         "source_url": "https://therecord.media/php2shell-successful-exploitation-reports-emerge",
         "added_at": "2026-10-29T23:23:38.250Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "PHP Patches Seven Critical RCE Vulnerabilities",
+        "source_url": "https://securityweek.com/php-patches-seven-critical-rce-vulnerabilities",
+        "added_at": "2026-11-19T16:50:40.862Z"
       }
     ],
     "action": "Upgrade PHP installations to version 8.5.12, 8.4.27, 8.3.36, 8.2.35 or later immediately.",

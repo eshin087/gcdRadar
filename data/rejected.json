@@ -1,5 +1,35 @@
 [
   {
+    "key": "d97e362c3b8311d1",
+    "title": "RECLAIM: Robot-Vision-Informed Adversarial Patch Defense via Embodied Attention Feedback",
+    "url": "https://arxiv.org/abs/2611.24494",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes an adversarial defense for vision-language-action policies rather than demonstrating an attack.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T16:50:40.862Z"
+  },
+  {
+    "key": "4a3656e09a0d44a9",
+    "title": "Plug-and-Play Multi-Licensee Robust Watermarking for Mixture-of-Experts LLMs",
+    "url": "https://arxiv.org/abs/2611.23838",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a model watermarking defense mechanism rather than demonstrating an attack.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T16:50:40.862Z"
+  },
+  {
+    "key": "58401e67ffb09b5b",
+    "title": "SCR: Detecting Backdoor-Poisoned Samples through Clean-Reference Residuals",
+    "url": "https://arxiv.org/abs/2611.24558",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a defense to detect backdoor-poisoned samples rather than demonstrating an attack.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T16:50:40.862Z"
+  },
+  {
     "key": "b7a81c659ac0ee44",
     "title": "What Survives the Shift from Text to Pixels? Conditional Protection against Prompt Injection in Image-Rendered Documents",
     "url": "https://arxiv.org/abs/2611.24231",
