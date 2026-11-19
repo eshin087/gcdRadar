@@ -1,5 +1,15 @@
 [
   {
+    "key": "53e4a59238e8a8ae",
+    "title": "ThreatsDay: GPT-6.2 Jailbreak Flaws, BubbleLoader PNG Malware, $500M Ransom Demands + 17 More Stories",
+    "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Roundup or newsletter piece covering multiple unrelated stories without a single specific incident report.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T20:41:07.109Z"
+  },
+  {
     "key": "3c22a4a362d13e84",
     "title": "Navigating Vulnerability Hysteria in the AI Era",
     "url": "https://darkreading.com/vulnerabilities-threats/navigating-vulnerability-hysteria-ai-era",
