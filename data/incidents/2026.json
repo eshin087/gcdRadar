@@ -493,9 +493,15 @@
         "publisher": "The Hacker News",
         "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt",
+        "publisher": "SecurityWeek",
+        "title": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -507,7 +513,7 @@
       "critical"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-19T15:44:16.278Z",
+    "updated_at": "2026-11-19T19:41:27.994Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -521,6 +527,12 @@
         "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
         "source_url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
         "added_at": "2026-11-19T15:44:16.278Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "Exploitation confirmed as a zero-day by a China-linked espionage group prior to patching.",
+        "source_url": "https://securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt",
+        "added_at": "2026-11-19T19:41:27.994Z"
       }
     ],
     "action": "Apply the latest patched version of VMware vCenter",
