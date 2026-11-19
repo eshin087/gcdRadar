@@ -1,5 +1,15 @@
 [
   {
+    "key": "123d5f0e15e86cbb",
+    "title": "PHP Readies Critical Security Updates to Patch Another RCE Flaw",
+    "url": "https://securityweek.com/php-readies-critical-security-updates-to-patch-another-rce-flaw",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Not in scope as it is a news article about impending security updates rather than an exploited vulnerability or specific researcher disclosure.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-19T08:11:24.837Z"
+  },
+  {
     "key": "0f09b51c842c8e31",
     "title": "AI agents inherit employee access, and nobody’s watching how they use it",
     "url": "https://helpnetsecurity.com/2026/11/19/ai-agents-employee-credentials-nudge-security-report",
