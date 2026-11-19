@@ -1,5 +1,35 @@
 [
   {
+    "key": "5bf3a7c112b9f337",
+    "title": "Rubrik Configuration Resilience rolls back unauthorized Microsoft 365 changes",
+    "url": "https://helpnetsecurity.com/2026/11/19/rubrik-configuration-resilience-for-microsoft-365",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and feature announcement for a security product.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T11:41:19.406Z"
+  },
+  {
+    "key": "ffd1dd4d0cd8a9f9",
+    "title": "BackBox Linux 10 brings new hacking tools and Ubuntu 26.04 support",
+    "url": "https://helpnetsecurity.com/2026/11/19/backbox-linux-10-penetration-testing",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Software release announcement for a penetration testing distribution.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T11:41:19.406Z"
+  },
+  {
+    "key": "63970647f372e01e",
+    "title": "SonicWall urges customers to replace Gen 6 firewalls now",
+    "url": "https://helpnetsecurity.com/2026/11/19/sonicwall-gen-6-firewalls-reach-end-of-support",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: End-of-support advisory for legacy hardware products, not a specific vulnerability or breach.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-19T11:41:19.406Z"
+  },
+  {
     "key": "120427cbb9ff8f05",
     "title": "Splunk Patches Nearly 140 Flaws Across Three Core Products",
     "url": "https://securityweek.com/splunk-patches-nearly-140-flaws-across-three-core-products",
