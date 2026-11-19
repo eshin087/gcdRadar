@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2065",
+    "slug": "ukraine-exposes-ransomware-network-extorting-us-oil-healthca",
+    "title": "Ukraine exposes ransomware network extorting US oil, healthcare firms",
+    "summary": "Ukrainian authorities arrested four suspected members of an international ransomware group accused of extorting more than $40 million from U.S. oil and healthcare companies. The arrests expose the network’s operations and its large‑scale financial impact.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-19",
+    "sources": [
+      {
+        "url": "https://therecord.media/ukraine-ransomware-arrests-cyber",
+        "publisher": "The Record",
+        "title": "Ukraine exposes ransomware network extorting US oil, healthcare firms",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ransomware",
+      "extortion",
+      "oil",
+      "healthcare",
+      "ukraine",
+      "financial_loss"
+    ],
+    "created_at": "2026-11-19T14:11:05.756Z",
+    "updated_at": "2026-11-19T14:11:05.756Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-19",
+        "title": "Ukraine exposes ransomware network extorting US oil, healthcare firms",
+        "source_url": "https://therecord.media/ukraine-ransomware-arrests-cyber",
+        "added_at": "2026-11-19T14:11:05.756Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed extortion of over $40M from victims",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2064",
     "slug": "hackers-exploit-cisco-expressway-vulnerability-soon-after-po",
     "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
