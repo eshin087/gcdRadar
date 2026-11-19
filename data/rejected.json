@@ -1,5 +1,15 @@
 [
   {
+    "key": "8f06c466b157a476",
+    "title": "US enlists private firms to cut scammers off from victims’ cash",
+    "url": "https://helpnetsecurity.com/2026/11/19/us-threat-disruption-center-scam-sextortion-funds",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: policy or government initiative news without a specific cyber incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-19T08:41:22.565Z"
+  },
+  {
     "key": "123d5f0e15e86cbb",
     "title": "PHP Readies Critical Security Updates to Patch Another RCE Flaw",
     "url": "https://securityweek.com/php-readies-critical-security-updates-to-patch-another-rce-flaw",
