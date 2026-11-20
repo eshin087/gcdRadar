@@ -78,7 +78,7 @@ export function WeekFacts({ week: w, news, today, briefing }: { week: Week; news
         </>
       }
     >
-      <div className="grid items-center gap-x-12 gap-y-6 lg:grid-cols-[minmax(0,1fr)_300px]">
+      <div className="grid items-center gap-x-12 gap-y-6 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="-mt-2.5 min-w-0">
           <ol data-week className="grid gap-x-11 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-3">
             <Fact
@@ -129,7 +129,7 @@ export function WeekFacts({ week: w, news, today, briefing }: { week: Week; news
               value={fmt(aiN)}
               label="incidents involving AI"
               href="/trends#ai-security"
-              fact={`of ${ai.total} this week`}
+              fact={`of ${ai.total} incidents`}
             />
             <Fact
               k="patch-tuesday"
@@ -153,7 +153,7 @@ export function WeekFacts({ week: w, news, today, briefing }: { week: Week; news
             </span>
           </p>
         </div>
-        <RadarScope contacts={news.contacts} label={`A radar scope: ${radarWords}.`} className="h-[150px] w-full" />
+        <RadarScope contacts={news.contacts} label={`A radar scope: ${radarWords}.`} className="h-[170px] w-full" />
       </div>
     </Frame>
   );

@@ -13,7 +13,7 @@ export function Frame({ id, label, title, control, controlFrom, className = "", 
   return (
     <section id={id} aria-label={label} className={`hp-frame scroll-mt-8 ${className}`} {...rest}>
       <div className="hp-frame-title">{title}</div>
-      {control && <div className={`hp-frame-ctl ${controlFrom === "sm" ? "hidden sm:flex" : ""}`}>{control}</div>}
+      {control && <div className={`hp-frame-ctl ${controlFrom === "sm" ? "hp-from-sm" : ""}`}>{control}</div>}
       {children}
     </section>
   );

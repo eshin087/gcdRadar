@@ -11,7 +11,7 @@ import { Score } from "@/components/home/Score";
 import { QuickLook } from "@/components/incidents/QuickLook";
 import { Drawer } from "@/components/ui/Drawer";
 import { dateLabel } from "@/lib/format";
-import { STACK_CRITS_NAMED, STACK_ROWS } from "@/lib/panel/caps";
+import { STACK_CRITS_NAMED, STACK_ROWS, STACK_ROWS_PHONE } from "@/lib/panel/caps";
 import { CRITICAL_DAYS, CRITICAL_MIN, STACK_DAYS, critNote, flagBadge, type FlagTone, type StackCandidate, type StackCrit, type StackFile, type StackItem } from "@/lib/panel/picks";
 
 /**
@@ -49,7 +49,7 @@ function FlagBadge({ flag, title }: { flag: string; title?: string }) {
 /** A flag in the row's words: the build's own, with "yet" dropped from "no patch yet". */
 const flagWords = (flag: string) => (flag === "no patch yet" ? "no patch" : flag);
 
-function Row({ t, onOpen }: { t: StackCandidate; onOpen: () => void }) {
+function Row({ t, onOpen, wide }: { t: StackCandidate; onOpen: () => void; wide: boolean }) {
   const b = flagBadge(t.flag!);
   return (
     <button
@@ -63,7 +63,7 @@ function Row({ t, onOpen }: { t: StackCandidate; onOpen: () => void }) {
       data-score={t.flagScore ?? ""}
       title={`${t.why.join(" · ")} · ${t.n} exploited in the last ${STACK_DAYS} days${t.crit ? ` · ${critNote(t.crit)} in ${CRITICAL_DAYS} days` : ""}`}
       aria-label={`${t.label}: ${t.flag}, ${t.flagScore !== null ? `CVSS ${t.flagScore}` : "no score yet"}, open the list`}
-      className="group grid h-11 w-full grid-cols-[7px_auto_minmax(0,1fr)_auto] items-center gap-x-2.5 border-b border-line-soft text-left sm:h-9"
+      className={`group ${wide ? "hidden sm:grid" : "grid"} h-11 w-full grid-cols-[7px_auto_minmax(0,1fr)_auto] items-center gap-x-2.5 border-b border-line-soft text-left sm:h-9`}
     >
       <span aria-hidden className={`size-[7px] ${TONE_LIGHT[b.tone]}`} />
       <span className="truncate text-[14.5px] font-medium text-ink group-hover:text-accent">{t.label}</span>
@@ -267,8 +267,9 @@ export function MyStack() {
       }
     >
       <div data-stack={ready ? "ready" : "wait"} data-tiles={tiles.length} data-urgent={urgent.length} className="grid gap-x-11 sm:grid-cols-2 lg:grid-cols-3">
-        {rows.map((t) => (
-          <Row key={t.key} t={t} onOpen={() => show(t)} />
+        {rows.map((t, i) => (
+          // past the phone's cap a row waits for a wider screen, or for "more"
+          <Row key={t.key} t={t} onOpen={() => show(t)} wide={!all && i >= STACK_ROWS_PHONE} />
         ))}
         {urgent.length === 0 && (
           <p data-stack-calm className="col-span-full text-[14.5px] text-soft">
@@ -276,9 +277,16 @@ export function MyStack() {
           </p>
         )}
       </div>
-      {urgent.length > STACK_ROWS && (
-        <button type="button" data-stack-more onClick={() => setAll(!all)} className="mt-3 font-mono text-[12.5px] text-dim hover:text-accent">
-          {all ? "show fewer" : `+${urgent.length - STACK_ROWS} more`}
+      {urgent.length > STACK_ROWS_PHONE && (
+        <button type="button" data-stack-more onClick={() => setAll(!all)} className={`mt-3 font-mono text-[12.5px] text-dim hover:text-accent ${urgent.length > STACK_ROWS ? "" : "sm:hidden"}`}>
+          {all ? (
+            "show fewer"
+          ) : (
+            <>
+              <span className="sm:hidden">+{urgent.length - STACK_ROWS_PHONE} more</span>
+              <span className="hidden sm:inline">+{urgent.length - STACK_ROWS} more</span>
+            </>
+          )}
         </button>
       )}
       {named.length > 0 && (

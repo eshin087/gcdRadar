@@ -7,7 +7,8 @@
 
 /** "Next due": the nearest deadline leads with its countdown, and this many rows follow it. */
 export const NEXT_DUE_ROWS = 6;
-/** My stack draws this many products that need action before "+N more". */
+/** My stack draws this many products that need action before "+N more": three rows of three, and on a phone's single column fewer. */
 export const STACK_ROWS = 9;
+export const STACK_ROWS_PHONE = 5;
 /** The new critical CVEs named under My stack. */
 export const STACK_CRITS_NAMED = 4;

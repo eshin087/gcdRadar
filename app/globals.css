@@ -435,6 +435,10 @@ body {
   .hp-frame-ctl > * {
     padding: 0 6px;
   }
+  /* a control too long to share a phone's line with its title: the section repeats it under its rows */
+  .hp-frame-ctl.hp-from-sm {
+    display: none;
+  }
 }
 
 /* a score's meter: ten cells, as many lit as the score rounds to, in the score's colour */
@@ -471,15 +475,6 @@ body {
 }
 .hp-digit > i.x {
   background: var(--color-accent);
-}
-
-/* the radar scope's canvas fades in over nothing: the facts beside it never wait for it */
-.hp-radar .glyph-canvas {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-.hp-radar .glyph-canvas.is-live {
-  opacity: 1;
 }
 
 /* How AI shows up: dotted ribbons, one line per two incidents, drifting along their curves */

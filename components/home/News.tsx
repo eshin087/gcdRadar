@@ -43,7 +43,7 @@ function Row({ r, labels, ready, now }: { r: NewsRow; labels: readonly string[];
         {shortAge(r.created, now)}
       </span>
       <span className="min-w-0">
-        <Peek slug={r.slug} title={r.title} className="block truncate text-[15px] font-medium text-ink hover:text-accent">
+        <Peek slug={r.slug} title={r.title} className="line-clamp-2 text-[15px] leading-snug font-medium text-ink hover:text-accent sm:line-clamp-1">
           {r.title}
         </Peek>
         <span data-news-by className="mt-0.5 block truncate text-[13px] text-dim">

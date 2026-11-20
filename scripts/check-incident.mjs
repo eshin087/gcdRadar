@@ -83,6 +83,16 @@ const READ_PAGE = `(() => {
 })()`;
 
 /** A KEV-listed record and the fix view its own JSON carries (the `fix` field of /data/incidents/<slug>.json, built by the same join as the page). */
+/** /stats/stack.json as the page works with it (lib/panel/picks.ts unpackStack): each candidate's items out of the shared table. */
+function unpackStack(wire) {
+  const key = (label) => label.normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  const items = wire.items.map(([kind, name, cves, date, due, cvss, open, href]) => {
+    const link = href || `https://nvd.nist.gov/vuln/detail/${cves[0] ?? ""}`;
+    return { kind: kind === 0 ? "kev" : "record", name, cves, date, due: due || null, cvss, open: open || null, href: link, external: link.startsWith("http") };
+  });
+  return { default: wire.default, candidates: wire.candidates.map((w) => ({ key: w.key ?? key(w.label), label: w.label, flag: w.flag ?? null, tier: w.tier ?? 5, items: (w.it ?? []).map((n) => items[n]).filter(Boolean) })) };
+}
+
 async function pickKevRecord(base, stack) {
   if (typeof args.slug === "string") {
     const rec = await json(base, `/data/incidents/${args.slug}.json`);
@@ -162,15 +172,15 @@ async function waitFor(client, expression, tries = 80) {
 async function quickLook(client, base, stack, { width, height, mobile }) {
   const at = `at ${width}px`;
   await client.send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: mobile ? 2 : 1, mobile });
-  // a default chip whose list holds a KEV entry with no record of ours
-  const cand = stack.default.map((k) => stack.candidates.find((c) => c.key === k)).find((c) => (c?.items ?? []).some((it) => it.kind === "kev" && it.external && it.cves[0]));
-  check(`a default My stack chip lists a KEV entry without a record (${at})`, Boolean(cand), cand?.key ?? "none");
+  // a default product the page draws (one that needs action) whose list holds a KEV entry with no record of ours
+  const cand = stack.default.map((k) => stack.candidates.find((c) => c.key === k)).find((c) => c && c.tier <= 3 && c.flag && c.items.some((it) => it.kind === "kev" && it.external && it.cves[0]));
+  check(`a default My stack product lists a KEV entry without a record (${at})`, Boolean(cand), cand?.key ?? "none");
   if (!cand) return;
   const item = cand.items.find((it) => it.kind === "kev" && it.external && it.cves[0]);
   const cve = item.cves[0];
-  await navigate(client, `${base}/?final`, `document.querySelector('[data-tiles][data-stack="ready"] [data-stack-tile]')`);
+  await navigate(client, `${base}/?final`, `document.querySelector('#stack [data-stack-tile]')`);
   const opened = await call(client, `(key) => { const t = document.querySelector('[data-stack-tile="' + key + '"]'); if (!t) return false; t.click(); return true; }`, cand.key);
-  check(`the ${cand.key} chip is on the page (${at})`, opened);
+  check(`the ${cand.key} row is on the page (${at})`, opened);
   if (!opened) return;
   const listed = await waitFor(client, `document.querySelector('[role="dialog"] [data-quicklook-open]')`);
   check(`its list offers the quick look (${at})`, listed);
@@ -256,8 +266,9 @@ async function run(client, base) {
   await client.send("Runtime.enable");
   // the home page as built: its live layer would fetch the Worker
   await blockHosts(client, [WORKER]);
-  const stack = await json(base, "/stats/stack.json");
-  if (!stack) throw new Error("/stats/stack.json not found");
+  const wire = await json(base, "/stats/stack.json");
+  if (!wire) throw new Error("/stats/stack.json not found");
+  const stack = unpackStack(wire);
   await recordPage(client, base, stack);
   await quickLook(client, base, stack, { width: 1440, height: 900, mobile: false });
   await quickLook(client, base, stack, { width: 375, height: 812, mobile: true });

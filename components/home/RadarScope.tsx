@@ -31,7 +31,7 @@ export function RadarScope({ contacts, label, className = "" }: { contacts: read
         key={contacts.map((c) => c.join(" ")).join("|")}
         scene={async () => (await import("@/components/fx/glyph/scenes/radarScope")).radarScope(contacts)}
         label={label}
-        cell={4}
+        cell={5}
         glow={0.42}
         exposure={1.15}
         still={1.6}
