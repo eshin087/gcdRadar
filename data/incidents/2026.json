@@ -501,9 +501,15 @@
         "publisher": "BleepingComputer",
         "title": "Hackers steal data of 1.6 million SBC Medical Group customers",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million",
+        "publisher": "SecurityWeek",
+        "title": "SBC Medical Group Data Breach Impacts Over 2 Million",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -513,7 +519,7 @@
       "pii-leak"
     ],
     "created_at": "2026-11-19T22:55:41.041Z",
-    "updated_at": "2026-11-19T22:55:41.041Z",
+    "updated_at": "2026-11-20T11:51:46.821Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -527,6 +533,12 @@
         "title": "Hackers steal data of 1.6 million SBC Medical Group customers",
         "source_url": "https://bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers",
         "added_at": "2026-11-19T22:55:41.041Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Breach total revised to affect over two million individuals",
+        "source_url": "https://securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million",
+        "added_at": "2026-11-20T11:51:46.821Z"
       }
     ],
     "action": "",
