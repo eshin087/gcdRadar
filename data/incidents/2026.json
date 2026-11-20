@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2096",
+    "slug": "bazuka-android-malware-framework-discovered-with-llm-integra",
+    "title": "Bazuka Android Malware Framework Discovered with LLM Integration for Credential Theft",
+    "summary": "Researchers uncovered Bazuka, an Android malware framework that uses fake screen overlays to steal credentials and control devices. The malware incorporates large language model capabilities to manage victims at scale.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Bazuka"
+    ],
+    "incident_date": "2026-10",
+    "incident_date_precision": "month",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+        "publisher": "The Hacker News",
+        "title": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and Device Control",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "android",
+      "malware",
+      "llm",
+      "credential-theft",
+      "bazuka"
+    ],
+    "created_at": "2026-11-20T17:36:54.927Z",
+    "updated_at": "2026-11-20T17:36:54.927Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and Device Control",
+        "source_url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+        "added_at": "2026-11-20T17:36:54.927Z"
+      }
+    ],
+    "action": "Analyze and block Bazuka samples, update mobile security solutions, and monitor for LLM‑enabled malicious activity.",
+    "severity_note": "Malware observed in the wild stealing credentials and controlling devices, confirming active exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2095",
     "slug": "vendor-data-breach-exposes-chase-visa-mastercard-customer-in",
     "title": "Vendor data breach exposes Chase, Visa, Mastercard customer info",

@@ -1,17 +1,1 @@
-[
-  {
-    "key": "9dbbebdeb6a3a85d",
-    "source_id": "thn",
-    "origin": "news",
-    "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
-    "title": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and Device Control",
-    "published_at": "2026-11-20",
-    "publisher": "The Hacker News",
-    "hint": "Cybersecurity researchers have disclosed details of a previously unknown Android malware framework called Bazuka that offers large language model (LLM) integration for victim management and control at scale. Dutch mobile security company ThreatFabric said it discovered the threat in late October 2026 during an investigation into an NFC-relay banking Trojan. \"Bazuka is a full malware framework,",
-    "cve_ids": [],
-    "discovered_at": "2026-11-20T17:21:35.958Z",
-    "extra": {
-      "ai_hint": true
-    }
-  }
-]
+[]
