@@ -1,5 +1,15 @@
 [
   {
+    "key": "3ea993db7e3c60d1",
+    "title": "Combatting adversarial distillation",
+    "url": "https://openai.com/index/combatting-adversarial-distillation",
+    "publisher": "OpenAI",
+    "source_id": "openai",
+    "reason": "out of scope: Product or security feature announcement describing an approach, not a specific incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T19:36:26.624Z"
+  },
+  {
     "key": "14b1eb3d9075aa79",
     "title": "WhatsApp Fixes Flaw Uncovered While Disrupting Scam Campaign",
     "url": "https://securityweek.com/whatsapp-fixes-flaw-uncovered-while-disrupting-scam-campaign",
