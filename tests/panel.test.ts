@@ -6,8 +6,8 @@ import { dueEnd, foldedOnDeadline, runwaySpan } from "@/lib/panel/deadlines";
 import { cveWindows, kevWeekHistory } from "@/lib/panel";
 import { LEDGER_NEW_AI_KEPT, LEDGER_NEW_KEPT, buildLedger } from "@/lib/panel/ledger";
 import { bandOf, levelOf, quantile, ratioLevel } from "@/lib/panel/levels";
-import { flagBadge, rowStack, stackHits } from "@/lib/panel/picks";
-import { buildStack, kevCatalogHref, parsePicks, stackMatches, tileOf, type StackFile } from "@/lib/panel/stack";
+import { STACK_MAX, flagBadge, packStack, rowStack, stackHits, stackUrgency, unpackStack } from "@/lib/panel/picks";
+import { STACK_DEFAULT_MAX, STACK_DEFAULT_MIN, buildStack, kevCatalogHref, parsePicks, stackMatches, tileOf, type StackFile } from "@/lib/panel/stack";
 import { buildSurface, techOf } from "@/lib/panel/technology";
 import { kevName, recordCves, shortDate, slugKey } from "@/lib/panel/util";
 import { patchTuesday, typicalBreachMonth, typicalCriticalWeek, typicalCveWeek } from "@/lib/panel/week";
@@ -158,14 +158,26 @@ describe("the ledger", () => {
   const stack: StackFile = {
     generated_at: NOW,
     default: ["linux"],
+    aliases: {},
     candidates: [
       {
         key: "linux",
         label: "Linux",
         kind: "vendor",
+        vendor: "Linux kernel",
+        cat: "os",
+        level: "product",
         n: 1,
         flag: "patch by 31 Oct",
         why: ["CISA deadline 2026-10-31"],
+        due: "2026-10-31",
+        late: null,
+        patch: null,
+        impact: false,
+        flagScore: 7.8,
+        cvss: 7.8,
+        crit: 0,
+        tier: 1,
         kev7: [],
         href: kevCatalogHref("Linux"),
         items: [{ kind: "kev", name: "Linux Kernel", cves: ["CVE-2026-0012"], date: "2026-10-27", due: "2026-10-31", cvss: 7.8, open: "due", href: "/incidents/linux-kernel-record", external: false }],
@@ -283,12 +295,16 @@ describe("how AI shows up", () => {
 
 describe("my stack", () => {
   const entries = [
-    kev({ cve: "CVE-2026-1001", vendor: "Microsoft", product: "Windows", added: "2026-10-01", due: "2026-10-22" }),
+    kev({ cve: "CVE-2026-1001", vendor: "Microsoft", product: "Windows", added: "2026-10-01", due: "2026-10-20" }),
     kev({ cve: "CVE-2026-1002", vendor: "Microsoft", product: "SharePoint", added: "2026-09-10", due: "2026-10-01" }),
-    kev({ cve: "CVE-2026-1003", vendor: "Linux", product: "Kernel", added: "2026-10-28", due: "2026-10-31" }),
-    kev({ cve: "CVE-2026-1004", vendor: "Cisco", product: "IOS XE", added: "2026-10-05", due: "2026-10-26" }),
-    kev({ cve: "CVE-2026-1005", vendor: "Langflow", product: "Langflow", added: "2026-10-10", due: "2026-10-31" }),
+    kev({ cve: "CVE-2026-1003", vendor: "Linux", product: "Kernel", added: "2026-10-28", due: "2026-10-31", cvss: 7.8 }),
+    // a deadline three days gone: past due, not forgotten
+    kev({ cve: "CVE-2026-1004", vendor: "Cisco", product: "IOS XE", added: "2026-10-05", due: "2026-10-26", cvss: 9.1 }),
+    // a deadline further out than three days
+    kev({ cve: "CVE-2026-1005", vendor: "Langflow", product: "Langflow", added: "2026-10-10", due: "2026-11-12", cvss: 9.8 }),
     kev({ cve: "CVE-2026-1006", vendor: "Old", product: "Thing", added: "2026-01-01", due: "2026-01-22" }),
+    // an older, scored entry beside an unscored record without a patch (below)
+    kev({ cve: "CVE-2026-1007", vendor: "Veeam", product: "Backup & Replication", added: "2026-09-15", due: "2026-10-06", cvss: 9.9 }),
   ];
   const recs = [
     // the same CVE as a KEV entry: counted once
@@ -299,20 +315,44 @@ describe("my stack", () => {
     incident({ title: "LiteLLM proxy hijack", products: ["LiteLLM"], severity: 3, first_reported: "2026-10-21", type: "attack_on_ai", lane: "patch", patch_status: "patched" }),
     // a passing mention in the summary does not make a record Microsoft's
     incident({ title: "Retailer breach", summary: "The attackers used a Microsoft Teams lure to reach staff before the breach.", products: ["Retail POS"], severity: 4, lane: "breach", first_reported: "2026-10-28" }),
+    // confirmed impact and nothing else
+    incident({ title: "Zoom client flaw drained accounts", products: ["Zoom"], severity: 4, lane: "breach", first_reported: "2026-10-25", type: "not_ai", categories: ["general"] }),
+    // exploited, no patch, and no CVSS score on it yet
+    incident({ title: "Backup servers hit through an unpatched flaw", products: ["Veeam Backup & Replication"], severity: 3, lane: "patch", patch_status: "unpatched", first_reported: "2026-10-28", type: "not_ai", categories: ["general"] }),
   ];
-  const file = buildStack(recs, entries, TODAY, NOW);
+  const criticals = [
+    { id: "CVE-2026-2001", published: "2026-10-28T10:00:00.000Z", score: 9.8, severity: "CRITICAL" as const, version: "3.1" as const, description: "PostgreSQL before 18.2 allows an unauthenticated attacker to run code." },
+    { id: "CVE-2026-2002", published: "2026-10-27T10:00:00.000Z", score: 9.1, severity: "CRITICAL" as const, version: "3.1" as const, description: "The Shop Sync plugin for WordPress is vulnerable to SQL injection through its PostgreSQL connector." },
+    { id: "CVE-2026-2003", published: "2026-10-28T10:00:00.000Z", score: 8.9, severity: "HIGH" as const, version: "3.1" as const, description: "PostgreSQL before 18.2 leaks memory." },
+    { id: "CVE-2026-2004", published: "2026-10-01T10:00:00.000Z", score: 10, severity: "CRITICAL" as const, version: "3.1" as const, description: "PostgreSQL before 17.9 allows code execution." },
+    { id: "CVE-2026-2005", published: "2026-10-27T10:00:00.000Z", score: 9.9, severity: "CRITICAL" as const, version: "3.1" as const, description: "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core)." },
+  ];
+  const file = buildStack(recs, entries, TODAY, NOW, { criticals });
   const tile = (key: string) => file.candidates.find((c) => c.key === key)!;
 
+  it("lists the whole catalog, quiet products included, and the long tail of CISA's list", () => {
+    expect(file.candidates.length).toBeGreaterThan(400);
+    expect(tile("postgresql")).toMatchObject({ label: "PostgreSQL", cat: "database", n: 0, flag: null });
+    expect(tile("old")).toMatchObject({ label: "Old", cat: "kev", tail: true, n: 0, tier: 5, also: ["Thing"] });
+    expect(new Set(file.candidates.map((c) => c.key)).size).toBe(file.candidates.length);
+  });
   it("counts KEV entries and exploited records once per CVE", () => {
     expect(tile("microsoft").n).toBe(2);
     expect(tile("citrix").n).toBe(1);
     expect(tile("litellm").n).toBe(2);
   });
+  it("gives a vendor everything its products hold", () => {
+    expect(tile("windows").n).toBe(1);
+    expect(tile("sharepoint").n).toBe(1);
+    expect(tile("netscaler")).toMatchObject({ n: 1, flag: "no patch yet" });
+    expect(tile("citrix").items).toEqual(tile("netscaler").items);
+    expect(tile("cisco-ios").n).toBe(1);
+  });
   it("lists exactly what it counts, open items first, a KEV entry linking the record that names it", () => {
     for (const c of file.candidates) expect(c.items).toHaveLength(c.n);
     const ms = tile("microsoft").items!;
     expect(ms.map((x) => x.cves[0])).toEqual(["CVE-2026-1001", "CVE-2026-1002"]);
-    expect(ms[0]).toMatchObject({ kind: "kev", name: "Microsoft Windows", date: "2026-10-01", due: "2026-10-22", open: null, external: false });
+    expect(ms[0]).toMatchObject({ kind: "kev", name: "Microsoft Windows", date: "2026-10-01", due: "2026-10-20", open: null, external: false });
     expect(ms[0]!.href).toMatch(/^\/incidents\/fixture-incident-\d+$/);
     expect(ms[1]).toMatchObject({ kind: "kev", href: "https://nvd.nist.gov/vuln/detail/CVE-2026-1002", external: true });
     expect(tile("linux").items![0]).toMatchObject({ kind: "kev", open: "due", due: "2026-10-31" });
@@ -320,44 +360,113 @@ describe("my stack", () => {
     expect(tile("litellm").items!.map((x) => x.name)).toEqual(["LiteLLM proxy hijack", "LiteLLM key theft"]);
     expect(tile("litellm").items!.every((x) => x.open === null)).toBe(true);
   });
-  it("points a vendor at CISA's catalog and a family at its product page; the page's tiles carry no list", () => {
+  it("points a vendor at CISA's catalog and a family at its product page; the page's tiles carry no lists", () => {
     expect(tile("microsoft").href).toBe(kevCatalogHref("Microsoft"));
     expect(tile("microsoft").href).toBe("https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=Microsoft");
     expect(tile("litellm").href).toBe("/products/litellm");
-    expect("items" in tileOf(tile("microsoft"))).toBe(false);
-    expect(tileOf(tile("microsoft"))).toMatchObject({ key: "microsoft", n: 2 });
+    const t = tileOf(tile("microsoft"));
+    expect("items" in t || "crits" in t || "also" in t || "aka" in t).toBe(false);
+    expect(t).toMatchObject({ key: "microsoft", n: 2, tier: 5, crit: 0 });
   });
-  it("is red only while exploited and open", () => {
-    expect(tile("microsoft").flag).toBeNull();
-    expect(tile("linux")).toMatchObject({ flag: "patch by 31 Oct", why: ["CISA deadline 2026-10-31"] });
-    expect(tile("citrix")).toMatchObject({ flag: "no patch yet" });
-    expect(tile("litellm").flag).toBeNull();
-    expect(tile("cisco").flag).toBeNull();
+  it("flags only what is exploited and open, a deadline within three days first", () => {
+    expect(tile("microsoft")).toMatchObject({ flag: null, tier: 5 });
+    expect(tile("linux")).toMatchObject({ flag: "patch by 31 Oct", why: ["CISA deadline 2026-10-31"], due: "2026-10-31", late: null, tier: 1, cvss: 7.8 });
+    expect(tile("cisco")).toMatchObject({ flag: "past due 26 Oct", why: ["CISA deadline passed 2026-10-26"], due: null, late: "2026-10-26", tier: 1 });
+    expect(tile("cisco").items![0]).toMatchObject({ open: "due", due: "2026-10-26" });
+    expect(tile("langflow")).toMatchObject({ flag: "patch by 12 Nov", tier: 2, cvss: 9.8 });
+    expect(tile("citrix")).toMatchObject({ flag: "no patch yet", patch: "unpatched", tier: 1 });
+    expect(tile("zoom")).toMatchObject({ flag: "confirmed impact", impact: true, tier: 3 });
+    expect(tile("litellm")).toMatchObject({ flag: null, tier: 5 });
   });
-  it("defaults to the top KEV vendors and AI families with at least two", () => {
-    expect(file.default.slice(0, 3)).toEqual(["microsoft", "cisco", "langflow"].filter((k) => file.default.includes(k)).length ? file.default.slice(0, 3) : []);
-    expect(file.default).toContain("microsoft");
-    expect(file.default).toContain("litellm");
+  it("carries the score of the item behind the flag, and says so when that item has none yet", () => {
+    expect(tile("linux").flagScore).toBe(7.8);
+    expect(tile("cisco").flagScore).toBe(9.1);
+    expect(tile("langflow").flagScore).toBe(9.8);
+    // records without a CVSS score: nothing to show, whatever else the product holds
+    expect(tile("citrix")).toMatchObject({ flag: "no patch yet", flagScore: null, cvss: null });
+    expect(tile("zoom")).toMatchObject({ flag: "confirmed impact", flagScore: null });
+    // Veeam's unpatched record has no score, its older KEV entry has 9.9: none to show, 9.9 to be ordered by
+    expect(tile("veeam")).toMatchObject({ flag: "no patch yet", n: 2, flagScore: null, cvss: 9.9, tier: 1 });
+    // no flag, no flag score
+    expect(tile("microsoft").flagScore).toBeNull();
+    expect(tile("postgresql")).toMatchObject({ flagScore: null, cvss: 9.8 });
+  });
+  it("counts new critical CVEs apart from the flags: 9.0 and up, the last 14 days, the product as the subject", () => {
+    expect(tile("postgresql")).toMatchObject({ crit: 1, flag: null, tier: 4, cvss: 9.8, n: 0 });
+    expect(tile("postgresql").crits).toEqual([{ id: "CVE-2026-2001", score: 9.8, published: "2026-10-28", name: "PostgreSQL" }]);
+    // a plugin for WordPress is not WordPress, and its connector is not PostgreSQL
+    expect(tile("wordpress").crit).toBe(0);
+  });
+  it("names the product each critical CVE is about, on its vendor's list too, and gives a tile the highest few", () => {
+    // WebLogic and Fusion Middleware both hold it; the first in the catalog names it
+    expect(tile("oracle")).toMatchObject({ crit: 1, tier: 4, crits: [{ id: "CVE-2026-2005", score: 9.9, name: "WebLogic Server" }] });
+    expect(tile("weblogic").crits).toEqual(tile("oracle").crits);
+    expect(tileOf(tile("oracle")).crits).toEqual(tile("oracle").crits);
+    const many = Array.from({ length: 12 }, (_, k) => ({ id: `CVE-2026-3${String(k).padStart(3, "0")}`, published: "2026-10-28T10:00:00.000Z", score: 9 + k / 20, severity: "CRITICAL" as const, version: "3.1" as const, description: "PostgreSQL before 18.2 allows code execution." }));
+    const pg = buildStack([], [], TODAY, NOW, { criticals: many }).candidates.find((c) => c.key === "postgresql")!;
+    expect(pg.crit).toBe(12);
+    expect(pg.crits!.map((c) => c.score)).toEqual([9.55, 9.5, 9.45, 9.4, 9.35, 9.3, 9.25, 9.2]);
+    expect(tileOf(pg).crits!.map((c) => c.score)).toEqual([9.55, 9.5, 9.45]);
+  });
+  it("takes the CVE Program's vendor and product names over the description when a file has them", () => {
+    const named = buildStack(recs, entries, TODAY, NOW, { criticals, affected: new Map([["CVE-2026-2001", [{ vendor: "Redis", product: "Redis" }]], ["CVE-2026-2002", [{ vendor: "Old", product: "Thing" }]]]) });
+    const of = (key: string) => named.candidates.find((c) => c.key === key)!;
+    expect(of("postgresql").crit).toBe(0);
+    expect(of("redis").crits?.map((c) => c.id)).toEqual(["CVE-2026-2001"]);
+    expect(of("old")).toMatchObject({ crit: 1, tier: 4 });
+  });
+  it("orders every list by urgency: no full patch or a near deadline, later deadlines, impact, new criticals, quiet", () => {
+    const order = file.candidates.map((c) => c.key);
+    const at = (key: string) => order.indexOf(key);
+    expect(file.candidates.map((c) => c.tier)).toEqual([...file.candidates.map((c) => c.tier)].sort((a, b) => a - b));
+    // inside the first tier the higher CVSS leads: Veeam's 9.9 (from its other entry) over Cisco's 9.1 over Linux's 7.8, the unscored last
+    expect(at("veeam")).toBeLessThan(at("cisco"));
+    expect(at("cisco")).toBeLessThan(at("linux"));
+    expect(at("linux")).toBeLessThan(at("citrix"));
+    expect(at("linux")).toBeLessThan(at("langflow"));
+    expect(at("langflow")).toBeLessThan(at("zoom"));
+    expect(at("zoom")).toBeLessThan(at("postgresql"));
+    expect(at("postgresql")).toBeLessThan(at("microsoft"));
+    for (const c of file.candidates) expect(c.tier).toBe(stackUrgency(c, TODAY));
+  });
+  it("defaults to the most urgent of the best-known products, one per vendor family, filled up on a quiet day", () => {
+    expect(file.default.slice(0, 5)).toEqual(["veeam", "cisco", "linux", "citrix", "langflow"]);
+    expect(file.default).not.toContain("netscaler");
     expect(file.default).not.toContain("old");
-    expect(file.candidates.some((c) => c.key === "old")).toBe(false);
+    expect(file.default.length).toBeGreaterThanOrEqual(STACK_DEFAULT_MIN);
+    expect(file.default.length).toBeLessThanOrEqual(STACK_DEFAULT_MAX);
+    const quiet = buildStack([], [], TODAY, NOW);
+    expect(quiet.default).toHaveLength(STACK_DEFAULT_MIN);
+    expect(quiet.candidates.every((c) => c.tier === 5 && c.n === 0)).toBe(true);
   });
   it("matches the week's KEV additions to the picks, for the sieve", () => {
     expect(stackMatches(file, ["linux", "microsoft"]).map((m) => m.cve)).toEqual(["CVE-2026-1003"]);
     expect(stackMatches(file, ["microsoft"])).toEqual([]);
     expect(stackMatches(file, ["linux", "linux"])).toHaveLength(1);
   });
-  it("reads picks from a URL: known keys only, no repeats", () => {
+  it("reads picks from a URL: known keys only, no repeats, a changed key by its new name", () => {
     const known = new Set(file.candidates.map((c) => c.key));
     expect(parsePicks("Linux, microsoft,nope,linux", known)).toEqual(["linux", "microsoft"]);
+    expect(parsePicks("berriai,litellm,php-group,vanderbilt-university", known, file.aliases)).toEqual(["litellm", "php", "redcap"]);
     expect(parsePicks("", known)).toEqual([]);
     expect(parsePicks(null, known)).toEqual([]);
+    expect(parsePicks(Array.from(known).join(","), known)).toHaveLength(STACK_MAX);
   });
   it("turns every flag into a short badge with its tone", () => {
     expect(flagBadge("patch by 31 Oct")).toEqual({ word: "due 31 Oct", tone: "due" });
+    expect(flagBadge("past due 26 Oct")).toEqual({ word: "past due 26 Oct", tone: "due" });
     expect(flagBadge("confirmed impact")).toEqual({ word: "impact", tone: "harm" });
     expect(flagBadge("no patch yet")).toEqual({ word: "no patch", tone: "open" });
     expect(flagBadge("partly patched")).toEqual({ word: "partial", tone: "partial" });
     for (const c of file.candidates) if (c.flag) expect(["due", "harm", "open", "partial"]).toContain(flagBadge(c.flag).tone);
+  });
+  it("travels compactly and comes back whole", () => {
+    const wire = packStack(file);
+    expect(unpackStack(JSON.parse(JSON.stringify(wire)))).toEqual(file);
+    // a vendor and its product share their items in the table
+    expect(wire.items.length).toBeLessThan(file.candidates.reduce((n, c) => n + c.n, 0));
+    const quiet = wire.candidates.find((c) => c.label === "MariaDB")!;
+    expect(Object.keys(quiet).sort()).toEqual(["c", "label"]);
   });
 });
 

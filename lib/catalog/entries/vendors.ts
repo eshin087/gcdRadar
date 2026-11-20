@@ -1,0 +1,223 @@
+import { P, S, V, VP, type CatalogEntry } from "../types";
+
+/**
+ * The big vendors and their main products. A vendor entry covers its
+ * products; each product sits in the category a visitor would look for it in.
+ */
+
+/** Microsoft's "<weakness> in <component> allows an (un)authorized attacker" sentence, the form its CVE descriptions take. */
+const MS = "[^.]*allows an? (?:un)?authorized attacker";
+
+/** CISA's product column for what ships with Windows. */
+const WINDOWS_PARTS =
+  "^(windows|win32k|smbv\\d+|mshtml|directx|dwm core|graphics (component|device)|enhanced cryptographic|internet key exchange|ancillary function|client-server run-time|kerberos|task scheduler|atm font|http\\.sys|http protocol stack|winverifytrust|remote desktop|hyper-v|netlogon|streaming service|smartscreen|update notification|input method|xml core services|internet information services|active directory)";
+
+export const VENDORS: CatalogEntry[] = [
+  /* ---------- Microsoft ---------- */
+  V("microsoft", "Microsoft", "vendor", { pop: true, aka: ["msft"] }),
+  P("windows", "Windows", "microsoft", "os", { pop: true, k: WINDOWS_PARTS, t: ["windows"], c: [`in (?:microsoft )?windows${MS}`, "microsoft windows"], aka: ["windows 10", "windows 11", "win32k"] }),
+  P("windows-server", "Windows Server", "microsoft", "os", { k: WINDOWS_PARTS, t: ["windows server"], c: [`in (?:microsoft )?windows${MS}`, "windows server \\d+"] }),
+  P("exchange-server", "Exchange Server", "microsoft", "email", { pop: true, k: "^exchange", t: ["microsoft exchange", "exchange server", "exchange online"], aka: ["owa", "proxyshell", "proxylogon"] }),
+  P("sharepoint", "SharePoint", "microsoft", "email", { k: "sharepoint" }),
+  P("office", "Microsoft Office", "microsoft", "business", {
+    k: "^(office|word$|word |excel|powerpoint|publisher|project$|mscomctl|visual basic)",
+    t: ["microsoft office", "ms office", "office 20\\d\\d+", "microsoft word", "microsoft excel", "microsoft powerpoint", "^(word|excel|powerpoint|office)$"],
+    x: ["microsoft office", "ms office", "office 20\\d\\d+", "microsoft word", "microsoft excel", "microsoft powerpoint"],
+    aka: ["word", "excel", "powerpoint"],
+  }),
+  P("outlook", "Outlook", "microsoft", "email", { k: "outlook", t: ["outlook"], x: ["microsoft outlook", "outlook (web access|on the web|client|email|mailbox|add-ins?|desktop|express|zero-click|flaw|bug|vulnerability|rules?)"] }),
+  P("microsoft-365", "Microsoft 365", "microsoft", "email", { pop: true, t: ["microsoft 365(?! copilot)", "office 365", "m365(?! copilot| manager)", "o365"], aka: ["office 365", "o365", "m365"] }),
+  P("teams", "Microsoft Teams", "microsoft", "email", { k: "\\bteams\\b", t: ["microsoft teams", "ms teams", "^teams$"], x: ["microsoft teams", "ms teams"] }),
+  P("onedrive", "OneDrive", "microsoft", "storage"),
+  P("azure", "Azure", "microsoft", "cloud", { pop: true, k: "azure|open management infrastructure", t: ["azure(?! (?:ad|active directory|openai|ai\\b|devops|sentinel))"], aka: ["microsoft cloud"] }),
+  P("azure-devops", "Azure DevOps", "microsoft", "dev", { t: ["azure devops", "team foundation server"] }),
+  P("entra-id", "Microsoft Entra ID", "microsoft", "identity", { pop: true, t: ["entra", "azure ad", "azure active directory"], aka: ["azure ad", "aad"] }),
+  P("active-directory", "Active Directory", "microsoft", "identity", {
+    pop: true,
+    k: "active directory|netlogon|kerberos",
+    t: ["active directory", "ad ds", "ad fs", "adfs", "ad cs"],
+    x: ["active directory", "adfs", "ad cs"],
+    c: [`active directory${MS}`, "microsoft active directory"],
+  }),
+  P("edge", "Microsoft Edge", "microsoft", "browser", { k: "\\bedge\\b", kev: [{ vendors: ["ChakraCore"] }], t: ["microsoft edge", "^edge$", "edge \\(chromium"], x: ["microsoft edge"] }),
+  P("internet-explorer", "Internet Explorer", "microsoft", "browser", { k: "internet explorer|mshtml", t: ["internet explorer", "mshtml"] }),
+  P("sql-server", "SQL Server", "microsoft", "database", { k: "sql server", t: ["sql server", "mssql"], c: ["in (?:microsoft )?sql server", "^(?:microsoft )?sql server"] }),
+  P("defender", "Microsoft Defender", "microsoft", "endpoint", {
+    k: "defender|malware protection engine",
+    t: ["microsoft defender", "windows defender", "defender for (?:endpoint|office|identity|cloud)", "^defender$"],
+    x: ["microsoft defender", "windows defender", "defender for (?:endpoint|office|identity|cloud)"],
+  }),
+  P("sentinel", "Microsoft Sentinel", "microsoft", "endpoint", { t: ["microsoft sentinel", "azure sentinel"] }),
+  P("dotnet", ".NET and ASP.NET", "microsoft", "web", {
+    k: "\\.net",
+    t: ["\\.net framework", "\\.net core", "asp\\.net", "^\\.net(?: \\d+)?$", "dotnet"],
+    x: ["\\.net (?:framework|core|runtime|\\d+)", "asp\\.net", "dotnet"],
+    aka: ["dotnet", "asp.net"],
+  }),
+  P("iis", "IIS", "microsoft", "web", { k: "internet information services|http\\.sys|http protocol stack", t: ["internet information services", "microsoft iis", "^iis$"], x: ["internet information services", "microsoft iis", "iis (?:server|web server|module|modules)"] }),
+  P("hyper-v", "Hyper-V", "microsoft", "cloud", { k: "hyper-v" }),
+  P("visual-studio", "Visual Studio", "microsoft", "dev", { k: "visual studio", t: ["visual studio(?! code)"] }),
+  P("vscode", "Visual Studio Code", "microsoft", "dev", { t: ["visual studio code", "vs ?code"], aka: ["vscode", "vs code"] }),
+  P("intune", "Intune", "microsoft", "remote", { t: ["intune", "microsoft endpoint manager"] }),
+  P("configuration-manager", "Configuration Manager (SCCM)", "microsoft", "remote", { k: "configuration manager", t: ["sccm", "mecm", "microsoft configuration manager", "system center"], aka: ["sccm", "mecm"] }),
+  P("dynamics-365", "Dynamics 365", "microsoft", "business", { t: ["dynamics 365", "dynamics crm", "dynamics nav", "business central"] }),
+  P("power-platform", "Power Platform (Power BI, Power Apps)", "microsoft", "business", { k: "power pages", t: ["power platform", "power apps", "power pages", "power automate", "power bi"], aka: ["power bi", "power apps", "power automate"] }),
+  P("copilot", "Microsoft Copilot", "microsoft", "ai", { t: ["microsoft copilot", "windows copilot", "^copilot$"], x: ["microsoft copilot", "windows copilot"] }),
+  P("microsoft-365-copilot", "Microsoft 365 Copilot", "microsoft", "ai", { f: "Microsoft 365 Copilot" }),
+  P("copilot-studio", "Copilot Studio", "microsoft", "ai", { f: "Copilot Studio" }),
+  P("azure-openai", "Azure OpenAI and AI Foundry", "microsoft", "ai", { t: ["azure openai", "azure ai foundry", "azure ai\\b", "azure machine learning"] }),
+  P("autogen", "AutoGen and Semantic Kernel", "microsoft", "ai", { t: ["autogen", "semantic kernel"] }),
+
+  /* ---------- Google ---------- */
+  V("google", "Google", "vendor", { pop: true, kv: ["Google", "Android"], aka: ["alphabet"] }),
+  P("chrome", "Google Chrome", "google", "browser", {
+    pop: true,
+    k: "^chrom|^skia|^dawn",
+    kev: [{ vendors: ["WebRTC"] }],
+    t: ["chrome(?! ?os)", "chromium(?! ?os)"],
+    c: ["google chrome", "chromium"],
+    aka: ["chromium", "v8"],
+  }),
+  P("android", "Android", "google", "os", {
+    pop: true,
+    kv: ["Android"],
+    k: "pixel|android",
+    t: ["android", "google pixel", "^pixel$"],
+    x: ["android", "google pixel"],
+    c: ["android(?! (?:app|application|client|sdk))", "there is a possible"],
+    aka: ["pixel"],
+  }),
+  P("chromeos", "ChromeOS", "google", "os", { t: ["chrome ?os", "chromium ?os", "chromebooks?"] }),
+  P("google-cloud", "Google Cloud", "google", "cloud", { pop: true, t: ["google cloud", "gcp", "google kubernetes engine", "gke", "bigquery", "cloud run", "google compute engine"], aka: ["gcp", "gke"] }),
+  P("google-workspace", "Google Workspace", "google", "email", { pop: true, t: ["google workspace", "g suite", "gmail", "google drive", "google docs", "google calendar", "google meet"], aka: ["gmail", "google drive", "g suite"] }),
+  P("gemini", "Gemini", "google", "ai", { t: ["gemini"], x: ["google gemini", "gemini (?:cli|ai|pro|flash|ultra|nano|models?|api|chatbot|assistant|app|agent|advanced|live)"], aka: ["bard"] }),
+  P("vertex-ai", "Vertex AI", "google", "ai", { t: ["vertex ai", "vertexai"] }),
+  P("firebase", "Firebase", "google", "dev"),
+  P("looker", "Looker", "google", "business", { t: ["looker"], x: ["google looker", "looker (?:studio|instance|instances)"] }),
+  S("go", "Go", "Google", "web", { t: ["golang", "^go$", "go standard library", "go toolchain"], x: ["golang", "go standard library"], c: ["golang", "go standard library"], aka: ["golang"] }),
+  S("angular", "Angular", "Google", "web", { t: ["angular", "angularjs"] }),
+  S("tensorflow", "TensorFlow and Keras", "Google", "ai", { t: ["tensorflow", "keras"] }),
+
+  /* ---------- Apple ---------- */
+  V("apple", "Apple", "vendor", { pop: true, c: ["apple (?:ios|ipados|macos|safari|watchos|tvos|visionos|xcode|itunes|music|tv|configurator)"] }),
+  P("ios", "iOS and iPadOS", "apple", "os", { pop: true, k: "\\bios\\b|ipados|multiple products", t: ["ios", "ipados", "iphones?", "ipads?"], x: ["ios", "ipados", "iphones?", "ipads?", "imessage", "facetime"], c: ["apple ios", "ios \\d+", "ipados \\d+"], aka: ["iphone", "ipad", "imessage"] }),
+  P("macos", "macOS", "apple", "os", { pop: true, k: "macos|os x|multiple products", t: ["macos", "mac os x", "os x"], c: ["apple macos", "macos (?:sequoia|sonoma|ventura|tahoe|\\d+)"], aka: ["mac", "os x"] }),
+  P("safari", "Safari and WebKit", "apple", "browser", { k: "safari|webkit", kn: "webkit|safari", kev: [{ vendors: ["WebKitGTK"] }], t: ["safari", "webkit", "webkitgtk"], aka: ["webkit"] }),
+  P("watchos", "watchOS, tvOS and visionOS", "apple", "os", { k: "watchos|tvos|visionos", t: ["watchos", "tvos", "visionos"] }),
+  P("icloud", "iCloud", "apple", "storage"),
+  P("xcode", "Xcode", "apple", "dev"),
+
+  /* ---------- Amazon ---------- */
+  V("amazon", "Amazon", "vendor", { t: ["amazon", "aws"] }),
+  P("aws", "AWS", "amazon", "cloud", { pop: true, t: ["aws", "amazon web services", "amazon (?:s3|ec2|eks|ecs|rds|lambda|cognito|cloudfront|iam|route ?53|redshift|dynamodb|workspaces)"], aka: ["amazon web services", "s3", "ec2", "lambda", "eks"] }),
+  P("amazon-linux", "Amazon Linux", "amazon", "os"),
+  P("amazon-bedrock", "Amazon Bedrock", "amazon", "ai", { t: ["bedrock(?! agentcore)"], x: ["amazon bedrock(?! agentcore)", "aws bedrock(?! agentcore)"] }),
+  P("amazon-bedrock-agentcore", "Amazon Bedrock AgentCore", "amazon", "ai", { f: "Amazon Bedrock AgentCore" }),
+  P("amazon-sagemaker", "Amazon SageMaker", "amazon", "ai", { t: ["sagemaker"] }),
+  P("amazon-q", "Amazon Q Developer", "amazon", "ai", { t: ["amazon q\\b", "aws q developer"] }),
+
+  /* ---------- Oracle ---------- */
+  V("oracle", "Oracle", "vendor", {
+    t: ["oracle"],
+    x: ["oracle (?:cloud|database|db|e-business|ebs|weblogic|fusion|peoplesoft|java|netsuite|health|linux|identity|access manager|corp|corporation|patch|critical patch|cpu|zero-day|hyperion|siebel|jd edwards|vm|virtualbox|mysql|solaris|opera|micros|cerner|agile|bi|business intelligence|http server|commerce|financial|retail|communications|apex|rest data)", "oracle's"],
+    c: ["vulnerability in (?:the )?oracle", "oracle (?:weblogic|database|e-business|fusion|peoplesoft|java|mysql|virtualbox|solaris|linux|identity|access manager)"],
+  }),
+  P("oracle-database", "Oracle Database", "oracle", "database", { t: ["oracle database", "oracle db", "oracle rdbms"] }),
+  P("weblogic", "WebLogic Server", "oracle", "web", { k: "weblogic", t: ["weblogic"] }),
+  P("fusion-middleware", "Oracle Fusion Middleware", "oracle", "web", { k: "fusion middleware|adf faces|http server", t: ["fusion middleware"] }),
+  P("java", "Java (Oracle JDK and OpenJDK)", "oracle", "web", { k: "\\bjava\\b", t: ["java se", "java runtime", "jre", "jdk", "openjdk", "^java$", "java4shell"], x: ["java se", "openjdk", "oracle java", "java runtime", "java4shell"], c: ["java se", "openjdk", "oracle java"], aka: ["jdk", "jre", "openjdk"] }),
+  P("mysql", "MySQL", "oracle", "database", { pop: true }),
+  P("e-business-suite", "Oracle E-Business Suite", "oracle", "business", { k: "e-business", t: ["e-business suite", "oracle ebs"], aka: ["ebs"] }),
+  P("peoplesoft", "PeopleSoft", "oracle", "business", { k: "peoplesoft" }),
+  P("netsuite", "NetSuite", "oracle", "business"),
+  P("jd-edwards", "JD Edwards", "oracle", "business"),
+  P("virtualbox", "VirtualBox", "oracle", "cloud", { k: "virtualbox" }),
+  P("solaris", "Solaris", "oracle", "os", { k: "solaris" }),
+  P("oracle-linux", "Oracle Linux", "oracle", "os"),
+  P("oracle-cloud", "Oracle Cloud", "oracle", "cloud", { t: ["oracle cloud"], aka: ["oci"] }),
+  P("oracle-identity", "Oracle Identity and Access Manager", "oracle", "identity", { t: ["oracle identity manager", "oracle access manager", "oracle identity governance"] }),
+
+  /* ---------- IBM ---------- */
+  V("ibm", "IBM", "vendor"),
+  P("websphere", "WebSphere", "ibm", "web", { k: "websphere" }),
+  P("db2", "Db2", "ibm", "database", { t: ["db2"] }),
+  P("aix", "AIX", "ibm", "os", { t: ["aix"], x: ["ibm aix", "aix \\d+"] }),
+  P("ibm-i", "IBM i", "ibm", "os", { t: ["ibm i\\b", "as/400", "os/400"] }),
+  P("zos", "z/OS", "ibm", "os", { t: ["z/os"] }),
+  P("qradar", "QRadar", "ibm", "endpoint"),
+  P("aspera", "Aspera", "ibm", "storage", { k: "aspera" }),
+  P("ibm-mq", "IBM MQ", "ibm", "web", { t: ["ibm mq", "websphere mq"] }),
+  P("cognos", "Cognos", "ibm", "business", { t: ["cognos"] }),
+  P("maximo", "Maximo", "ibm", "business"),
+  P("watsonx", "watsonx", "ibm", "ai", { t: ["watsonx", "ibm watson"] }),
+
+  /* ---------- Adobe ---------- */
+  V("adobe", "Adobe", "vendor"),
+  P("acrobat", "Acrobat and Reader", "adobe", "business", { pop: true, k: "acrobat|reader", t: ["acrobat", "adobe reader"], aka: ["pdf reader"] }),
+  P("coldfusion", "ColdFusion", "adobe", "web", { k: "coldfusion" }),
+  P("magento", "Adobe Commerce (Magento)", "adobe", "cms", { k: "commerce|magento", t: ["(?<!openmage )magento", "adobe commerce"] }),
+  P("experience-manager", "Adobe Experience Manager", "adobe", "cms", { k: "experience manager", t: ["experience manager", "aem"], x: ["experience manager", "adobe aem"], aka: ["aem"] }),
+  P("creative-cloud", "Creative Cloud (Photoshop, Illustrator)", "adobe", "business", { t: ["creative cloud", "photoshop", "adobe illustrator", "indesign", "premiere pro", "after effects", "lightroom"], aka: ["photoshop", "illustrator", "indesign", "premiere"] }),
+  P("adobe-connect", "Adobe Connect", "adobe", "email"),
+  P("flash-player", "Flash Player", "adobe", "browser", { k: "flash", t: ["flash player", "adobe flash"] }),
+
+  /* ---------- Broadcom and VMware ---------- */
+  V("broadcom", "Broadcom", "vendor"),
+  VP("vmware", "VMware", "broadcom", "cloud", { pop: true, kv: ["VMware", "VMware Tanzu"], kev: [{ vendors: ["Broadcom"], product: "vmware" }] }),
+  P("vcenter", "vCenter Server", "vmware", "cloud", { k: "vcenter", t: ["vcenter", "vsphere"], aka: ["vsphere"] }),
+  P("esxi", "ESXi", "vmware", "cloud", { k: "\\besxi?\\b", t: ["esxi", "esx"] }),
+  P("vmware-workstation", "VMware Workstation and Fusion", "vmware", "cloud", { k: "workstation|fusion", t: ["vmware workstation", "vmware fusion"] }),
+  P("nsx", "VMware NSX", "vmware", "network", { t: ["nsx"] }),
+  P("aria", "VMware Aria (vRealize)", "vmware", "cloud", { k: "aria|vrealize", t: ["aria operations", "aria automation", "vrealize"], aka: ["vrealize"] }),
+  P("vmware-tools", "VMware Tools", "vmware", "cloud", { k: "^tools$|vmware tools", t: ["vmware tools"] }),
+  P("cloud-foundation", "VMware Cloud Foundation", "vmware", "cloud", { k: "cloud foundation", t: ["cloud foundation"] }),
+  P("symantec", "Symantec", "broadcom", "endpoint", { kv: ["Symantec"] }),
+  P("carbon-black", "Carbon Black", "broadcom", "endpoint"),
+  P("brocade", "Brocade", "broadcom", "network", { k: "brocade" }),
+  S("spring", "Spring Framework", "VMware Tanzu", "web", {
+    pop: true,
+    kev: [{ vendors: ["VMware", "VMware Tanzu"], product: "spring" }],
+    t: ["spring framework", "spring boot", "spring cloud", "spring security", "spring data", "spring4shell"],
+    aka: ["spring boot", "spring4shell"],
+  }),
+  S("rabbitmq", "RabbitMQ", "VMware Tanzu", "web"),
+  S("horizon", "Omnissa Horizon", "Omnissa", "remote", { kev: [{ vendors: ["VMware", "Omnissa"], product: "horizon" }], t: ["vmware horizon", "omnissa horizon", "horizon (?:view|daas|client|connection server)"] }),
+  S("workspace-one", "Workspace ONE", "Omnissa", "remote", { kev: [{ vendors: ["VMware", "Omnissa"], product: "workspace one" }], t: ["workspace one", "airwatch"], aka: ["airwatch"] }),
+
+  /* ---------- Hardware makers ---------- */
+  V("dell", "Dell", "vendor"),
+  P("idrac", "Dell iDRAC", "dell", "devices", { t: ["idrac"] }),
+  P("dell-storage", "Dell storage (PowerScale, PowerStore, Data Domain)", "dell", "storage", { k: "recoverpoint", t: ["powerscale", "powerstore", "powermax", "powerprotect", "dell unity", "isilon", "data domain", "recoverpoint", "avamar", "networker"], aka: ["isilon", "data domain", "powerprotect"] }),
+  V("hpe", "Hewlett Packard Enterprise", "vendor", { kv: ["Hewlett Packard Enterprise (HPE)"], t: ["hpe", "hewlett packard enterprise"], aka: ["hpe"] }),
+  P("aruba", "HPE Aruba Networking", "hpe", "network", { t: ["aruba", "arubaos", "aos-cx", "aos-10", "clearpass", "instant on"], x: ["aruba (?:networking|networks|access points?|switch|switches|clearpass|instant|central)", "arubaos", "aos-cx", "aos-10", "clearpass"], aka: ["arubaos", "clearpass"] }),
+  P("ilo", "HPE iLO", "hpe", "devices", { t: ["ilo", "integrated lights-out"], x: ["hpe ilo", "ilo \\d+", "integrated lights-out"] }),
+  P("oneview", "HPE OneView", "hpe", "remote", { k: "oneview" }),
+  P("hpe-storage", "HPE storage (3PAR, Nimble, StoreOnce)", "hpe", "storage", { t: ["3par", "nimble storage", "storeonce", "alletra", "msa storage"], aka: ["3par", "nimble", "storeonce", "alletra"] }),
+  V("hp", "HP", "vendor", {
+    kv: ["Hewlett Packard (HP)"],
+    t: ["hp inc", "^hp$", "hp (?:laserjet|officejet|pagewide|printers?|elitebook|probook|zbook|thin client|bios|support assistant|device manager|openview|procurve)"],
+    x: ["hp inc", "hp (?:laserjet|officejet|pagewide|printers?|elitebook|probook|zbook|thin client|bios|support assistant|device manager)"],
+  }),
+  P("hp-printers", "HP printers", "hp", "devices", { t: ["laserjet", "officejet", "pagewide", "hp printers?"] }),
+  V("samsung", "Samsung", "vendor"),
+  P("samsung-mobile", "Samsung Galaxy phones", "samsung", "os", { k: "mobile", t: ["samsung mobile", "samsung galaxy", "galaxy s\\d+", "one ui", "exynos", "samsung knox"], aka: ["galaxy", "knox", "exynos"] }),
+  P("magicinfo", "Samsung MagicINFO", "samsung", "devices", { k: "magicinfo", t: ["magicinfo"] }),
+  V("lenovo", "Lenovo", "vendor"),
+  V("huawei", "Huawei", "vendor"),
+  P("harmonyos", "HarmonyOS", "huawei", "os", { t: ["harmonyos", "emui"] }),
+  V("meta", "Meta", "vendor", { kv: ["Meta Platforms", "Meta"], t: ["meta platforms", "^meta$", "facebook", "instagram"], x: ["meta platforms", "facebook", "instagram", "meta (?:ai|quest|llama)"], aka: ["facebook", "instagram"] }),
+  P("whatsapp", "WhatsApp", "meta", "email", { k: "whatsapp" }),
+  S("react", "React", "Meta", "web", {
+    kev: [{ vendors: ["Meta"], product: "react" }, { vendors: ["React Native Community"] }],
+    t: ["^react$", "react server components", "react\\.js", "reactjs", "react2shell", "react router", "react native"],
+    x: ["react server components", "react2shell", "react\\.js", "react native"],
+    c: ["react server components", "react is a javascript library", "react native"],
+  }),
+  S("pytorch", "PyTorch", "PyTorch Foundation", "ai", { t: ["pytorch", "torchserve"] }),
+  V("nvidia", "NVIDIA", "vendor"),
+  P("nvidia-drivers", "NVIDIA GPU drivers and Container Toolkit", "nvidia", "devices", { t: ["nvidia (?:gpu )?(?:display )?drivers?", "nvidia container toolkit", "geforce", "nvidia gpu"], aka: ["geforce", "container toolkit"] }),
+  P("nvidia-nemo", "NVIDIA NeMo", "nvidia", "ai", { f: "NVIDIA NeMo" }),
+  P("nvidia-nemoclaw", "NVIDIA NemoClaw", "nvidia", "ai", { f: "NVIDIA NemoClaw" }),
+  P("nvidia-tensorrt-llm", "NVIDIA TensorRT-LLM", "nvidia", "ai", { f: "NVIDIA TensorRT-LLM" }),
+  P("nvidia-triton", "NVIDIA Triton", "nvidia", "ai", { f: "NVIDIA Triton" }),
+];
