@@ -1,5 +1,123 @@
 [
   {
+    "id": "AIR-2026-2081",
+    "slug": "jpmorgan-visa-mastercard-cite-third-party-incidents-amid-dat",
+    "title": "JPMorgan, Visa, Mastercard Cite Third-Party Incidents Amid Data Leak",
+    "summary": "JPMorgan, Visa and Mastercard disclosed that a data leak attributed to the N0n extortion group exposed customer information, blaming third‑party providers. The incident highlights supply‑chain risks in the payments ecosystem.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak",
+        "publisher": "SecurityWeek",
+        "title": "JPMorgan, Visa, Mastercard Cite Third-Party Incidents Amid Data Leak",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data_leak",
+      "n0n",
+      "jpmorgan",
+      "visa",
+      "mastercard"
+    ],
+    "created_at": "2026-11-20T07:51:43.281Z",
+    "updated_at": "2026-11-20T07:51:43.281Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "JPMorgan, Visa, Mastercard Cite Third-Party Incidents Amid Data Leak",
+        "source_url": "https://securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak",
+        "added_at": "2026-11-20T07:51:43.281Z"
+      }
+    ],
+    "action": "Investigate the third‑party providers and remediate exposed data",
+    "severity_note": "Confirmed exposure of customer data from major financial institutions",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2080",
+    "slug": "romulus-clickfix-attacks-deliver-rat-that-can-spy-on-users-a",
+    "title": "ROMULUS ClickFix Attacks Deliver RAT That Can Spy on Users and Control PCs",
+    "summary": "Threat actors used the ROMULUS ClickFix platform to deliver a previously undocumented remote access trojan similar to CNCMachineRMS. The platform also distributes Legion Loader using signed binary sideloading techniques.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "ROMULUS ClickFix",
+      "CNCMachineRMS",
+      "Legion Loader"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/romulus-clickfix-attacks-deliver-rat.html",
+        "publisher": "The Hacker News",
+        "title": "ROMULUS ClickFix Attacks Deliver RAT That Can Spy on Users and Control PCs",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "malware",
+      "rat",
+      "clickfix",
+      "cncmachinerms",
+      "legion_loader"
+    ],
+    "created_at": "2026-11-20T07:51:43.281Z",
+    "updated_at": "2026-11-20T07:51:43.281Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "ROMULUS ClickFix Attacks Deliver RAT That Can Spy on Users and Control PCs",
+        "source_url": "https://thehackernews.com/2026/11/romulus-clickfix-attacks-deliver-rat.html",
+        "added_at": "2026-11-20T07:51:43.281Z"
+      }
+    ],
+    "action": "Monitor for indicators of compromise and block the ROMULUS ClickFix delivery chain",
+    "severity_note": "Confirmed exploitation of a RAT delivered via ROMULUS ClickFix",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2079",
     "slug": "fastunlock-unpatched-windows-zero-day-allows-program-executi",
     "title": "FastUnlock unpatched Windows zero-day allows program execution from lock screen",
