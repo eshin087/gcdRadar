@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { STACK_FILE, STACK_STORAGE_KEY, parsePicks, stackMatches, type StackCandidate, type StackFile, type StackMatch } from "@/lib/panel/picks";
+import { STACK_FILE, STACK_STORAGE_KEY, parsePicks, sortByUrgency, stackMatches, unpackStack, type StackCandidate, type StackFile, type StackMatch, type StackWire } from "@/lib/panel/picks";
 import { SITE } from "@/lib/site";
 
 /**
@@ -9,12 +9,14 @@ import { SITE } from "@/lib/site";
  * the live NVD counts and the "AI only" lens (off on every load; the stack
  * strip holds its switch, the runway and its lists follow it).
  *
- * The stack: the build's default until the visitor chooses. A ?stack=key,key
- * URL applies and stores its picks; otherwise localStorage holds them. Picks
- * other than the default need every candidate, fetched once from
- * /stats/stack.json. Until that settles, html.stack-custom (app/layout.tsx)
- * hides the numbers that depend on it; a failed fetch falls back to the
- * default.
+ * The stack: the build's default (the day's most urgent of the best-known
+ * products) until the visitor chooses; from then on their own picks, however
+ * the default moves. A ?stack=key,key URL applies and stores its picks;
+ * otherwise localStorage holds them. Own picks need every candidate, fetched
+ * once from /stats/stack.json and unpacked (lib/panel/picks.ts). Until that
+ * settles, html.stack-custom (app/layout.tsx) hides the numbers that depend
+ * on it; a failed fetch falls back to the default. The tiles come in the
+ * urgency order (picks.ts byUrgency), whatever order they were picked in.
  *
  * The pulse: the Worker's /v1/pulse, fetched on load and every ten minutes
  * while the page is visible; used only when it is newer than the build's NVD
@@ -29,7 +31,9 @@ export interface Pulse {
 }
 
 interface PanelStateValue {
+  /** The keys on the strip: the visitor's own, or the default's. */
   picks: string[];
+  /** Nothing chosen yet: the strip shows the build's default. */
   isDefault: boolean;
   tiles: StackCandidate[];
   matches: StackMatch[];
@@ -52,12 +56,13 @@ export function usePanelState(): PanelStateValue {
 
 const PULSE_EVERY_MS = 10 * 60_000;
 
+// the build's file and a sweep's are written the same compact way (lib/panel/picks.ts packStack) and unpacked here
 const fileRequests = new Map<string, Promise<StackFile | null>>();
 function fetchStackFile(url: string = STACK_FILE): Promise<StackFile | null> {
   let request = fileRequests.get(url);
   if (!request) {
     request = fetch(url)
-      .then((r) => (r.ok ? (r.json() as Promise<StackFile>) : null))
+      .then((r) => (r.ok ? (r.json() as Promise<StackWire>).then(unpackStack) : null))
       .catch(() => null);
     fileRequests.set(url, request);
   }
@@ -83,7 +88,7 @@ function store(picks: string[] | null) {
 
 export function PanelState({ defaults, defaultMatches, nvdFetched, stackUrl = STACK_FILE, children }: { defaults: StackCandidate[]; defaultMatches: StackMatch[]; nvdFetched: string | null; stackUrl?: string; children: ReactNode }) {
   const defaultKeys = useMemo(() => defaults.map((t) => t.key), [defaults]);
-  const [picks, setPicksState] = useState<string[]>(defaultKeys);
+  const [own, setOwn] = useState<string[] | null>(null);
   const [file, setFile] = useState<StackFile | null>(null);
   const [ready, setReady] = useState(false);
   const [pulse, setPulse] = useState<Pulse | null>(null);
@@ -99,11 +104,12 @@ export function PanelState({ defaults, defaultMatches, nvdFetched, stackUrl = ST
     fetchStackFile().then((f) => {
       if (!live) return;
       if (f) {
-        const parsed = parsePicks(raw, new Set(f.candidates.map((c) => c.key)));
+        // a key that changed since it was saved opens the entry that took it over (the file's aliases)
+        const parsed = parsePicks(raw, new Set(f.candidates.map((c) => c.key)), f.aliases);
         setFile(f);
         if (parsed.length) {
-          setPicksState(parsed);
-          if (fromUrl) store(parsed);
+          setOwn(parsed);
+          if (fromUrl || parsed.join(",") !== raw) store(parsed);
         }
       }
       setReady(true);
@@ -165,19 +171,17 @@ export function PanelState({ defaults, defaultMatches, nvdFetched, stackUrl = ST
     return f;
   }, [file, stackUrl]);
 
-  const setPicks = useCallback(
-    (next: string[]) => {
-      const same = next.length === defaultKeys.length && next.every((k, i) => k === defaultKeys[i]);
-      setPicksState(next.length ? next : defaultKeys);
-      store(same || next.length === 0 ? null : next);
-    },
-    [defaultKeys],
-  );
+  // an empty list goes back to the default; anything else is the visitor's own stack, even when it equals today's default
+  const setPicks = useCallback((next: string[]) => {
+    setOwn(next.length ? next : null);
+    store(next.length ? next : null);
+  }, []);
 
-  const isDefault = picks.length === defaultKeys.length && picks.every((k, i) => k === defaultKeys[i]);
+  const isDefault = own === null;
+  const picks = own ?? defaultKeys;
   const value = useMemo<PanelStateValue>(() => {
     const source = file?.candidates ?? defaults;
-    const tiles = isDefault ? defaults : picks.map((k) => source.find((c) => c.key === k)).filter((c): c is StackCandidate => Boolean(c));
+    const tiles = isDefault ? defaults : sortByUrgency(picks.map((k) => source.find((c) => c.key === k)).filter((c): c is StackCandidate => Boolean(c)));
     const matches = isDefault || !file ? defaultMatches : stackMatches(file, picks);
     return { picks, isDefault, tiles, matches, ready, file, loadFile, setPicks, pulse, aiOnly, setAiOnly };
   }, [picks, isDefault, file, defaults, defaultMatches, ready, loadFile, setPicks, pulse, aiOnly]);

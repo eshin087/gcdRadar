@@ -1,6 +1,7 @@
 import { breachesMonthList, buildHome, dayCvesList, kevWeekList, weekCvesList, type HomeData } from "../home";
 import type { FullIncident } from "../lifecycle";
 import type { LiveData } from "../live";
+import { packStack } from "../panel/picks";
 import { productFamily } from "../products";
 import type { Briefing } from "../schema";
 import { SITE } from "../site";
@@ -119,7 +120,8 @@ export function buildLiveFiles({ incidents, stats, briefings, sweep }: LiveInput
   const head = { v: LIVE_VERSION, sweep, fresh_since: new Date(sweepMs - FRESH_RECORD_DAYS * DAY_MS).toISOString() };
   const home_ = homeView(home, briefingLine(briefings));
   const board = boardView(home.live);
-  const stack = JSON.stringify(home.stackFile);
+  // the stack candidates travel the way the build writes them (lib/panel/picks.ts packStack): several hundred, compactly
+  const stack = JSON.stringify(packStack(home.stackFile));
   // the home page can also link what the stack file lists (a chip's drawer), so its fresh records cover both
   const homeFile: HomeLive = { ...head, view: home_, fresh: namedIn(fresh, JSON.stringify(home_) + stack) };
   const boardFile: BoardLive = { ...head, view: board, fresh: namedIn(fresh, JSON.stringify(board)) };

@@ -19,8 +19,11 @@ import type { Lane, PatchStatus, Severity } from "../taxonomy";
  * types and three small functions.
  */
 
-/** Bumped when a file's shape changes; the page ignores a version it does not know and keeps what it was built with. */
-export const LIVE_VERSION = 1;
+/**
+ * Bumped when a file's shape changes; the page ignores a version it does not know and keeps what it was built with.
+ * 2: My stack's tiles carry their tier and new critical CVEs, and stack.json is written compactly (lib/panel/picks.ts packStack).
+ */
+export const LIVE_VERSION = 2;
 
 /** The branch the collector publishes the files to (one commit, replaced every sweep; Vercel never deploys it). */
 export const LIVE_BRANCH = "live";

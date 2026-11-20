@@ -46,6 +46,21 @@ function check(name, ok, detail) {
 
 const json = (base, path) => fetch(`${base}${path}`).then((r) => (r.ok ? r.json() : null));
 
+/** A label's slug, the key a candidate has when the file leaves it out (lib/panel/picks.ts stackKey). */
+const stackKey = (label) => label.normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+/**
+ * /stats/stack.json is written packed (lib/panel/picks.ts packStack): every
+ * item once in a table that candidates point into by index. Only what this
+ * check reads is unpacked: each candidate's key and its items' kind, CVE ids
+ * and whether the row leads off the site (no record of ours: the file leaves
+ * its link out and the page falls back to NVD).
+ */
+function unpackStack(wire) {
+  const items = wire.items.map(([kind, name, cves, , , , , href]) => ({ kind: kind === 0 ? "kev" : "record", name, cves, external: !href || String(href).startsWith("http") }));
+  return { default: wire.default, candidates: wire.candidates.map((w) => ({ key: w.key ?? stackKey(w.label), label: w.label, items: (w.it ?? []).map((n) => items[n]) })) };
+}
+
 /** What the record page shows, read in the page. */
 const READ_PAGE = `(() => {
   const article = document.querySelector("article");
@@ -256,8 +271,9 @@ async function run(client, base) {
   await client.send("Runtime.enable");
   // the home page as built: its live layer would fetch the Worker
   await blockHosts(client, [WORKER]);
-  const stack = await json(base, "/stats/stack.json");
-  if (!stack) throw new Error("/stats/stack.json not found");
+  const wire = await json(base, "/stats/stack.json");
+  if (!wire) throw new Error("/stats/stack.json not found");
+  const stack = unpackStack(wire);
   await recordPage(client, base, stack);
   await quickLook(client, base, stack, { width: 1440, height: 900, mobile: false });
   await quickLook(client, base, stack, { width: 375, height: 812, mobile: true });
