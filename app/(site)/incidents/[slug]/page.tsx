@@ -5,7 +5,7 @@ import { CopyBrief } from "@/components/incidents/CopyBrief";
 import { FixBlock } from "@/components/incidents/FixBlock";
 import { IncidentRow } from "@/components/incidents/IncidentRow";
 import { SectionHead } from "@/components/incidents/SectionHead";
-import { CategoryBadge, CvssChip, PatchBadge, StateDot } from "@/components/ui/Badge";
+import { CvssChip, PatchBadge, StateDot } from "@/components/ui/Badge";
 import { buildBrief } from "@/lib/brief";
 import { ADVISORY_PUBLISHERS, VULN_DB_PUBLISHERS, isDisclosedIncident } from "@/lib/counting";
 import { BUILD_DAY, incidentBySlug, loadIncidents, loadStats, siteUrl } from "@/lib/data";
@@ -21,6 +21,7 @@ import { normalizeTag, tagHref } from "@/lib/tags";
 import {
   ATLAS_RELEASE,
   ATLAS_TECHNIQUES,
+  CATEGORY_META,
   LANE_META,
   ORIGIN_META,
   OWASP_LLM_EDITION,
@@ -358,9 +359,11 @@ export default async function IncidentPage({ params }: { params: Promise<{ slug:
             {TYPE_META[incident.type].label}
           </Row>
           <Row label="categories">
-            <span className="flex flex-wrap gap-1.5">
+            <span className="flex flex-wrap gap-x-3 gap-y-1">
               {incident.categories.map((c) => (
-                <CategoryBadge key={c} category={c} short={false} />
+                <span key={c} title={CATEGORY_META[c].definition}>
+                  {CATEGORY_META[c].label}
+                </span>
               ))}
             </span>
           </Row>

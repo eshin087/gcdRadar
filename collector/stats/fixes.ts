@@ -2,6 +2,7 @@ import {
   FIX_LINK_MAX,
   FIX_PATCH_MAX,
   FIX_TEXT_MAX,
+  FixEntrySchema,
   FixesSchema,
   STATS_FILES,
   type FixEntry,
@@ -314,7 +315,7 @@ function texts(list: readonly CveLangText[] | undefined, section: string, cve: s
     if (t.lang && !/^en/i.test(t.lang)) continue;
     const tidy = tidyText(t.value ?? "");
     if (!tidy || out.some((o) => o.text.startsWith(tidy.slice(0, 80)))) continue;
-    out.push({ ...cutText(tidy), kind: who.by_vendor ? "vendor" : "cna", source: { publisher: who.by, title: `${cve}, CVE record: ${section}`, url: cveOrgUrl(cve) } });
+    out.push({ ...cutText(tidy), kind: who.by_vendor ? "vendor" : "cna", source: { publisher: who.by || "CVE Program", title: `${cve}, CVE record: ${section}`, url: cveOrgUrl(cve) } });
     if (out.length === 2) break;
   }
   return out;
@@ -635,6 +636,15 @@ export const fixesModule: StatsModule<Fixes> = {
       links: (had?.links ?? []).filter((l) => l.source === "ghsa"),
     });
 
+    // one odd record must not cost the run its whole file: an entry that does not fit the schema is logged and the previous one kept
+    const fitting = (e: FixEntry, had: FixEntry | undefined): FixEntry | null => {
+      const parsed = FixEntrySchema.safeParse(e);
+      if (parsed.success) return e;
+      const issue = parsed.error.issues[0];
+      ctx.log(`stats fixes: ${e.cve} does not fit the schema, keeping what was there`, { at: issue?.path.join("."), issue: issue?.message });
+      return had ?? null;
+    };
+
     // this run's CVE records, each with the NVD and GitHub answers it needs while the budgets last
     const built = new Map<string, FixEntry>();
     let failures = 0;
@@ -659,7 +669,8 @@ export const fixesModule: StatsModule<Fixes> = {
       if (!record.found) counts.not_published += 1;
       const nvd = (needsNvd(record) ? await askNvd(cve) : null) ?? keptNvd(had);
       const ghsa = (needsGhsa(record) ? await askGhsa(cve) : null) ?? keptGhsa(had);
-      built.set(cve, buildEntry({ cve, fetched_at: nowIso, record, nvd, ghsa, kev: kevOf(cve, had) }));
+      const entry = fitting(buildEntry({ cve, fetched_at: nowIso, record, nvd, ghsa, kev: kevOf(cve, had) }), had);
+      if (entry) built.set(cve, entry);
     }
 
     // entries not read this run keep what they had; one that has not yet had its NVD or GitHub answer gets it
@@ -676,7 +687,8 @@ export const fixesModule: StatsModule<Fixes> = {
       const record = recordPartsOf(had);
       const nvd = (needsNvd(record) && had.nvd_at === null ? await askNvd(cve) : null) ?? keptNvd(had);
       const ghsa = (needsGhsa(record) && had.ghsa_at === null ? await askGhsa(cve) : null) ?? keptGhsa(had);
-      entries.push(buildEntry({ cve, fetched_at: had.fetched_at, record, nvd, ghsa, kev: kevOf(cve, had) }));
+      const entry = fitting(buildEntry({ cve, fetched_at: had.fetched_at, record, nvd, ghsa, kev: kevOf(cve, had) }), had);
+      if (entry) entries.push(entry);
     }
     ctx.log("stats fixes: done", { wanted: wanted.length, entries: entries.length, waiting: wanted.length - entries.length, ...counts, kev_catalog: raw ? "read" : "kept" });
     return { fetched_at: nowIso, sources: [...FIX_SOURCE_LIST], kev_catalog_version: catalogVersion, entries };

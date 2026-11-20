@@ -63,6 +63,8 @@ export interface FixHref {
 export interface FixDeadline {
   /** The CVE ids of this view that CISA lists. */
   cves: string[];
+  /** The CVE the deadline shown belongs to. */
+  cve: string;
   /** The deadline shown: the nearest one still ahead on the build day, else the latest one passed; null when CISA set none. */
   due: string | null;
   /** The day CISA listed the CVE the deadline belongs to. */
@@ -240,6 +242,7 @@ export function buildFixView(input: FixInput): FixView {
     const kev = pick.entry?.kev ?? null;
     deadline = {
       cves: cves.filter((c) => listed.has(c)),
+      cve: pick.cve,
       due: pick.due,
       added: pick.added,
       action: kev?.action ?? "",

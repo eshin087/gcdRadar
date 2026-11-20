@@ -61,7 +61,7 @@ describe("buildFixView: the join", () => {
       ["GitHub advisory", "github.com", 2],
     ]);
     expect(v.workaround).toMatchObject({ state: "text", texts: [{ text: "Disable remote management until the update is applied.", cite: 1 }], links: [{ label: "Mitigation", cite: 5 }], none: null });
-    expect(v.deadline).toEqual({ cves: ["CVE-2026-0001"], due: "2026-12-09", added: "2026-11-18", action: "Apply mitigations per vendor instructions.", note: "", guidance: [{ label: "BOD 26-04", url: "https://www.cisa.gov/bod-26-04" }], cite: 6 });
+    expect(v.deadline).toEqual({ cves: ["CVE-2026-0001"], cve: "CVE-2026-0001", due: "2026-12-09", added: "2026-11-18", action: "Apply mitigations per vendor instructions.", note: "", guidance: [{ label: "BOD 26-04", url: "https://www.cisa.gov/bod-26-04" }], cite: 6 });
     // every citation resolves to a publisher, a title and a link, and every number used is in the list
     for (const c of v.citations) expect(c.publisher && c.title && /^https:\/\//.test(c.url)).toBeTruthy();
     expect(v.citations.find((c) => c.n === 4)!.title).toBe("ACME-SA-1 (tagged in the CVE record)");
@@ -81,8 +81,10 @@ describe("buildFixView: the join", () => {
     expect(v.patch.versions).toHaveLength(1);
     expect(v.patch.links).toHaveLength(1);
     // CVE-2026-0003 is on CISA's list but not read yet: its date counts, its action is not known
-    expect(v.deadline).toMatchObject({ cves: ["CVE-2026-0001", "CVE-2026-0002", "CVE-2026-0003"], due: "2026-12-01", added: "2026-11-10", action: "" });
+    expect(v.deadline).toMatchObject({ cves: ["CVE-2026-0001", "CVE-2026-0002", "CVE-2026-0003"], cve: "CVE-2026-0003", due: "2026-12-01", added: "2026-11-10", action: "" });
     expect(v.citations.at(-1)).toMatchObject({ publisher: "CISA", url: kevEntryUrl("CVE-2026-0003") });
+    // the brief says whose date it is
+    expect(fixMarkdown(v, "https://example.test/x")).toContain("- CISA lists CVE-2026-0001, CVE-2026-0002, CVE-2026-0003 as exploited in the wild; US federal agencies must fix CVE-2026-0003 (listed 2026-11-10) by 2026-12-01.");
     // the oldest read among the entries is what the block's date says
     expect(v.checked).toBe("2026-11-17T00:00:00.000Z");
     const passed = buildFixView({ cves: ["CVE-2026-0001", "CVE-2026-0002"], entries: [a, b], today: "2026-12-20" });

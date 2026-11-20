@@ -406,6 +406,18 @@ describe("the fixes module", () => {
     expect(next.entries.map((e) => e.cve)).toEqual(["CVE-2026-0001"]);
   });
 
+  it("keeps the previous entry when a record would not fit the schema, instead of losing the whole file", async () => {
+    const first = (await fixesModule.fetch(ctx(world(), { liveCveIds: ["CVE-2026-0003"] }), null))!;
+    // four days later CVE-2026-0003's record comes back with a 300-character product name twice over the label's limit
+    const odd = fakeHttp((url) => (url.includes("CVE-2026-0003.json") ? published("CVE-2026-0003", { affected: [{ vendor: "", product: "P", versions: [{ version: "1", status: "affected", lessThan: "2" }] }], references: [{ url: "https://acme.example/x", name: "n".repeat(300), tags: ["patch"] }] }) : world().json(url)));
+    const logged: string[] = [];
+    const next = (await fixesModule.fetch({ ...ctx(odd, { liveCveIds: ["CVE-2026-0003"] }), now: new Date(NOW.getTime() + 4 * 86_400_000), log: (m) => logged.push(m) }, first))!;
+    // the title is cut to fit, so the entry is taken; nothing was logged as unfit
+    expect(next.entries.find((e) => e.cve === "CVE-2026-0003")!.links[0]).toMatchObject({ kind: "patch", title: "n".repeat(200) });
+    expect(logged.filter((m) => m.includes("does not fit"))).toEqual([]);
+    for (const e of next.entries) expect(FixEntrySchema.safeParse(e).success).toBe(true);
+  });
+
   it("is off at a budget of zero", async () => {
     expect(await fixesModule.fetch(ctx(world(), { fix: { per_run: 0 } }), null)).toBeNull();
   });

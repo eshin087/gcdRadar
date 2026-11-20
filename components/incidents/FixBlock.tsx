@@ -196,6 +196,7 @@ export function FixBlock({ view, today, className = "" }: FixBlockProps) {
   const vendorPage = patch.links.find((l) => l.kind === "advisory") ?? advisory;
   const patchEmpty = patch.versions.length + patch.texts.length + patch.links.length + patch.recorded.length === 0;
   const left = deadline?.due ? daysBetween(today, deadline.due) : null;
+  const many = (deadline?.cves.length ?? 0) > 1;
   return (
     <section data-fixblock="" data-fix-checked={view.checked ?? ""} aria-label="How to fix" className={`overflow-hidden rounded-[3px] border border-line bg-panel ${className}`}>
       <header className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-4 py-3 sm:px-5">
@@ -284,8 +285,10 @@ export function FixBlock({ view, today, className = "" }: FixBlockProps) {
                   <br />
                 </>
               ) : null}
-              US federal agencies {deadline.due ? (left !== null && left < 0 ? "had to fix this by then" : "must fix this by then") : "must fix this; CISA set no date"}. CISA lists{" "}
-              {deadline.cves.length > 1 ? `${deadline.cves.length} of these CVEs` : "it"} as exploited in the wild since <span className="num">{dateLabel(deadline.added)}</span>.
+              {/* with several CVEs on CISA's list, the date is one CVE's: say whose */}
+              US federal agencies {deadline.due ? (left !== null && left < 0 ? "had to fix" : "must fix") : "must fix"} {many ? <span className="num">{deadline.cve}</span> : "this"}
+              {deadline.due ? " by then" : "; CISA set no date"}. CISA lists it as exploited in the wild since <span className="num">{dateLabel(deadline.added)}</span>
+              {many ? `, and ${deadline.cves.length - 1} more of this record's CVEs with it` : ""}.
               <Cite n={deadline.cite} view={view} />
             </p>
             {deadline.action && <Passage p={{ text: deadline.action, cut: false, by: "CISA", kind: "cisa", cite: deadline.cite }} view={view} whose="CISA's required action" />}

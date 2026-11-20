@@ -60,7 +60,11 @@ export function fixMarkdown(fix: FixView, pageUrl: string): string {
 
   if (fix.deadline) {
     const d = fix.deadline;
-    const dl = [`- CISA lists ${d.cves.join(", ")} as exploited in the wild (since ${d.added})${d.due ? `; US federal agencies must fix it by ${d.due}` : ""}. [${d.cite}]`];
+    const dl = [
+      d.cves.length > 1
+        ? `- CISA lists ${d.cves.join(", ")} as exploited in the wild${d.due ? `; US federal agencies must fix ${d.cve} (listed ${d.added}) by ${d.due}` : ""}. [${d.cite}]`
+        : `- CISA lists ${d.cves.join(", ")} as exploited in the wild (since ${d.added})${d.due ? `; US federal agencies must fix it by ${d.due}` : ""}. [${d.cite}]`,
+    ];
     if (d.action) dl.push(`- CISA's required action: "${d.action}" [${d.cite}]`);
     out.push(`Deadline\n${dl.join("\n")}`);
   } else out.push("Deadline\n- Not on CISA's list of known exploited vulnerabilities, so no federal deadline.");
