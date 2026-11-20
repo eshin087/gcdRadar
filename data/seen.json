@@ -3615,6 +3615,11 @@
   "status": "rejected",
   "at": "2026-10-18T18:20:35.359Z"
  },
+ "23f48ad05290d59c": {
+  "status": "merged",
+  "id": "AIR-2026-2084",
+  "at": "2026-11-20T13:36:49.308Z"
+ },
  "23f6b09561c4ae4f": {
   "status": "published",
   "id": "AIR-2025-0307",
