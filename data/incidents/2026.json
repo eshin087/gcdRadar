@@ -1,5 +1,135 @@
 [
   {
+    "id": "AIR-2026-2098",
+    "slug": "cve-2025-42884-sap-netweaver-enterprise-portal-improper-neut",
+    "title": "CVE-2025-42884: SAP NetWeaver Enterprise Portal Improper Neutralization Vulnerability",
+    "summary": "SAP NetWeaver Enterprise Portal contains an improper neutralization flaw in data query logic allowing unauthenticated server information disclosure or modification. CISA added the vulnerability to its Known Exploited Vulnerabilities catalog following confirmation of active exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "SAP NetWeaver Enterprise Portal"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-42884",
+        "publisher": "CISA",
+        "title": "CVE-2025-42884: SAP NetWeaver — SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2025-42884",
+      "cisa-kev",
+      "jndi",
+      "sap"
+    ],
+    "created_at": "2026-11-20T18:06:31.593Z",
+    "updated_at": "2026-11-20T18:06:31.593Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2025-42884"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "CVE-2025-42884: SAP NetWeaver — SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-42884",
+        "added_at": "2026-11-20T18:06:31.593Z"
+      }
+    ],
+    "action": "Apply vendor mitigations and updates in accordance with CISA guidance.",
+    "severity_note": "Added to CISA KEV with confirmed exploitation in the wild.",
+    "cvss": 6.5
+  },
+  {
+    "id": "AIR-2026-2097",
+    "slug": "china-linked-threat-actors-used-cairn-ai-tool-to-attack-univ",
+    "title": "China-linked threat actors used Cairn AI tool to attack universities",
+    "summary": "Threat actors utilized the open-source AI penetration testing tool Cairn to persistently attack two universities. The attacks resulted in the possible discovery of an unpatched zero-day vulnerability.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [
+      "Cairn"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://therecord.media/amazon-research-cairn-ai-university-attacks-possible-zero-day",
+        "publisher": "The Record",
+        "title": "Amazon says Chinese hackers used Cairn AI tool to discover apparent zero-day during attack on university",
+        "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382",
+        "publisher": "The Register",
+        "title": "Chinese attackers used AI agents to find and exploit a university zero-day",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 2,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cairn",
+      "china",
+      "zero-day",
+      "universities"
+    ],
+    "created_at": "2026-11-20T17:51:38.694Z",
+    "updated_at": "2026-11-20T17:51:38.694Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Amazon says Chinese hackers used Cairn AI tool to discover apparent zero-day during attack on university",
+        "source_url": "https://therecord.media/amazon-research-cairn-ai-university-attacks-possible-zero-day",
+        "added_at": "2026-11-20T17:51:38.694Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Chinese attackers used AI agents to find and exploit a university zero-day",
+        "source_url": "https://theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382",
+        "added_at": "2026-11-20T17:51:38.694Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world attack campaign using AI tools against targets",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2096",
     "slug": "bazuka-android-malware-framework-discovered-with-llm-integra",
     "title": "Bazuka Android Malware Framework Discovered with LLM Integration for Credential Theft",
@@ -1743,7 +1873,7 @@
     "categories": [
       "general"
     ],
-    "severity": 2,
+    "severity": 3,
     "targets": [
       "n/a"
     ],
@@ -1783,9 +1913,15 @@
         "publisher": "Help Net Security",
         "title": "VMware vCenter zero-day exploited for months before patch (CVE-2026-123890)",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-123890",
+        "publisher": "CISA",
+        "title": "CVE-2026-123890: Broadcom VMware vCenter — VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 5,
+    "source_count": 6,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1795,10 +1931,11 @@
       "authentication-bypass",
       "cve",
       "critical",
-      "CVE-2026-123890"
+      "CVE-2026-123890",
+      "cisa-kev"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T18:06:31.593Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -1826,6 +1963,12 @@
         "title": "Espionage group Armory Castle attributed to zero-day exploitation of vCenter Server in early September",
         "source_url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
         "added_at": "2026-11-20T07:07:16.876Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-123890",
+        "added_at": "2026-11-20T18:06:31.593Z"
       }
     ],
     "action": "Apply the latest patched version of VMware vCenter",
@@ -1983,9 +2126,15 @@
         "publisher": "The Hacker News",
         "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76466",
+        "publisher": "CISA",
+        "title": "CVE-2026-76466: Cisco Expressway Series — Cisco Expressway Series Use of Hard-coded Credentials Vulnerability",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1994,14 +2143,15 @@
       "expressway",
       "vulnerability",
       "exploitation",
-      "CVE-2026-76466"
+      "CVE-2026-76466",
+      "cisa-kev"
     ],
     "created_at": "2026-11-19T13:41:53.079Z",
-    "updated_at": "2026-11-20T11:21:21.743Z",
+    "updated_at": "2026-11-20T18:06:31.593Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
-    "patch_status": "unknown",
+    "patch_status": "partial",
     "cve_ids": [
       "CVE-2026-76466"
     ],
@@ -2019,6 +2169,12 @@
         "title": "Exploitation confirmed to affect four devices allowing attackers to reach the internal network",
         "source_url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
         "added_at": "2026-11-20T11:21:21.743Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76466",
+        "added_at": "2026-11-20T18:06:31.593Z"
       }
     ],
     "action": "",
@@ -3720,9 +3876,15 @@
         "publisher": "SecurityWeek",
         "title": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-129448",
+        "publisher": "CISA",
+        "title": "CVE-2026-129448: Apache Roller — Apache Roller Deserialization of Untrusted Data Vulnerability",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -3731,10 +3893,11 @@
       "apache",
       "roller",
       "exploitation",
-      "CVE-2026-129448"
+      "CVE-2026-129448",
+      "cisa-kev"
     ],
     "created_at": "2026-11-18T11:11:10.761Z",
-    "updated_at": "2026-11-19T12:41:16.027Z",
+    "updated_at": "2026-11-20T18:06:31.593Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -3754,6 +3917,12 @@
         "title": "Apache warns of Roller RCE vulnerability exploited in attacks",
         "source_url": "https://bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks",
         "added_at": "2026-11-18T11:11:10.761Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-129448",
+        "added_at": "2026-11-20T18:06:31.593Z"
       }
     ],
     "action": "Update Apache Roller to the latest patched version immediately.",
@@ -40819,9 +40988,15 @@
         "publisher": "Dark Reading",
         "title": "Hackers Abuse AI Pen-Test Tool Cairn to Automate Massive Attack Spree",
         "published_at": "2026-10-20"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server",
+        "publisher": "BleepingComputer",
+        "title": "Hackers use autonomous AI tool Cairn to find zero-day, take over server",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -40831,10 +41006,10 @@
       "ai-assisted-intrusion"
     ],
     "created_at": "2026-10-20T17:10:36.613Z",
-    "updated_at": "2026-11-04T00:07:17.182Z",
+    "updated_at": "2026-11-20T17:51:38.694Z",
     "lane": "breach",
-    "state": "closed",
-    "closed_at": "2026-11-03",
+    "state": "live",
+    "closed_at": null,
     "patch_status": "no_fix_needed",
     "cve_ids": [],
     "affected": [],
@@ -40845,6 +41020,12 @@
         "title": "Hackers Abuse AI Pen-Test Tool Cairn to Automate Massive Attack Spree",
         "source_url": "https://darkreading.com/cyberattacks-data-breaches/hackers-abuse-ai-pen-test-tool-cairn",
         "added_at": "2026-10-20T17:10:36.613Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Attackers used Cairn to discover and exploit a zero-day vulnerability in a medical application.",
+        "source_url": "https://bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server",
+        "added_at": "2026-11-20T17:51:38.694Z"
       }
     ],
     "action": "",
