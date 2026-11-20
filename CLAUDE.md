@@ -14,7 +14,9 @@ collector run with new data rebuilt and redeployed all ~3,400 pages, about 30 de
    rebuilds only when one has opened since the last commit that rebuilt the site; every other run commits with
    `[no site change]` and `vercel.json`'s `ignoreCommand` skips the build. Keep that marker on any new automated
    commit that does not need the site rebuilt (stats refreshes, backfills, bookkeeping), and never add a schedule,
-   workflow or deploy hook that deploys more often without the user's yes.
+   workflow or deploy hook that deploys more often without the user's yes. A sweep that found nothing is not
+   committed. Every sweep publishes the live files to the branch `live`, which Vercel must never deploy: its own
+   `vercel.json` switches deployments off. Never merge that branch, and never remove that file.
 2. **Widen the windows on purpose only.** The `COLLECTOR_DEPLOY_HOURS` repository variable changes them (`*` means
    every run). Add hours only when the user wants fresher data on the site, and say what it costs: each extra
    window is one more full deployment per day.

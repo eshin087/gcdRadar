@@ -1,5 +1,495 @@
 [
   {
+    "id": "AIR-2026-2106",
+    "slug": "too-lost-data-breach-exposes-724-323-accounts",
+    "title": "Too Lost data breach exposes 724,323 accounts",
+    "summary": "An unauthorised party obtained data from music distributor Too Lost, exposing 724,323 accounts. The leaked information included email addresses, bcrypt password hashes, partial credit card data, and identity verification documents.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Too Lost"
+    ],
+    "incident_date": "2026-11-02",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://haveibeenpwned.com/Breach/TooLost",
+        "publisher": "Have I Been Pwned",
+        "title": "Too Lost data breach exposes 724,323 accounts",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "credential-leak",
+      "pii-exposure"
+    ],
+    "created_at": "2026-11-20T20:21:50.773Z",
+    "updated_at": "2026-11-20T20:21:50.773Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Too Lost data breach exposes 724,323 accounts",
+        "source_url": "https://haveibeenpwned.com/Breach/TooLost",
+        "added_at": "2026-11-20T20:21:50.773Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world loss of personal data and identity documents affecting hundreds of thousands of users.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2105",
+    "slug": "bell-canada-confirms-enterprise-data-breach-following-cybera",
+    "title": "Bell Canada Confirms Enterprise Data Breach Following Cyberattack",
+    "summary": "Bell Canada confirmed that threat actors breached its systems and stole enterprise customer data. The compromised information includes data from a telecommunications ordering and provisioning system.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-17",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data",
+        "publisher": "BleepingComputer",
+        "title": "Bell Canada says 'agentic' hacker stole enterprise customer data",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "bell-canada",
+      "breach",
+      "data-theft"
+    ],
+    "created_at": "2026-11-20T19:11:02.316Z",
+    "updated_at": "2026-11-20T19:11:02.316Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Bell Canada says 'agentic' hacker stole enterprise customer data",
+        "source_url": "https://bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data",
+        "added_at": "2026-11-20T19:11:02.316Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world data breach and theft of enterprise customer data.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2104",
+    "slug": "cve-2026-23871-whatsapp-patches-flaw-suspected-of-in-the-wil",
+    "title": "CVE-2026-23871: WhatsApp Patches Flaw Suspected of In-The-Wild Abuse",
+    "summary": "Meta patched a security vulnerability in WhatsApp for Android that may have been exploited in scam messages. The issue involves incomplete validation of external ad-reply URLs.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "WhatsApp"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
+        "publisher": "The Hacker News",
+        "title": "WhatsApp Patches 3 Security Flaws, Including Android Bug Suspected of Use in Scams",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "CVE-2026-23871",
+      "whatsapp",
+      "android",
+      "url-validation"
+    ],
+    "created_at": "2026-11-20T19:11:02.316Z",
+    "updated_at": "2026-11-20T19:11:02.316Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-23871"
+    ],
+    "affected": [
+      "WhatsApp for Android < 2.26.17.4",
+      "WhatsApp Business for Android < 2.26.17.4"
+    ],
+    "fixed_in": [
+      "2.26.17.4"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "WhatsApp Patches 3 Security Flaws, Including Android Bug Suspected of Use in Scams",
+        "source_url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
+        "added_at": "2026-11-20T19:11:02.316Z"
+      }
+    ],
+    "action": "Update WhatsApp for Android and WhatsApp Business to version 2.26.17.4 or later.",
+    "severity_note": "Suspected exploitation in the wild.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2103",
+    "slug": "cve-2026-133875-one-hub-server-side-request-forgery-in-image",
+    "title": "CVE-2026-133875: one-hub server-side request forgery in image fetching",
+    "summary": "One-hub through version 0.14.27 contains a server-side request forgery vulnerability in its GetImageFromUrl function that allows standard API token holders to reach internal services. A fix should be applied if available from the vendor.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "one-hub"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133875",
+        "publisher": "NVD",
+        "title": "CVE-2026-133875: one-hub through 0.14.27 contains a server-side request forgery vulnerability in GetImageFromUrl in common/image/image.go that…",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133875",
+      "ssrf"
+    ],
+    "created_at": "2026-11-20T19:11:02.316Z",
+    "updated_at": "2026-11-20T19:11:02.316Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-20",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-133875"
+    ],
+    "affected": [
+      "one-hub <= 0.14.27"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "CVE-2026-133875: one-hub through 0.14.27 contains a server-side request forgery vulnerability in GetImageFromUrl in common/image/image.go that…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133875",
+        "added_at": "2026-11-20T19:11:02.316Z"
+      }
+    ],
+    "action": "Check for updates to one-hub beyond version 0.14.27.",
+    "severity_note": "Medium severity vulnerability disclosed via CVE advisory.",
+    "cvss": 5.3
+  },
+  {
+    "id": "AIR-2026-2102",
+    "slug": "cve-2026-77390-pmo-platform-file-reading-and-symlink-followi",
+    "title": "CVE-2026-77390: pmo-platform file reading and symlink following flaws",
+    "summary": "Pmo-platform prior to version 3.73 follows symlinks and reads output files without size caps or path confinement in its evaluation viewer. Users should update to version 3.73 to mitigate these weaknesses.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "Anthropic",
+      "framework_or_tooling"
+    ],
+    "products": [
+      "pmo-platform"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77390",
+        "publisher": "NVD",
+        "title": "CVE-2026-77390: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-77390",
+      "path-traversal"
+    ],
+    "created_at": "2026-11-20T19:11:02.316Z",
+    "updated_at": "2026-11-20T19:11:02.316Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-20",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-77390"
+    ],
+    "affected": [
+      "pmo-platform < 3.73"
+    ],
+    "fixed_in": [
+      "pmo-platform 3.73"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "CVE-2026-77390: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77390",
+        "added_at": "2026-11-20T19:11:02.316Z"
+      }
+    ],
+    "action": "Update pmo-platform to version 3.73.",
+    "severity_note": "Disclosed vulnerability with a fix available.",
+    "cvss": 5.9
+  },
+  {
+    "id": "AIR-2026-2101",
+    "slug": "cve-2026-77349-pmo-platform-evaluation-viewer-contains-cross",
+    "title": "CVE-2026-77349: pmo-platform evaluation viewer contains cross-site scripting flaw",
+    "summary": "Between versions 3.48 and 3.69.1, pmo-platform improperly embeds untrusted skill output into the local evaluation viewer without escaping HTML metacharacters. A patched version is available to remediate the vulnerability.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "Anthropic",
+      "framework_or_tooling"
+    ],
+    "products": [
+      "pmo-platform"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77349",
+        "publisher": "NVD",
+        "title": "CVE-2026-77349: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-77349",
+      "xss"
+    ],
+    "created_at": "2026-11-20T19:11:02.316Z",
+    "updated_at": "2026-11-20T19:11:02.316Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-20",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-77349"
+    ],
+    "affected": [
+      "pmo-platform >= 3.48, < 3.69.1"
+    ],
+    "fixed_in": [
+      "pmo-platform 3.69.1"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "CVE-2026-77349: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77349",
+        "added_at": "2026-11-20T19:11:02.316Z"
+      }
+    ],
+    "action": "Update pmo-platform to version 3.69.1.",
+    "severity_note": "Disclosed vulnerability with a fix available.",
+    "cvss": 5
+  },
+  {
+    "id": "AIR-2026-2100",
+    "slug": "cve-2026-77389-pmo-platform-missing-awk-primitives-causes-ch",
+    "title": "CVE-2026-77389: pmo-platform missing awk primitives causes check degradation",
+    "summary": "In pmo-platform prior to version 3.73, missing co-shipped awk primitives cause warning hooks to skip path-leak checks and issue reference detectors. The maintainers released version 3.73 to fix the issue.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "Anthropic",
+      "framework_or_tooling"
+    ],
+    "products": [
+      "pmo-platform"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77389",
+        "publisher": "NVD",
+        "title": "CVE-2026-77389: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-77389",
+      "awk"
+    ],
+    "created_at": "2026-11-20T19:11:02.316Z",
+    "updated_at": "2026-11-20T19:11:02.316Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-20",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-77389"
+    ],
+    "affected": [
+      "pmo-platform < 3.73"
+    ],
+    "fixed_in": [
+      "pmo-platform 3.73"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "CVE-2026-77389: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77389",
+        "added_at": "2026-11-20T19:11:02.316Z"
+      }
+    ],
+    "action": "Update pmo-platform to version 3.73.",
+    "severity_note": "Disclosed vulnerability with a fix available.",
+    "cvss": 2
+  },
+  {
+    "id": "AIR-2026-2099",
+    "slug": "cve-2026-77350-pmo-platform-path-pinning-flaw-allows-securit",
+    "title": "CVE-2026-77350: pmo-platform path-pinning flaw allows security control bypass",
+    "summary": "A path-pinning flaw in pmo-platform prior to version 3.69.1 can cause security hooks to skip credential, egress, boundary, and MCP write checks if jq is only found in Homebrew paths. An update to version 3.69.1 resolves the issue.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "Anthropic",
+      "framework_or_tooling"
+    ],
+    "products": [
+      "pmo-platform"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77350",
+        "publisher": "NVD",
+        "title": "CVE-2026-77350: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-77350",
+      "path-pinning",
+      "mcp"
+    ],
+    "created_at": "2026-11-20T19:11:02.316Z",
+    "updated_at": "2026-11-20T19:11:02.316Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-20",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-77350"
+    ],
+    "affected": [
+      "pmo-platform < 3.69.1"
+    ],
+    "fixed_in": [
+      "pmo-platform 3.69.1"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "CVE-2026-77350: pmo-platform is a modular PMO and release-management platform for Claude Code.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77350",
+        "added_at": "2026-11-20T19:11:02.316Z"
+      }
+    ],
+    "action": "Update pmo-platform to version 3.69.1 or later.",
+    "severity_note": "Disclosed vulnerability with a fix available.",
+    "cvss": 7.3
+  },
+  {
     "id": "AIR-2026-2098",
     "slug": "cve-2025-42884-sap-netweaver-enterprise-portal-improper-neut",
     "title": "CVE-2025-42884: SAP NetWeaver Enterprise Portal Improper Neutralization Vulnerability",
@@ -1919,9 +2409,15 @@
         "publisher": "CISA",
         "title": "CVE-2026-123890: Broadcom VMware vCenter — VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day",
+        "publisher": "Dark Reading",
+        "title": "China's 'Armory Castle' Lays Siege to VMware vCenter Zero-Day",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 6,
+    "source_count": 7,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1935,7 +2431,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-20T18:06:31.593Z",
+    "updated_at": "2026-11-20T21:21:32.303Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -3260,9 +3756,15 @@
         "publisher": "Help Net Security",
         "title": "NGINX2Root: F5 patches five critical NGINX vulnerabilities",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nginx-nov-2026-e8jska2s?vs_f=Cisco+Security+Advisory%26vs_cat%3DSecurity+Intelligence%26vs_type%3DRSS%26vs_p%3DVulnerabilities+in+nginx+Affecting+Cisco+Products%3A+November+2026%26vs_k%3D1",
+        "publisher": "Cisco",
+        "title": "Vulnerabilities in nginx Affecting Cisco Products: November 2026",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 5,
+    "source_count": 6,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -3272,7 +3774,7 @@
       "nginx"
     ],
     "created_at": "2026-11-18T19:41:51.600Z",
-    "updated_at": "2026-11-19T18:41:56.717Z",
+    "updated_at": "2026-11-20T20:21:50.773Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -3283,7 +3785,10 @@
     "affected": [
       "NGINX"
     ],
-    "fixed_in": [],
+    "fixed_in": [
+      "1.31.9",
+      "1.30.7"
+    ],
     "timeline": [
       {
         "date": "2026-11-18",
@@ -3302,6 +3807,12 @@
         "title": "Proof-of-concept exploits for the critical NGINX vulnerabilities go public",
         "source_url": "https://securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public",
         "added_at": "2026-11-19T10:42:43.321Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Vendor releases mainline version 1.31.9 and stable version 1.30.7 fixing the vulnerabilities.",
+        "source_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nginx-nov-2026-e8jska2s?vs_f=Cisco+Security+Advisory%26vs_cat%3DSecurity+Intelligence%26vs_type%3DRSS%26vs_p%3DVulnerabilities+in+nginx+Affecting+Cisco+Products%3A+November+2026%26vs_k%3D1",
+        "added_at": "2026-11-20T20:21:50.773Z"
       }
     ],
     "action": "Update NGINX to the latest patched version immediately, prioritizing internet-facing appliances.",
