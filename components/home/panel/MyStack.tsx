@@ -5,6 +5,7 @@ import { useId, useState } from "react";
 import { ScoreOrDash, Tag } from "@/components/home/panel/marks";
 import { Num } from "@/components/home/panel/Num";
 import { usePanelState } from "@/components/home/panel/PanelState";
+import { QuickLook } from "@/components/incidents/QuickLook";
 import { Drawer } from "@/components/ui/Drawer";
 import { dateLabel } from "@/lib/format";
 import { STACK_DAYS, STACK_MAX, flagBadge, type FlagTone, type StackCandidate, type StackFile, type StackItem } from "@/lib/panel/picks";
@@ -74,7 +75,7 @@ const OPEN_WORDS: Record<Exclude<StackItem["open"], null | "due">, { word: strin
   loss: { word: "confirmed impact", cls: "text-live" },
 };
 
-function ItemRow({ it }: { it: StackItem }) {
+function ItemRow({ it, onLook }: { it: StackItem; onLook: (cve: string) => void }) {
   const cls = "text-[13.5px] text-ink hover:text-accent";
   const cve = it.cves.length > 1 ? `${it.cves[0]} +${it.cves.length - 1}` : it.cves[0];
   return (
@@ -83,7 +84,12 @@ function ItemRow({ it }: { it: StackItem }) {
         <ScoreOrDash score={it.cvss} />
       </div>
       <div className="min-w-0">
-        {it.external ? (
+        {it.external && it.cves[0] ? (
+          // a KEV entry with no record of ours: its fix block opens here (components/incidents/QuickLook.tsx) instead of sending the reader to NVD
+          <button type="button" data-quicklook-open={it.cves[0]} onClick={() => onLook(it.cves[0]!)} className={`${cls} text-left`}>
+            {it.name}
+          </button>
+        ) : it.external ? (
           <a href={it.href} target="_blank" rel="noopener noreferrer" className={cls}>
             {it.name}
           </a>
@@ -115,7 +121,7 @@ function ItemRow({ it }: { it: StackItem }) {
  * contract scripts/check-home.mjs reads; the line saying why the tile is
  * flagged and the rows appear together once the file is in.
  */
-function StackDrawer({ cand, file, onClose }: { cand: StackCandidate | null; file: StackFile | null; onClose: () => void }) {
+function StackDrawer({ cand, file, onClose, onLook }: { cand: StackCandidate | null; file: StackFile | null; onClose: () => void; onLook: (cve: string) => void }) {
   const titleId = useId();
   if (!cand) return null;
   const items = file?.candidates.find((c) => c.key === cand.key)?.items ?? null;
@@ -159,7 +165,7 @@ function StackDrawer({ cand, file, onClose }: { cand: StackCandidate | null; fil
           ) : (
             <ol className="border-y border-line-soft">
               {items.map((it, i) => (
-                <ItemRow key={`${it.kind}-${it.cves[0] ?? it.href}-${i}`} it={it} />
+                <ItemRow key={`${it.kind}-${it.cves[0] ?? it.href}-${i}`} it={it} onLook={onLook} />
               ))}
             </ol>
           )}
@@ -243,6 +249,7 @@ export function MyStack() {
   const { tiles, picks, isDefault, ready, file, loadFile, setPicks, aiOnly, setAiOnly } = usePanelState();
   const [open, setOpen] = useState(false);
   const [shown, setShown] = useState<StackCandidate | null>(null);
+  const [look, setLook] = useState<string | null>(null);
   const [copied, setCopied] = useState<"" | "copied" | "in the address bar">("");
 
   const choose = async () => {
@@ -287,7 +294,9 @@ export function MyStack() {
           <Chip key={t.key} t={t} onOpen={() => show(t)} />
         ))}
       </div>
-      <StackDrawer cand={shown} file={file} onClose={() => setShown(null)} />
+      {/* one drawer at a time: the list steps aside while a quick look is open and is back when it closes */}
+      <StackDrawer cand={look ? null : shown} file={file} onClose={() => setShown(null)} onLook={setLook} />
+      <QuickLook target={look ? { cve: look } : null} onClose={() => setLook(null)} />
       <Chooser open={open} onClose={() => setOpen(false)} file={file} picks={picks} isDefault={isDefault} copied={copied} onShare={share} onChange={change} onReset={() => setPicks([])} />
     </section>
   );

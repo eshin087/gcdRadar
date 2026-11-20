@@ -27,6 +27,14 @@
     "per_run": 20,
     "recheck_days": 7
   },
+  "fix_lookup": {
+    "_comment": "The fix stage (data/stats/fixes.json): patch links, fixed versions and vendor workaround text for the CVEs on live records and for KEV entries of the last kev_days days or with a deadline ahead. Each run reads at most per_run CVE records from the CVE List (new CVEs first, then the ones read longest ago, again after recheck_days); of those at most nvd_per_run also ask NVD for reference tags (only when the CVE record tags no patch or vendor advisory) and at most ghsa_per_run ask the GitHub Advisory Database (only when the record lists no fixed version). per_run 0 turns the stage off and keeps the file.",
+    "per_run": 20,
+    "nvd_per_run": 6,
+    "ghsa_per_run": 10,
+    "recheck_days": 3,
+    "kev_days": 90
+  },
   "fetch": {
     "timeout_ms": 20000,
     "retries": 3,

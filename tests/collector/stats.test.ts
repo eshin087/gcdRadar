@@ -19,7 +19,7 @@ const settings: Settings = SettingsSchema.parse(settingsJson);
 const NOW = new Date("2026-10-26T12:00:00Z");
 
 function ctx(http: StatsHttp, extra: Partial<StatsContext> = {}): StatsContext {
-  return { settings, now: NOW, http, recordCveIds: [], extraCveIds: [], produced: {}, log: () => undefined, ...extra };
+  return { settings, now: NOW, http, recordCveIds: [], liveCveIds: [], extraCveIds: [], produced: {}, log: () => undefined, ...extra };
 }
 
 /** A recorded-shape HTTP client answering by URL, counting calls. */
@@ -182,11 +182,14 @@ describe("runStats", () => {
         if (url.includes("resultsPerPage=1&")) return { totalResults: 5, resultsPerPage: 1, startIndex: 0 };
         return { totalResults: 1, resultsPerPage: 2000, startIndex: 0, vulnerabilities: [{ cve: nvdCve("CVE-2026-0008", "2026-10-25T10:00:00.000") }] };
       }
+      // the fix module: one CVE record from the CVE List, no GitHub advisory
+      if (url.startsWith("https://raw.githubusercontent.com/CVEProject/cvelistV5/")) return { cveMetadata: { state: "PUBLISHED", assignerShortName: "v" }, containers: { cna: { affected: [{ vendor: "V", product: "P", versions: [{ version: "1.0", status: "affected", lessThan: "1.1" }] }], references: [{ url: "https://v.example/advisory", tags: ["vendor-advisory"] }] } } };
+      if (url.startsWith("https://api.github.com/advisories")) return [];
       return new Error(`unexpected ${url}`);
     });
   }
 
-  it("writes the five files, skips them while fresh, and leaves a dry run clean", async () => {
+  it("writes the seven files, skips them while fresh, and leaves a dry run clean", async () => {
     const http = liveLike();
     const first = await runStats(settings, { dataDir: dir, http, now: NOW, recordCveIds: ["CVE-2026-0009"] });
     expect(first.failed).toEqual([]);
@@ -204,14 +207,14 @@ describe("runStats", () => {
 
     const second = await runStats(settings, { dataDir: dir, http, now: new Date(NOW.getTime() + 3_600_000), recordCveIds: [] });
     expect(second.changed).toEqual([]);
-    expect(second.skipped).toHaveLength(6);
+    expect(second.skipped).toHaveLength(7);
 
     // a day later with the same answers: due again, but only fetched_at would differ, so nothing is written
     // except daily.json, which gains the day that has closed since (2026-10-26, no CVEs)
     const later = new Date(NOW.getTime() + 25 * 3_600_000);
     const same = await runStats(settings, { dataDir: dir, http, now: later, recordCveIds: ["CVE-2026-0009"] });
     expect(same.changed).toEqual(["stats/daily.json"]);
-    expect(same.skipped).toHaveLength(5);
+    expect(same.skipped).toHaveLength(6);
     expect((await readAllStats(dir)).daily!.days["2026-10-26"]).toEqual({ cves: 0, critical: 0 });
 
     // a changed catalog in a dry run: reported as changed, written nowhere
@@ -234,7 +237,7 @@ describe("runStats", () => {
   it("builds daily.json from the cves-recent window this run fetched, with no request of its own, and skips it without one", async () => {
     // no cves-recent file: nothing to count, so skipped (not failed) and nothing written
     const none = await runStats(settings, { dataDir: dir, http: fakeHttp(() => new Error("no calls")), now: NOW, recordCveIds: [], only: ["daily"] });
-    expect(none).toEqual({ changed: [], failed: [], skipped: ["daily"] });
+    expect(none).toEqual({ changed: [], touched: [], failed: [], skipped: ["daily"] });
     expect((await readAllStats(dir)).daily).toBeNull();
 
     const http = liveLike();

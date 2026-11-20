@@ -9,7 +9,8 @@
  *   public/data/rows/<year>.json      compact rows per year: what the dashboard's drawers fetch
  *   public/data/slim/<year>.json      slim records per year: what the incidents explorer fetches
  *   public/data/search-index.json     token index over id, title and products for the explorer's search box
- *   public/data/incidents/<slug>.json one file per incident
+ *   public/data/incidents/<slug>.json one file per incident, with its brief and its fix view (lib/fixes.ts)
+ *   public/data/fix/<CVE>.json        how to fix one CVE: what the quick-look drawer fetches (lib/fix-join.ts)
  *   public/data/meta.json             counts, last run, generation time
  *   public/data/summary.json          headline numbers and the 24-month series, for widgets (lib/summary.ts)
  *   public/data/briefings/<week>.json the weekly briefings, plus briefings/index.json
@@ -22,7 +23,8 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import type { MetaFile, YearIndexFile } from "../lib/api-docs";
 import { briefingSummaryLine } from "../lib/briefing";
-import { lastUpdated, loadBriefings, loadIncidents, loadStats, siteUrl } from "../lib/data";
+import { BUILD_DAY, lastUpdated, loadBriefings, loadIncidents, loadStats, siteUrl } from "../lib/data";
+import { buildQuickLookFiles, fixViewForRecord } from "../lib/fix-join";
 import { breachesMonthList, buildHome, dayCvesList, kevMonthList, kevWeekList, weekCvesList } from "../lib/home";
 import { lastActivity, type FullIncident } from "../lib/lifecycle";
 import { buildBrief } from "../lib/brief";
@@ -123,7 +125,10 @@ async function main() {
   const rowsDir = path.join(dataDir, "rows");
   const slimDir = path.join(dataDir, "slim");
   const briefingsDir = path.join(dataDir, "briefings");
-  await Promise.all([perIncident, yearsDir, rowsDir, slimDir, briefingsDir].map(resetDir));
+  const fixDir = path.join(dataDir, "fix");
+  await Promise.all([perIncident, yearsDir, rowsDir, slimDir, briefingsDir, fixDir].map(resetDir));
+  // the fix file (data/stats/fixes.json), joined to every record with a CVE id and cut into one small file per CVE for the quick-look drawer
+  const fixStats = await loadStats();
 
   const sorted = [...incidents].sort((a, b) => b.first_reported.localeCompare(a.first_reported) || b.id.localeCompare(a.id));
   const counted = sorted.filter((i) => !isDisclosedIncident(i));
@@ -131,7 +136,14 @@ async function main() {
   // The download carries the derived standards ids; the explorer's slim shards stay lean and derive them in the browser.
   await fs.writeFile(path.join(dataDir, "incidents.min.json"), JSON.stringify(sorted.map((i) => ({ ...slim(i), owasp_llm: owaspFor(i), atlas: atlasFor(i) }))) + "\n");
   await fs.writeFile(path.join(dataDir, "incidents.csv"), toCsv(sorted));
-  await Promise.all(sorted.map((i) => fs.writeFile(path.join(perIncident, `${i.slug}.json`), JSON.stringify({ ...i, brief: buildBrief(i, base) }, null, 1) + "\n")));
+  await Promise.all(
+    sorted.map((i) => {
+      const fix = fixViewForRecord(i, fixStats, BUILD_DAY, base);
+      return fs.writeFile(path.join(perIncident, `${i.slug}.json`), JSON.stringify({ ...i, brief: buildBrief(i, base, fix), fix }, null, 1) + "\n");
+    }),
+  );
+  const quickLooks = buildQuickLookFiles(sorted, fixStats, BUILD_DAY, new Date().toISOString(), base);
+  await Promise.all(quickLooks.map((q) => fs.writeFile(path.join(fixDir, `${q.cve}.json`), JSON.stringify(q) + "\n")));
 
   // Year shards: the full records for download, compact rows for the dashboard's drawers, slim records for the explorer.
   const shards = groupByShard(sorted);

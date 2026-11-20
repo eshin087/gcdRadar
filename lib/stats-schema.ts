@@ -119,7 +119,123 @@ export const EpssStatsSchema = z.object({
 });
 export type EpssStats = z.infer<typeof EpssStatsSchema>;
 
-/** The six files, each null when absent or invalid. */
+/* ---------- data/stats/fixes.json: how to fix a CVE ---------- */
+
+/** Only web URLs: every stored link is rendered as an <a href>. */
+const webUrl = z.url({ protocol: /^https?$/ });
+
+/** The longest piece of a publisher's text kept per entry; a longer one is cut at a line or word and marked `cut`. */
+export const FIX_TEXT_MAX = 700;
+export const FIX_PATCH_MAX = 12;
+export const FIX_LINK_MAX = 8;
+
+/** Where a fact came from: the CVE Program's record, CISA's KEV entry, NVD's reference tags, a GitHub advisory. */
+export const FIX_SOURCES = ["cve", "kev", "nvd", "ghsa"] as const;
+export type FixSource = (typeof FIX_SOURCES)[number];
+
+/** What a citation resolves to: who published it, what it is called, where it is. */
+export const FixCiteSchema = z.object({
+  publisher: z.string().min(1).max(80),
+  title: z.string().min(1).max(200),
+  url: webUrl,
+});
+export type FixCite = z.infer<typeof FixCiteSchema>;
+
+/** One fixed version: the product as the source names it and the first version that carries the fix. */
+export const FixPatchSchema = z.object({
+  label: z.string().min(1).max(120),
+  version: z.string().min(1).max(80),
+  /** The affected branch the fix belongs to, when the source names one ("7.2.2"); "" otherwise. */
+  from: z.string().max(80),
+  /** Where the source points for it; null when it states a version and no link. */
+  url: webUrl.nullable(),
+  source: z.enum(["cve", "ghsa"]),
+});
+export type FixPatch = z.infer<typeof FixPatchSchema>;
+
+/** A link a source tags as the patch, the vendor's advisory, a mitigation or the release notes. */
+export const FixLinkSchema = z.object({
+  url: webUrl,
+  kind: z.enum(["patch", "advisory", "mitigation", "release_notes"]),
+  /** The link's own name when the source gives one ("Synology-SA-24:20 DSM"), else "". */
+  title: z.string().max(200),
+  source: z.enum(FIX_SOURCES),
+});
+export type FixLink = z.infer<typeof FixLinkSchema>;
+
+/**
+ * A publisher's own words, kept as written (whitespace tidied, cut at
+ * FIX_TEXT_MAX): `vendor` when the CNA that wrote the CVE record is the
+ * product's vendor, `cna` when another CNA wrote it (MITRE, GitHub, a CERT),
+ * `cisa` for CISA's catalog. `summary` is gcdRadar's own model-written
+ * sentence; the collector never stores one here, the site adds it from the
+ * record's `action` (lib/fixes.ts).
+ */
+export const FixTextSchema = z.object({
+  text: z.string().min(1).max(FIX_TEXT_MAX + 1),
+  cut: z.boolean(),
+  kind: z.enum(["vendor", "cna", "cisa", "summary"]),
+  source: FixCiteSchema,
+});
+export type FixText = z.infer<typeof FixTextSchema>;
+
+/** CISA's KEV entry for the CVE: the federal deadline, the required action in CISA's words and the links its notes carry. */
+export const FixKevSchema = z.object({
+  added: isoDate,
+  due: isoDate.nullable(),
+  /** CISA's "required action", as written. */
+  action: z.string().max(900),
+  /** CISA's one-paragraph description of the vulnerability. */
+  description: z.string().max(700),
+  /** Free text in the entry's notes (not a link), "" when there is none. */
+  note: z.string().max(400),
+  /** Labelled links in the notes: the binding directive and its guidance. */
+  guidance: z.array(z.object({ label: z.string().min(1).max(80), url: webUrl })).max(4),
+});
+export type FixKev = z.infer<typeof FixKevSchema>;
+
+export const FixEntrySchema = z.object({
+  cve: cveId,
+  /** When the CVE record was last read. */
+  fetched_at: isoDateTime,
+  /** When NVD and the GitHub Advisory Database were last asked; null when not asked. */
+  nvd_at: isoDateTime.nullable(),
+  ghsa_at: isoDateTime.nullable(),
+  /** Whether the CVE Program has published a record for the id (false: reserved or not found). */
+  found: z.boolean(),
+  /** The CNA that assigned the CVE and wrote its record, as the record names it; "" when not found. */
+  cna: z.string().max(80),
+  /** Who the record's text is attributed to: the vendor's name when the CNA is the vendor, else the CNA. */
+  by: z.string().max(80),
+  by_vendor: z.boolean(),
+  /** The record's own title, "" when it has none. */
+  title: z.string().max(240),
+  patches: z.array(FixPatchSchema).max(FIX_PATCH_MAX),
+  /** Fixed versions the sources list beyond those kept. */
+  patches_more: count,
+  links: z.array(FixLinkSchema).max(FIX_LINK_MAX),
+  solutions: z.array(FixTextSchema).max(2),
+  workarounds: z.array(FixTextSchema).max(2),
+  kev: FixKevSchema.nullable(),
+});
+export type FixEntry = z.infer<typeof FixEntrySchema>;
+
+/**
+ * Fix information by CVE id, for the CVEs the site can show a fix for: those
+ * on live records and CISA's KEV entries of the last 90 days or with a
+ * deadline ahead (collector/stats/fixes.ts). An entry leaves when its CVE
+ * leaves that set.
+ */
+export const FixesSchema = z.object({
+  fetched_at: isoDateTime,
+  sources: z.array(StatsSourceSchema).min(1),
+  /** The KEV catalog release the entries' deadlines and required actions were read from; "" before the first read. */
+  kev_catalog_version: z.string(),
+  entries: z.array(FixEntrySchema),
+});
+export type Fixes = z.infer<typeof FixesSchema>;
+
+/** The seven files, each null when absent or invalid. */
 export interface StatsFiles {
   nvdCounts: NvdCounts | null;
   cvesRecent: CvesRecent | null;
@@ -127,6 +243,7 @@ export interface StatsFiles {
   kev: KevStats | null;
   hibp: HibpStats | null;
   epss: EpssStats | null;
+  fixes: Fixes | null;
 }
 
 export const STATS_FILES = {
@@ -136,6 +253,7 @@ export const STATS_FILES = {
   kev: "kev.json",
   hibp: "hibp.json",
   epss: "epss.json",
+  fixes: "fixes.json",
 } as const;
 
 export const STATS_SCHEMAS = {
@@ -145,10 +263,11 @@ export const STATS_SCHEMAS = {
   kev: KevStatsSchema,
   hibp: HibpStatsSchema,
   epss: EpssStatsSchema,
+  fixes: FixesSchema,
 } as const;
 
 export function emptyStats(): StatsFiles {
-  return { nvdCounts: null, cvesRecent: null, daily: null, kev: null, hibp: null, epss: null };
+  return { nvdCounts: null, cvesRecent: null, daily: null, kev: null, hibp: null, epss: null, fixes: null };
 }
 
 /* ---------- public/stats/home.json ---------- */

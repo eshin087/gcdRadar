@@ -110,6 +110,21 @@ export const SettingsSchema = z.object({
       recheck_days: z.number().int().positive(),
     })
     .default({ per_run: 20, recheck_days: 7 }),
+  /** The fix stage (collector/stats/fixes.ts): how many CVEs a run looks up, and how often a known one is read again. */
+  fix_lookup: z
+    .object({
+      /** CVE records read per run (one small file each from the CVE List); 0 turns the stage off. */
+      per_run: z.number().int().min(0),
+      /** Of those, how many may also ask NVD for reference tags (6.5 s apart without an API key). */
+      nvd_per_run: z.number().int().min(0),
+      /** Of those, how many may also ask the GitHub Advisory Database for patched versions. */
+      ghsa_per_run: z.number().int().min(0),
+      /** A CVE already looked up is read again after this many days. */
+      recheck_days: z.number().int().positive(),
+      /** KEV entries listed in the last this many days are kept (and those with a deadline still ahead). */
+      kev_days: z.number().int().positive(),
+    })
+    .default({ per_run: 20, nvd_per_run: 6, ghsa_per_run: 10, recheck_days: 3, kev_days: 90 }),
   fetch: z.object({
     timeout_ms: z.number().int().positive(),
     retries: z.number().int().min(0),

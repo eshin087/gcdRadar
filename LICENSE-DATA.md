@@ -30,7 +30,17 @@ When you redistribute the data, keep these notices:
 - **AVID, the AI Vulnerability Database** (avidml.org), MIT.
 - **NVD**: "This product uses the NVD API but is not endorsed or certified by the NVD."
 - **GitHub Advisory Database** (github.com/advisories), CC BY 4.0.
-- **CISA Known Exploited Vulnerabilities Catalog**, CC0 1.0.
+- **CISA Known Exploited Vulnerabilities Catalog**, CC0 1.0. Its required actions, deadlines and descriptions are
+  quoted in `data/stats/fixes.json` as CISA's words. Use of the information does not authorize use of the CISA
+  logo or DHS seal and is not an endorsement by CISA or DHS.
+- **CVE Program, the CVE List** (cve.org). `data/stats/fixes.json` and the files derived from it (`/data/fix/*.json`,
+  the `fix` field of `/data/incidents/<slug>.json`) carry fixed versions, reference links and the CNA's solution and
+  workaround text from CVE records. Copyright © 1999-2026, The MITRE Corporation. CVE is a trademark and the CVE logo
+  is a registered trademark of The MITRE Corporation. Licence, from the CVE Program Terms of Use: "MITRE hereby grants
+  you a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce,
+  prepare derivative works of, publicly display, publicly perform, sublicense, and distribute Common Vulnerabilities
+  and Exposures (CVE™). Any copy you make for such purposes is authorized provided that you reproduce MITRE's
+  copyright designation and this license in any such copy." Keep this notice with any copy of that content.
 - **arXiv**: "Thank you to arXiv for use of its open access interoperability." Metadata CC0 1.0.
 - **GDELT Project** (gdeltproject.org): discovery of news coverage.
 - **Hacker News via Algolia**: discovery of coverage; HN content belongs to its authors.

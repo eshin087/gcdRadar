@@ -574,6 +574,13 @@ export default function MethodologyPage() {
           rejected instead of waiting in the review queue. Product lists hold names only, never descriptions such as &ldquo;deepfake generator&rdquo;
           (50 records cleaned). One duplicate pair merged, one police-action record and nine queued items removed.
         </li>
+        <li>
+          2026-11-19 · a record with a CVE id now opens with &ldquo;How to fix&rdquo;: the fixed versions, the patch and vendor-advisory links, the
+          vendor&rsquo;s workaround as written (or a plain line that none is published) and CISA&rsquo;s deadline, each with a numbered source. The
+          text comes from the CVE Program&rsquo;s records, CISA, NVD&rsquo;s reference tags and the GitHub Advisory Database, read for live records and
+          for CISA&rsquo;s listings of the last 90 days; no language model writes any of it, and the one model-written sentence a record carries is
+          labelled as ours. The page&rsquo;s sections are set apart, and the classification rows fold away. No counting rule changed.
+        </li>
       </ul>
     </div>
   );
