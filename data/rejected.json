@@ -1,5 +1,15 @@
 [
   {
+    "key": "6a2597afdf90d3f4",
+    "title": "Most CIOs and CISOs expect to contain attacks, though few can reach their gear right away",
+    "url": "https://helpnetsecurity.com/2026/11/20/network-outage-recovery-resilience",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Survey and statistics piece without a specific incident",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-20T05:11:15.066Z"
+  },
+  {
     "key": "fc83a0d1e9a35307",
     "title": "GPT-6.2 Astra vs. Sol: Features, Pricing & Security | Straiker",
     "url": "https://straiker.ai/blog/gpt-6-2-astra-sol-agent-security",
