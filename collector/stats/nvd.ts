@@ -71,6 +71,8 @@ export interface NvdCve {
   vulnStatus?: string;
   cisaExploitAdd?: string;
   descriptions?: { lang: string; value: string }[];
+  /** Each reference with the tags NVD's analysts gave it (Patch, Vendor Advisory, Mitigation, …); read by fixes.ts. */
+  references?: { url?: string; source?: string; tags?: string[] }[];
   metrics?: Record<string, { cvssData?: { baseScore?: number; baseSeverity?: string; version?: string } }[] | undefined>;
 }
 

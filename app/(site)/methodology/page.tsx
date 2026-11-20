@@ -581,6 +581,13 @@ export default function MethodologyPage() {
           (50 records cleaned). One duplicate pair merged, one police-action record and nine queued items removed.
         </li>
         <li>
+          2026-11-19 · a record with a CVE id now opens with &ldquo;How to fix&rdquo;: the fixed versions, the patch and vendor-advisory links, the
+          vendor&rsquo;s workaround as written (or a plain line that none is published) and CISA&rsquo;s deadline, each with a numbered source. The
+          text comes from the CVE Program&rsquo;s records, CISA, NVD&rsquo;s reference tags and the GitHub Advisory Database, read for live records and
+          for CISA&rsquo;s listings of the last 90 days; no language model writes any of it, and the one model-written sentence a record carries is
+          labelled as ours. The page&rsquo;s sections are set apart, and the classification rows fold away. No counting rule changed.
+        </li>
+        <li>
           2026-11-20 · My stack gets a catalog and an order. The products to pick from were the 88 vendors and AI products hit in the last 90 days; they
           are now several hundred well-known vendors and products, always listed, plus every other vendor on CISA&rsquo;s catalog. A stack holds up to
           40 (it was 12), and the strip, the chooser and the file list products most urgent first. New critical CVEs of the last 14 days are counted
