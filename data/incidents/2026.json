@@ -1306,9 +1306,15 @@
         "publisher": "SecurityWeek",
         "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+        "publisher": "The Hacker News",
+        "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1316,15 +1322,18 @@
       "cisco",
       "expressway",
       "vulnerability",
-      "exploitation"
+      "exploitation",
+      "CVE-2026-76466"
     ],
     "created_at": "2026-11-19T13:41:53.079Z",
-    "updated_at": "2026-11-19T13:41:53.079Z",
+    "updated_at": "2026-11-20T11:21:21.743Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
     "patch_status": "unknown",
-    "cve_ids": [],
+    "cve_ids": [
+      "CVE-2026-76466"
+    ],
     "affected": [],
     "fixed_in": [],
     "timeline": [
@@ -1333,11 +1342,17 @@
         "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
         "source_url": "https://securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release",
         "added_at": "2026-11-19T13:41:53.079Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Exploitation confirmed to affect four devices allowing attackers to reach the internal network",
+        "source_url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+        "added_at": "2026-11-20T11:21:21.743Z"
       }
     ],
     "action": "",
     "severity_note": "Exploitation confirmed in the wild against Cisco Expressway devices",
-    "cvss": null
+    "cvss": 9.8
   },
   {
     "id": "AIR-2026-2063",

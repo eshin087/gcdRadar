@@ -1,5 +1,15 @@
 [
   {
+    "key": "b6dced9e8be0bdef",
+    "title": "SonicWall Warns Gen 6 Firewalls Won't Get Security Patches, Even for Critical Flaws",
+    "url": "https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Vendor product lifecycle announcement and advisory urging hardware replacement without a specific new vulnerability disclosure or confirmed incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T11:21:21.743Z"
+  },
+  {
     "key": "26fd2f80479c73b6",
     "title": "Your AI red team may be finding the same prompt injection thousands of times",
     "url": "https://helpnetsecurity.com/2026/11/20/ai-prompt-injection-red-team",
