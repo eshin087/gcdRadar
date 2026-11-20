@@ -505,6 +505,19 @@ describe("the news lists", () => {
     expect(n.top).toEqual(["big", "breach-new", "breach-old", "ai-one"]);
     expect(newsList(n, "top").map((r) => r.slug)).toEqual(n.top);
   });
+  it("treats confirmed impact as yes or no: a newer severity-2 story leads an older severity-3 one with as many sources", () => {
+    const two = [...src("Outlet A"), ...src("Outlet B")];
+    const pair = buildNews(
+      [
+        rec("older-exploited", { lane: "patch", severity: 3, type: "not_ai", categories: ["general"], created_at: "2026-10-27T10:00:00.000Z" }, two),
+        rec("newer-research", { lane: "research", severity: 2, type: "not_ai", categories: ["general"], created_at: "2026-10-29T10:00:00.000Z" }, two),
+        rec("oldest-impact", { lane: "breach", severity: 4, type: "not_ai", categories: ["general"], created_at: "2026-10-26T10:00:00.000Z" }, two),
+      ],
+      { default: [], candidates: [] },
+      NOW,
+    );
+    expect(pair.top).toEqual(["oldest-impact", "newer-research", "older-exploited"]);
+  });
   it("lists breaches and AI records newest first, and the rows that belong to the stack", () => {
     expect(newsList(n, "breaches").map((r) => r.slug)).toEqual(["breach-new", "breach-old"]);
     expect(newsList(n, "ai").map((r) => r.slug)).toEqual(["ai-one"]);

@@ -18,8 +18,8 @@ import { DAY_MS, recordCves } from "./util";
  * the record's own order, the primary source first.
  *
  * Four lists share one pool of rows:
- *   top       ranked by the number of sources, then the severity (confirmed
- *             impact first), then the newest;
+ *   top       ranked by the number of sources, then confirmed impact
+ *             (severity 4) before everything else, then the newest;
  *   breaches  the breach lane, newest first;
  *   ai        records where AI was the target or the weapon, newest first;
  *   stack     rows that belong to the visitor's products, newest first. The
@@ -102,7 +102,9 @@ export function buildNews(incidents: readonly FullIncident[], stackFile: Pick<St
     .filter((i) => i.state === "live" && !isDisclosedIncident(i) && i.created_at <= nowIso && Date.parse(i.created_at) > from)
     .sort((a, b) => b.created_at.localeCompare(a.created_at) || a.slug.localeCompare(b.slug));
   const count = new Map(week.map((i) => [i.slug, publishers(i).length]));
-  const ranked = [...week].sort((a, b) => count.get(b.slug)! - count.get(a.slug)! || b.severity - a.severity || b.created_at.localeCompare(a.created_at) || a.slug.localeCompare(b.slug));
+  // confirmed impact is a yes or no here: among stories without it, the newer one leads whatever their severity
+  const impact = (i: FullIncident) => (i.severity >= 4 ? 1 : 0);
+  const ranked = [...week].sort((a, b) => count.get(b.slug)! - count.get(a.slug)! || impact(b) - impact(a) || b.created_at.localeCompare(a.created_at) || a.slug.localeCompare(b.slug));
   const exploited = week.filter((i) => i.severity >= 3);
 
   const hits = stackHits(stackFile, stackFile.default);
