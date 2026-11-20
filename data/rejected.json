@@ -1,5 +1,15 @@
 [
   {
+    "key": "26fd2f80479c73b6",
+    "title": "Your AI red team may be finding the same prompt injection thousands of times",
+    "url": "https://helpnetsecurity.com/2026/11/20/ai-prompt-injection-red-team",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: It is a research paper discussion about retraining AI agents and red-teaming methodologies without a specific concrete named zero-day attack or live software vulnerability record.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-20T06:41:35.646Z"
+  },
+  {
     "key": "d3f93292594d13f0",
     "title": "AI agent API security hasn’t caught up with agents already running in production",
     "url": "https://helpnetsecurity.com/2026/11/20/ai-agent-api-security-production",
