@@ -31,8 +31,8 @@ export function useStackLabels(): { labelsOf: (row: { cves: readonly string[]; s
   return { labelsOf: (row, href) => (hits ? rowStack(hits, { cves: row.cves, href }) : row.stack), ready };
 }
 
-/** An age in the fewest letters: "now", "12 min", "5 h", "3 d". */
+/** An age in the fewest letters: "now", "12 min", "5 h", then whole days from a day on: "1 d", "3 d". */
 export function shortAge(iso: string, now: number): string {
   const mins = Math.max(0, Math.floor((now - Date.parse(iso)) / 60_000));
-  return mins < 1 ? "now" : mins < 60 ? `${mins} min` : mins < 2880 ? `${Math.round(mins / 60)} h` : `${Math.round(mins / 1440)} d`;
+  return mins < 1 ? "now" : mins < 60 ? `${mins} min` : mins < 1440 ? `${Math.floor(mins / 60)} h` : `${Math.floor(mins / 1440)} d`;
 }

@@ -441,6 +441,12 @@ body {
   }
 }
 
+/* the radar scope: the canvas fades out toward its edges, so the beam's glow never ends in a straight line */
+.hp-radar {
+  -webkit-mask-image: radial-gradient(closest-side, #000 93%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 93%, transparent 100%);
+}
+
 /* a score's meter: ten cells, as many lit as the score rounds to, in the score's colour */
 .hp-meter {
   display: inline-block;

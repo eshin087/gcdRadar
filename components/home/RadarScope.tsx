@@ -32,7 +32,7 @@ export function RadarScope({ contacts, label, className = "" }: { contacts: read
         scene={async () => (await import("@/components/fx/glyph/scenes/radarScope")).radarScope(contacts)}
         label={label}
         cell={5}
-        glow={0.42}
+        glow={0.34}
         exposure={1.15}
         still={1.6}
         bg={GROUND}
