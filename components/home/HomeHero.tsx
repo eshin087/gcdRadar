@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 /**
  * The home page's first band: the headline and three numbers
  * (components/home/panel/Verdict.tsx) on the left; this week's newly
- * exploited vulnerabilities as a dot-matrix numeral with the newest three
+ * exploited vulnerabilities as a block numeral with the products behind it
  * (components/hero/ExploitedWeek.tsx) in the middle; the live globe with its
  * caption on the right. The gaps widen at xl so the globe keeps its distance;
  * the caption column stays narrow (164 to 180 px). Phones stack the three
@@ -18,7 +18,7 @@ import { SITE } from "@/lib/site";
 export function HomeHero({ data }: { data: HomeView }) {
   return (
     <section className="grid gap-8 lg:min-h-[300px] lg:grid-cols-[minmax(0,236px)_280px_minmax(0,1fr)] lg:gap-x-8 xl:grid-cols-[minmax(0,272px)_280px_minmax(0,1fr)] xl:gap-x-12">
-      <div className="min-w-0 space-y-5 self-center">
+      <div className="flex min-w-0 flex-col gap-5 self-center">
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[12px] text-dim">
           <span aria-hidden className="live-dot" />
           <span className="uppercase tracking-[0.1em]">Live</span> · <SweepAgo iso={data.lastUpdated} className="text-soft" />
@@ -30,7 +30,7 @@ export function HomeHero({ data }: { data: HomeView }) {
         </Link>
       </div>
       <div className="min-w-0 lg:h-[300px]">
-        <ExploitedWeek count={data.stats.counters.kev_7d} entries={data.panel.sieve.exploitedEntries} today={data.today} />
+        <ExploitedWeek count={data.stats.counters.kev_7d} entries={data.panel.sieve.exploitedEntries} band={data.panel.week.exploited.band} />
       </div>
       <InternetBand apiUrl={SITE.internetApi} />
     </section>

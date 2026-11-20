@@ -17,14 +17,8 @@ export function timeLeft(ms: number): string {
   return `${Math.max(1, Math.ceil(ms / 60_000))} min`;
 }
 
-/** How long a record has waited since its first report (a UTC date), in whole days: "open today", "open 1 day", "open 12 days". */
-export function openFor(since: string, now: number): string {
-  const days = Math.floor((now - Date.parse(`${since}T00:00:00Z`)) / DAY_MS);
-  return days < 1 ? "open today" : `open ${days} ${days === 1 ? "day" : "days"}`;
-}
-
 /**
- * Time left as the two figures of the runway's large countdown: days and
+ * Time left as the two figures of the large countdown ("Next due"): days and
  * hours from two days out ("2 d 21 h"), hours and minutes below that
  * ("21 h 32 m"). Whole minutes, so it changes once a minute, never by the
  * second.

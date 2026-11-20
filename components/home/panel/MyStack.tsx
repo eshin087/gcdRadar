@@ -2,42 +2,40 @@
 
 import Link from "next/link";
 import { useId, useState } from "react";
+import { Frame } from "@/components/home/Frame";
 import { ScoreOrDash, Tag } from "@/components/home/panel/marks";
-import { Num } from "@/components/home/panel/Num";
 import { usePanelState } from "@/components/home/panel/PanelState";
 import { StackChooser } from "@/components/home/panel/StackChooser";
 import { StackCriticals } from "@/components/home/panel/StackCriticals";
+import { Score } from "@/components/home/Score";
 import { QuickLook } from "@/components/incidents/QuickLook";
 import { Drawer } from "@/components/ui/Drawer";
 import { dateLabel } from "@/lib/format";
-import { CRITICAL_DAYS, STACK_DAYS, critNote, flagBadge, type FlagTone, type StackCandidate, type StackFile, type StackItem } from "@/lib/panel/picks";
+import { STACK_CRITS_NAMED, STACK_ROWS } from "@/lib/panel/caps";
+import { CRITICAL_DAYS, CRITICAL_MIN, STACK_DAYS, critNote, flagBadge, type FlagTone, type StackCandidate, type StackCrit, type StackFile, type StackItem } from "@/lib/panel/picks";
 
 /**
- * My stack (lib/panel/stack.ts) over the runway: a label line with the
- * controls, then a row of chips, one per product, most urgent first
- * (lib/panel/picks.ts byUrgency; PanelState hands them over in that order),
- * each with a status light, its name, its exploitation in the last 90 days
- * and, only while something is exploited and still open, a word in the
- * light's colour: red "impact" (confirmed impact: data, money or service
- * lost) or "no patch", amber "due 10 Nov" or "past due 8 Nov"
- * (lib/panel/picks.ts flagBadge). A calm chip has a grey light and no word,
- * so the flagged ones stand out; new critical CVEs never colour a chip (its
- * hover note and `data-crit` carry the count, its drawer the list, and they
- * place it ahead of the quiet ones). A chip opens the list behind its number (the
- * candidate's `items`, fetched with /stats/stack.json on first use) and,
- * under it, its new critical CVEs (StackCriticals.tsx). "edit" opens the
- * product chooser (StackChooser.tsx), where "copy share link" puts the picks
- * in ?stack= so a bookmark or a teammate's link opens the same stack. The
- * label line's right end holds the sheet's "AI only" lens.
+ * My stack (lib/panel/stack.ts): the visitor's products that need action
+ * today, and nothing else. A product is drawn when something of it is
+ * exploited and still open (lib/panel/picks.ts tiers 1 to 3: no full patch,
+ * a CISA deadline, confirmed impact), most urgent first as PanelState hands
+ * them over. A row is a square light, the product, why it is here in the
+ * light's colour ("no patch", "patch by 24 Nov", "confirmed impact") and the
+ * CVSS score of the item behind that reason with its meter, or "no score
+ * yet". Quiet products are counted at the line's right end ("8 products · 6
+ * need action") and listed under "edit"; they are not drawn.
+ *
+ * Under the rows, one grey line names the highest new critical CVEs (9.0 and
+ * up, not exploited) across the whole stack, score first; a name opens its
+ * product's list, where all of them are. A row opens the list behind the
+ * product (the candidate's `items`, fetched with /stats/stack.json on first
+ * use). "edit" opens the product chooser (StackChooser.tsx), where "copy
+ * share link" puts the picks in ?stack= so a bookmark or a teammate's link
+ * opens the same stack.
  */
 
 const TONE_INK: Record<FlagTone, string> = { harm: "text-live", open: "text-live", due: "text-accent", partial: "text-partial" };
-const TONE_LIGHT: Record<FlagTone, string> = {
-  harm: "bg-live shadow-[0_0_8px_var(--color-live)]",
-  open: "bg-live shadow-[0_0_8px_var(--color-live)]",
-  due: "bg-accent shadow-[0_0_8px_var(--color-accent)]",
-  partial: "bg-partial shadow-[0_0_8px_var(--color-partial)]",
-};
+const TONE_LIGHT: Record<FlagTone, string> = { harm: "bg-live", open: "bg-live", due: "bg-accent", partial: "bg-partial" };
 
 function FlagBadge({ flag, title }: { flag: string; title?: string }) {
   const b = flagBadge(flag);
@@ -48,8 +46,11 @@ function FlagBadge({ flag, title }: { flag: string; title?: string }) {
   );
 }
 
-function Chip({ t, onOpen }: { t: StackCandidate; onOpen: () => void }) {
-  const b = t.flag ? flagBadge(t.flag) : null;
+/** A flag in the row's words: the build's own, with "yet" dropped from "no patch yet". */
+const flagWords = (flag: string) => (flag === "no patch yet" ? "no patch" : flag);
+
+function Row({ t, onOpen }: { t: StackCandidate; onOpen: () => void }) {
+  const b = flagBadge(t.flag!);
   return (
     <button
       type="button"
@@ -59,23 +60,46 @@ function Chip({ t, onOpen }: { t: StackCandidate; onOpen: () => void }) {
       data-n={t.n}
       data-tier={t.tier}
       data-crit={t.crit}
-      title={`${t.why.length ? t.why.join(" · ") : "nothing exploited and open"}${t.crit ? ` · ${critNote(t.crit)} in ${CRITICAL_DAYS} days` : ""} · exploited in the last ${STACK_DAYS} days, flagged while still open`}
-      aria-label={`${t.label}: ${t.n} exploited in ${STACK_DAYS} days${t.flag ? `, ${t.flag}` : ""}${t.crit ? `, ${critNote(t.crit)}` : ""}, open the list`}
-      className="group inline-flex h-9 items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.02] px-2.5 text-[14px] hover:border-white/25"
+      data-score={t.flagScore ?? ""}
+      title={`${t.why.join(" · ")} · ${t.n} exploited in the last ${STACK_DAYS} days${t.crit ? ` · ${critNote(t.crit)} in ${CRITICAL_DAYS} days` : ""}`}
+      aria-label={`${t.label}: ${t.flag}, ${t.flagScore !== null ? `CVSS ${t.flagScore}` : "no score yet"}, open the list`}
+      className="group grid h-11 w-full grid-cols-[7px_auto_minmax(0,1fr)_auto] items-center gap-x-2.5 border-b border-line-soft text-left sm:h-9"
     >
-      <span aria-hidden className={`size-1.5 rounded-full ${b ? TONE_LIGHT[b.tone] : "bg-white/20"}`} />
-      <span className={`font-medium group-hover:text-accent ${b ? "text-ink" : "text-soft"}`}>{t.label}</span>
-      <Num value={String(t.n)} className="font-mono text-dim" />
-      {b && (
-        <span data-stack-badge={b.tone} className={`font-mono text-[12px] font-medium uppercase tracking-[0.04em] ${TONE_INK[b.tone]}`}>
-          {b.word}
-        </span>
-      )}
+      <span aria-hidden className={`size-[7px] ${TONE_LIGHT[b.tone]}`} />
+      <span className="truncate text-[14.5px] font-medium text-ink group-hover:text-accent">{t.label}</span>
+      <span data-stack-badge={b.tone} className={`truncate font-mono text-[12.5px] ${TONE_INK[b.tone]}`}>
+        {flagWords(t.flag!)}
+      </span>
+      <span className="flex items-center gap-2.5">
+        {t.flagScore !== null ? (
+          <Score score={t.flagScore} meter />
+        ) : (
+          <span data-score-none className="font-mono text-[12.5px] text-dim">
+            no score yet
+          </span>
+        )}
+      </span>
     </button>
   );
 }
 
-/* ---------- the tile's list ---------- */
+/**
+ * The products the stack's new critical CVEs name, each once with its highest
+ * score and the pick whose list holds it, highest score first. A tile carries
+ * its few highest (lib/panel/picks.ts CRITS_ON_TILE), so a name stands for at
+ * least the CVEs seen here; the pick's list has them all.
+ */
+function topCrits(tiles: readonly StackCandidate[]): { crit: StackCrit; tile: StackCandidate }[] {
+  const byName = new Map<string, { crit: StackCrit; tile: StackCandidate }>();
+  for (const tile of tiles)
+    for (const crit of tile.crits ?? []) {
+      const had = byName.get(crit.name);
+      if (!had || crit.score > had.crit.score) byName.set(crit.name, { crit, tile });
+    }
+  return [...byName.values()].sort((a, b) => b.crit.score - a.crit.score || b.crit.published.localeCompare(a.crit.published) || a.crit.name.localeCompare(b.crit.name));
+}
+
+/* ---------- a product's list ---------- */
 
 const OPEN_WORDS: Record<Exclude<StackItem["open"], null | "due">, { word: string; cls: string }> = {
   unpatched: { word: "no patch yet", cls: "text-live" },
@@ -123,11 +147,11 @@ function ItemRow({ it, onLook }: { it: StackItem; onLook: (cve: string) => void 
 }
 
 /**
- * What a tile counts, in the shared drawer shell: KEV entries CISA listed in
- * the 90 days and our exploited records no entry stands for, open ones first.
- * The count line starts with plain digits and the rows are `ol > li`, the
- * contract scripts/check-home.mjs reads; the line saying why the tile is
- * flagged and the rows appear together once the file is in.
+ * What a product's number counts, in the shared drawer shell: KEV entries
+ * CISA listed in the 90 days and our exploited records no entry stands for,
+ * open ones first. The count line starts with plain digits and the rows are
+ * `ol > li`, the contract scripts/check-home.mjs reads; the line saying why
+ * the product is flagged and the rows appear together once the file is in.
  */
 function StackDrawer({ cand, file, onClose, onLook }: { cand: StackCandidate | null; file: StackFile | null; onClose: () => void; onLook: (cve: string) => void }) {
   const titleId = useId();
@@ -185,11 +209,12 @@ function StackDrawer({ cand, file, onClose, onLook }: { cand: StackCandidate | n
   );
 }
 
-/* ---------- choosing products: StackChooser.tsx ---------- */
+/* ---------- the section ---------- */
 
 export function MyStack() {
-  const { tiles, picks, isDefault, ready, file, loadFile, setPicks, aiOnly, setAiOnly } = usePanelState();
+  const { tiles, picks, isDefault, ready, file, loadFile, setPicks } = usePanelState();
   const [open, setOpen] = useState(false);
+  const [all, setAll] = useState(false);
   const [shown, setShown] = useState<StackCandidate | null>(null);
   const [look, setLook] = useState<string | null>(null);
   const [copied, setCopied] = useState<"" | "copied" | "in the address bar">("");
@@ -217,31 +242,70 @@ export function MyStack() {
   const mine = isDefault ? [] : picks;
   const change = (key: string, on: boolean) => setPicks(on ? [...mine.filter((k) => k !== key), key] : mine.filter((k) => k !== key));
 
+  // what needs action: something exploited and still open (tiers 1 to 3), in the order the tiles arrive in
+  const urgent = tiles.filter((t) => t.tier <= 3 && t.flag);
+  const rows = all ? urgent : urgent.slice(0, STACK_ROWS);
+  const crits = topCrits(tiles);
+  const critTotal = tiles.reduce((n, t) => n + t.crit, 0);
+  const named = crits.slice(0, STACK_CRITS_NAMED);
+
   return (
-    <section id="stack" data-build data-instrument="stack" aria-label="My stack" className="min-w-0 scroll-mt-6">
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[13px]">
-        <h2 className="text-[12px] font-medium uppercase tracking-[0.1em] text-soft">My stack</h2>
-        <span className="text-dim">exploited in the last {STACK_DAYS} days</span>
-        <button type="button" onClick={choose} className="text-accent hover:underline">
-          edit
+    <Frame
+      id="stack"
+      label="My stack"
+      data-instrument="stack"
+      title={<h2>My stack</h2>}
+      control={
+        <>
+          <span data-stack={ready ? "ready" : "wait"} data-stack-count>
+            {tiles.length} {tiles.length === 1 ? "product" : "products"} · <span className={urgent.length ? "text-soft" : undefined}>{urgent.length} need action</span>
+          </span>
+          <button type="button" onClick={choose} className="text-accent">
+            edit
+          </button>
+        </>
+      }
+    >
+      <div data-stack={ready ? "ready" : "wait"} data-tiles={tiles.length} data-urgent={urgent.length} className="grid gap-x-11 sm:grid-cols-2 lg:grid-cols-3">
+        {rows.map((t) => (
+          <Row key={t.key} t={t} onOpen={() => show(t)} />
+        ))}
+        {urgent.length === 0 && (
+          <p data-stack-calm className="col-span-full text-[14.5px] text-soft">
+            Nothing in {isDefault ? "this stack" : "your stack"} is exploited and still open today.
+          </p>
+        )}
+      </div>
+      {urgent.length > STACK_ROWS && (
+        <button type="button" data-stack-more onClick={() => setAll(!all)} className="mt-3 font-mono text-[12.5px] text-dim hover:text-accent">
+          {all ? "show fewer" : `+${urgent.length - STACK_ROWS} more`}
         </button>
-        <span role="group" aria-label="Show every record or only those with an AI role" className="ml-auto inline-flex">
-          {([false, true] as const).map((on, i) => (
-            <button key={String(on)} type="button" data-filter={on ? "ai" : "all"} aria-pressed={aiOnly === on} onClick={() => setAiOnly(on)} className={`px-2.5 uppercase tracking-[0.08em] hover:text-accent ${i ? "border-l border-line" : ""} ${aiOnly === on ? "text-accent" : "text-dim"}`}>
-              {on ? "AI only" : "all"}
+      )}
+      {named.length > 0 && (
+        <p data-stack={ready ? "ready" : "wait"} data-stack-crits={critTotal} className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-1.5 font-mono text-[13px] text-dim">
+          <span>
+            new, not exploited yet · CVSS {CRITICAL_MIN.toFixed(1)} and up · {CRITICAL_DAYS} days
+          </span>
+          {named.map(({ crit, tile }) => (
+            <button key={crit.name} type="button" data-stack-crit={crit.id} onClick={() => show(tile)} title={`${crit.id} · open ${tile.label}’s list`} className="group whitespace-nowrap hover:text-accent">
+              <span className="text-soft group-hover:text-accent">{crit.score.toFixed(1)}</span> {crit.name}
             </button>
           ))}
-        </span>
-      </div>
-      <div data-stack={ready ? "ready" : "wait"} data-tiles={tiles.length} className="mt-3 flex flex-wrap gap-2">
-        {tiles.map((t) => (
-          <Chip key={t.key} t={t} onOpen={() => show(t)} />
-        ))}
-      </div>
+          <span title="Counted per product in your stack; a product’s list holds its own.">{critTotal} in all</span>
+        </p>
+      )}
+      {isDefault && (
+        <p className="mt-3 text-[13.5px] text-dim">
+          These are today&rsquo;s most urgent well-known products.{" "}
+          <button type="button" onClick={choose} className="text-soft underline decoration-line underline-offset-4 hover:text-accent">
+            Choose your own
+          </button>
+        </p>
+      )}
       {/* one drawer at a time: the list steps aside while a quick look is open and is back when it closes */}
       <StackDrawer cand={look ? null : shown} file={file} onClose={() => setShown(null)} onLook={setLook} />
       <QuickLook target={look ? { cve: look } : null} onClose={() => setLook(null)} />
       <StackChooser open={open} onClose={() => setOpen(false)} file={file} picks={mine} isDefault={isDefault} copied={copied} onShare={share} onChange={change} onReset={() => setPicks([])} />
-    </section>
+    </Frame>
   );
 }

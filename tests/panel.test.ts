@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { buildAiFlow, pickCase } from "@/lib/panel/ai-flow";
 import { attackType, buildAttackTypes, weekIncidents } from "@/lib/panel/attack-types";
-import { countdownParts, openFor, timeLeft } from "@/lib/panel/dates";
-import { dueEnd, foldedOnDeadline, runwaySpan } from "@/lib/panel/deadlines";
+import { countdownParts, timeLeft } from "@/lib/panel/dates";
+import { dueEnd, windowUsed } from "@/lib/panel/deadlines";
 import { cveWindows, kevWeekHistory } from "@/lib/panel";
-import { LEDGER_NEW_AI_KEPT, LEDGER_NEW_KEPT, buildLedger } from "@/lib/panel/ledger";
+import { buildLedger, patchedCves } from "@/lib/panel/ledger";
 import { bandOf, levelOf, quantile, ratioLevel } from "@/lib/panel/levels";
+import { NEWS_EXPLOITED_KEPT, NEWS_KEPT, NEWS_NAMED, buildNews, newsList } from "@/lib/panel/news";
 import { STACK_MAX, flagBadge, packStack, rowStack, stackHits, stackUrgency, unpackStack } from "@/lib/panel/picks";
 import { STACK_DEFAULT_MAX, STACK_DEFAULT_MIN, buildStack, kevCatalogHref, parsePicks, stackMatches, tileOf, type StackFile } from "@/lib/panel/stack";
 import { buildSurface, techOf } from "@/lib/panel/technology";
@@ -184,7 +185,7 @@ describe("the ledger", () => {
       },
     ],
   };
-  const l = buildLedger(recs, entries, stack, TODAY, NOW);
+  const l = buildLedger(recs, entries, stack, TODAY, { entries: [{ cve: "CVE-2026-0010", patches: [{}], links: [] }, { cve: "CVE-2026-0012", patches: [], links: [{ kind: "advisory" }] }] } as unknown as Parameters<typeof buildLedger>[4]);
 
   it("groups this week's deadlines by vendor, product and day, nearest first, later ones apart", () => {
     expect(l.due.map((r) => r.name)).toEqual(["PHP", "Linux Kernel"]);
@@ -192,40 +193,19 @@ describe("the ledger", () => {
     expect(l.due[1]).toMatchObject({ href: "/incidents/linux-kernel-record", external: false, stack: ["Linux"] });
     expect(l.later.map((r) => r.name)).toEqual(["Adobe Commerce"]);
   });
-  it("lists records without a full patch, unpatched first, and folds one whose CVEs are on a deadline row", () => {
+  it("says whether a patch is published for a deadline's first CVE", () => {
+    // PHP's first CVE has a fixed version in the fix file; Linux's has an advisory only; Adobe's is not in the file
+    expect(l.due.map((r) => r.fix)).toEqual([true, false]);
+    expect(l.later[0]!.fix).toBe(false);
+    expect([...patchedCves({ entries: [{ cve: "CVE-1", patches: [], links: [{ kind: "patch" }] }, { cve: "CVE-2", patches: [], links: [] }] } as unknown as Parameters<typeof patchedCves>[0])]).toEqual(["CVE-1"]);
+    expect(patchedCves(null).size).toBe(0);
+  });
+  it("lists records without a full patch, unpatched first", () => {
     expect(l.patch.map((r) => r.slug)).toEqual(["linux-kernel-record", "netscaler", "partial"]);
-    expect(l.patch[0]).toMatchObject({ onDeadlineRow: true, stack: ["Linux"] });
-    expect(l.patch[1]).toMatchObject({ name: "NetScaler ADC", patch: "unpatched", onDeadlineRow: false, stack: [] });
+    expect(l.patch[0]).toMatchObject({ stack: ["Linux"] });
+    expect(l.patch[1]).toMatchObject({ name: "NetScaler ADC", patch: "unpatched", stack: [] });
     expect(l.noFullPatch).toBe(3);
-  });
-  it("lists new records loss first, then newest, without the rows already shown or disclosed CVEs", () => {
-    expect(l.fresh.map((r) => r.slug)).toEqual(["loss", "newest"]);
-    expect(l.fresh[0]).toMatchObject({ lane: "breach", severity: 4, type: "not_ai", stack: [] });
-    expect(l.freshTotal).toBe(5);
-    expect(l.freshLoss).toBe(1);
-    expect(l.freshAi).toBe(4);
     expect(l.exploitedLive).toBe(6);
-  });
-  it("keeps AI records past the kept rows, so AI only has rows in a week of plain breaches", () => {
-    const at = (h: number) => `2026-10-29T${String(h).padStart(2, "0")}:00:00.000Z`;
-    const week = [
-      ...Array.from({ length: LEDGER_NEW_KEPT + 2 }, (_, k) => incident({ slug: `breach-${k}`, lane: "breach", severity: 4, type: "not_ai", categories: ["general"], first_reported: "2026-10-29", created_at: at(k) })),
-      ...Array.from({ length: LEDGER_NEW_AI_KEPT + 2 }, (_, k) => incident({ slug: `ai-${k}`, lane: "supply_chain", severity: 3, first_reported: "2026-10-28", created_at: at(k) })),
-    ];
-    const rows = buildLedger(week, [], { default: [], candidates: [] }, TODAY, NOW).fresh;
-    expect(rows.slice(0, LEDGER_NEW_KEPT).every((r) => r.type === "not_ai" && r.severity === 4)).toBe(true);
-    expect(rows.slice(LEDGER_NEW_KEPT).map((r) => r.slug)).toEqual(["ai-5", "ai-4", "ai-3", "ai-2"]);
-  });
-  it("counts the week's new records per 24-hour window back from the build, the last 24 hours last", () => {
-    // NOW is 29 Oct 23:30: "newest" (08:00) and "loss" (01:00) fall in the last 24 hours, the three patch records in the two windows before
-    expect(l.freshDays).toHaveLength(7);
-    expect(l.freshDays.reduce((n, d) => n + d.n, 0)).toBe(l.freshTotal);
-    expect(l.freshDays.reduce((n, d) => n + d.harm, 0)).toBe(l.freshLoss);
-    expect(l.freshDays.reduce((n, d) => n + d.ai, 0)).toBe(l.freshAi);
-    expect(l.freshDays[6]).toEqual({ n: 2, harm: 1, ai: 1, aiHarm: 0 });
-    expect(l.freshDays[5]).toEqual({ n: 2, harm: 0, ai: 2, aiHarm: 0 });
-    expect(l.freshDays[4]).toEqual({ n: 1, harm: 0, ai: 1, aiHarm: 0 });
-    expect(l.freshDays.slice(0, 4).every((d) => d.n === 0)).toBe(true);
   });
   it("marks rows by the picks' items, for the browser's own picks too", () => {
     const hits = stackHits(stack, ["linux"]);
@@ -470,42 +450,80 @@ describe("my stack", () => {
   });
 });
 
+describe("the news lists", () => {
+  const src = (publisher: string, n = 1) => Array.from({ length: n }, (_, k) => ({ url: `https://example.com/${publisher.toLowerCase().replace(/\W+/g, "-")}/${k}`, publisher, title: "Report", published_at: "2026-10-28" }));
+  const rec = (slug: string, over: Parameters<typeof incident>[0], sources: ReturnType<typeof src>) => incident({ slug, state: "live", first_reported: "2026-10-28", created_at: "2026-10-28T10:00:00.000Z", ...over, sources, source_count: sources.length });
+  const recs = [
+    rec("big", { lane: "patch", severity: 2, type: "not_ai", categories: ["general"], created_at: "2026-10-27T10:00:00.000Z" }, [...src("Outlet A", 2), ...src("Outlet B"), ...src("Outlet C"), ...src("Outlet D"), ...src("Outlet E")]),
+    rec("breach-new", { lane: "breach", severity: 4, type: "not_ai", categories: ["general"], created_at: "2026-10-29T09:00:00.000Z" }, [...src("Outlet A"), ...src("Outlet B")]),
+    rec("breach-old", { lane: "breach", severity: 3, type: "not_ai", categories: ["general"], created_at: "2026-10-26T09:00:00.000Z" }, [...src("Outlet A"), ...src("Outlet B")]),
+    rec("ai-one", { lane: "supply_chain", severity: 3, type: "attack_on_ai", created_at: "2026-10-28T09:00:00.000Z", cve_ids: ["CVE-2026-0012"] }, src("Outlet A")),
+    rec("too-old", { lane: "breach", severity: 4, created_at: "2026-10-20T09:00:00.000Z" }, [...src("Outlet A"), ...src("Outlet B"), ...src("Outlet C")]),
+    rec("closed", { lane: "breach", severity: 4, state: "closed", closed_at: "2026-10-29", created_at: "2026-10-29T08:00:00.000Z" }, src("Outlet A")),
+    disclosedCve({ cve_ids: ["CVE-2026-0099"], state: "live", created_at: "2026-10-29T02:00:00.000Z" }),
+  ];
+  const stack = {
+    default: ["linux"],
+    candidates: [{ key: "linux", label: "Linux", items: [{ kind: "kev", name: "Linux Kernel", cves: ["CVE-2026-0012"], date: "2026-10-27", due: null, cvss: null, open: null, href: "https://nvd.nist.gov/vuln/detail/CVE-2026-0012", external: true }] }],
+  } as unknown as Parameters<typeof buildNews>[1];
+  const n = buildNews(recs, stack, NOW);
+
+  it("takes the week's live records and leaves out old, closed and database-only ones", () => {
+    expect(n.rows.map((r) => r.slug)).toEqual(["breach-new", "ai-one", "big", "breach-old"]);
+    expect(n.total).toBe(4);
+    expect(n.breaches).toBe(2);
+    expect(n.ai).toBe(1);
+  });
+  it("counts a record's sources as distinct outlets and names the first of them", () => {
+    const big = n.rows.find((r) => r.slug === "big")!;
+    expect(big.sources).toBe(5);
+    expect(big.by).toEqual(["Outlet A", "Outlet B", "Outlet C", "Outlet D"]);
+    expect(big.by).toHaveLength(NEWS_NAMED);
+  });
+  it("ranks top stories by sources, then confirmed impact, then the newest", () => {
+    expect(n.top).toEqual(["big", "breach-new", "breach-old", "ai-one"]);
+    expect(newsList(n, "top").map((r) => r.slug)).toEqual(n.top);
+  });
+  it("lists breaches and AI records newest first, and the rows that belong to the stack", () => {
+    expect(newsList(n, "breaches").map((r) => r.slug)).toEqual(["breach-new", "breach-old"]);
+    expect(newsList(n, "ai").map((r) => r.slug)).toEqual(["ai-one"]);
+    expect(newsList(n, "stack").map((r) => r.slug)).toEqual(["ai-one"]);
+    expect(n.rows.find((r) => r.slug === "ai-one")!.stack).toEqual(["Linux"]);
+    // a visitor's own picks: the browser hands in its own labels
+    expect(newsList(n, "stack", (r) => (r.slug === "big" ? ["Mine"] : [])).map((r) => r.slug)).toEqual(["big"]);
+  });
+  it("places the week's exploited records on the radar: newer nearer twelve o'clock, red where impact is confirmed", () => {
+    expect(n.exploited).toBe(3);
+    expect(n.impact).toBe(1);
+    expect(n.contacts).toHaveLength(3);
+    const [newest, , oldest] = n.contacts;
+    expect(newest![0]).toBeLessThan(oldest![0]);
+    expect(newest![2]).toBe(1);
+    expect(n.contacts.every(([turn, range]) => turn >= 0 && turn < 1 && range >= 0.2 && range <= 0.9)).toBe(true);
+  });
+  it("keeps a bounded pool however busy the week", () => {
+    const busy = Array.from({ length: 80 }, (_, k) => rec(`r-${k}`, { lane: k % 2 ? "breach" : "patch", severity: 3, type: k % 3 ? "not_ai" : "attack_on_ai", categories: ["general"], created_at: `2026-10-29T${String(k % 23).padStart(2, "0")}:${String(k % 60).padStart(2, "0")}:00.000Z` }, src("Outlet A")));
+    const many = buildNews(busy, { default: [], candidates: [] }, NOW);
+    expect(many.total).toBe(80);
+    expect(many.rows.length).toBeLessThanOrEqual(NEWS_EXPLOITED_KEPT + 3 * NEWS_KEPT);
+    expect(many.top).toHaveLength(NEWS_KEPT);
+  });
+});
+
 describe("deadlines", () => {
   const DAY = 86_400_000;
   it("passes a deadline at the end of its UTC day", () => {
     expect(dueEnd("2026-11-10")).toBe(Date.parse("2026-11-11T00:00:00Z"));
   });
-  it("folds a record into a deadline row only while every one of its CVEs is on a row still ahead", () => {
-    const ahead = new Set(["CVE-2026-0010", "CVE-2026-0011"]);
-    expect(foldedOnDeadline(["CVE-2026-0010"], ahead)).toBe(true);
-    expect(foldedOnDeadline(["CVE-2026-0010", "CVE-2026-0011"], ahead)).toBe(true);
-    expect(foldedOnDeadline(["CVE-2026-0010", "CVE-2026-0099"], ahead)).toBe(false);
-    expect(foldedOnDeadline([], ahead)).toBe(false); // a record with no CVE id is never a deadline row
-    // its deadline has passed since the build: the record is listed on its own again
-    expect(foldedOnDeadline(["CVE-2026-0010"], new Set(["CVE-2026-0011"]))).toBe(false);
-  });
-  it("reaches the runway's axis to the end of the seventh calendar day ahead, whatever the time of day", () => {
-    for (const iso of ["2026-11-10T00:00:00Z", "2026-11-10T02:27:14Z", "2026-11-10T12:00:00Z", "2026-11-10T23:59:59Z"]) {
-      const now = Date.parse(iso);
-      const span = runwaySpan(now);
-      const at = (t: number) => 50 + ((t - now) / span) * 50;
-      // the ledger keeps deadlines through today + 7 days; the last of them ends at the following midnight
-      expect(at(dueEnd("2026-11-17"))).toBeLessThan(100);
-      expect(at(dueEnd("2026-11-17"))).toBeGreaterThan(98);
-      expect(at(dueEnd("2026-11-10"))).toBeGreaterThanOrEqual(50);
-      expect(span).toBeGreaterThan(7 * DAY);
-      expect(span).toBeLessThanOrEqual(8.125 * DAY);
-    }
-  });
-});
-
-describe("open for", () => {
-  it("counts whole UTC days since the first report", () => {
+  it("measures how much of CISA's window is used, from the listing day to the end of the due day", () => {
     const at = (iso: string) => Date.parse(iso);
-    expect(openFor("2026-11-06", at("2026-11-09T10:00:00Z"))).toBe("open 3 days");
-    expect(openFor("2026-11-08", at("2026-11-09T00:30:00Z"))).toBe("open 1 day");
-    expect(openFor("2026-11-09", at("2026-11-09T23:59:00Z"))).toBe("open today");
-    expect(openFor("2026-11-10", at("2026-11-09T12:00:00Z"))).toBe("open today");
+    expect(windowUsed("2026-11-01", "2026-11-10", at("2026-11-01T00:00:00Z"))).toBe(0);
+    expect(windowUsed("2026-11-01", "2026-11-10", at("2026-11-06T00:00:00Z"))).toBeCloseTo(0.5, 5);
+    expect(windowUsed("2026-11-01", "2026-11-10", at("2026-11-11T00:00:00Z"))).toBe(1);
+    // before the listing and after the deadline it stays inside 0 and 1
+    expect(windowUsed("2026-11-01", "2026-11-10", at("2026-10-20T00:00:00Z"))).toBe(0);
+    expect(windowUsed("2026-11-01", "2026-11-10", at("2026-12-01T00:00:00Z"))).toBe(1);
+    expect(DAY).toBe(86_400_000);
   });
 });
 

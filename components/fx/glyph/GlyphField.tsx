@@ -30,6 +30,8 @@ interface Props {
   poster?: string;
   /** Where the poster's focus sits when it is cropped (CSS object-position). */
   posterAt?: string;
+  /** The ground the glyphs are drawn on, 0..1 per channel, when the field does not sit on the lab's own. */
+  bg?: [number, number, number];
   /** Overlay drawn above the canvas (HUD). */
   children?: ReactNode;
 }
@@ -57,7 +59,7 @@ function whenIdle(fn: () => void, timeout: number): () => void {
  * context is lost, the poster stays. Scene labels are pinned over the canvas
  * without React renders.
  */
-export function GlyphField({ scene, className = "", label, running = true, still = 6, cell = 6, glow = 0.2, exposure = 1, poster, posterAt = "50% 50%", children }: Props) {
+export function GlyphField({ scene, className = "", label, running = true, still = 6, cell = 6, glow = 0.2, exposure = 1, poster, posterAt = "50% 50%", bg = BG, children }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
   const labelsRef = useRef<HTMLDivElement>(null);
@@ -97,7 +99,7 @@ export function GlyphField({ scene, className = "", label, running = true, still
       const family = getComputedStyle(document.documentElement).getPropertyValue("--font-plex-mono").trim() || "ui-monospace, monospace";
       let eng: GlyphEngine;
       try {
-        eng = new GlyphEngine(canvas, ctl, { cell, bg: BG, glow, exposure, font: family });
+        eng = new GlyphEngine(canvas, ctl, { cell, bg, glow, exposure, font: family });
       } catch (e) {
         // no WebGL2: the poster stays
         console.warn(e);

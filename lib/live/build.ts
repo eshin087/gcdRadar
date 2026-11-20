@@ -38,7 +38,7 @@ export function homeView(data: HomeData, briefing: BriefingLine): HomeView {
     lastUpdated: data.lastUpdated,
     columns: { patch: { live: data.columns.patch.live }, breach: { live: data.columns.breach.live }, supply_chain: data.columns.supply_chain, research: data.columns.research },
     stats,
-    panel: { verdict: p.verdict, stack: p.stack, ledger: p.ledger, week: p.week, sieve: p.sieve },
+    panel: { verdict: p.verdict, stack: p.stack, news: p.news, ledger: { due: p.ledger.due, later: p.ledger.later }, week: p.week, sieve: p.sieve },
     briefing,
   };
 }
