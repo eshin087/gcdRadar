@@ -742,9 +742,15 @@
         "publisher": "BleepingComputer",
         "title": "VMware patches vCenter zero-day exploited in attacks since September",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
+        "publisher": "The Hacker News",
+        "title": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -753,15 +759,18 @@
       "vcenter",
       "authentication-bypass",
       "cve",
-      "critical"
+      "critical",
+      "CVE-2026-123890"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-20T00:41:44.832Z",
+    "updated_at": "2026-11-20T07:07:16.876Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
     "patch_status": "patched",
-    "cve_ids": [],
+    "cve_ids": [
+      "CVE-2026-123890"
+    ],
     "affected": [],
     "fixed_in": [],
     "timeline": [
@@ -776,6 +785,12 @@
         "title": "Exploitation confirmed as a zero-day by a China-linked espionage group prior to patching.",
         "source_url": "https://securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt",
         "added_at": "2026-11-19T19:41:27.994Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Espionage group Armory Castle attributed to zero-day exploitation of vCenter Server in early September",
+        "source_url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
+        "added_at": "2026-11-20T07:07:16.876Z"
       }
     ],
     "action": "Apply the latest patched version of VMware vCenter",

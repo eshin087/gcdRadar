@@ -1,7 +1,8 @@
 {
- "fetched_at": "2026-11-18T23:11:35.200Z",
+ "fetched_at": "2026-11-20T07:07:18.296Z",
  "source": {"name":"CISA Known Exploited Vulnerabilities catalog","url":"https://www.cisa.gov/known-exploited-vulnerabilities-catalog","license":"CC0 1.0"},
  "catalog_version": "2026.11.18",
+ "feed_modified": "Wed, 18 Nov 2026 19:17:40 GMT",
  "entries": [
   {"cve":"CVE-2024-10441","added":"2026-11-18","due":"2026-11-21","vendor":"Synology","product":"DiskStation Manager (DSM)","name":"Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability","ransomware":false,"published":"2025-03-19","cvss":9.8},
   {"cve":"CVE-2026-40217","added":"2026-11-18","due":"2026-12-02","vendor":"BerriAI","product":"LiteLLM","name":"BerriAI LiteLLM Unprotected Alternate Channel Vulnerability","ransomware":false,"published":"2026-04-10","cvss":8.8},
