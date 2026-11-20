@@ -1,5 +1,68 @@
 [
   {
+    "id": "AIR-2026-2094",
+    "slug": "cve-2026-133710-llama-cpp-integer-overflow-allows-memory-cor",
+    "title": "CVE-2026-133710: llama.cpp integer overflow allows memory corruption",
+    "summary": "A heap overflow in llama.cpp versions before b12556 allows crafted GGUF metadata to corrupt memory and potentially achieve code execution. The vulnerability is assigned CVSS 8.5 high and has been disclosed without known exploitation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "llama.cpp"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133710",
+        "publisher": "NVD",
+        "title": "CVE-2026-133710: llama.cpp b11003 before b12556 contains an integer overflow in the hrm_text loader load_arch_hparams() that allows attackers to…",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133710",
+      "integer-overflow",
+      "heap-corruption",
+      "llama.cpp",
+      "high"
+    ],
+    "created_at": "2026-11-20T15:11:19.550Z",
+    "updated_at": "2026-11-20T15:11:19.550Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-20",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-133710"
+    ],
+    "affected": [],
+    "fixed_in": [
+      "b12556"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "CVE-2026-133710: llama.cpp b11003 before b12556 contains an integer overflow in the hrm_text loader load_arch_hparams() that allows attackers to…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133710",
+        "added_at": "2026-11-20T15:11:19.550Z"
+      }
+    ],
+    "action": "Upgrade llama.cpp to version b12556 or later",
+    "severity_note": "Disclosed vulnerability with CVSS 8.5, no confirmed exploitation",
+    "cvss": 8.5
+  },
+  {
     "id": "AIR-2026-2093",
     "slug": "cve-2026-99312-linux-kvm-flaw-allows-guest-vms-access-to-hos",
     "title": "CVE-2026-99312: Linux KVM Flaw Allows Guest VMs Access to Host Memory",
