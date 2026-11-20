@@ -4,10 +4,15 @@
  * the files they were built from.
  *
  * The home page (the day sheet, lib/panel): the hero's three numbers equal
- * /stats/panel.json and /stats/home.json; My stack shows the default chips
- * with a coloured word only where the rule put a flag, a chip opens the list
- * it counts, and a ?stack= link applies, stores and recomputes the picks and
- * the ledger's stack tags; the runway card leads with the nearest deadline
+ * /stats/panel.json and /stats/home.json; /stats/stack.json holds the
+ * catalog (several hundred candidates, most urgent first, under its size
+ * budget); My stack shows the default chips in that order with a coloured
+ * word only where the rule put a flag (never for new critical CVEs), a chip
+ * opens the list it counts and, apart from it and uncoloured, its new
+ * criticals, a ?stack= link applies, stores and recomputes the picks
+ * (an old key under its new name) and the ledger's stack tags, the chooser
+ * lists the picks, the categories and what a search finds, and a stack of
+ * forty fits a phone; the runway card leads with the nearest deadline
  * as a countdown and draws a dot per new record, a bar per record without a
  * patch and a marker per deadline day; the card's lead and the three lists
  * under it show this week's deadlines (with the time left), the records
@@ -109,6 +114,32 @@ async function openAndRead(client, selector, index = 0) {
 
 const num = (s) => Number(String(s ?? "").replace(/[^\d.-]/g, "") || NaN);
 
+/** The most /stats/stack.json may weigh, in KB: several hundred candidates, written compactly. */
+const STACK_FILE_KB = 160;
+const STACK_MAX = 40;
+
+/** A label's slug, the key a candidate has when the file leaves it out (lib/panel/picks.ts stackKey). */
+const stackKey = (label) => label.normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+/** /stats/stack.json as the page works with it (lib/panel/picks.ts unpackStack): items and critical CVEs out of their tables, quiet fields filled in. */
+function unpackStack(wire) {
+  const items = wire.items.map(([kind, name, cves, date, due, cvss, open, href]) => ({ kind: kind === 0 ? "kev" : "record", name, cves, date, due: due || null, cvss, open: open || null, href: href || `https://nvd.nist.gov/vuln/detail/${cves[0] ?? ""}` }));
+  const crits = wire.crits.map(([id, score, published]) => ({ id, score, published }));
+  const candidates = wire.candidates.map((w) => ({
+    key: w.key ?? stackKey(w.label), label: w.label, vendor: w.vendor ?? w.label, cat: wire.cats[w.c], level: w.v ? "vendor" : "product",
+    n: w.n ?? 0, flag: w.flag ?? null, due: w.due ?? null, late: w.late ?? null, cvss: w.cvss ?? null, crit: w.crit ?? 0, tier: w.tier ?? 5, kev7: w.kev7 ?? [],
+    items: (w.it ?? []).map((n) => items[n]), crits: (w.cr ?? []).map((n) => crits[n]), aka: w.aka ?? [], popular: Boolean(w.pop), tail: Boolean(w.tail),
+  }));
+  return { default: wire.default, aliases: wire.aliases, candidates };
+}
+
+/** The one order products are listed in (lib/panel/picks.ts byUrgency). */
+function byUrgency(a, b) {
+  const deadline = (a.late ?? a.due ?? "9999").localeCompare(b.late ?? b.due ?? "9999");
+  const cvss = (b.cvss ?? -1) - (a.cvss ?? -1);
+  return a.tier - b.tier || (a.tier === 2 ? deadline || cvss : cvss || deadline) || b.n - a.n || b.crit - a.crit || a.label.localeCompare(b.label, "en", { sensitivity: "base" });
+}
+
 /** The KEV additions of the 7 days that belong to the picks, once each (lib/panel/picks.ts stackMatches). */
 function stackMatches(file, picks) {
   const out = new Map();
@@ -183,13 +214,27 @@ async function checkHome(client, base, dir, home, panel, stackFile) {
   check("verdict stack count", v?.stack === panel.verdict.inStack, `page ${v?.stack}, panel.json ${panel.verdict.inStack}`);
   check("verdict reads its numbers", v?.text.includes(`${home.counters.cves_24h?.toLocaleString("en-US")}new CVEs in 24 h`) && v?.text.includes(`${panel.verdict.noFullPatch.toLocaleString("en-US")}exploited, no full patch`) && v?.text.includes("hit your stack this week"), v?.text.slice(0, 160));
 
-  // My stack: the default tiles, a badge only where the rule put a flag, in the flag's tone
-  const tiles = await evaluate(client, `[...document.querySelectorAll('[data-stack-tile]')].map((t) => ({ key: t.dataset.stackTile, n: Number(t.dataset.n), flag: t.dataset.flag, shown: t.querySelector('[data-num]')?.textContent, badge: t.querySelector('[data-stack-badge]')?.dataset.stackBadge ?? null }))`);
+  // the catalog behind My stack: several hundred candidates under unique keys, in the urgency order, the default among them
+  {
+    const keys = stackFile.candidates.map((c) => c.key);
+    const sorted = [...stackFile.candidates].sort(byUrgency).map((c) => c.key);
+    check(
+      "stack.json holds the catalog: several hundred candidates, unique keys, most urgent first",
+      keys.length >= 400 && new Set(keys).size === keys.length && keys.join(",") === sorted.join(",") && panel.stack.default.every((k) => keys.includes(k)),
+      `${keys.length} candidates (${stackFile.candidates.filter((c) => c.tail).length} from CISA's list only), tiers ${[1, 2, 3, 4, 5].map((t) => stackFile.candidates.filter((c) => c.tier === t).length).join("/")}`,
+    );
+    check(`stack.json under ${STACK_FILE_KB} KB`, stackFile.bytes <= STACK_FILE_KB * 1024, `${(stackFile.bytes / 1024).toFixed(1)} KB`);
+  }
+
+  // My stack: the default tiles, most urgent first, a badge only where the rule put a flag, in the flag's tone
+  const tiles = await evaluate(client, `[...document.querySelectorAll('[data-stack-tile]')].map((t) => ({ key: t.dataset.stackTile, n: Number(t.dataset.n), flag: t.dataset.flag, tier: Number(t.dataset.tier), crit: Number(t.dataset.crit), shown: t.querySelector('[data-num]')?.textContent, badge: t.querySelector('[data-stack-badge]')?.dataset.stackBadge ?? null }))`);
   check("stack shows the default tiles", tiles.map((t) => t.key).join(",") === panel.stack.default.join(","), tiles.map((t) => t.key).join(","));
-  const toneOf = (flag) => (!flag ? null : flag.startsWith("patch by ") ? "due" : flag === "confirmed impact" ? "harm" : flag === "no patch yet" ? "open" : "partial");
+  check("the default tiles are in the urgency order", panel.stack.tiles.map((t) => t.key).join(",") === [...panel.stack.tiles].sort(byUrgency).map((t) => t.key).join(",") && panel.stack.tiles.length <= 8, panel.stack.tiles.map((t) => `${t.key} ${t.tier}`).join(", "));
+  const toneOf = (flag) => (!flag ? null : flag.startsWith("patch by ") || flag.startsWith("past due ") ? "due" : flag === "confirmed impact" ? "harm" : flag === "no patch yet" ? "open" : "partial");
   for (const t of panel.stack.tiles) {
     const p = tiles.find((x) => x.key === t.key);
-    check(`stack tile ${t.key}`, p && p.n === t.n && num(p.shown) === t.n && p.flag === (t.flag ?? "") && p.badge === toneOf(t.flag), `page n ${p?.n} shown ${p?.shown} flag "${p?.flag}" badge ${p?.badge}, panel.json n ${t.n} flag "${t.flag ?? ""}"`);
+    // new critical CVEs are the quiet signal: the tile carries their count, and never a badge for them
+    check(`stack tile ${t.key}`, p && p.n === t.n && num(p.shown) === t.n && p.flag === (t.flag ?? "") && p.badge === toneOf(t.flag) && p.tier === t.tier && p.crit === t.crit, `page n ${p?.n} shown ${p?.shown} flag "${p?.flag}" badge ${p?.badge} tier ${p?.tier} crit ${p?.crit}, panel.json n ${t.n} flag "${t.flag ?? ""}" tier ${t.tier} crit ${t.crit}`);
   }
   const still = await evaluate(client, `({ dots: document.querySelectorAll(['#stack', '#runway', '#ledger', '#week'].flatMap((s) => [s + ' .ascii-pulse', s + ' .live-dot']).join(',')).length, ticking: [...document.documentElement.classList].filter((c) => c.startsWith('pulse-')), lights: document.querySelectorAll('#runway .rw-lights > i').length })`);
   check("nothing on the sheet pulses; the runway has its approach lights", still.dots === 0 && still.ticking.length === 0 && still.lights === 13, JSON.stringify(still));
@@ -316,19 +361,113 @@ async function checkHome(client, base, dir, home, panel, stackFile) {
   // a shared stack link applies, stores and recomputes: the verdict and the ledger's marks
   const rowKeys = new Set(want.flatMap((r) => [...r.cves, r.href]));
   const covering = stackFile.candidates.find((c) => !panel.stack.default.includes(c.key) && (c.items ?? []).some((it) => rowKeys.has(it.href) || it.cves.some((cve) => rowKeys.has(cve))));
-  const picks = [...new Set([...(covering ? [covering.key] : []), ...stackFile.candidates.filter((c) => c.kev7.length).slice(0, 1).map((c) => c.key), ...stackFile.candidates.filter((c) => !c.kev7.length).slice(0, 1).map((c) => c.key)])];
-  await navigate(client, `${base}/?final&stack=${picks.join(",")},not-a-product`, `${HOME_READY} && document.querySelector('[data-tiles][data-stack="ready"]')`);
-  const shared = await evaluate(client, `({ tiles: [...document.querySelectorAll('[data-stack-tile]')].map((t) => t.dataset.stackTile), stored: localStorage.getItem("gcd-radar:stack"), verdict: Number(document.querySelector('[data-verdict]').dataset.stackMatch), hidden: document.documentElement.classList.contains("stack-custom"), ledger: ${READ_LEDGER} })`);
+  // the picks: one that covers a ledger row, one hit this week, a quiet one, one with new criticals only, and one under a key that has since changed
+  const quietOne = stackFile.candidates.find((c) => c.tier === 5 && !c.kev7.length && !c.tail);
+  const critOnly = stackFile.candidates.find((c) => c.tier === 4 && !panel.stack.default.includes(c.key));
+  const [oldKey, newKey] = Object.entries(stackFile.aliases).find(([, now]) => !panel.stack.default.includes(now)) ?? [];
+  const picks = [...new Set([...(covering ? [covering.key] : []), ...stackFile.candidates.filter((c) => c.kev7.length).slice(0, 1).map((c) => c.key), ...(quietOne ? [quietOne.key] : []), ...(critOnly ? [critOnly.key] : []), ...(newKey ? [newKey] : [])])];
+  const asLinked = picks.map((k) => (k === newKey ? oldKey : k));
+  const inOrder = picks.map((k) => stackFile.candidates.find((c) => c.key === k)).sort(byUrgency).map((c) => c.key);
+  await navigate(client, `${base}/?final&stack=${asLinked.join(",")},not-a-product`, `${HOME_READY} && document.querySelector('[data-tiles][data-stack="ready"]')`);
+  const shared = await evaluate(client, `({ tiles: [...document.querySelectorAll('[data-stack-tile]')].map((t) => t.dataset.stackTile), quiet: [...document.querySelectorAll('[data-stack-tile]')].map((t) => t.dataset.crit + '/' + (t.querySelector('[data-stack-badge]') ? 'badge' : 'plain')), stored: localStorage.getItem("gcd-radar:stack"), verdict: Number(document.querySelector('[data-verdict]').dataset.stackMatch), hidden: document.documentElement.classList.contains("stack-custom"), ledger: ${READ_LEDGER} })`);
   const expectMatch = stackMatches(stackFile, picks).length;
-  check("?stack= applies the picks", shared.tiles.join(",") === picks.join(","), `${shared.tiles.join(",")} for ${picks.join(",")}`);
+  check("?stack= applies the picks, most urgent first, an old key under its new name", shared.tiles.join(",") === inOrder.join(","), `${shared.tiles.join(",")} for ${asLinked.join(",")}${oldKey ? ` (${oldKey} is ${newKey} now)` : ""}`);
   check("?stack= stores the picks", shared.stored === picks.join(","), String(shared.stored));
+  if (critOnly) {
+    // the quiet signal: the tile carries the count without a coloured word, and under the tile's list are the CVEs themselves, apart from the exploited rows and uncoloured
+    const at = inOrder.indexOf(critOnly.key);
+    const drawer = await evaluate(client, `(async () => {
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      document.querySelector('[data-stack-tile="${critOnly.key}"]').click();
+      for (let i = 0; i < 40 && !document.querySelector('[role="dialog"] [data-stack-crits]'); i++) await sleep(150);
+      const d = document.querySelector('[role="dialog"]');
+      const res = { crits: Number(d?.querySelector('[data-stack-crits]')?.dataset.stackCrits), listed: [...(d?.querySelectorAll('[data-stack-crit]') ?? [])].map((li) => li.dataset.stackCrit), rows: d?.querySelectorAll('ol > li').length ?? -1, red: d?.querySelectorAll('[data-stack-crits] [data-tag], [data-stack-crits] [data-cvss-band], [data-stack-crits] [class*="text-live"], [data-stack-crits] [class*="bg-live"]').length ?? -1 };
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await sleep(250);
+      return res;
+    })()`);
+    check("new criticals are the quiet signal: no coloured word on the tile, their own uncoloured list in its drawer", shared.quiet[at] === `${critOnly.crit}/plain` && drawer.crits === critOnly.crit && drawer.listed.join(",") === critOnly.crits.map((c) => c.id).join(",") && drawer.rows === critOnly.n && drawer.red === 0, `${critOnly.key}: tile "${shared.quiet[at]}", drawer ${drawer.crits} with ${drawer.listed.length} listed, ${drawer.rows} exploited rows; stack.json ${critOnly.crit} with ${critOnly.crits.length} kept`);
+  }
   check("a shared stack recomputes the verdict", shared.verdict === expectMatch && !shared.hidden, `verdict ${shared.verdict}, expected ${expectMatch}`);
   const hits = stackHits(stackFile, picks);
   const wantMarks = want.map((r) => rowStack(hits, { cves: r.cves, href: r.href }).join(","));
   check("a shared stack recomputes the ledger's marks", shared.ledger.length === want.length && shared.ledger.every((r, i) => r.stack === wantMarks[i] && r.ready === "ready"), `page ${shared.ledger.map((r) => r.stack || "-").join("|")}, expected ${wantMarks.map((m) => m || "-").join("|")}${covering ? ` (${covering.key} covers a row)` : " (no candidate covers a shown row)"}`);
   await navigate(client, `${base}/?final`, `${HOME_READY} && document.querySelector('[data-tiles][data-stack="ready"]')`);
   const kept = await evaluate(client, `[...document.querySelectorAll('[data-stack-tile]')].map((t) => t.dataset.stackTile).join(",")`);
-  check("the stored stack comes back without the link", kept === picks.join(","), kept);
+  check("the stored stack comes back without the link", kept === inOrder.join(","), kept);
+
+  // the chooser: the visitor's picks on top, every category with its count, search by name and by another name, a tick adds a tile, clearing goes back to the default
+  {
+    const wanted = stackFile.candidates.find((c) => c.aka.length && !picks.includes(c.key) && !c.tail);
+    const chooser = await evaluate(client, `(async () => {
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      const type = async (text) => {
+        const input = document.querySelector('[role="dialog"] input[type="search"]');
+        Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set.call(input, text);
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        await sleep(200);
+      };
+      const rows = () => [...document.querySelectorAll('[role="dialog"] [data-chooser-view="search"] ol > li')].map((li) => li.dataset.chooserRow);
+      [...document.querySelectorAll('#stack button')].find((b) => b.textContent.trim() === 'edit').click();
+      for (let i = 0; i < 40 && !document.querySelector('[role="dialog"] [data-chooser-cat]'); i++) await sleep(150);
+      const d = document.querySelector('[role="dialog"]');
+      const res = {
+        count: d.querySelector('[data-chooser-count]')?.textContent ?? '',
+        mine: [...d.querySelectorAll('[data-chooser-view="mine"] ol > li')].map((li) => li.dataset.chooserRow),
+        popular: d.querySelectorAll('[data-chooser-view="popular"]').length,
+        cats: [...d.querySelectorAll('[data-chooser-cat]')].map((b) => [b.dataset.chooserCat, Number(b.dataset.count)]),
+        order: d.querySelector('[data-chooser-order]')?.textContent ?? '',
+        small: [...d.querySelectorAll('h2, h3, p, label, button, input, span')].filter((e) => e.textContent.trim() && parseFloat(getComputedStyle(e).fontSize) < 12).length,
+      };
+      await type(${JSON.stringify(wanted?.label.toLowerCase() ?? "")});
+      res.byName = rows();
+      res.marked = document.querySelector('[role="dialog"] [data-chooser-view="search"] mark')?.textContent ?? '';
+      await type(${JSON.stringify(wanted?.aka[0] ?? "")});
+      res.byOther = rows();
+      await type('zzzz no such product');
+      res.none = Boolean(document.querySelector('[role="dialog"] [data-empty]'));
+      await type(${JSON.stringify(wanted?.label ?? "")});
+      document.querySelector('[role="dialog"] [data-chooser-row="${wanted?.key}"] input')?.click();
+      await sleep(300);
+      res.ticked = [...document.querySelectorAll('[data-stack-tile]')].map((t) => t.dataset.stackTile);
+      res.stored = localStorage.getItem("gcd-radar:stack");
+      await type('');
+      document.querySelector('[role="dialog"] [data-chooser-cat="${wanted?.cat}"]')?.click();
+      await sleep(200);
+      res.inCategory = document.querySelectorAll('[role="dialog"] [data-chooser-view="category"] ol > li').length;
+      document.querySelector('[role="dialog"] [data-chooser-reset]')?.click();
+      await sleep(300);
+      res.cleared = [...document.querySelectorAll('[data-stack-tile]')].map((t) => t.dataset.stackTile);
+      res.storedAfter = localStorage.getItem("gcd-radar:stack");
+      window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
+      await sleep(250);
+      res.closed = !document.querySelector('[role="dialog"]');
+      return res;
+    })()`);
+    const perCat = new Map();
+    for (const c of stackFile.candidates) perCat.set(c.cat, (perCat.get(c.cat) ?? 0) + 1);
+    check("chooser: the picks on top and the count line", chooser.count.startsWith(`${picks.length} of up to ${STACK_MAX} chosen`) && chooser.mine.join(",") === inOrder.join(",") && chooser.popular === 0, `"${chooser.count}", mine ${chooser.mine.join(",")}`);
+    check("chooser: every category with its count", chooser.cats.length === perCat.size && chooser.cats.every(([k, n]) => perCat.get(k) === n) && chooser.cats.reduce((n, [, x]) => n + x, 0) === stackFile.candidates.length, chooser.cats.map(([k, n]) => `${k} ${n}`).join(", "));
+    check("chooser: says how the lists are ordered, in text no smaller than 12 px", chooser.order.startsWith("Most urgent first") && chooser.small === 0, `${chooser.small} elements under 12 px; "${chooser.order.slice(0, 60)}"`);
+    if (wanted) {
+      check("chooser: search finds a product by its name and by another name it goes by", chooser.byName[0] === wanted.key && chooser.marked.toLowerCase() === wanted.label.toLowerCase() && chooser.byOther.includes(wanted.key) && chooser.none, `"${wanted.label}" → ${chooser.byName.slice(0, 3).join(",")}; "${wanted.aka[0]}" → ${chooser.byOther.slice(0, 3).join(",")}; nothing found shown ${chooser.none}`);
+      const withIt = [...picks, wanted.key].map((k) => stackFile.candidates.find((c) => c.key === k)).sort(byUrgency).map((c) => c.key);
+      check("chooser: a tick adds the product to the strip and to the stored picks", chooser.ticked.join(",") === withIt.join(",") && chooser.stored === [...picks, wanted.key].join(","), `${chooser.ticked.join(",")}; stored ${chooser.stored}`);
+      check("chooser: a category opens its list", chooser.inCategory === perCat.get(wanted.cat), `${chooser.inCategory} rows, ${perCat.get(wanted.cat)} in ${wanted.cat}`);
+    }
+    check("chooser: clearing the choice brings the default back", chooser.cleared.join(",") === panel.stack.default.join(",") && chooser.storedAfter === null && chooser.closed, `${chooser.cleared.join(",")}; stored ${chooser.storedAfter}`);
+  }
+
+  // a stack as large as it gets: the link is capped at the limit and still fits the page on a phone
+  {
+    const many = stackFile.candidates.filter((c) => !c.tail).slice(0, STACK_MAX + 6).map((c) => c.key);
+    const url = `${base}/?final&stack=${many.join(",")}`;
+    await client.send("Emulation.setDeviceMetricsOverride", { width: 375, height: 812, deviceScaleFactor: 2, mobile: true });
+    await navigate(client, url, `${HOME_READY} && document.querySelector('[data-tiles][data-stack="ready"]')`);
+    const big = await evaluate(client, `({ tiles: document.querySelectorAll('[data-stack-tile]').length, scroll: document.documentElement.scrollWidth, inner: window.innerWidth })`);
+    check(`a stack of ${STACK_MAX} is the most a link applies, and fits a phone`, big.tiles === STACK_MAX && big.scroll <= big.inner && url.length < 2000, `${big.tiles} tiles from ${many.length} keys, link ${url.length} characters, scrollWidth ${big.scroll} of ${big.inner}`);
+    await client.send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  }
   await evaluate(client, `localStorage.removeItem("gcd-radar:stack")`);
 
   // motion: on by default, each instrument building as it scrolls into view (a short viewport keeps the lower ones waiting), off under reduced motion
@@ -544,7 +683,9 @@ async function main() {
   try {
     await client.send("Page.enable");
     await client.send("Runtime.enable");
-    const [home, panel, stackFile] = await Promise.all(["/stats/home.json", "/stats/panel.json", "/stats/stack.json"].map((f) => fetch(`${site.base}${f}`).then((r) => r.json())));
+    const [home, panel] = await Promise.all(["/stats/home.json", "/stats/panel.json"].map((f) => fetch(`${site.base}${f}`).then((r) => r.json())));
+    const stackText = await fetch(`${site.base}/stats/stack.json`).then((r) => r.text());
+    const stackFile = { ...unpackStack(JSON.parse(stackText)), bytes: Buffer.byteLength(stackText) };
     await checkHome(client, site.base, dir, home, panel, stackFile);
     await checkLiveLayer(client, site.base, home, panel);
     await checkTrends(client, site.base, home, panel);

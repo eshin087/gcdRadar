@@ -74,6 +74,9 @@ const RULES: readonly (readonly [RegExp, string])[] = [
 
 const LABELS = new Map(RULES.map(([, label]) => [label.toLowerCase(), label]));
 
+/** Every family label, once: the My stack catalog lists each as an AI product (lib/catalog). */
+export const PRODUCT_FAMILY_LABELS: readonly string[] = [...LABELS.values()];
+
 /** The display label for a product name: its family, or the name itself. A family label maps to itself. */
 export function productFamily(name: string): string {
   const n = name.trim();

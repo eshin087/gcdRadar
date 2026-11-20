@@ -3,6 +3,7 @@ import { ageWords, sweepLabel } from "@/components/live/SweepAgo";
 import { buildHome } from "@/lib/home";
 import { boardView, buildLiveFiles, freshRecords, homeView, namedIn, statsListFiles } from "@/lib/live/build";
 import { BOARD_VIEW_KEYS, FRESH_RECORD_DAYS, HOME_VIEW_KEYS, LIVE_FILE_PATTERN, LIVE_VERSION, liveApplies, liveListUrl, pageless, parseLiveFile, withLiveLists, type BoardLive, type HomeLive, type HomeView } from "@/lib/live/shape";
+import { unpackStack } from "@/lib/panel/picks";
 import { SITE } from "@/lib/site";
 import { emptyStats, type StatsFiles } from "@/lib/stats-schema";
 import { LIVE_NAME } from "../worker/src/live";
@@ -66,7 +67,8 @@ describe("the files of a sweep", () => {
     const built = buildHome(incidents, stats(), new Date(SWEEP), SWEEP, SITE.origin);
     expect(home.view).toEqual(JSON.parse(JSON.stringify(homeView(built, null))));
     expect(board.view).toEqual(JSON.parse(JSON.stringify(boardView(built.live))));
-    expect(JSON.parse(files["stack.json"]!)).toEqual(JSON.parse(JSON.stringify(built.stackFile)));
+    // the stack candidates travel packed, as the build writes them, and unpack to the build's own
+    expect(unpackStack(JSON.parse(files["stack.json"]!))).toEqual(JSON.parse(JSON.stringify(built.stackFile)));
     for (const [name, body] of Object.entries(statsListFiles(built, stats(), new Date(SWEEP)))) expect(JSON.parse(files[name]!)).toEqual(JSON.parse(JSON.stringify(body)));
   });
 

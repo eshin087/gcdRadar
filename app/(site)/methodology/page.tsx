@@ -416,9 +416,15 @@ export default function MethodologyPage() {
         </li>
         <li>
           <strong>My stack</strong> counts, per product, KEV entries and our exploited records of the last 90 days, once per CVE; a tile opens that
-          list. A chip carries a coloured word only while something is exploited and open: a KEV due date ahead (CISA&rsquo;s deadline), no full patch, or
-          confirmed impact (severity 4: data, money or service lost). Your picks stay in
-          your browser.
+          list. The products come from a catalog of several hundred well-known vendors and products, always listed whether or not anything hit them
+          lately, plus every other vendor on CISA&rsquo;s catalog; a vendor covers everything it makes. A KEV entry is matched on CISA&rsquo;s vendor
+          and product columns, a record on its products, title and tags. A chip carries a coloured word only while something is exploited and open: a
+          KEV due date ahead or passed in the last seven days (CISA&rsquo;s deadline), no full patch, or confirmed impact (severity 4: data, money or
+          service lost). New critical CVEs (CVSS 9.0 or more, published in the last 14 days) are a second, quieter signal: a grey count in the
+          product list and a list of their own under a chip, never a coloured word. They are matched by name in NVD&rsquo;s one-line description, strictly, so the count can miss some. Every list of products is
+          in one order: exploited with no full patch or a deadline within three days, then later deadlines, then confirmed impact, then new critical
+          CVEs, then the rest; the higher CVSS score first inside a group. Until you choose, the strip shows the most urgent of the best-known
+          products that day. Your picks stay in your browser.
         </li>
         <li>
           <strong>How AI shows up</strong> (on Trends) splits the week&rsquo;s incidents by AI role. It shows counts, never a share over time: until 19 October 2026
@@ -573,6 +579,14 @@ export default function MethodologyPage() {
           with arrests, sentences or a takedown is a follow-up and is not published as a new record. A doubtful out-of-scope item with no AI role is
           rejected instead of waiting in the review queue. Product lists hold names only, never descriptions such as &ldquo;deepfake generator&rdquo;
           (50 records cleaned). One duplicate pair merged, one police-action record and nine queued items removed.
+        </li>
+        <li>
+          2026-11-20 · My stack gets a catalog and an order. The products to pick from were the 88 vendors and AI products hit in the last 90 days; they
+          are now several hundred well-known vendors and products, always listed, plus every other vendor on CISA&rsquo;s catalog. A stack holds up to
+          40 (it was 12), and the strip, the chooser and the file list products most urgent first. New critical CVEs of the last 14 days are counted
+          per product as a quiet second signal, and a deadline that passed in the last seven days reads &ldquo;past due&rdquo;. A record that only
+          mentions a university or a company&rsquo;s internal system no longer makes it a product. Saved picks and shared links keep working. A
+          tile&rsquo;s number is counted as before; what belongs to a product is now decided by the catalog.
         </li>
       </ul>
     </div>
