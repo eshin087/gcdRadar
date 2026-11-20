@@ -1,5 +1,125 @@
 [
   {
+    "key": "1c1c0d05263f3864",
+    "title": "Hardening JavaScript Programs against LLM-Based Vulnerability Detection",
+    "url": "https://arxiv.org/abs/2611.25718",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defense-only paper proposing a technique to protect source code against vulnerability scanners",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "fe231af6f51dd38c",
+    "title": "Tether: Verified Stateful Policy Engine for System-Level Monitoring of Agents",
+    "url": "https://arxiv.org/abs/2611.25599",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "42fb814b60b244fc",
+    "title": "On the Reliability of CyberGym Evaluation: Task Material Consistency and Reference-Target Identity",
+    "url": "https://arxiv.org/abs/2611.25790",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: surveys, statistics and report finds pieces or evaluation methodology",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "36f930941b9c3943",
+    "title": "SCARVA: Interpretable Agentic Reasoning in Software Supply-Chain Analysis",
+    "url": "https://arxiv.org/abs/2611.26131",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "bd055369dbe5e677",
+    "title": "SoK: Assessing the Evolution of LLM Capability in Software Vulnerability Research",
+    "url": "https://arxiv.org/abs/2611.26601",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: surveys, statistics and report finds pieces",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "231bbb6daa44d8c6",
+    "title": "Attacks and Defenses in Decentralized Multi-Agent Systems with Hop-by-Hop Task Decomposition and Delegation",
+    "url": "https://arxiv.org/abs/2611.25056",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is a research paper discussing general decentralized multi-agent system challenges without a specific demonstrated attack or vulnerability.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "c86b62bf64e38e05",
+    "title": "Backtracking Agent Applications Security Incidents",
+    "url": "https://arxiv.org/abs/2611.26525",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is a research paper proposing a methodology for backtracking agent application security incidents rather than demonstrating a new specific attack.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "f3861ac79d4dc86a",
+    "title": "Phantom of the Masquerade: Graph Neural Network-Based Detection of Masquerade Attacks in Controller Area Networks",
+    "url": "https://arxiv.org/abs/2611.26094",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is a defense-only paper proposing a machine learning-based intrusion detection system for controller area networks.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "b56a0b995e5f5d90",
+    "title": "Ask in the Crowd: Differentially Private LLM Inference via Dummy-Augmented Shuffling",
+    "url": "https://arxiv.org/abs/2611.25669",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is a defense and privacy-enhancing paper proposing a method for differentially private LLM inference.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "f1c3ab95da2d82ae",
+    "title": "ChainAgent: Automated Chainable Vulnerability Discovery in PHP Web Applications",
+    "url": "https://arxiv.org/abs/2611.25412",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a vulnerability discovery technique for web applications without an AI security angle.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "101d81103ec73f3d",
+    "title": "DailySafe: Benchmarking Dynamic Safety Awareness in Everyday Multi-Turn Multimodal Interactions",
+    "url": "https://arxiv.org/abs/2611.26298",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Benchmark paper evaluating model safety in multi-turn interactions, out of scope as it proposes a benchmark.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
+    "key": "deae29e5de8c05f1",
+    "title": "RAVEN: A Self-RAG Based Agent for Threat Classification and Response",
+    "url": "https://arxiv.org/abs/2611.25832",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defensive SOC automation tool paper, out of scope as it proposes a defense/assistance framework without an offensive or vulnerable angle.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T12:36:45.405Z"
+  },
+  {
     "key": "b6dced9e8be0bdef",
     "title": "SonicWall Warns Gen 6 Firewalls Won't Get Security Patches, Even for Critical Flaws",
     "url": "https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html",

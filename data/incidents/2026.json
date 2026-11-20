@@ -1,5 +1,409 @@
 [
   {
+    "id": "AIR-2026-2092",
+    "slug": "alioth-orchestrating-multi-agent-llms-for-autonomous-iot-pen",
+    "title": "ALIoTh: Orchestrating Multi-Agent LLMs for Autonomous IoT Penetration Testing",
+    "summary": "Researchers introduced ALIoTh, a multi-agent framework powered by large language models designed to autonomously execute penetration testing across Internet of Things environments. The system integrates a self-retrieval-augmented generation architecture to handle information gathering and lateral movement.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "ALIoTh"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25809",
+        "publisher": "arXiv",
+        "title": "ALIoTh: Orchestrating Multi-Agent LLMs for Autonomous IoT Penetration Testing",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ai-agent",
+      "penetration-testing",
+      "iot",
+      "rag"
+    ],
+    "created_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "ALIoTh: Orchestrating Multi-Agent LLMs for Autonomous IoT Penetration Testing",
+        "source_url": "https://arxiv.org/abs/2611.25809",
+        "added_at": "2026-11-20T12:36:45.405Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating an autonomous attack framework without real-world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2091",
+    "slug": "authority-closure-and-authorization-boundaries-in-agent-comm",
+    "title": "Authority Closure and Authorization Boundaries in Agent Commerce Protocols",
+    "summary": "Researchers analyzed how software agent commerce protocols and crypto wallets can permit unauthorized transfers due to gaps between displayed fields and signed objects. The study defines authority closure to characterize transfer sequences enabled by signed objects.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.24989",
+        "publisher": "arXiv",
+        "title": "Signed, Valid, and Unauthorized: Authority Closure at the Trust Boundary Between Agent Commerce Protocols and Crypto Wallets",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "agent-commerce",
+      "crypto-wallet",
+      "authorization",
+      "ai-agents"
+    ],
+    "created_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Signed, Valid, and Unauthorized: Authority Closure at the Trust Boundary Between Agent Commerce Protocols and Crypto Wallets",
+        "source_url": "https://arxiv.org/abs/2611.24989",
+        "added_at": "2026-11-20T12:36:45.405Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating a security model flaw with no known exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2090",
+    "slug": "toolpulse-side-channel-eavesdropping-on-tool-using-llm-agent",
+    "title": "ToolPulse: Side-Channel Eavesdropping on Tool-Using LLM Agents",
+    "summary": "Researchers demonstrate a side-channel eavesdropping attack against commercial LLM agents executing on vendor-controlled infrastructure. The technique extracts information through observable patterns during tool invocations.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25470",
+        "publisher": "arXiv",
+        "title": "ToolPulse: Side-Channel Eavesdropping on Tool-Using LLM Agents",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "side-channel",
+      "agent",
+      "eavesdropping"
+    ],
+    "created_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "ToolPulse: Side-Channel Eavesdropping on Tool-Using LLM Agents",
+        "source_url": "https://arxiv.org/abs/2611.25470",
+        "added_at": "2026-11-20T12:36:45.405Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research attack with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2089",
+    "slug": "chronopatch-black-box-energy-latency-attacks-on-vision-langu",
+    "title": "ChronoPatch: Black-Box Energy-Latency Attacks on Vision-Language Models",
+    "summary": "Researchers presented ChronoPatch, a black-box adversarial attack that crafts visual inputs to prolong response generation and increase computational overhead in vision-language models. The attack succeeds by observing only the final response tokens without requiring gradient or logit access.",
+    "type": "attack_on_ai",
+    "categories": [
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.26117",
+        "publisher": "arXiv",
+        "title": "ChronoPatch: Black-Box Energy-Latency Attacks on Vision-Language Models",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "vision-language-models",
+      "adversarial-attack",
+      "denial-of-service",
+      "latency"
+    ],
+    "created_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "ChronoPatch: Black-Box Energy-Latency Attacks on Vision-Language Models",
+        "source_url": "https://arxiv.org/abs/2611.26117",
+        "added_at": "2026-11-20T12:36:45.405Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating an adversarial attack concept.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2088",
+    "slug": "blockjack-cross-tenant-redirection-fault-attacks-on-paged-kv",
+    "title": "BlockJack: Cross-Tenant Redirection Fault Attacks on Paged KV Cache",
+    "summary": "Researchers demonstrated BlockJack, a cross-tenant redirection fault attack targeting paged KV cache address translation in LLM serving frameworks like vLLM. The technique manipulates software-managed memory translation layers to compromise tenant isolation during inference.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "vLLM"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25945",
+        "publisher": "arXiv",
+        "title": "BlockJack: Cross-Tenant Redirection Fault Attacks on Paged KV Cache Address Translation in LLM Serving",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "vllm",
+      "kv-cache",
+      "fault-attack",
+      "cross-tenant"
+    ],
+    "created_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "vLLM"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "BlockJack: Cross-Tenant Redirection Fault Attacks on Paged KV Cache Address Translation in LLM Serving",
+        "source_url": "https://arxiv.org/abs/2611.25945",
+        "added_at": "2026-11-20T12:36:45.405Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating a proof-of-concept infrastructure vulnerability.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2087",
+    "slug": "loca-verified-netlist-to-rtl-recovery-with-llm-agents",
+    "title": "LOCA: Verified Netlist-to-RTL Recovery with LLM Agents",
+    "summary": "Researchers introduced an LLM-based attack framework called LOCA that automates the reverse engineering of hardware gate-level netlists into readable RTL code. The method splits netlists into logic cones to overcome previous scaling hurdles for automated adversaries.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25324",
+        "publisher": "arXiv",
+        "title": "Verified Netlist-to-RTL Recovery with LLM Agents",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "hardware",
+      "reverse-engineering",
+      "llm-agents",
+      "rtl"
+    ],
+    "created_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Verified Netlist-to-RTL Recovery with LLM Agents",
+        "source_url": "https://arxiv.org/abs/2611.25324",
+        "added_at": "2026-11-20T12:36:45.405Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating a proof-of-concept attack technique.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2086",
+    "slug": "abusing-browser-embedded-language-models-for-post-exploitati",
+    "title": "Abusing Browser-Embedded Language Models for Post-Exploitation",
+    "summary": "Researchers demonstrated that browser-embedded local language models can be abused as post-exploitation engines. The technique utilizes built-in AI endpoints to run invisible analysis and processing tasks.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "Google",
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Chrome",
+      "Gemini Nano"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.25086",
+        "publisher": "arXiv",
+        "title": "Living off the Local Model: Abusing Browser-Embedded Language Models for Post-Exploitation",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "browser",
+      "post-exploitation",
+      "living-off-the-land",
+      "gemini-nano"
+    ],
+    "created_at": "2026-11-20T12:36:45.405Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Living off the Local Model: Abusing Browser-Embedded Language Models for Post-Exploitation",
+        "source_url": "https://arxiv.org/abs/2611.25086",
+        "added_at": "2026-11-20T12:36:45.405Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating an attack concept with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2085",
     "slug": "cve-2026-133631-flowintel-security-flaws-in-variable-resolut",
     "title": "CVE-2026-133631: FlowIntel security flaws in variable resolution, chatbot API tooling and AI reporting",
@@ -1124,9 +1528,15 @@
         "publisher": "The Hacker News",
         "title": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited",
+        "publisher": "Help Net Security",
+        "title": "VMware vCenter zero-day exploited for months before patch (CVE-2026-123890)",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 4,
+    "source_count": 5,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1139,7 +1549,7 @@
       "CVE-2026-123890"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-20T07:07:16.876Z",
+    "updated_at": "2026-11-20T12:36:45.405Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
