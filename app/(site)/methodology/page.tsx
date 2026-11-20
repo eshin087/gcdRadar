@@ -423,8 +423,8 @@ export default function MethodologyPage() {
           service lost). Its row says which, and shows the CVSS score of the item behind that reason (the entries with that deadline, the records
           without a patch, the records with confirmed impact) beside a ten-cell meter lit to the score, or &ldquo;no score yet&rdquo;. A product
           with nothing open is counted in the section&rsquo;s line and not drawn. New critical CVEs (CVSS 9.0 or more, published in the last 14
-          days, not exploited) are a second, quieter signal: one grey line under the rows names the highest by score, and a product&rsquo;s list
-          holds its own, never a coloured word. They are matched by name in NVD&rsquo;s one-line description, strictly, so the count can miss some. Every list of products is
+          days) are a second, quieter signal: one grey line under the rows names the highest by score, and a product&rsquo;s list
+          holds its own, never a coloured word. A CVE that is already on CISA&rsquo;s list or in one of our exploited records is not counted among them: it is one of the exploited items. They are matched by name in NVD&rsquo;s one-line description, strictly, so the count can miss some. Every list of products is
           in one order: exploited with no full patch or a deadline within three days, then later deadlines, then confirmed impact, then new critical
           CVEs, then the rest; the higher CVSS score first inside a group. Until you choose, the page uses the most urgent of the best-known
           products that day. Your picks stay in your browser.

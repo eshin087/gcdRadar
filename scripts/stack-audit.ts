@@ -17,7 +17,7 @@ import { isDisclosedIncident } from "../lib/counting";
 import { loadIncidents, loadStats } from "../lib/data";
 import { addDays } from "../lib/lifecycle";
 import { CRITICAL_MIN, STACK_DAYS, packStack, type StackCandidate } from "../lib/panel/picks";
-import { buildStack, tileOf } from "../lib/panel/stack";
+import { buildStack, knownExploitedCves, tileOf } from "../lib/panel/stack";
 
 const kb = (s: string) => `${(Buffer.byteLength(s) / 1024).toFixed(1)} KB`;
 
@@ -90,8 +90,10 @@ async function main() {
   }
   console.log(`\nrecords: ${exploited.length} exploited in ${STACK_DAYS} days; ${recHit} on a curated entry`);
 
-  // new criticals
-  const crit = recent.filter((c) => c.score !== null && c.score >= CRITICAL_MIN);
+  // new criticals: the ones the site can show, so without those already known to be exploited
+  const known = knownExploitedCves(incidents, kev);
+  const scored = recent.filter((c) => c.score !== null && c.score >= CRITICAL_MIN);
+  const crit = scored.filter((c) => !known.has(c.id.toUpperCase()));
   const critLines: string[] = [];
   let critHit = 0;
   const perEntry = new Map<string, number>();
@@ -101,7 +103,7 @@ async function main() {
     for (const m of hit) perEntry.set(m.entry.key, (perEntry.get(m.entry.key) ?? 0) + 1);
     critLines.push(`${hit.map((m) => m.entry.key).join(", ") || "-"}\t${c.id}\t${c.score}\t${c.description}`);
   }
-  console.log(`\nnew criticals: ${crit.length} CVEs scored ${CRITICAL_MIN}+ in the file; ${critHit} matched to an entry by description, ${crit.filter((c) => !c.description).length} have no description`);
+  console.log(`\nnew criticals: ${scored.length} CVEs scored ${CRITICAL_MIN}+ in the file, ${scored.length - crit.length} of them already known to be exploited and left out; of the other ${crit.length}, ${critHit} matched to an entry by description, ${crit.filter((c) => !c.description).length} have no description`);
   console.log(
     `  most: ${[...perEntry]
       .sort((a, b) => b[1] - a[1])

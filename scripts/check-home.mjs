@@ -291,6 +291,10 @@ async function checkHome(client, base, dir, home, panel, stackFile) {
       `${keys.length} candidates (${stackFile.candidates.filter((c) => c.tail).length} from CISA's list only), tiers ${[1, 2, 3, 4, 5].map((t) => stackFile.candidates.filter((c) => c.tier === t).length).join("/")}`,
     );
     check(`stack.json under ${STACK_FILE_KB} KB`, stackFile.bytes <= STACK_FILE_KB * 1024, `${(stackFile.bytes / 1024).toFixed(1)} KB`);
+    // the drawer says of a product's new criticals that none is known to be exploited: none may also be an exploited item, anywhere in the file
+    const exploitedIds = new Set(stackFile.candidates.flatMap((c) => (c.items ?? []).flatMap((it) => it.cves)));
+    const both = [...new Set(stackFile.candidates.flatMap((c) => (c.crits ?? []).map((x) => x.id)).filter((id) => exploitedIds.has(id)))];
+    check("stack.json: no new critical CVE is also an exploited item", both.length === 0, both.length ? both.join(", ") : `${new Set(stackFile.candidates.flatMap((c) => (c.crits ?? []).map((x) => x.id))).size} new criticals listed, none among the ${exploitedIds.size} exploited ids`);
   }
 
   // My stack: only the products that need action, most urgent first, each with why and the score behind it

@@ -7,7 +7,7 @@ import { catalogMatchers, compile, recordFreeText, subjectOf, termPattern } from
 import { STACK_MAX, byUrgency, findTyped, parsePicks, searchStack, sortByUrgency, stackUrgency, type StackCandidate } from "@/lib/panel/picks";
 import { buildStack } from "@/lib/panel/stack";
 import { PRODUCT_FAMILY_LABELS } from "@/lib/products";
-import type { KevStatEntry } from "@/lib/stats-schema";
+import type { KevStatEntry, RecentCve } from "@/lib/stats-schema";
 
 const matchers = catalogMatchers();
 const matcher = (key: string) => matchers.find((m) => m.entry.key === key)!;
@@ -247,6 +247,15 @@ describe("matching the real KEV file", () => {
       expect(known.has(now), `${old} -> ${now}`).toBe(true);
     }
   });
+  it("never lists a CVE on CISA's list as a new critical, whatever NVD's file holds that day", () => {
+    const recent = JSON.parse(readFileSync(path.join(process.cwd(), "data/stats/cves-recent.json"), "utf8")) as { cves: RecentCve[] };
+    // "now" is the newest CVE in the file, so its last 14 days are in the window on any day the test runs
+    const now = recent.cves.reduce((top, c) => (c.published > top ? c.published : top), "");
+    const stack = buildStack([], file.entries, now.slice(0, 10), now, { criticals: recent.cves });
+    const listed = stack.candidates.flatMap((c) => c.crits ?? []);
+    expect(listed.length).toBeGreaterThan(0);
+    expect([...new Set(listed.filter((c) => byCve.has(c.id)).map((c) => c.id))]).toEqual([]);
+  });
   it("keeps the keys picks were saved under before the catalog", () => {
     // /stats/stack.json as production served it on 2026-11-20: 88 candidates
     const before = "microsoft google linux cisco litellm apple citrix apache connectwise plex claude jfrog palo-alto-networks adobe chatgpt check-point claude-code-sdks fortinet ivanti mikrotik oracle sonicwall synology wordpress ahsay arista atlassian barracuda-networks berriai diskstation-manager f5 fireworks-ai gitlab hugging-face-libraries langflow n-able openai-models papercut php-group red-hat siemens vanderbilt-university zammad-gmbh zyxel acronis ajax-net-professional apache-axis beyondtrust broadcom claude-code-extension collabora cursor eg-secure-solutions gitea gpt-5-6 gpustack ibm isc kestra kludex llama-cpp onlyoffice openai-operator openbsd opencode opencode-console openwave-messaging-limited owncloud perforce proftpd railway sangoma sglang signalwire strapi unrealircd vllm warp-agentic-development-environment wso2".split(" ");
@@ -282,6 +291,18 @@ describe("matching records", () => {
     expect(onRecord("pgEdge Postgres MCP Server flaw", ["pgEdge Postgres MCP Server"])).toEqual(["mcp-servers-tools"]);
     expect(onRecord("Claude Code extension poisoned with a backdoor", ["Claude Code"])).toEqual(["claude-code-sdks"]);
     expect(recordFreeText(record("MCP Atlassian command injection", ["MCP Atlassian"], ["mcp-atlassian"]))).not.toContain("atlassian");
+  });
+  it("takes a family's own label as that family, with nothing in the title to go by", () => {
+    // productFamily answers a label with the label, as it answers a name it does not know: the label is still the family
+    expect(onRecord("API keys stolen through a poisoned release", ["LiteLLM"])).toEqual(["litellm"]);
+    expect(onRecord("Model server left open to the internet", ["Ollama"])).toEqual(["ollama"]);
+    for (const label of PRODUCT_FAMILY_LABELS) {
+      const own = CATALOG.filter((e) => e.family === label).map((e) => e.key).sort();
+      expect(own.length, label).toBeGreaterThan(0);
+      expect(onRecord("API keys stolen through a poisoned release", [label]), label).toEqual(own);
+    }
+    // a name no family knows is still read as a name
+    expect(onRecord("API keys stolen through a poisoned release", ["NetScaler ADC"])).toEqual(["citrix", "netscaler"]);
   });
   it("does not take the one who reports the news for the one that was hit", () => {
     expect(onRecord("Google disrupts a 1.3 million-device botnet", ["XCPE malware"])).toEqual([]);

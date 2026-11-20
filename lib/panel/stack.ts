@@ -78,7 +78,10 @@ export {
  * else colours a tile.
  *
  * New criticals, the quiet second signal: the CVEs NVD published in the last
- * 14 days with a CVSS score of 9.0 or more that name the entry. With the CVE
+ * 14 days with a CVSS score of 9.0 or more that name the entry, and that are
+ * not known to be exploited: one on CISA's list or in one of our exploited
+ * records (severity 3 or more) is an exploited item, not a new critical, so
+ * the drawer can say of this list that none is known to be exploited. With the CVE
  * Program's vendor and product names (lib/catalog/affected.ts, when a file
  * carries them) they are matched on those names; without, on the description,
  * strictly (the entry has to be the subject of the sentence). They never flag
@@ -117,6 +120,13 @@ export interface StackInputs {
   criticals?: readonly RecentCve[];
   /** The CVE Program's vendor and product names per CVE id, when known. */
   affected?: ReadonlyMap<string, readonly Affected[]>;
+}
+
+/** Every CVE id known to be exploited, upper-cased: all of CISA's list, and the ids our exploited records (severity 3 or more) name, whatever their age. */
+export function knownExploitedCves(incidents: readonly FullIncident[], kev: readonly KevStatEntry[]): Set<string> {
+  const known = new Set(kev.map((e) => e.cve.toUpperCase()));
+  for (const i of incidents) if (i.severity >= 3 && !isDisclosedIncident(i)) for (const c of recordCves(i)) known.add(c);
+  return known;
 }
 
 /** Why an exploited record is still open, by the tile's rule; null when it is closed or nothing is pending. */
@@ -219,9 +229,10 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
   const pool = incidents.filter((i) => exploited(i) || flags(i));
   const recHeld: Set<FullIncident>[] = matchers.map((m) => new Set(pool.filter((i) => m.record(i))));
 
-  // new criticals
+  // new criticals: never a CVE already known to be exploited, which is shown among the exploited items
   const critFrom = new Date(Date.parse(nowIso) - CRITICAL_DAYS * 86_400_000).toISOString();
-  const criticals = (extra.criticals ?? []).filter((c) => c.score !== null && c.score >= CRITICAL_MIN && c.published > critFrom && c.published <= nowIso);
+  const knownExploited = knownExploitedCves(incidents, kev);
+  const criticals = (extra.criticals ?? []).filter((c) => c.score !== null && c.score >= CRITICAL_MIN && c.published > critFrom && c.published <= nowIso && !knownExploited.has(c.id.toUpperCase()));
   const critHeld: Set<RecentCve>[] = matchers.map(() => new Set());
   /** The product a critical CVE names: the most specific entry that holds it (a product before its vendor, the catalog's order between equals). */
   const critName = new Map<RecentCve, { name: string; depth: number }>();

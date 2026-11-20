@@ -8,7 +8,7 @@ import { buildLedger, patchedCves } from "@/lib/panel/ledger";
 import { bandOf, levelOf, quantile, ratioLevel } from "@/lib/panel/levels";
 import { NEWS_EXPLOITED_KEPT, NEWS_KEPT, NEWS_NAMED, buildNews, newsList } from "@/lib/panel/news";
 import { STACK_MAX, flagBadge, packStack, rowStack, stackHits, stackUrgency, unpackStack } from "@/lib/panel/picks";
-import { STACK_DEFAULT_MAX, STACK_DEFAULT_MIN, buildStack, kevCatalogHref, parsePicks, stackMatches, tileOf, type StackFile } from "@/lib/panel/stack";
+import { STACK_DEFAULT_MAX, STACK_DEFAULT_MIN, buildStack, kevCatalogHref, knownExploitedCves, parsePicks, stackMatches, tileOf, type StackFile } from "@/lib/panel/stack";
 import { buildSurface, techOf } from "@/lib/panel/technology";
 import { kevName, recordCves, shortDate, slugKey } from "@/lib/panel/util";
 import { patchTuesday, typicalBreachMonth, typicalCriticalWeek, typicalCveWeek } from "@/lib/panel/week";
@@ -387,6 +387,27 @@ describe("my stack", () => {
     expect(pg.crit).toBe(12);
     expect(pg.crits!.map((c) => c.score)).toEqual([9.55, 9.5, 9.45, 9.4, 9.35, 9.3, 9.25, 9.2]);
     expect(tileOf(pg).crits!.map((c) => c.score)).toEqual([9.55, 9.5, 9.45]);
+  });
+  it("leaves a CVE that is already known to be exploited out of the new criticals", () => {
+    const pg = (id: string) => ({ id, published: "2026-10-28T10:00:00.000Z", score: 9.8, severity: "CRITICAL" as const, version: "3.1" as const, description: "PostgreSQL before 18.2 allows an unauthenticated attacker to run code." });
+    const list = [pg("CVE-2026-4001"), pg("CVE-2026-4002"), pg("CVE-2026-4003"), pg("CVE-2026-4004")];
+    // one on CISA's list, one named by an exploited record of ours, one only disclosed (severity 2), one nobody has seen used
+    const onList = [kev({ cve: "CVE-2026-4001", vendor: "PostgreSQL", product: "PostgreSQL", added: "2026-10-29", due: "2026-11-19", cvss: 9.8 })];
+    const ours = [
+      incident({ title: "PostgreSQL servers taken over", products: ["PostgreSQL"], cve_ids: ["CVE-2026-4002"], severity: 3, first_reported: "2026-10-29", lane: "patch", patch_status: "patched", type: "not_ai", categories: ["general"] }),
+      incident({ title: "PostgreSQL flaw disclosed", products: ["PostgreSQL"], cve_ids: ["CVE-2026-4003"], severity: 2, first_reported: "2026-10-29", lane: "patch", patch_status: "patched", type: "not_ai", categories: ["general"] }),
+    ];
+    expect([...knownExploitedCves(ours, onList)].sort()).toEqual(["CVE-2026-4001", "CVE-2026-4002"]);
+    const built = buildStack(ours, onList, TODAY, NOW, { criticals: list }).candidates.find((c) => c.key === "postgresql")!;
+    expect(built.crits?.map((c) => c.id)).toEqual(["CVE-2026-4003", "CVE-2026-4004"]);
+    expect(built.crit).toBe(2);
+    // the exploited two are among its items instead, so nothing is listed twice
+    expect(built.items!.flatMap((x) => x.cves).sort()).toEqual(["CVE-2026-4001", "CVE-2026-4002"]);
+    // and for every product of the shared fixture: no id on both lists
+    for (const c of file.candidates) {
+      const exploited = new Set((c.items ?? []).flatMap((x) => x.cves));
+      expect((c.crits ?? []).filter((x) => exploited.has(x.id)), c.key).toEqual([]);
+    }
   });
   it("takes the CVE Program's vendor and product names over the description when a file has them", () => {
     const named = buildStack(recs, entries, TODAY, NOW, { criticals, affected: new Map([["CVE-2026-2001", [{ vendor: "Redis", product: "Redis" }]], ["CVE-2026-2002", [{ vendor: "Old", product: "Thing" }]]]) });
