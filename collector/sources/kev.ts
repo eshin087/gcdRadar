@@ -1,5 +1,5 @@
 import { urlKey } from "../lib/canonical";
-import { httpJson } from "../lib/http";
+import { httpFetch, HttpError } from "../lib/http";
 import { nowIso } from "../lib/ids";
 import { truncate } from "../lib/text";
 import { lookbackStart } from "./rss";
@@ -12,6 +12,12 @@ import type { Candidate, SourceAdapter } from "./types";
  * the KEV entry on its timeline (pipeline/update.ts structuredUpdate); a new
  * one is classified with the exploitation hint, attack_on_ai when the product
  * is an AI system or tool and not_ai otherwise.
+ *
+ * Read on every sweep since 2026-11-20: CISA lists at any hour, and its
+ * server answers If-Modified-Since with 304 and no body (checked that day:
+ * 75 ms against a 205 KB compressed download), so asking four times an hour
+ * costs next to nothing. Only the date is sent: with the ETag the server
+ * answered 200 every time.
  */
 
 const HINT =
@@ -74,12 +80,23 @@ export const kevAdapter: SourceAdapter = {
   kind: "kev",
   async fetch(source, ctx) {
     if (!source.url) throw new Error("kev: no url configured");
-    const data = await httpJson<{ vulnerabilities: KevEntry[] }>(source.url, {
+    const res = await httpFetch(source.url, {
       userAgent: ctx.settings.fetch.user_agent,
       timeoutMs: 40000,
       retries: ctx.settings.fetch.retries,
       maxBytes: 10_000_000,
+      headers: { accept: "application/json" },
+      lastModified: ctx.validators?.lastModified,
     });
+    // unchanged since the catalog we last read: every entry in it has been through the pipeline already
+    if (res.notModified) return [];
+    let data: { vulnerabilities: KevEntry[] };
+    try {
+      data = JSON.parse(res.body) as { vulnerabilities: KevEntry[] };
+    } catch {
+      throw new HttpError(`kev: the catalog is not JSON (${res.contentType || "unknown type"})`, res.status, source.url);
+    }
+    ctx.remember?.({ lastModified: res.headers.get("last-modified") });
     const since = ctx.since ?? lookbackStart(ctx, 30);
     const out: Candidate[] = [];
     for (const v of data.vulnerabilities) {

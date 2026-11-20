@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ago } from "@/components/ui/Ago";
+import { SweepAgo } from "@/components/live/SweepAgo";
 import { NAV } from "@/lib/site";
 import { Wordmark } from "./Wordmark";
 
@@ -16,7 +16,8 @@ export function SiteHeader({ lastUpdated }: { lastUpdated?: string | null }) {
           ))}
         </nav>
         <div className="num hidden whitespace-nowrap text-[12px] text-dim md:block">
-          {lastUpdated ? <Ago iso={lastUpdated} prefix="updated" /> : <span className="text-faint">collector not yet run</span>}
+          {/* the sweep the page on screen shows: a page with a live layer says "checked …", any other when it was built */}
+          {lastUpdated ? <SweepAgo iso={lastUpdated} idle="updated" /> : <span className="text-faint">collector not yet run</span>}
         </div>
       </div>
       <nav aria-label="Primary mobile" className="lg:hidden border-t border-line-soft overflow-x-auto">

@@ -1,5 +1,5 @@
 import type { ZodType } from "zod";
-import type { HttpOptions } from "../lib/http";
+import type { HttpOptions, HttpResult } from "../lib/http";
 import type { Settings } from "../lib/config";
 
 /**
@@ -22,6 +22,8 @@ export interface StatsModule<T> {
 /** The HTTP client the modules use; tests inject a recorded one. */
 export interface StatsHttp {
   json<T>(url: string, opts?: HttpOptions): Promise<T>;
+  /** The whole response, for a module that makes a conditional request; absent in tests that only record JSON. */
+  fetch?(url: string, opts?: HttpOptions): Promise<HttpResult>;
   sleep(ms: number): Promise<void>;
 }
 

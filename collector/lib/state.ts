@@ -42,8 +42,11 @@ export const SeenEntrySchema = z.object({
 export type SeenEntry = z.infer<typeof SeenEntrySchema>;
 
 export const CollectorStateSchema = z.object({
-  /** Last successful fetch per source id. */
-  sources: z.record(z.string(), z.object({ last_success_at: z.iso.datetime() })),
+  /**
+   * Last successful fetch per source id, and the validators its answer carried (ETag, Last-Modified): the next
+   * fetch sends them back, and a source that answers 304 Not Modified costs it and us next to nothing.
+   */
+  sources: z.record(z.string(), z.object({ last_success_at: z.iso.datetime(), etag: z.string().optional(), last_modified: z.string().optional() })),
   /** GitHub Advisory Database lookups by CVE id: when, and whether an advisory existed. */
   cve_lookups: z.record(z.string(), z.object({ at: z.iso.datetime(), found: z.boolean() })),
 });

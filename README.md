@@ -10,7 +10,7 @@
 
 <a href="https://gcdradar.vercel.app"><img src="docs/media/home.webp" alt="The gcdRadar home page: the headline 'What's being exploited now' with 0 hits on your stack this week, 13 exploited with no full patch and 569 new CVEs in 24 hours; this week's newly exploited vulnerabilities from CISA KEV with patch-by dates; a dotted globe of DDoS traffic from Cloudflare Radar; a My stack strip of product chips; and the runway card counting down to the next KEV due date" width="100%"></a>
 
-Security news is loud and spread across dozens of feeds. gcdRadar reads 45 of them, the advisories and the official databases (NVD, CISA KEV, GitHub Advisories, Have I Been Pwned) every 30 minutes and turns them into one calm page that answers three questions:
+Security news is loud and spread across dozens of feeds. gcdRadar reads 45 of them, the advisories and the official databases (NVD, CISA KEV, GitHub Advisories, Have I Been Pwned) every 15 minutes and turns them into one calm page that answers three questions:
 
 1. **Is anything I run being exploited?** Pick your products once and the page shows only what touches them.
 2. **Is there a fix, and by when?** Every record carries a patch status and, when CISA has set one, the deadline.
@@ -59,7 +59,7 @@ Every record says whether AI was involved and how: **AI was the target** (a mode
 ## How it works
 
 ```
-45 feeds + official APIs ──▶ collector (GitHub Actions, every 30 min) ──▶ /data/*.json ──▶ static Next.js site (Vercel)
+45 feeds + official APIs ──▶ collector (GitHub Actions, every 15 min) ──▶ /data/*.json ──▶ static Next.js site (Vercel)
                              fetch → pre-filter → dedupe → LLM classify → publish / review / reject → commit
 ```
 

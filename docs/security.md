@@ -7,12 +7,12 @@ What gcdRadar is exposed to, what protects it, and where to report a problem. Au
 | Part | Runs | Reads | Writes |
 |---|---|---|---|
 | Site | Static files on Vercel's CDN. No server code, no cookies, no accounts, no analytics. | Its own JSON under `/data` | Nothing |
-| Collector | GitHub Actions, every 30 minutes (started by the Worker below, GitHub's hourly schedule as fallback), on a fresh runner | RSS and Atom feeds, public APIs and exports, pages behind candidate links (metadata only, robots.txt respected) | `data/` in this repository, pushed to `main` |
+| Collector | GitHub Actions, every 15 minutes (started by the Worker below, GitHub's hourly schedule as fallback), on a fresh runner | RSS and Atom feeds, public APIs and exports, pages behind candidate links (metadata only, robots.txt respected) | `data/` in this repository, pushed to `main`; after every sweep, the files the pages redraw from, force-pushed as one commit to the branch `live` (the only ref the collector force-pushes) |
 | Classifier | Gemini or Groq free tiers, called by the collector | Titles, descriptions and vulnerability metadata of candidates | A strict JSON record per candidate |
 | Build | Vercel, on every push to `main` | `data/` | The static site |
-| Worker | Cloudflare Workers (`worker/`): the home page's internet band, and a cron every 30 minutes | Cloudflare Radar; GitHub's workflow runs list | Starts `collect.yml` through `workflow_dispatch` |
+| Worker | Cloudflare Workers (`worker/`): the home page's internet band, the newest sweep's files (`/v1/live/<name>`, passed through unparsed, for a fixed list of names), and a cron every 15 minutes | Cloudflare Radar; GitHub's workflow runs list; the public `live` branch of this repository | Starts `collect.yml` through `workflow_dispatch` |
 
-Secrets: the LLM keys, an optional NVD key, a Cloudflare Radar token and an optional Vercel deploy hook, held as GitHub Actions secrets. The collector's push uses the workflow's own short-lived `GITHUB_TOKEN`, which cannot change workflow files. The Worker holds its Radar token and `GITHUB_DISPATCH_TOKEN` as Cloudflare secrets; the dispatch token is fine-grained, scoped to this repository with Actions read and write only, so at worst it can start or cancel workflow runs, never change code or data. No secret reaches the site or the dataset.
+Secrets: the LLM keys, an optional NVD key, a Cloudflare Radar token and an optional Vercel deploy hook, held as GitHub Actions secrets. The collector's push uses the workflow's own short-lived `GITHUB_TOKEN`, which cannot change workflow files. The Worker holds its Radar token and `GITHUB_DISPATCH_TOKEN` as Cloudflare secrets; the dispatch token is fine-grained, scoped to this repository with Actions read and write only, so at worst it can start or cancel workflow runs, never change code or data. The live route sends the same token to GitHub's API only to read the public `live` branch, which any GitHub token may do, and to no other host. No secret reaches the site or the dataset.
 
 ## Threats and controls
 

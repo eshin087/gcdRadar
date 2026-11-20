@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { LivePage } from "@/components/live/LivePage";
+import { LiveBoardPage } from "@/components/live/LiveBoardPage";
+import { boardView } from "@/lib/live/build";
 import { getLiveData } from "@/lib/live-data";
 
 export const metadata: Metadata = {
@@ -9,5 +10,6 @@ export const metadata: Metadata = {
 
 export default async function Live() {
   const data = await getLiveData();
-  return <LivePage data={data} variant="board" />;
+  // the part of the model the board draws, in the shape a sweep publishes: the browser swaps in a newer one
+  return <LiveBoardPage built={boardView(data)} />;
 }
