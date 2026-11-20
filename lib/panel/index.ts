@@ -1,3 +1,4 @@
+import { affectedByCve } from "../catalog/affected";
 import type { FullIncident } from "../lifecycle";
 import type { BreachStat, HomeStats, KevStatEntry, StatsFiles } from "../stats-schema";
 import { buildAiFlow, type AiFlow } from "./ai-flow";
@@ -116,7 +117,9 @@ export function buildPanel(incidents: readonly FullIncident[], stats: StatsFiles
   const kev = stats.kev?.entries ?? [];
   const c = home.counters;
 
-  const stackFile = buildStack(incidents, kev, today, nowIso);
+  // the CVE Program's vendor and product names per CVE, when a stats file on main carries them (lib/catalog/affected.ts)
+  const affected = affectedByCve((stats as unknown as Record<string, unknown>).fixes);
+  const stackFile = buildStack(incidents, kev, today, nowIso, { criticals: stats.cvesRecent?.cves, affected });
   const ledger = buildLedger(incidents, kev, stackFile, today, nowIso);
   const week = weekIncidents(incidents, today);
   const ai = buildAiFlow(week, incidents, kev, today);

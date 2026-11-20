@@ -34,7 +34,7 @@ import { buildLlmsTxt } from "../lib/llms";
 import { buildTagIndex, tagSlugsOf } from "../lib/tags";
 import type { Briefing } from "../lib/schema";
 import { SCOPE_FILE } from "../lib/scope";
-import { STACK_FILE } from "../lib/panel/stack";
+import { STACK_FILE, packStack } from "../lib/panel/stack";
 import { SITE } from "../lib/site";
 import { slim } from "../lib/slim";
 import { ATLAS_RELEASE, INCIDENT_TYPES, LANES, LANE_META, OWASP_LLM_EDITION, atlasFor, owaspFor, type Lane } from "../lib/taxonomy";
@@ -261,7 +261,8 @@ async function main() {
     fs.writeFile(path.join(statsDir, "home.json"), JSON.stringify(home.stats, null, 1) + "\n"),
     // the day sheet and the /trends instruments as the pages show them (lib/panel), and every My stack candidate for the browser's picks
     fs.writeFile(path.join(statsDir, "panel.json"), JSON.stringify({ generated_at: home.now, ...home.panel }, null, 1) + "\n"),
-    fs.writeFile(path.join(PUBLIC, STACK_FILE), JSON.stringify(home.stackFile) + "\n"),
+    // every My stack candidate, compactly (lib/panel/picks.ts packStack): the browser unpacks it
+    fs.writeFile(path.join(PUBLIC, STACK_FILE), JSON.stringify(packStack(home.stackFile)) + "\n"),
     fs.writeFile(path.join(PUBLIC, SCOPE_FILE), JSON.stringify({ generated_at: home.now, ...home.live.scope }) + "\n"),
     // the lists the home page's numbers open; a sweep publishes the same four beside its live views (lib/live/build.ts)
     ...Object.entries(statsListFiles(home, stats, now)).map(([name, body]) => fs.writeFile(path.join(statsDir, name), JSON.stringify(body) + "\n")),
