@@ -92,7 +92,7 @@ async function run(client, base) {
     await toggleLane(client, label[key]);
     allRows.push(...(await evaluate(client, ROWS)));
   }
-  for (const t of live.top_tags.slice(0, 5)) {
+  for (const t of live.top_tags) {
     const n = allRows.filter((r) => r.tags.includes(t.slug)).length;
     check(`live tag ${t.slug}`, n === t.live, `${n} rows, live.json ${t.live}`);
   }

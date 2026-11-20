@@ -574,6 +574,11 @@ export default function MethodologyPage() {
           rejected instead of waiting in the review queue. Product lists hold names only, never descriptions such as &ldquo;deepfake generator&rdquo;
           (50 records cleaned). One duplicate pair merged, one police-action record and nine queued items removed.
         </li>
+        <li>
+          2026-11-20 · a record carries every one of its tags in lists, feeds and tag filters; they kept only the first five while tag pages counted all,
+          so a tag could read 17 live and list 16. Four records had more than five, among them a cisa-kev tag the collector adds last when a CVE joins the
+          catalog.
+        </li>
       </ul>
     </div>
   );
