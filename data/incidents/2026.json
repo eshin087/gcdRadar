@@ -1,5 +1,75 @@
 [
   {
+    "id": "AIR-2026-2097",
+    "slug": "china-linked-threat-actors-used-cairn-ai-tool-to-attack-univ",
+    "title": "China-linked threat actors used Cairn AI tool to attack universities",
+    "summary": "Threat actors utilized the open-source AI penetration testing tool Cairn to persistently attack two universities. The attacks resulted in the possible discovery of an unpatched zero-day vulnerability.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [
+      "Cairn"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://therecord.media/amazon-research-cairn-ai-university-attacks-possible-zero-day",
+        "publisher": "The Record",
+        "title": "Amazon says Chinese hackers used Cairn AI tool to discover apparent zero-day during attack on university",
+        "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382",
+        "publisher": "The Register",
+        "title": "Chinese attackers used AI agents to find and exploit a university zero-day",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 2,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cairn",
+      "china",
+      "zero-day",
+      "universities"
+    ],
+    "created_at": "2026-11-20T17:51:38.694Z",
+    "updated_at": "2026-11-20T17:51:38.694Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Amazon says Chinese hackers used Cairn AI tool to discover apparent zero-day during attack on university",
+        "source_url": "https://therecord.media/amazon-research-cairn-ai-university-attacks-possible-zero-day",
+        "added_at": "2026-11-20T17:51:38.694Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Chinese attackers used AI agents to find and exploit a university zero-day",
+        "source_url": "https://theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382",
+        "added_at": "2026-11-20T17:51:38.694Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world attack campaign using AI tools against targets",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2096",
     "slug": "bazuka-android-malware-framework-discovered-with-llm-integra",
     "title": "Bazuka Android Malware Framework Discovered with LLM Integration for Credential Theft",
@@ -40819,9 +40889,15 @@
         "publisher": "Dark Reading",
         "title": "Hackers Abuse AI Pen-Test Tool Cairn to Automate Massive Attack Spree",
         "published_at": "2026-10-20"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server",
+        "publisher": "BleepingComputer",
+        "title": "Hackers use autonomous AI tool Cairn to find zero-day, take over server",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -40831,10 +40907,10 @@
       "ai-assisted-intrusion"
     ],
     "created_at": "2026-10-20T17:10:36.613Z",
-    "updated_at": "2026-11-04T00:07:17.182Z",
+    "updated_at": "2026-11-20T17:51:38.694Z",
     "lane": "breach",
-    "state": "closed",
-    "closed_at": "2026-11-03",
+    "state": "live",
+    "closed_at": null,
     "patch_status": "no_fix_needed",
     "cve_ids": [],
     "affected": [],
@@ -40845,6 +40921,12 @@
         "title": "Hackers Abuse AI Pen-Test Tool Cairn to Automate Massive Attack Spree",
         "source_url": "https://darkreading.com/cyberattacks-data-breaches/hackers-abuse-ai-pen-test-tool-cairn",
         "added_at": "2026-10-20T17:10:36.613Z"
+      },
+      {
+        "date": "2026-11-20",
+        "title": "Attackers used Cairn to discover and exploit a zero-day vulnerability in a medical application.",
+        "source_url": "https://bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server",
+        "added_at": "2026-11-20T17:51:38.694Z"
       }
     ],
     "action": "",
