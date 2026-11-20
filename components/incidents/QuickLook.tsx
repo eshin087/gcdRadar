@@ -6,34 +6,64 @@ import { useJson } from "@/components/home/useJson";
 import { FixBlock } from "@/components/incidents/FixBlock";
 import { CvssChip } from "@/components/ui/Badge";
 import { Drawer } from "@/components/ui/Drawer";
-import { cveOrgUrl, fixFileUrl, nvdUrl, type FixView, type QuickLookFile } from "@/lib/fixes";
+import { buildFixView, cveOrgUrl, fixFileUrl, nvdUrl, quickLookView, type FixView, type QuickLookFile } from "@/lib/fixes";
 
 /**
- * The quick look: "how do I fix this" for one CVE id or one record, in the
+ * The quick look: "how do I fix this" for one CVE or one record, in the
  * shared drawer, without leaving the page. It shows the same fix block as
  * the record's page (components/incidents/FixBlock.tsx) under a title and
  * one paragraph on what the thing is, and points on to the full record when
  * the site has one, else to the CVE's own record.
  *
- * Usage, from any client component:
- *
  *   const [look, setLook] = useState<QuickLookTarget | null>(null);
  *   <button onClick={() => setLook({ cve: "CVE-2026-0001" })}>…</button>
  *   <QuickLook target={look} onClose={() => setLook(null)} />
  *
- * `{ cve }` reads /data/fix/<CVE>.json, a file prebuild writes for every CVE
- * the fix file holds, every KEV entry of the last 90 days or with a deadline
- * ahead, and every CVE on a live record (lib/fix-join.ts). `{ slug }` reads
- * the record's own /data/incidents/<slug>.json. Either is fetched when the
- * drawer opens and kept for the life of the page, so the host page's HTML
- * carries none of it. A CVE with no file still gets its two reference links.
+ * Props: `target` (null keeps the drawer closed) and `onClose`. A target is
+ * one of three things:
+ *
+ *   { cve }     a CVE id. Reads /data/fix/<CVE>.json, which prebuild writes
+ *               for every CVE the fix file holds, every KEV entry of the last
+ *               90 days or with a deadline ahead, and every CVE on a live
+ *               record (lib/fix-join.ts). A CVE with no file still gets its
+ *               cve.org and NVD links.
+ *   { slug }    one of our records that has a page. Reads the record's own
+ *               /data/incidents/<slug>.json.
+ *   { record }  a record handed over as data (QuickLookRecord below), for one
+ *               that has no page or file yet, such as a record newer than the
+ *               last site build. Only `title` and `summary` are required.
+ *               With CVE ids the drawer also reads the first CVE's file and
+ *               joins whatever fix details the site already holds; with
+ *               `fix` the caller's own view is shown as it is.
+ *
+ * Everything fetched is fetched when the drawer opens and kept for the life
+ * of the page, so the host page's HTML carries none of it.
  *
  * Only one drawer is open at a time on this site: a host that opens the
  * quick look from inside another drawer hides that drawer while this one is
  * open (My stack does), so Esc and the close button mean one thing.
  */
 
-export type QuickLookTarget = { cve: string } | { slug: string };
+/** A record handed to the drawer as data. Field names follow the record's own (lib/schema.ts). */
+export interface QuickLookRecord {
+  title: string;
+  /** One paragraph on what happened, in our own words. */
+  summary: string;
+  cve_ids?: readonly string[];
+  cvss?: number | null;
+  /** The record's "what to do" sentence. It is written by a language model, and the drawer says so. */
+  action?: string;
+  fixed_in?: readonly string[];
+  sources?: readonly { url: string; publisher: string; title: string; published_at?: string }[];
+  /** A ready fix view (lib/fixes.ts buildFixView), when the caller has one; otherwise the drawer builds it. */
+  fix?: FixView | null;
+  /** The record's page, when it already has one. */
+  slug?: string;
+  /** One plain line under the title, for example why there is no full page yet. */
+  note?: string;
+}
+
+export type QuickLookTarget = { cve: string } | { slug: string } | { record: QuickLookRecord };
 
 /** The record file's fields the drawer reads (scripts/prebuild.ts writes the whole record, its brief and its fix view). */
 interface RecordFile {
@@ -42,6 +72,7 @@ interface RecordFile {
   summary: string;
   cve_ids: string[];
   cvss: number | null;
+  action: string;
   fix: FixView | null;
 }
 
@@ -49,58 +80,98 @@ interface Shown {
   kicker: string;
   title: string;
   product: string;
+  note: string;
   /** What it is: our summary for a record, the publisher's description for a bare CVE. */
   about: { text: string; by: string | null; url: string | null } | null;
   cvss: number | null;
   fix: FixView | null;
-  record: { slug: string } | null;
+  /** Our own sentence for a record with no CVE id (no fix block to carry it). */
+  action: string;
+  sources: NonNullable<QuickLookRecord["sources"]>;
+  slug: string | null;
   cve: string | null;
 }
 
-function fromCve(f: QuickLookFile): Shown {
+const EXT = { target: "_blank", rel: "noopener noreferrer" } as const;
+const SOURCES_SHOWN = 8;
+
+function fromCve(f: QuickLookFile, today: string): Shown {
   return {
     kicker: `Quick look · ${f.cve}`,
     title: f.record?.title ?? f.title,
     product: f.record ? "" : f.product,
+    note: "",
     about: f.record ? { text: f.record.summary, by: null, url: null } : f.description,
     cvss: f.cvss,
-    fix: f.fix,
-    record: f.record ? { slug: f.record.slug } : null,
+    fix: quickLookView(f, today),
+    action: "",
+    sources: [],
+    slug: f.record?.slug ?? null,
     cve: f.cve,
   };
 }
 
-function fromRecord(r: RecordFile): Shown {
-  return { kicker: `Quick look · ${r.cve_ids[0] ?? "record"}`, title: r.title, product: "", about: { text: r.summary, by: null, url: null }, cvss: r.cvss, fix: r.fix, record: { slug: r.slug }, cve: r.cve_ids[0] ?? null };
+function fromRecordFile(r: RecordFile): Shown {
+  return { kicker: `Quick look · ${r.cve_ids[0] ?? "record"}`, title: r.title, product: "", note: "", about: { text: r.summary, by: null, url: null }, cvss: r.cvss, fix: r.fix, action: r.fix ? "" : r.action, sources: [], slug: r.slug, cve: r.cve_ids[0] ?? null };
 }
 
-const EXT = { target: "_blank", rel: "noopener noreferrer" } as const;
+/** A record passed in as data: the caller's view, else one built from the first CVE's file (when the site has it) and the record's own fields. */
+function fromRecordData(r: QuickLookRecord, file: QuickLookFile | null, today: string, sourcesId: string): Shown {
+  const cves = [...(r.cve_ids ?? [])];
+  const sources = r.sources ?? [];
+  const fix =
+    r.fix ??
+    (cves.length
+      ? buildFixView({ cves, entries: file?.entries ?? [], kev: file?.kev ?? [], record: { action: r.action ?? "", fixed_in: r.fixed_in ?? [], source_count: Math.max(1, sources.length), sourcesUrl: `#${sourcesId}` }, today })
+      : null);
+  return { kicker: `Quick look · ${cves[0] ?? "record"}`, title: r.title, product: "", note: r.note ?? "", about: { text: r.summary, by: null, url: null }, cvss: r.cvss ?? file?.cvss ?? null, fix, action: fix ? "" : (r.action ?? ""), sources, slug: r.slug ?? null, cve: cves[0] ?? null };
+}
 
 export function QuickLook({ target, onClose }: { target: QuickLookTarget | null; onClose: () => void }) {
   const titleId = useId();
+  const sourcesId = useId();
   const cve = target && "cve" in target ? target.cve : null;
   const slug = target && "slug" in target ? target.slug : null;
-  const cveFile = useJson<QuickLookFile>(cve ? fixFileUrl(cve) : null);
+  const data = target && "record" in target ? target.record : null;
+  // a record passed as data reads the first CVE's file too, unless the caller brought its own view
+  const fileCve = cve ?? (data && !data.fix ? (data.cve_ids?.[0] ?? null) : null);
+  const cveFile = useJson<QuickLookFile>(fileCve ? fixFileUrl(fileCve) : null);
   const recordFile = useJson<RecordFile>(slug ? `/data/incidents/${slug}.json` : null);
   if (!target) return null;
-  const state = cve ? cveFile : recordFile;
-  const shown: Shown | null = cve ? (cveFile.data ? fromCve(cveFile.data) : null) : recordFile.data ? fromRecord(recordFile.data) : null;
   const today = new Date().toISOString().slice(0, 10);
-  const footer = shown?.record ? { href: `/incidents/${shown.record.slug}`, label: "full record →" } : cve ? { href: cveOrgUrl(cve), label: "CVE record ↗", external: true } : null;
+  let shown: Shown | null = null;
+  let missing = false;
+  if (data) shown = cveFile.loading ? null : fromRecordData(data, cveFile.data, today, sourcesId);
+  else if (cve) {
+    shown = cveFile.data ? fromCve(cveFile.data, today) : null;
+    missing = Boolean(cveFile.error);
+  } else {
+    shown = recordFile.data ? fromRecordFile(recordFile.data) : null;
+    missing = Boolean(recordFile.error);
+  }
+  const name = cve ?? slug ?? data?.cve_ids?.[0] ?? "record";
+  const footer = shown?.slug ? { href: `/incidents/${shown.slug}`, label: "full record →" } : (shown?.cve ?? cve) ? { href: cveOrgUrl((shown?.cve ?? cve)!), label: "CVE record ↗", external: true } : null;
   return (
-    <Drawer open onClose={onClose} titleId={titleId} kicker={shown?.kicker ?? `Quick look · ${cve ?? "record"}`} footerLink={footer} closeLabel="Close the quick look">
-      <div data-quicklook={cve ?? slug ?? ""} data-quicklook-state={shown ? "ready" : state.error ? "missing" : "loading"} className="space-y-5">
+    <Drawer open onClose={onClose} titleId={titleId} kicker={shown?.kicker ?? `Quick look · ${name}`} footerLink={footer} closeLabel="Close the quick look">
+      <div data-quicklook={name} data-quicklook-kind={data ? "record" : cve ? "cve" : "slug"} data-quicklook-state={shown ? "ready" : missing ? "missing" : "loading"} className="space-y-5">
         {shown ? (
           <>
             <header className="space-y-2">
               <h2 id={titleId} className="text-[20px] font-semibold leading-tight tracking-tight text-ink">
                 {shown.title}
               </h2>
-              <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[13px] text-dim">
-                {shown.cvss !== null && <CvssChip score={shown.cvss} />}
-                {shown.product && <span className="text-accent">{shown.product}</span>}
-                {shown.cve && <span className="num">{shown.cve}</span>}
-              </p>
+              {(shown.cvss !== null || shown.product || shown.cve) && (
+                <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[13px] text-dim">
+                  {shown.cvss !== null && <CvssChip score={shown.cvss} />}
+                  {shown.product && <span className="text-accent">{shown.product}</span>}
+                  {shown.cve && <span className="num">{shown.cve}</span>}
+                </p>
+              )}
+              {shown.note && (
+                <p data-quicklook-note="" className="text-[13px] text-dim">
+                  {shown.note}
+                </p>
+              )}
               {shown.about && (
                 <p className="text-[14.5px] leading-relaxed text-soft">
                   {shown.about.text}
@@ -119,18 +190,45 @@ export function QuickLook({ target, onClose }: { target: QuickLookTarget | null;
             </header>
             {shown.fix ? (
               <FixBlock view={shown.fix} today={today} />
+            ) : shown.action ? (
+              <section data-what-to-do="">
+                <h3 className="font-mono text-[12.5px] font-medium uppercase tracking-[0.12em] text-accent">What to do</h3>
+                <p className="mt-1.5 text-[14.5px] leading-relaxed text-ink">{shown.action}</p>
+                <p className="mt-1 text-[12.5px] text-dim">gcdRadar&rsquo;s summary, written by a language model from the record&rsquo;s sources; check it against them before acting.</p>
+              </section>
             ) : (
-              <p className="text-[14px] text-dim">This record names no CVE id, so there is no CVE record or CISA entry to quote. Its page has what the reports say.</p>
+              <p className="text-[14px] text-dim">This record names no CVE id, so there is no CVE record or CISA entry to quote. Its sources have what is known.</p>
             )}
-            {shown.record && (
+            {shown.sources.length > 0 && (
+              <section>
+                <h3 id={sourcesId} className="font-mono text-[12.5px] font-medium uppercase tracking-[0.12em] text-ink">
+                  Sources · <span className="num font-normal text-dim">{shown.sources.length}</span>
+                </h3>
+                <ul data-quicklook-sources="" className="mt-2 border-y border-line-soft">
+                  {shown.sources.slice(0, SOURCES_SHOWN).map((s) => (
+                    <li key={s.url} className="border-t border-line-soft py-2 text-[13.5px] first:border-t-0">
+                      <a href={s.url} {...EXT} className="break-words text-ink hover:text-accent">
+                        {s.title}
+                      </a>
+                      <div className="text-[12.5px] text-dim">
+                        {s.publisher}
+                        {s.published_at && <span className="num"> · {s.published_at}</span>}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                {shown.sources.length > SOURCES_SHOWN && <p className="mt-1 text-[12.5px] text-dim">and {shown.sources.length - SOURCES_SHOWN} more</p>}
+              </section>
+            )}
+            {shown.slug && (
               <p>
-                <Link href={`/incidents/${shown.record.slug}`} data-quicklook-record="" className="link text-[14px] text-ink">
+                <Link href={`/incidents/${shown.slug}`} data-quicklook-record="" className="link text-[14px] text-ink">
                   Open the full record →
                 </Link>
               </p>
             )}
           </>
-        ) : state.error ? (
+        ) : missing ? (
           <div className="space-y-3">
             <h2 id={titleId} className="text-[20px] font-semibold leading-tight tracking-tight text-ink">
               {cve ?? "Record"}
@@ -152,7 +250,7 @@ export function QuickLook({ target, onClose }: { target: QuickLookTarget | null;
         ) : (
           <>
             <h2 id={titleId} className="text-[20px] font-semibold leading-tight tracking-tight text-ink">
-              {cve ?? "Record"}
+              {data?.title ?? cve ?? "Record"}
             </h2>
             <p data-loading className="text-[14px] text-dim">
               Loading…

@@ -306,9 +306,29 @@ export interface QuickLookFile {
   /** One paragraph on what it is, in its publisher's words, with where it came from. */
   description: { text: string; by: string; url: string } | null;
   cvss: number | null;
-  /** Our record about this CVE, when one exists. */
-  record: { slug: string; title: string; summary: string } | null;
-  fix: FixView;
-  /** The sources the fix view was read from, with their licence notices. */
+  /** Our record about this CVE, when one exists: its page, and the fields its fix view uses. */
+  record: { slug: string; title: string; summary: string; cve_ids: string[]; action: string; fixed_in: string[]; source_count: number } | null;
+  /** The fix file's entries behind the view: this CVE's, or those of every CVE on our record. Empty until the fix stage has read them. */
+  entries: FixEntry[];
+  /** CISA's listing and due dates for those CVEs. */
+  kev: { cve: string; added: string; due: string | null }[];
+  /** The sources the entries were read from, with their licence notices. */
   sources: StatsSource[];
+}
+
+/**
+ * The view a quick-look file stands for: our record's when it has one (so
+ * the drawer and the record's page agree), else the bare CVE's. Built in
+ * the browser from the file's entries, so the file carries each fact once.
+ */
+export function quickLookView(file: QuickLookFile, today: string, siteName?: string): FixView {
+  const r = file.record;
+  return buildFixView({
+    cves: r ? r.cve_ids : [file.cve],
+    entries: file.entries,
+    kev: file.kev,
+    record: r ? { action: r.action, fixed_in: r.fixed_in, source_count: r.source_count, sourcesUrl: `/incidents/${r.slug}#sources` } : null,
+    today,
+    siteName,
+  });
 }

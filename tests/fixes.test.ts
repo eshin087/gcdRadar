@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildBrief, fixMarkdown } from "@/lib/brief";
 import { buildQuickLookFiles, fixViewForRecord } from "@/lib/fix-join";
-import { bestFixLink, buildFixView, cveOrgUrl, epssUrl, fixFileUrl, hasFixDetail, kevEntryUrl, nvdUrl, saysNone } from "@/lib/fixes";
+import { bestFixLink, buildFixView, cveOrgUrl, epssUrl, fixFileUrl, hasFixDetail, kevEntryUrl, nvdUrl, quickLookView, saysNone } from "@/lib/fixes";
 import type { FixEntry, FixLink, FixText, Fixes, KevStatEntry, KevStats } from "@/lib/stats-schema";
 import { incident } from "./fixtures";
 
@@ -12,7 +12,7 @@ const text = (cve: string, by: string, value: string, kind: FixText["kind"] = "v
 const link = (url: string, kind: FixLink["kind"], source: FixLink["source"], title = ""): FixLink => ({ url, kind, title, source });
 
 function entry(cve: string, over: Partial<FixEntry> = {}): FixEntry {
-  return { cve, fetched_at: "2026-11-19T06:00:00.000Z", nvd_at: null, ghsa_at: null, found: true, cna: "acme", by: "Acme", by_vendor: true, title: "", patches: [], patches_more: 0, links: [], solutions: [], workarounds: [], kev: null, ...over };
+  return { cve, fetched_at: "2026-11-19T06:00:00.000Z", nvd_at: null, ghsa_at: null, found: true, cna: "acme", by: "Acme", by_vendor: true, title: "", affected: [], patches: [], patches_more: 0, links: [], solutions: [], workarounds: [], kev: null, ...over };
 }
 
 const kev = (cve: string, added: string, due: string | null): KevStatEntry => ({ cve, added, due, vendor: "Acme", product: "Router", name: "Acme Router Command Injection Vulnerability", ransomware: false, published: null, cvss: 9.8 });
@@ -163,16 +163,32 @@ describe("the record's view, its brief and the drawer's files", () => {
   });
 
   it("writes a quick-look file for every CVE the drawer can be asked about, with our record when there is one", () => {
-    const files = buildQuickLookFiles([record, noCve, incident({ cve_ids: ["CVE-2026-0009"], state: "closed", closed_at: "2026-11-01" }), incident({ slug: "live-other", cve_ids: ["CVE-2026-0010"], state: "live" })], stats, TODAY, "2026-11-19T07:00:00.000Z", "https://example.test");
-    // the fix file's two, the recent KEV entry not yet read, and the live record's CVE; not the old KEV entry, not the closed record's CVE
+    const two = incident({ slug: "two-cves", cve_ids: ["CVE-2026-0010", "CVE-2026-0005"], state: "live", action: "Patch both." });
+    const files = buildQuickLookFiles([record, noCve, incident({ cve_ids: ["CVE-2026-0009"], state: "closed", closed_at: "2026-11-01" }), two], stats, TODAY, "2026-11-19T07:00:00.000Z");
+    // the fix file's two, the recent KEV entry not yet read, and the live record's CVEs; not the old KEV entry, not the closed record's CVE
     expect(files.map((f) => f.cve)).toEqual(["CVE-2026-0001", "CVE-2026-0005", "CVE-2026-0007", "CVE-2026-0010"]);
-    const [withRecord, entryOnly, kevOnly, liveOnly] = files;
-    expect(withRecord).toMatchObject({ title: "Acme Router Command Injection Vulnerability", product: "Acme Router", cvss: 9.8, record: { slug: "acme-router-rce", title: "Acme Router command injection exploited in the wild" }, description: { by: "CISA", url: kevEntryUrl("CVE-2026-0001"), text: "Acme Router contains a command injection flaw." }, sources: [SRC] });
-    expect(withRecord!.fix.patch.versions[0]!.version).toBe("1.2");
-    expect(entryOnly).toMatchObject({ title: "CVE-2026-0005", product: "", record: null, description: null });
+    const [withRecord, second, kevOnly, first] = files as [(typeof files)[number], (typeof files)[number], (typeof files)[number], (typeof files)[number]];
+    expect(withRecord).toMatchObject({
+      title: "Acme Router Command Injection Vulnerability",
+      product: "Acme Router",
+      cvss: 9.8,
+      record: { slug: "acme-router-rce", title: "Acme Router command injection exploited in the wild", cve_ids: ["CVE-2026-0001"], action: "Update to Router 1.2.", fixed_in: ["Router 1.2"], source_count: 1 },
+      description: { by: "CISA", url: kevEntryUrl("CVE-2026-0001"), text: "Acme Router contains a command injection flaw." },
+      kev: [{ cve: "CVE-2026-0001", added: "2026-11-18", due: "2026-12-09" }],
+      sources: [SRC],
+    });
+    // the file carries the entries, and the browser builds from them the view the record's page shows
+    expect(withRecord.entries).toEqual([full]);
+    expect(quickLookView(withRecord, TODAY)).toEqual({ ...fixViewForRecord(record, stats, TODAY, "")!, citations: expect.any(Array) });
+    expect(quickLookView(withRecord, TODAY).patch.versions[0]!.version).toBe("1.2");
+    // a record with two CVEs: either CVE's file holds the entries of both, in the record's order
+    expect(first.record).toMatchObject({ slug: "two-cves", cve_ids: ["CVE-2026-0010", "CVE-2026-0005"] });
+    expect(second.entries.map((e) => e.cve)).toEqual(["CVE-2026-0005"]);
+    expect(first.entries).toEqual(second.entries);
+    expect(quickLookView(first, TODAY).cves).toEqual(["CVE-2026-0010", "CVE-2026-0005"]);
     // on CISA's list, not read by the fix stage yet: the deadline is there, the block says the rest was not looked up
-    expect(kevOnly).toMatchObject({ record: null, fix: { checked: null, deadline: { due: "2026-12-06", action: "" }, workaround: { state: "unchecked" } } });
-    expect(liveOnly!.record).toMatchObject({ slug: "live-other" });
+    expect(kevOnly).toMatchObject({ record: null, entries: [], description: null, kev: [{ cve: "CVE-2026-0007", due: "2026-12-06" }] });
+    expect(quickLookView(kevOnly, TODAY)).toMatchObject({ checked: null, deadline: { due: "2026-12-06", action: "" }, workaround: { state: "unchecked" } });
     expect(fixFileUrl("CVE-2026-0001")).toBe("/data/fix/CVE-2026-0001.json");
   });
 });

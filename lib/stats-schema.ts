@@ -128,6 +128,7 @@ const webUrl = z.url({ protocol: /^https?$/ });
 export const FIX_TEXT_MAX = 700;
 export const FIX_PATCH_MAX = 12;
 export const FIX_LINK_MAX = 8;
+export const FIX_AFFECTED_MAX = 12;
 
 /** Where a fact came from: the CVE Program's record, CISA's KEV entry, NVD's reference tags, a GitHub advisory. */
 export const FIX_SOURCES = ["cve", "kev", "nvd", "ghsa"] as const;
@@ -210,6 +211,11 @@ export const FixEntrySchema = z.object({
   by_vendor: z.boolean(),
   /** The record's own title, "" when it has none. */
   title: z.string().max(240),
+  /**
+   * The vendors and products the CVE record names as affected, each pair once, as the record spells them
+   * ("" for a vendor the record leaves as n/a). For matching a CVE to a product; the versions are in `patches`.
+   */
+  affected: z.array(z.object({ vendor: z.string().max(80), product: z.string().max(120) })).max(FIX_AFFECTED_MAX).default([]),
   patches: z.array(FixPatchSchema).max(FIX_PATCH_MAX),
   /** Fixed versions the sources list beyond those kept. */
   patches_more: count,

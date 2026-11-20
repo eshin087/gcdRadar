@@ -1,5 +1,5 @@
 import { addDays, type FullIncident } from "./lifecycle";
-import { buildFixView, kevEntryUrl, type FixView, type QuickLookFile } from "./fixes";
+import { buildFixView, fixEntriesFor, kevEntryUrl, type FixView, type QuickLookFile } from "./fixes";
 import { SITE } from "./site";
 import type { FixEntry, KevStatEntry, StatsFiles, StatsSource } from "./stats-schema";
 
@@ -39,11 +39,13 @@ function sourcesOf(stats: Pick<StatsFiles, "fixes" | "kev">): StatsSource[] {
  * One file per CVE the drawer can be asked about: every CVE the fix file
  * holds, every KEV entry of the last 90 days or with a deadline ahead, and
  * every CVE on a live record. A CVE with a record of ours carries the
- * record's slug, title and summary, and the record's own view (its fixed
- * versions and sentence included), so the drawer and the page agree.
+ * record's slug, title and summary, the fields its view uses, and the
+ * entries of all the record's CVEs, so the drawer builds the same view as
+ * the record's page (lib/fixes.ts quickLookView).
  */
-export function buildQuickLookFiles(incidents: readonly FullIncident[], stats: Pick<StatsFiles, "fixes" | "kev">, today: string, nowIso: string, site: string): QuickLookFile[] {
-  const entries = new Map<string, FixEntry>((stats.fixes?.entries ?? []).map((e) => [e.cve, e]));
+export function buildQuickLookFiles(incidents: readonly FullIncident[], stats: Pick<StatsFiles, "fixes" | "kev">, today: string, nowIso: string): QuickLookFile[] {
+  const all = stats.fixes?.entries ?? [];
+  const entries = new Map<string, FixEntry>(all.map((e) => [e.cve, e]));
   const kev = new Map<string, KevStatEntry>((stats.kev?.entries ?? []).map((e) => [e.cve, e]));
   const from = addDays(today, -QUICK_LOOK_KEV_DAYS);
   const recordByCve = new Map<string, FullIncident>();
@@ -61,21 +63,17 @@ export function buildQuickLookFiles(incidents: readonly FullIncident[], stats: P
     const entry = entries.get(cve) ?? null;
     const listed = kev.get(cve) ?? null;
     const record = recordByCve.get(cve) ?? null;
-    const fix = record
-      ? fixViewForRecord(record, stats, today, site)!
-      : buildFixView({ cves: [cve], entries: entry ? [entry] : [], kev: listed ? [listed] : [], record: null, today, siteName: SITE.name });
-    const description = entry?.kev?.description
-      ? { text: entry.kev.description, by: "CISA", url: kevEntryUrl(cve) }
-      : null;
+    const cves = record ? record.cve_ids : [cve];
     out.push({
       generated_at: nowIso,
       cve,
       title: listed?.name || entry?.title || cve,
       product: listed ? [listed.vendor, listed.product].filter(Boolean).join(" ") : "",
-      description,
+      description: entry?.kev?.description ? { text: entry.kev.description, by: "CISA", url: kevEntryUrl(cve) } : null,
       cvss: listed?.cvss ?? record?.cvss ?? null,
-      record: record ? { slug: record.slug, title: record.title, summary: record.summary } : null,
-      fix,
+      record: record ? { slug: record.slug, title: record.title, summary: record.summary, cve_ids: record.cve_ids, action: record.action, fixed_in: record.fixed_in, source_count: record.source_count } : null,
+      entries: fixEntriesFor(cves, all),
+      kev: cves.map((c) => kev.get(c)).filter((k): k is KevStatEntry => Boolean(k)).map((k) => ({ cve: k.cve, added: k.added, due: k.due })),
       sources,
     });
   }

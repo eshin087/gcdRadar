@@ -123,6 +123,8 @@ describe("the CVE record", () => {
     // "unknown below 7.0" is not a fix; an untagged reference, a broken link and CISA's own page are not fix links
     expect(p.links).toEqual([{ url: "https://www.synology.com/en-global/security/advisory/Synology_SA_24_20", kind: "advisory", title: "Synology-SA-24:20 DSM (PWN2OWN 2024)", source: "cve" }]);
     expect(p.solutions).toEqual([]);
+    // the vendors and products the record names, for matching a CVE to a product
+    expect(p.affected).toEqual([{ vendor: "Synology", product: "DiskStation Manager (DSM)" }, { vendor: "Synology", product: "BeeStation OS (BSM)" }]);
     expect(p.workarounds).toEqual([]);
   });
 
@@ -131,6 +133,8 @@ describe("the CVE record", () => {
     // "5.4.73, less than 5.5" is where the flaw was introduced, not a fix
     expect(p.patches.map((x) => `${x.from} -> ${x.version}`)).toEqual(["5.10.* -> 5.10.259", "6.6.* -> 6.6.143", " -> 7.1"]);
     expect(p.links).toEqual([]);
+    // the two blocks name one product: listed once
+    expect(p.affected).toEqual([{ vendor: "Linux", product: "Linux" }]);
     expect(needsNvd(p)).toBe(true);
     expect(needsGhsa(p)).toBe(false);
   });
@@ -146,7 +150,7 @@ describe("the CVE record", () => {
 
   it("keeps the CNA's solution and workaround as written, tidied, in English, and says a third-party CNA wrote them", () => {
     const p = parseCveRecord(unreal, "CVE-2026-114713");
-    expect(p).toMatchObject({ by: "MITRE", by_vendor: false });
+    expect(p).toMatchObject({ by: "MITRE", by_vendor: false, affected: [{ vendor: "", product: "UnrealIRCd" }] });
     expect(p.patches).toEqual([{ label: "UnrealIRCd", version: "6.2.7.1", from: "6.2.0", url: null, source: "cve" }]);
     expect(p.solutions).toEqual([
       {

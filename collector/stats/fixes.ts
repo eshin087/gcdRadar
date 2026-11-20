@@ -1,4 +1,5 @@
 import {
+  FIX_AFFECTED_MAX,
   FIX_LINK_MAX,
   FIX_PATCH_MAX,
   FIX_TEXT_MAX,
@@ -321,9 +322,23 @@ function texts(list: readonly CveLangText[] | undefined, section: string, cve: s
   return out;
 }
 
-export type CveParts = Pick<FixEntry, "found" | "cna" | "by" | "by_vendor" | "title" | "patches" | "patches_more" | "links" | "solutions" | "workarounds">;
+export type CveParts = Pick<FixEntry, "found" | "cna" | "by" | "by_vendor" | "title" | "affected" | "patches" | "patches_more" | "links" | "solutions" | "workarounds">;
 
-export const NO_RECORD: CveParts = { found: false, cna: "", by: "", by_vendor: false, title: "", patches: [], patches_more: 0, links: [], solutions: [], workarounds: [] };
+export const NO_RECORD: CveParts = { found: false, cna: "", by: "", by_vendor: false, title: "", affected: [], patches: [], patches_more: 0, links: [], solutions: [], workarounds: [] };
+
+/** The vendor and product pairs a record names as affected, each once, as the record spells them; a vendor left as n/a is "". */
+export function affectedProducts(affected: readonly CveAffected[]): FixEntry["affected"] {
+  const out: FixEntry["affected"] = [];
+  for (const a of affected) {
+    const vendor = EMPTY_NAME.test((a.vendor ?? "").trim()) ? "" : a.vendor!.trim().slice(0, 80);
+    const named = (a.product ?? a.packageName ?? "").trim();
+    const product = EMPTY_NAME.test(named) ? "" : named.slice(0, 120);
+    if ((!vendor && !product) || out.some((x) => x.vendor.toLowerCase() === vendor.toLowerCase() && x.product.toLowerCase() === product.toLowerCase())) continue;
+    out.push({ vendor, product });
+    if (out.length === FIX_AFFECTED_MAX) break;
+  }
+  return out;
+}
 
 /** What a published CVE record says about fixing it; NO_RECORD for a reserved, rejected or malformed one. */
 export function parseCveRecord(record: CveRecord, cve: string): CveParts {
@@ -339,6 +354,7 @@ export function parseCveRecord(record: CveRecord, cve: string): CveParts {
     cna: short,
     ...who,
     title: tidyText(cna.title ?? "").replace(/\n/g, " ").slice(0, 240),
+    affected: affectedProducts(affected),
     patches,
     patches_more: more,
     links: taggedLinks(refs),
@@ -489,6 +505,7 @@ export function buildEntry(p: EntryParts): FixEntry {
     by: record.by,
     by_vendor: record.by_vendor,
     title: record.title,
+    affected: record.affected,
     ...mergePatches(record.patches, record.patches_more, p.ghsa.patches),
     links: mergeLinks(record.links, p.nvd.links, p.kev?.links ?? [], p.ghsa.links),
     solutions: record.solutions,
@@ -545,6 +562,7 @@ function recordPartsOf(e: FixEntry): CveParts {
     by: e.by,
     by_vendor: e.by_vendor,
     title: e.title,
+    affected: e.affected,
     patches: e.patches.filter((x) => x.source === "cve"),
     patches_more: e.patches_more,
     links: e.links.filter((l) => l.source === "cve"),

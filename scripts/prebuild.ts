@@ -142,7 +142,7 @@ async function main() {
       return fs.writeFile(path.join(perIncident, `${i.slug}.json`), JSON.stringify({ ...i, brief: buildBrief(i, base, fix), fix }, null, 1) + "\n");
     }),
   );
-  const quickLooks = buildQuickLookFiles(sorted, fixStats, BUILD_DAY, new Date().toISOString(), base);
+  const quickLooks = buildQuickLookFiles(sorted, fixStats, BUILD_DAY, new Date().toISOString());
   await Promise.all(quickLooks.map((q) => fs.writeFile(path.join(fixDir, `${q.cve}.json`), JSON.stringify(q) + "\n")));
 
   // Year shards: the full records for download, compact rows for the dashboard's drawers, slim records for the explorer.

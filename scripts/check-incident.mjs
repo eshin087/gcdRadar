@@ -17,7 +17,11 @@
  * entry with no record of ours opens the quick look in place of the list
  * (one dialog at a time, the page does not navigate), the drawer shows the
  * fix block with the CVE's cve.org link, Esc returns to the list and a
- * second Esc closes it; the drawer fits a phone.
+ * second Esc closes it; the drawer fits a phone. On the unlisted demo page
+ * /lab/quick-look, the other kinds of target: a record by its slug, a record
+ * passed as data (with a CVE id: the fix details the site holds are joined in;
+ * without one: its sentence, labelled as ours) and a CVE the site keeps
+ * nothing for.
  *
  * Zero dependencies (scripts/lib/browser.mjs).
  *
@@ -78,11 +82,12 @@ const READ_PAGE = `(() => {
   };
 })()`;
 
+/** A KEV-listed record and the fix view its own JSON carries (the `fix` field of /data/incidents/<slug>.json, built by the same join as the page). */
 async function pickKevRecord(base, stack) {
   if (typeof args.slug === "string") {
     const rec = await json(base, `/data/incidents/${args.slug}.json`);
     if (!rec?.cve_ids?.length) throw new Error(`--slug ${args.slug}: no such record, or it has no CVE id`);
-    return { slug: args.slug, cve: rec.cve_ids[0], file: await json(base, `/data/fix/${rec.cve_ids[0]}.json`) };
+    return { slug: args.slug, cve: rec.cve_ids[0], fix: rec.fix };
   }
   const seen = new Set();
   for (const c of stack.candidates) {
@@ -90,8 +95,10 @@ async function pickKevRecord(base, stack) {
       if (it.kind !== "kev" || it.external || !it.cves[0] || seen.has(it.cves[0])) continue;
       seen.add(it.cves[0]);
       const file = await json(base, `/data/fix/${it.cves[0]}.json`);
-      // a record about exactly this CVE, already read by the fix stage: the page's block and the file agree one to one
-      if (file?.record && file.fix.cves.length === 1 && file.fix.checked) return { slug: file.record.slug, cve: it.cves[0], file };
+      // a record about exactly this CVE, already read by the fix stage
+      if (!file?.record || file.record.cve_ids.length !== 1 || file.entries.length !== 1) continue;
+      const rec = await json(base, `/data/incidents/${file.record.slug}.json`);
+      if (rec?.fix?.checked) return { slug: file.record.slug, cve: it.cves[0], fix: rec.fix };
     }
   }
   return null;
@@ -101,8 +108,7 @@ async function recordPage(client, base, stack) {
   const pick = await pickKevRecord(base, stack);
   check("a KEV-listed record with fix details exists to check", Boolean(pick), pick ? `${pick.slug} (${pick.cve})` : "none in /stats/stack.json");
   if (!pick) return;
-  const { slug, cve, file } = pick;
-  const fix = file.fix;
+  const { slug, cve, fix } = pick;
   await client.send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   await navigate(client, `${base}/incidents/${slug}`, `document.querySelector("article h1")`);
   const p = await evaluate(client, READ_PAGE);
@@ -197,6 +203,54 @@ async function quickLook(client, base, stack, { width, height, mobile }) {
   check(`a second Esc closes the list and frees the page (${at})`, closed);
 }
 
+/** What the open quick look shows, read in the page. */
+const READ_LOOK = `(() => { const d = document.querySelector('[role="dialog"]'); const q = d?.querySelector("[data-quicklook]"); const b = d?.querySelector("[data-fixblock]"); return {
+  dialogs: ${DIALOGS}, kind: q?.dataset.quicklookKind ?? null, state: q?.dataset.quicklookState ?? null, title: d?.querySelector("h2")?.textContent.trim() ?? "",
+  block: Boolean(b), rows: [...(b?.querySelectorAll("[data-fix-row]") ?? [])].map((r) => r.dataset.fixRow), checked: b?.dataset.fixChecked ?? null,
+  cveRefs: [...(d?.querySelectorAll('a[data-fix-ref="cve"]') ?? [])].map((a) => a.href), versions: b?.querySelectorAll("[data-fix-version]").length ?? 0,
+  note: Boolean(d?.querySelector("[data-quicklook-note]")), sources: d?.querySelectorAll("[data-quicklook-sources] > li").length ?? 0,
+  whatToDo: d?.querySelector("[data-what-to-do] p")?.textContent.trim() ?? null, fullRecord: d?.querySelector("a[data-quicklook-record]")?.getAttribute("href") ?? null,
+  error: Boolean(d?.querySelector("[data-error]")), cveOrg: Boolean(d?.querySelector('a[href^="https://www.cve.org/CVERecord"]')), links: [...(d?.querySelectorAll('a[href^="http"]') ?? [])].filter((a) => a.target !== "_blank" || !/noopener/.test(a.rel) || !/noreferrer/.test(a.rel)).length,
+}; })()`;
+
+/**
+ * The kinds of target My stack does not use, on the unlisted demo page
+ * (app/lab/quick-look): a record's slug, a record passed as data with and
+ * without a CVE id, and a CVE the site keeps nothing for.
+ */
+async function otherTargets(client, base) {
+  await client.send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  await navigate(client, `${base}/lab/quick-look`, `document.querySelector("[data-demo]")`);
+  const open = async (key) => {
+    const ok = await call(client, `(key) => { const b = document.querySelector('[data-demo="' + key + '"]'); if (!b || b.disabled) return false; b.click(); return true; }`, key);
+    if (!ok) return null;
+    await waitFor(client, `document.querySelector('[role="dialog"] [data-quicklook]:not([data-quicklook-state="loading"])')`);
+    await sleep(200);
+    const q = await evaluate(client, READ_LOOK);
+    await evaluate(client, `window.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }))`);
+    await waitFor(client, `!document.querySelector('[role="dialog"]')`, 30);
+    return q;
+  };
+
+  const bySlug = await open("slug");
+  check("a record opens by its slug, with its fix block and a link to its page", Boolean(bySlug) && bySlug.state === "ready" && bySlug.kind === "slug" && bySlug.block && Boolean(bySlug.fullRecord?.startsWith("/incidents/")), bySlug ? `state ${bySlug.state}, block ${bySlug.block}, link ${bySlug.fullRecord}` : "no demo record in this build");
+
+  // the same record, handed over as data: the drawer joins the fix details the site holds for its CVE, and lists the sources it was given
+  const asData = await open("record");
+  check("a record passed as data opens without a fetch of its own page", Boolean(asData) && asData.state === "ready" && asData.kind === "record" && asData.note, asData ? `state ${asData.state}, kind ${asData.kind}, note ${asData.note}` : "no demo record in this build");
+  if (asData && bySlug) {
+    check("it shows the fix details the site holds for its CVE", asData.block && asData.rows.slice(0, 3).join(",") === "patch,workaround,deadline" && Boolean(asData.checked) && asData.checked === bySlug.checked && asData.versions === bySlug.versions, `rows ${asData.rows.join(",")}, read ${asData.checked}, versions ${asData.versions} (by slug: ${bySlug.versions})`);
+    check("it links the CVE on cve.org and lists its sources", asData.cveRefs.length >= 1 && asData.sources >= 1 && asData.links === 0, `${asData.cveRefs.length} cve.org links, ${asData.sources} sources, ${asData.links} unsafe links`);
+    check("a record with no page gets no link to one", asData.fullRecord === null, String(asData.fullRecord));
+  }
+
+  const plain = await open("plain");
+  check("a record passed as data with no CVE id shows its sentence as ours, and no fix block", Boolean(plain) && plain.state === "ready" && !plain.block && Boolean(plain.whatToDo) && plain.sources >= 1, plain ? `block ${plain.block}, sentence ${JSON.stringify(plain.whatToDo?.slice(0, 40))}, ${plain.sources} sources` : "no demo record in this build");
+
+  const missing = await open("missing");
+  check("a CVE the site keeps nothing for says so and still links cve.org", Boolean(missing) && missing.state === "missing" && missing.error && missing.cveOrg && !missing.block, missing ? `state ${missing.state}` : "no button");
+}
+
 async function run(client, base) {
   await client.send("Page.enable");
   await client.send("Runtime.enable");
@@ -207,6 +261,7 @@ async function run(client, base) {
   await recordPage(client, base, stack);
   await quickLook(client, base, stack, { width: 1440, height: 900, mobile: false });
   await quickLook(client, base, stack, { width: 375, height: 812, mobile: true });
+  await otherTargets(client, base);
 }
 
 async function main() {
