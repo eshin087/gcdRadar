@@ -30,7 +30,15 @@ export async function fetchFeedItems(source: SourceConfig, ctx: SourceContext): 
     timeoutMs: ctx.settings.fetch.timeout_ms,
     retries: ctx.settings.fetch.retries,
     maxBytes: source.max_bytes ?? ctx.settings.fetch.max_body_bytes,
+    // a feed that has not changed since the answer we last read says so in a few hundred bytes
+    etag: ctx.validators?.etag,
+    lastModified: ctx.validators?.lastModified,
   });
+  if (res.notModified) {
+    log.debug(`${source.id}: not modified`);
+    return [];
+  }
+  ctx.remember?.({ etag: res.headers.get("etag"), lastModified: res.headers.get("last-modified") });
   if (res.truncated) log.warn(`${source.id}: feed body truncated at ${source.max_bytes ?? ctx.settings.fetch.max_body_bytes} bytes`);
   const items = parseFeed(res.body);
   if (items.length === 0) log.debug(`${source.id}: feed parsed to 0 items`, { contentType: res.contentType, bytes: res.body.length });

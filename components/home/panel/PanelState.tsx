@@ -52,12 +52,16 @@ export function usePanelState(): PanelStateValue {
 
 const PULSE_EVERY_MS = 10 * 60_000;
 
-let fileRequest: Promise<StackFile | null> | null = null;
-function fetchStackFile(): Promise<StackFile | null> {
-  fileRequest ??= fetch(STACK_FILE)
-    .then((r) => (r.ok ? (r.json() as Promise<StackFile>) : null))
-    .catch(() => null);
-  return fileRequest;
+const fileRequests = new Map<string, Promise<StackFile | null>>();
+function fetchStackFile(url: string = STACK_FILE): Promise<StackFile | null> {
+  let request = fileRequests.get(url);
+  if (!request) {
+    request = fetch(url)
+      .then((r) => (r.ok ? (r.json() as Promise<StackFile>) : null))
+      .catch(() => null);
+    fileRequests.set(url, request);
+  }
+  return request;
 }
 
 function readStored(): string | null {
@@ -77,7 +81,7 @@ function store(picks: string[] | null) {
   }
 }
 
-export function PanelState({ defaults, defaultMatches, nvdFetched, children }: { defaults: StackCandidate[]; defaultMatches: StackMatch[]; nvdFetched: string | null; children: ReactNode }) {
+export function PanelState({ defaults, defaultMatches, nvdFetched, stackUrl = STACK_FILE, children }: { defaults: StackCandidate[]; defaultMatches: StackMatch[]; nvdFetched: string | null; stackUrl?: string; children: ReactNode }) {
   const defaultKeys = useMemo(() => defaults.map((t) => t.key), [defaults]);
   const [picks, setPicksState] = useState<string[]>(defaultKeys);
   const [file, setFile] = useState<StackFile | null>(null);
@@ -142,11 +146,24 @@ export function PanelState({ defaults, defaultMatches, nvdFetched, children }: {
     };
   }, [nvdFetched]);
 
+  // a newer sweep on screen (components/home/useLiveHome.ts): once the candidates are in use, they come from that sweep too
+  const hasFile = file !== null;
+  useEffect(() => {
+    if (!hasFile || stackUrl === STACK_FILE) return;
+    let live = true;
+    fetchStackFile(stackUrl).then((f) => {
+      if (live && f) setFile(f);
+    });
+    return () => {
+      live = false;
+    };
+  }, [stackUrl, hasFile]);
+
   const loadFile = useCallback(async () => {
-    const f = file ?? (await fetchStackFile());
+    const f = file ?? (await fetchStackFile(stackUrl));
     if (f && !file) setFile(f);
     return f;
-  }, [file]);
+  }, [file, stackUrl]);
 
   const setPicks = useCallback(
     (next: string[]) => {

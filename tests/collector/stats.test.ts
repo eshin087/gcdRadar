@@ -255,10 +255,11 @@ describe("runStats", () => {
     expect(raw.split("\n").filter((l) => l.startsWith('  "2026-'))).toHaveLength(RECENT_DAYS);
   });
 
-  it("reads the KEV catalog on every hourly run (every other one at 30 minutes) and counts daily.json on every run", () => {
+  it("asks for the KEV catalog on every run (a conditional request since 2026-11-20) and counts daily.json on every run", () => {
     const ago = (minutes: number) => ({ fetched_at: new Date(NOW.getTime() - minutes * 60_000).toISOString() });
     expect(isFresh(ago(60), kevModule.maxAgeHours, NOW)).toBe(false);
-    expect(isFresh(ago(30), kevModule.maxAgeHours, NOW)).toBe(true);
+    expect(isFresh(ago(15), kevModule.maxAgeHours, NOW)).toBe(false);
+    expect(isFresh(ago(0), kevModule.maxAgeHours, NOW)).toBe(false);
     expect(isFresh(ago(0), dailyModule.maxAgeHours, NOW)).toBe(false);
   });
 

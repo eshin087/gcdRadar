@@ -3,9 +3,11 @@
   // The gcdRadar internet band: GET /v1/internet, assembled from Cloudflare Radar
   // and cached for five minutes. The Radar token lives in the secret
   // CLOUDFLARE_RADAR_TOKEN (wrangler secret put), never in this file.
-  // The cron trigger starts the collector (collect.yml) on GitHub every 30
+  // The cron trigger starts the collector (collect.yml) on GitHub every 15
   // minutes, off GitHub's own :17 slot; its token is the secret
-  // GITHUB_DISPATCH_TOKEN (src/dispatch.ts).
+  // GITHUB_DISPATCH_TOKEN (src/dispatch.ts). GET /v1/live/<name> passes the
+  // newest sweep's files through from the repository's `live` branch
+  // (src/live.ts) and writes nothing to KV.
   // The name keeps the site's old name on purpose: it is the workers.dev URL in
   // lib/site.ts and vercel.json's connect-src, and a renamed Worker is a new one
   // that would need both secrets put again.
@@ -14,7 +16,7 @@
   "compatibility_date": "2026-10-20",
   "compatibility_flags": ["nodejs_compat"],
   "triggers": {
-    "crons": ["5,35 * * * *"]
+    "crons": ["5,20,35,50 * * * *"]
   },
   "observability": {
     "enabled": true,

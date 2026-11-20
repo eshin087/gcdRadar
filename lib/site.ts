@@ -22,6 +22,10 @@ export const SITE = {
   internetApi: process.env.NEXT_PUBLIC_INTERNET_API || INTERNET_API,
   /** The live NVD counts, beside the globe's data on the same Worker. */
   pulseApi: (process.env.NEXT_PUBLIC_INTERNET_API || INTERNET_API).replace(/\/v1\/internet$/, "/v1/pulse"),
+  /** The newest sweep's files (lib/live/shape.ts), on the same Worker: "<liveApi>/home.json". */
+  liveApi: (process.env.NEXT_PUBLIC_INTERNET_API || INTERNET_API).replace(/\/v1\/internet$/, "/v1/live"),
+  /** The production address, for files built outside a deploy (a sweep's live files). */
+  origin: "https://gcdradar.vercel.app",
 } as const;
 
 export const NAV = [

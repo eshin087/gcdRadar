@@ -5,7 +5,12 @@
  * counter, the AI-only switch keeps only AI rows, each counter link opens an
  * archive view with the same count, the first calendar day opens the records
  * reported that day, the live tags agree with the rows, and no page scrolls
- * sideways on a phone. Zero dependencies (scripts/lib/browser.mjs).
+ * sideways on a phone. These loads block the Worker, so the board reads as
+ * built. Then the live layer, with the Worker stubbed: a sweep newer than the
+ * build replaces the board, the label says when it was checked, a record
+ * with no page yet opens in a drawer and never links to the missing page,
+ * and with the Worker down the board keeps its snapshot and says its age.
+ * Zero dependencies (scripts/lib/browser.mjs).
  *
  *   npm run build
  *   node scripts/check-live.mjs                 # serves ./out on a free port
@@ -13,7 +18,8 @@
  *
  * Options: --dir <out dir>  --browser <chrome or edge executable>  --port <n>  --verbose
  */
-import { call, collectErrors, evaluate, launch, navigate, openSite, parseArgs, sleep } from "./lib/browser.mjs";
+import { blockHosts, call, collectErrors, evaluate, launch, navigate, openSite, parseArgs, sleep, stubHost } from "./lib/browser.mjs";
+import { CLICK_FRESH, FRESH_SLUG, FRESH_SOURCE, READ_LABELS, WORKER, freshRecord, sweepHead } from "./lib/live-stub.mjs";
 
 const args = parseArgs(process.argv.slice(2));
 const verbose = Boolean(args.verbose);
@@ -47,6 +53,8 @@ async function run(client, base) {
   await client.send("Runtime.enable");
   await client.send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   const live = await fetch(`${base}/live.json`).then((r) => r.json());
+  // the board as built: the live layer (components/live/useLive.ts) gets no answer
+  await blockHosts(client, [WORKER]);
   await navigate(client, `${base}${PATH}`, LIVE_READY);
 
   // counters against live.json
@@ -124,6 +132,54 @@ async function run(client, base) {
   }
 }
 
+/** The live layer on the board: a stubbed sweep with one record, newer than the build. */
+async function checkLiveLayer(client, base) {
+  await client.send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  const AGE = "(just now|\\d+ (min|h|d) ago)";
+  await blockHosts(client, [WORKER]);
+  await navigate(client, `${base}${PATH}`, `${LIVE_READY} && document.querySelector('[data-sweep-state="built"]')`);
+  const asBuilt = await evaluate(client, READ_LABELS);
+  const builtSweep = asBuilt.page?.sweep;
+  const builtLive = await evaluate(client, `Number(document.querySelector('[data-counter="live"]').dataset.value)`);
+  check("without the Worker the board's label states the built data's age", asBuilt.page?.state === "built" && new RegExp(`^data from ${AGE}$`).test(asBuilt.page.text) && asBuilt.header?.text === asBuilt.page.text, JSON.stringify(asBuilt));
+
+  const head = sweepHead(builtSweep);
+  const fresh = freshRecord(head.sweep);
+  const today = head.sweep.slice(0, 10);
+  const row = { id: fresh.id, slug: fresh.slug, title: fresh.title, summary: fresh.summary, lane: "patch", type: "not_ai", ai: false, severity: 4, state: "live", patch_status: "unpatched", cvss: 9.8, products: ["Check"], cve_ids: fresh.cve_ids, cve_more: 0, action: fresh.action, since: today, since_precision: "day", first_reported: today, last_update: today, tags: [], disclosed: false };
+  const empty = (key, label) => ({ key, label, count: 0, ai: 0, groups: [] });
+  const view = {
+    now: head.sweep,
+    lastUpdated: head.sweep,
+    boards: [{ key: "patch", label: "Patch now", count: 1, ai: 0, groups: [{ key: "unpatched", label: "No patch yet", rows: [row] }] }, empty("breach", "Breaches & attacks"), empty("supply_chain", "Supply chain"), empty("research", "Research")],
+    counters: { live: 1, critical: 1, unpatched: 1, ai: 0, quiet: { days: 0, longest: null } },
+    heatmap: { from: today.slice(0, 7), to: today, cells: {}, max: 0 },
+    aiLens: { live: 0, month: today.slice(0, 7), topFamily: null },
+    topTags: [],
+  };
+  let down = false;
+  await blockHosts(client, []);
+  await stubHost(client, WORKER, (url) => {
+    if (url.pathname !== "/v1/live/board.json") return null;
+    return down ? { status: 503, body: { error: "the live files are unavailable" } } : { body: { ...head, view, fresh: [fresh] } };
+  });
+  await navigate(client, `${base}${PATH}`, `${LIVE_READY} && document.querySelector('[data-sweep-state="live"]')`);
+  await sleep(400);
+  const swapped = await evaluate(client, `({ labels: ${READ_LABELS}, live: Number(document.querySelector('[data-counter="live"]').dataset.value), rows: [...document.querySelectorAll('[data-live-board] [data-row] a')].map((a) => a.dataset.freshSlug ?? a.getAttribute('href')) })`);
+  check("a newer sweep: the board's label says when it was checked", swapped.labels.page?.state === "live" && swapped.labels.page.sweep === head.sweep && /^checked \d+ min ago$/.test(swapped.labels.page.text) && swapped.labels.header?.text === swapped.labels.page.text, JSON.stringify(swapped.labels));
+  check("a newer sweep: the board is that sweep's", swapped.live === 1 && swapped.rows.includes(FRESH_SLUG), `live counter ${swapped.live}, rows ${swapped.rows.join(" ")}`);
+  const clicked = await call(client, CLICK_FRESH, FRESH_SLUG);
+  check("a record with no page links its source, never the missing page", clicked.links >= 1 && clicked.toMissingPage === 0 && clicked.hrefs.length === 1 && clicked.hrefs[0] === FRESH_SOURCE && clicked.newTab, JSON.stringify({ links: clicked.links, hrefs: clicked.hrefs, toMissingPage: clicked.toMissingPage }));
+  check("a click on it opens the record in a drawer and stays on the board", clicked.drawer?.slug === FRESH_SLUG && clicked.drawer.pageLinks === 0 && clicked.stayed && clicked.closed, JSON.stringify(clicked.drawer));
+
+  down = true;
+  await navigate(client, `${base}${PATH}`, `${LIVE_READY} && document.querySelector('[data-sweep-state="built"]')`);
+  const kept = await evaluate(client, `({ labels: ${READ_LABELS}, live: Number(document.querySelector('[data-counter="live"]').dataset.value) })`);
+  check("the Worker down: the board keeps its snapshot and says its age", kept.labels.page?.state === "built" && kept.labels.page.sweep === builtSweep && kept.live === builtLive, JSON.stringify(kept));
+  await stubHost(client, WORKER, null);
+  await blockHosts(client, [WORKER]);
+}
+
 async function main() {
   const t0 = Date.now();
   const site = await openSite(args);
@@ -131,10 +187,13 @@ async function main() {
   const errors = collectErrors(client);
   try {
     await run(client, site.base);
+    await checkLiveLayer(client, site.base);
     const failed = checks.filter((c) => !c.ok);
     console.log(`\n${checks.length - failed.length}/${checks.length} live-page checks pass in ${((Date.now() - t0) / 1000).toFixed(1)} s · ${exe.split(/[\\/]/).pop()} · ${site.base}`);
-    if (errors.length) console.log(`page errors (${errors.length}):\n  ${[...new Set(errors)].slice(0, 10).join("\n  ")}`);
-    if (failed.length || errors.length) process.exitCode = 1;
+    // a blocked or stubbed Worker request is the check's own doing, not a page error
+    const real = errors.filter((e) => !/ERR_BLOCKED_BY_CLIENT|Failed to fetch|NetworkError/.test(e));
+    if (real.length) console.log(`page errors (${real.length}):\n  ${[...new Set(real)].slice(0, 10).join("\n  ")}`);
+    if (failed.length || real.length) process.exitCode = 1;
   } finally {
     await close();
     site.close();

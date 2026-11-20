@@ -25,7 +25,8 @@ import type { MetaFile, YearIndexFile } from "../lib/api-docs";
 import { briefingSummaryLine } from "../lib/briefing";
 import { BUILD_DAY, lastUpdated, loadBriefings, loadIncidents, loadStats, siteUrl } from "../lib/data";
 import { buildQuickLookFiles, fixViewForRecord } from "../lib/fix-join";
-import { breachesMonthList, buildHome, dayCvesList, kevMonthList, kevWeekList, weekCvesList } from "../lib/home";
+import { breachesMonthList, buildHome, kevMonthList } from "../lib/home";
+import { statsListFiles } from "../lib/live/build";
 import { lastActivity, type FullIncident } from "../lib/lifecycle";
 import { buildBrief } from "../lib/brief";
 import { buildChanges, feedLinks } from "../lib/changes";
@@ -274,13 +275,15 @@ async function main() {
     fs.writeFile(path.join(statsDir, "panel.json"), JSON.stringify({ generated_at: home.now, ...home.panel }, null, 1) + "\n"),
     fs.writeFile(path.join(PUBLIC, STACK_FILE), JSON.stringify(home.stackFile) + "\n"),
     fs.writeFile(path.join(PUBLIC, SCOPE_FILE), JSON.stringify({ generated_at: home.now, ...home.live.scope }) + "\n"),
-    fs.writeFile(path.join(statsDir, "cves-day.json"), JSON.stringify({ generated_at: home.now, days: 1, source: stats.cvesRecent?.source ?? null, cves: dayCvesList(stats, now) }) + "\n"),
-    fs.writeFile(path.join(statsDir, "cves-week.json"), JSON.stringify({ generated_at: home.now, days: 7, source: stats.cvesRecent?.source ?? null, cves: weekCvesList(stats, now) }) + "\n"),
-    fs.writeFile(path.join(statsDir, "kev-week.json"), JSON.stringify({ generated_at: home.now, days: 7, source: stats.kev?.source ?? null, entries: kevWeekList(stats, home.today) }) + "\n"),
+    // the lists the home page's numbers open; a sweep publishes the same four beside its live views (lib/live/build.ts)
+    ...Object.entries(statsListFiles(home, stats, now)).map(([name, body]) => fs.writeFile(path.join(statsDir, name), JSON.stringify(body) + "\n")),
     ...home.stats.series.kev_by_month.map(({ month }) =>
       fs.writeFile(path.join(statsDir, `kev-${month}.json`), JSON.stringify({ generated_at: home.now, month, source: stats.kev?.source ?? null, entries: kevMonthList(stats, month) }) + "\n"),
     ),
-    ...home.stats.series.breaches_by_month.map(({ month }) =>
+    // the current month's file is one of the four above
+    ...home.stats.series.breaches_by_month
+      .filter(({ month }) => month !== home.stats.lists.breaches_month.month)
+      .map(({ month }) =>
       fs.writeFile(path.join(statsDir, `breaches-${month}.json`), JSON.stringify({ generated_at: home.now, month, source: stats.hibp?.source ?? null, breaches: breachesMonthList(stats, month) }) + "\n"),
     ),
   ]);

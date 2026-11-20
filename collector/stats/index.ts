@@ -5,7 +5,7 @@ import { withLifecycle } from "../../lib/lifecycle";
 import { readIncidents } from "../../lib/shards";
 import { STATS_FILES, STATS_SCHEMAS, type StatsFiles } from "../../lib/stats-schema";
 import type { Settings } from "../lib/config";
-import { httpJson, sleep } from "../lib/http";
+import { httpFetch, httpJson, sleep } from "../lib/http";
 import { errorMessage, log } from "../lib/log";
 import { DATA_DIR, writeAtomic } from "../lib/state";
 import { dailyModule } from "./daily";
@@ -20,13 +20,13 @@ import type { StatsContext, StatsHttp, StatsModule, StatsResult } from "./types"
  * The stats stage: seven files under data/stats/, each owned by one module
  * (nvd.ts, daily.ts, kev.ts, hibp.ts, epss.ts, fixes.ts). Like the Radar
  * sidebar data, each file carries its own fetched_at and is due again once
- * it is older than the module's maxAgeHours (about a day for most, under an
- * hour for the KEV catalog, every run for daily.json, which only counts what
- * cves-recent holds, and for fixes.json, which reads a few CVE records a
- * run); a failed fetch keeps the previous file and logs a warning; a changed
- * file is a site change, so the run deploys at its next window, while a file
- * whose lookup stamps alone moved (StatsModule.volatile) is written as
- * bookkeeping.
+ * it is older than the module's maxAgeHours (about a day for most; every run
+ * for the KEV catalog, which asks with If-Modified-Since, for daily.json,
+ * which only counts what cves-recent holds, and for fixes.json, which reads
+ * a few CVE records a run); a failed fetch keeps the previous file and logs
+ * a warning; a changed file is a site change, so the run deploys at its next
+ * window, while a file whose lookup stamps alone moved (StatsModule.volatile)
+ * is written as bookkeeping.
  * `npm run stats` runs it by hand (--dry-run, --force, --only=<name>).
  */
 
@@ -46,6 +46,11 @@ export interface RunStatsOptions {
   dataDir?: string;
   recordCveIds?: readonly string[];
   liveCveIds?: readonly string[];
+  /**
+   * False on a sweep that will not be committed unless the statistics change: a module that re-reads what it
+   * already holds (fixes.json) then leaves that for a sweep that is committed anyway. Default true.
+   */
+  rechecks?: boolean;
 }
 
 export function isFresh(previous: { fetched_at: string } | null, maxAgeHours: number, now: Date): boolean {
@@ -118,14 +123,14 @@ async function recordCveIdsFromDisk(dataDir: string, today: string): Promise<{ a
 export async function runStats(settings: Settings, opts: RunStatsOptions = {}): Promise<StatsResult> {
   const now = opts.now ?? new Date();
   const dataDir = opts.dataDir ?? DATA_DIR;
-  const http: StatsHttp = opts.http ?? { json: (url, o) => httpJson(url, o), sleep };
+  const http: StatsHttp = opts.http ?? { json: (url, o) => httpJson(url, o), fetch: (url, o) => httpFetch(url, o), sleep };
   const fromDisk = opts.recordCveIds && opts.liveCveIds ? null : await recordCveIdsFromDisk(dataDir, now.toISOString().slice(0, 10));
   const recordCveIds = opts.recordCveIds ?? fromDisk?.all ?? [];
   const liveCveIds = opts.liveCveIds ?? fromDisk?.live ?? [];
   const result: StatsResult = { changed: [], touched: [], failed: [], skipped: [] };
   const extraCveIds: string[] = [];
   const produced: Record<string, unknown> = {};
-  const ctx: StatsContext = { settings, now, http, recordCveIds, liveCveIds, extraCveIds, produced, log: (msg, meta) => log.info(msg, meta) };
+  const ctx: StatsContext = { settings, now, http, recordCveIds, liveCveIds, rechecks: opts.rechecks ?? true, extraCveIds, produced, log: (msg, meta) => log.info(msg, meta) };
 
   for (const mod of STATS_MODULES) {
     const previous = await readStatsFile(dataDir, mod.file, mod.schema);
@@ -158,7 +163,7 @@ export async function runStats(settings: Settings, opts: RunStatsOptions = {}): 
       } catch {
         current = null;
       }
-      // fetched_at always differs; compare the rest so an unchanged day writes nothing
+      // fetched_at (and the feed's own timestamp) always differ; compare the rest so an unchanged day writes nothing
       const same = current !== null && stripFetchedAt(current) === stripFetchedAt(content);
       if (same) {
         result.skipped.push(mod.name);
@@ -179,5 +184,5 @@ export async function runStats(settings: Settings, opts: RunStatsOptions = {}): 
 }
 
 function stripFetchedAt(s: string): string {
-  return s.replace(/"fetched_at": "[^"]*"/, '"fetched_at": ""');
+  return s.replace(/"fetched_at": "[^"]*"/, '"fetched_at": ""').replace(/"feed_modified": "[^"]*"/, '"feed_modified": ""');
 }

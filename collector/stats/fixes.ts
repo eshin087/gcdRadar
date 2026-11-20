@@ -525,8 +525,12 @@ export function wantedCves(liveCveIds: readonly string[], kev: readonly { cve: s
   return [...out].sort();
 }
 
-/** This run's lookups: CVEs with no entry first (highest id first: the newest), then entries read at least `recheckDays` ago, longest ago first. */
-export function planLookups(wanted: readonly string[], previous: ReadonlyMap<string, FixEntry>, now: Date, perRun: number, recheckDays: number): string[] {
+/**
+ * This run's lookups: CVEs with no entry first (highest id first: the newest), then entries read at least
+ * `recheckDays` ago, longest ago first. With `rechecks` false only the new ones: a re-read moves an entry's
+ * stamps, which only a committed sweep keeps.
+ */
+export function planLookups(wanted: readonly string[], previous: ReadonlyMap<string, FixEntry>, now: Date, perRun: number, recheckDays: number, rechecks = true): string[] {
   const idOrder = (a: string, b: string) => {
     const [, ya, na] = CVE.exec(a)!;
     const [, yb, nb] = CVE.exec(b)!;
@@ -537,7 +541,7 @@ export function planLookups(wanted: readonly string[], previous: ReadonlyMap<str
   const stale = wanted
     .filter((id) => previous.has(id) && Date.parse(previous.get(id)!.fetched_at) <= cutoff)
     .sort((a, b) => previous.get(a)!.fetched_at.localeCompare(previous.get(b)!.fetched_at) || a.localeCompare(b));
-  return [...fresh, ...stale].slice(0, Math.max(0, perRun));
+  return [...fresh, ...(rechecks ? stale : [])].slice(0, Math.max(0, perRun));
 }
 
 /* ---------- the module ---------- */
@@ -593,10 +597,11 @@ export const fixesModule: StatsModule<Fixes> = {
     const nowIso = ctx.now.toISOString();
     const today = nowIso.slice(0, 10);
     const kevStats = (ctx.produced["kev"] as KevStats | null | undefined) ?? null;
-    const wanted = wantedCves(ctx.liveCveIds, kevStats?.entries ?? [], today, cfg.kev_days);
+    const wanted = wantedCves(ctx.liveCveIds ?? [], kevStats?.entries ?? [], today, cfg.kev_days);
     const prev = new Map((previous?.entries ?? []).map((e) => [e.cve, e]));
     const listed = new Set((kevStats?.entries ?? []).map((e) => e.cve));
-    const due = planLookups(wanted, prev, ctx.now, cfg.per_run, cfg.recheck_days);
+    const rechecks = ctx.rechecks !== false;
+    const due = planLookups(wanted, prev, ctx.now, cfg.per_run, cfg.recheck_days, rechecks);
     const http = { userAgent: ctx.settings.fetch.user_agent, timeoutMs: ctx.settings.fetch.timeout_ms };
 
     // CISA's own words and links: the raw catalog, once per catalog release, or when an entry on it still lacks them
@@ -703,12 +708,12 @@ export const fixesModule: StatsModule<Fixes> = {
       const had = prev.get(cve);
       if (!had) continue;
       const record = recordPartsOf(had);
-      const nvd = (needsNvd(record) && had.nvd_at === null ? await askNvd(cve) : null) ?? keptNvd(had);
-      const ghsa = (needsGhsa(record) && had.ghsa_at === null ? await askGhsa(cve) : null) ?? keptGhsa(had);
+      const nvd = (rechecks && needsNvd(record) && had.nvd_at === null ? await askNvd(cve) : null) ?? keptNvd(had);
+      const ghsa = (rechecks && needsGhsa(record) && had.ghsa_at === null ? await askGhsa(cve) : null) ?? keptGhsa(had);
       const entry = fitting(buildEntry({ cve, fetched_at: had.fetched_at, record, nvd, ghsa, kev: kevOf(cve, had) }), had);
       if (entry) entries.push(entry);
     }
-    ctx.log("stats fixes: done", { wanted: wanted.length, entries: entries.length, waiting: wanted.length - entries.length, ...counts, kev_catalog: raw ? "read" : "kept" });
+    ctx.log("stats fixes: done", { rechecks, wanted: wanted.length, entries: entries.length, waiting: wanted.length - entries.length, ...counts, kev_catalog: raw ? "read" : "kept" });
     return { fetched_at: nowIso, sources: [...FIX_SOURCE_LIST], kev_catalog_version: catalogVersion, entries };
   },
 };

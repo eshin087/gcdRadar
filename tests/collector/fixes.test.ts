@@ -274,6 +274,8 @@ describe("which CVEs, and which this run", () => {
     expect(planLookups(wanted, prev, NOW, 10, 3)).toEqual(["CVE-2026-100000", "CVE-2026-0009", "CVE-2025-99999", "CVE-2026-0001", "CVE-2026-0002"]);
     expect(planLookups(wanted, prev, NOW, 2, 3)).toEqual(["CVE-2026-100000", "CVE-2026-0009"]);
     expect(planLookups(wanted, prev, NOW, 0, 3)).toEqual([]);
+    // on a sweep that is not committed unless something changes, only the new CVEs: a re-read would move stamps nobody keeps
+    expect(planLookups(wanted, prev, NOW, 10, 3, false)).toEqual(["CVE-2026-100000", "CVE-2026-0009", "CVE-2025-99999"]);
   });
 });
 
@@ -420,6 +422,30 @@ describe("the fixes module", () => {
     expect(next.entries.find((e) => e.cve === "CVE-2026-0003")!.links[0]).toMatchObject({ kind: "patch", title: "n".repeat(200) });
     expect(logged.filter((m) => m.includes("does not fit"))).toEqual([]);
     for (const e of next.entries) expect(FixEntrySchema.safeParse(e).success).toBe(true);
+  });
+
+  it("on a sweep that is committed only if something changes, looks up new CVEs and re-reads nothing, so a quiet sweep stays quiet", async () => {
+    // the first run leaves CVE-2026-0002 and CVE-2026-0003 without their NVD answer (budget 0)
+    const first = (await fixesModule.fetch(ctx(world(), { liveCveIds: ["CVE-2026-0003"], fix: { nvd_per_run: 0 } }), null))!;
+    const fourDays = new Date(NOW.getTime() + 4 * 86_400_000);
+    // four days on every entry is due a re-read; with rechecks off nothing is asked and the file comes back as it was
+    const quiet = world();
+    const kept = (await fixesModule.fetch({ ...ctx(quiet, { liveCveIds: ["CVE-2026-0003"] }), now: fourDays, rechecks: false }, first))!;
+    expect(quiet.calls).toEqual([]);
+    expect(kept.entries).toEqual(first.entries);
+    // a new CVE is still looked up, with its NVD answer: that is a real change, and the sweep is committed for it
+    const fresh = world();
+    const grown = (await fixesModule.fetch({ ...ctx(fresh, { liveCveIds: ["CVE-2026-0003", "CVE-2026-0004"] }), now: fourDays, rechecks: false }, first))!;
+    expect(fresh.calls.filter((u) => u.includes("cvelistV5")).map((u) => /CVE-\d+-\d+/.exec(u)![0])).toEqual(["CVE-2026-0004"]);
+    expect(fresh.calls.filter((u) => u.includes("nvd.nist.gov"))).toHaveLength(1);
+    expect(grown.entries.map((e) => e.cve)).toEqual(["CVE-2026-0001", "CVE-2026-0002", "CVE-2026-0003", "CVE-2026-0004"]);
+    expect(grown.entries.slice(0, 3)).toEqual(first.entries);
+    // the same day on a sweep that is committed anyway: the re-reads and the missing answers are done
+    const busy = world();
+    const done = (await fixesModule.fetch({ ...ctx(busy, { liveCveIds: ["CVE-2026-0003"] }), now: fourDays }, first))!;
+    expect(busy.calls.filter((u) => u.includes("cvelistV5"))).toHaveLength(3);
+    expect(done.entries.every((e) => e.fetched_at === fourDays.toISOString())).toBe(true);
+    expect(done.entries.filter((e) => e.nvd_at !== null).map((e) => e.cve)).toEqual(["CVE-2026-0002", "CVE-2026-0003"]);
   });
 
   it("is off at a budget of zero", async () => {

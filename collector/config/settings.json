@@ -84,12 +84,12 @@
     }
   ],
   "alerts": {
-    "_comment": "The job fails (so GitHub emails the owner) after stalled_runs consecutive scheduled runs that classified nothing while candidates waited, e.g. every LLM provider down or out of quota. With the Worker's half-hourly dispatch 24 is half a day. pending_warn only warns in the job summary.",
-    "stalled_runs": 24,
+    "_comment": "The job fails (so GitHub emails the owner) after stalled_runs consecutive scheduled runs that classified nothing while candidates waited, e.g. every LLM provider down or out of quota. With the Worker dispatching every 15 minutes 48 is half a day (a sweep with candidates waiting is always committed, so the ledger holds every one of them). pending_warn only warns in the job summary.",
+    "stalled_runs": 48,
     "pending_warn": 300
   },
   "retention": {
-    "_comment": "runs_keep is the quota ledger: 240 half-hourly runs is five days, well over the one day a quota covers. Source schedules live in collector-state.json, not here.",
+    "_comment": "runs_keep is the quota ledger: 240 runs is two and a half days at four sweeps an hour (longer in practice, since a quiet sweep is not recorded), over the one day a quota covers. Source schedules live in collector-state.json, not here.",
     "rejected_days": 90,
     "runs_keep": 240
   }

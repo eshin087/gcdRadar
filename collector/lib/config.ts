@@ -31,7 +31,7 @@ export type SourceKind = (typeof SOURCE_KINDS)[number];
  * workflow names it with --source=<id> on its own cron (GDELT, whose pass
  * takes 15 to 40 minutes, in .github/workflows/collect-gdelt.yml).
  */
-export const SCHEDULES = ["every_run", "six_hourly", "daily", "weekly", "monthly", "own_workflow"] as const;
+export const SCHEDULES = ["every_run", "two_hourly", "six_hourly", "daily", "weekly", "monthly", "own_workflow"] as const;
 export type Schedule = (typeof SCHEDULES)[number];
 
 export const SourceConfigSchema = z.object({

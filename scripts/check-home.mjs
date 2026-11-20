@@ -21,7 +21,12 @@
  * motion; the HTML stays under its budget; nothing scrolls sideways on a
  * phone. These loads block the Worker, so the page reads as built; one more
  * load lets it through and expects either the live marker or the built
- * numbers.
+ * numbers. Then the live layer, with the Worker stubbed: a sweep newer than
+ * the build is swapped in whole, the label says when it was checked and
+ * never claims more than the data on screen, a record with no page yet
+ * links its source and opens in a drawer, a number opens the list of the
+ * same sweep, and with the Worker down or a foreign file the page keeps its
+ * snapshot and states that snapshot's age.
  *
  * /trends: the counters, their drawers and the chart columns against
  * /stats/home.json, the radar scope's blips, and the three instruments that
@@ -40,12 +45,12 @@
  */
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { blockHosts, collectErrors, evaluate, launch, navigate, openSite, parseArgs, sleep } from "./lib/browser.mjs";
+import { blockHosts, call, collectErrors, evaluate, launch, navigate, openSite, parseArgs, sleep, stubHost } from "./lib/browser.mjs";
+import { CLICK_FRESH, FRESH_SLUG, FRESH_SOURCE, READ_LABELS, WORKER, freshRecord, sweepHead } from "./lib/live-stub.mjs";
 
 const args = parseArgs(process.argv.slice(2));
 const verbose = Boolean(args.verbose);
 const BUDGET_KB = Number(args.budget ?? 250);
-const WORKER = "gcd-ai-radar-internet.eshin087.workers.dev";
 const HOME_READY = `document.querySelector('[data-instrument="week"]') && document.querySelectorAll('[data-build][data-built]').length >= 5`;
 /** The drawer lists' cap (lib/home.ts LIST_CAP). */
 const LIST_CAP = 200;
@@ -353,8 +358,110 @@ async function checkHome(client, base, dir, home, panel, stackFile) {
   await client.send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   await navigate(client, `${base}/?final`, HOME_READY);
   await sleep(3500);
-  const live = await evaluate(client, `({ marker: document.querySelector('[data-week] [data-line="published"]')?.textContent.includes("· live"), cves: Number(document.querySelector('[data-verdict]').dataset.cves) })`);
-  check("live layer: the live marker or the built numbers", live.marker ? live.cves > 0 : live.cves === home.counters.cves_24h, JSON.stringify(live));
+  const live = await evaluate(client, `({ marker: document.querySelector('[data-week] [data-line="published"]')?.textContent.includes("· live"), cves: Number(document.querySelector('[data-verdict]').dataset.cves), sweep: document.querySelector('[data-verdict]')?.closest('section')?.querySelector('[data-sweep-state]')?.dataset.sweepState ?? null })`);
+  // a newer sweep from the real Worker carries its own counts; otherwise the live marker or the built numbers
+  check("live layer: a newer sweep, the live marker or the built numbers", live.marker || live.sweep === "live" ? live.cves > 0 : live.cves === home.counters.cves_24h, JSON.stringify(live));
+  await blockHosts(client, [WORKER]);
+}
+
+/**
+ * The live layer (lib/live, components/live): the page swaps in a sweep
+ * newer than its build, its label states that sweep's age in plain words,
+ * a record with no page yet opens in a drawer and never links to the
+ * missing page, and without the Worker the page keeps its snapshot and says
+ * how old it is. The Worker is stubbed with a file made from the build's own
+ * numbers plus one made-up record.
+ */
+async function checkLiveLayer(client, base, home, panel) {
+  await client.send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  const noPatch = `Number(document.querySelector('[data-verdict]').dataset.noPatch)`;
+  const AGE = "(just now|\\d+ (min|h|d) ago)";
+
+  // without the Worker: the built snapshot, and its real age in words
+  await blockHosts(client, [WORKER]);
+  await navigate(client, `${base}/?final`, `${HOME_READY} && document.querySelector('[data-sweep-state="built"]')`);
+  const asBuilt = await evaluate(client, READ_LABELS);
+  const builtSweep = asBuilt.page?.sweep;
+  check("without the Worker the label states the built data's age", asBuilt.page?.state === "built" && new RegExp(`^data from ${AGE}$`).test(asBuilt.page.text) && Number.isFinite(Date.parse(builtSweep)), JSON.stringify(asBuilt.page));
+  check("the header says the same", asBuilt.header?.state === "built" && asBuilt.header.sweep === builtSweep && new RegExp(`^data from ${AGE}$`).test(asBuilt.header.text), JSON.stringify(asBuilt.header));
+  check("without the Worker the numbers are the build's", (await evaluate(client, noPatch)) === panel.verdict.noFullPatch);
+
+  // a sweep three minutes old: the build's own model with one more record that has no page
+  const head = sweepHead(builtSweep);
+  const fresh = freshRecord(head.sweep);
+  const board = await fetch(`${base}/live.json`).then((r) => r.json());
+  const count = (k) => board.boards.find((b) => b.key === k)?.count ?? 0;
+  const L = panel.ledger;
+  const view = {
+    now: head.sweep,
+    today: head.sweep.slice(0, 10),
+    lastUpdated: head.sweep,
+    columns: { patch: { live: count("patch") }, breach: { live: count("breach") }, supply_chain: count("supply_chain"), research: count("research") },
+    stats: { ...home, series: { cves_by_year: [], ai_cves_by_quarter: [], kev_by_month: [], breaches_by_month: [], kev_lag_by_year: [] }, epss_top: [] },
+    panel: {
+      verdict: { ...panel.verdict, noFullPatch: panel.verdict.noFullPatch + 1 },
+      stack: panel.stack,
+      ledger: {
+        ...L,
+        fresh: [{ kind: "new", slug: FRESH_SLUG, title: fresh.title, lane: "patch", severity: 4, cvss: 9.8, type: "not_ai", created: fresh.created_at, product: "Check", cves: fresh.cve_ids, stack: [] }, ...L.fresh],
+        freshTotal: L.freshTotal + 1,
+        freshLoss: L.freshLoss + 1,
+        freshDays: L.freshDays.map((d, i, all) => (i === all.length - 1 ? { ...d, n: d.n + 1, harm: d.harm + 1 } : d)),
+      },
+      week: panel.week,
+      sieve: panel.sieve,
+    },
+    briefing: null,
+  };
+  const lists = Object.fromEntries(await Promise.all(["cves-week.json", "kev-week.json"].map(async (n) => [n, await fetch(`${base}/stats/${n}`).then((r) => r.text())])));
+  let mode = "newer";
+  const asked = [];
+  await blockHosts(client, []);
+  await stubHost(client, WORKER, (url) => {
+    // the pulse and the globe fail as if blocked; only the live files answer
+    if (!url.pathname.startsWith("/v1/live/")) return null;
+    const name = url.pathname.slice("/v1/live/".length);
+    asked.push(name + url.search);
+    if (mode === "down") return { status: 503, body: { error: "the live files are unavailable" } };
+    if (name === "home.json") {
+      if (mode === "same") return { body: { ...head, sweep: builtSweep, view: { ...view, lastUpdated: builtSweep }, fresh: [] } };
+      if (mode === "foreign") return { body: { ...head, v: 99, view, fresh: [fresh] } };
+      return { body: { ...head, view, fresh: [fresh] } };
+    }
+    return lists[name] ? { body: lists[name] } : { status: 404, body: { error: "not found" } };
+  });
+
+  await navigate(client, `${base}/?final`, `${HOME_READY} && document.querySelector('[data-sweep-state="live"]')`);
+  await sleep(400);
+  const swapped = await evaluate(client, READ_LABELS);
+  check("a newer sweep: the label says when it was checked", swapped.page?.state === "live" && swapped.page.sweep === head.sweep && /^checked \d+ min ago$/.test(swapped.page.text), JSON.stringify(swapped.page));
+  check("a newer sweep: the header says the same", swapped.header?.state === "live" && swapped.header.sweep === head.sweep && swapped.header.text === swapped.page?.text, JSON.stringify(swapped.header));
+  check("a newer sweep: the label is never fresher than its data", Date.parse(swapped.page?.sweep) === Date.parse(view.lastUpdated) && Date.parse(swapped.page?.sweep) <= Date.now(), `${swapped.page?.sweep} vs the view's ${view.lastUpdated}`);
+  const shown = await evaluate(client, `({ noPatch: ${noPatch}, first: document.querySelector('[data-ledger] [data-row="new"]')?.dataset.slug ?? null, total: document.querySelector('[data-ledger] [data-group="new"] [data-head] [data-num]')?.textContent ?? '' })`);
+  check("a newer sweep: its numbers and rows are on the page", shown.noPatch === panel.verdict.noFullPatch + 1 && shown.first === FRESH_SLUG && num(shown.total) === L.freshTotal + 1, JSON.stringify(shown));
+  const clicked = await call(client, CLICK_FRESH, FRESH_SLUG);
+  check("a record with no page links its source, never the missing page", clicked.links >= 1 && clicked.toMissingPage === 0 && clicked.hrefs.length === 1 && clicked.hrefs[0] === FRESH_SOURCE && clicked.newTab, JSON.stringify({ links: clicked.links, hrefs: clicked.hrefs, toMissingPage: clicked.toMissingPage }));
+  check("a click on it opens the record in a drawer and stays on the page", clicked.drawer?.slug === FRESH_SLUG && clicked.drawer.title === fresh.title && clicked.drawer.sources.includes(FRESH_SOURCE) && clicked.drawer.pageLinks === 0 && clicked.stayed && clicked.closed, JSON.stringify(clicked.drawer));
+  if (home.counters.cves_7d !== null) {
+    const r = await openAndRead(client, '[data-week] [data-line="published"] button');
+    const wanted = `cves-week.json?s=${encodeURIComponent(head.sweep)}`;
+    check("a newer sweep: a number opens the list of the same sweep", asked.includes(wanted) && r.count === home.counters.cves_7d && r.rows > 0 && r.closed, `asked ${asked.filter((a) => a.startsWith("cves-week")).join(", ") || "nothing"}, ${r.rows} rows`);
+  }
+
+  // the build is already the newest sweep: nothing is swapped, and "checked" is true of the build
+  mode = "same";
+  await navigate(client, `${base}/?final`, `${HOME_READY} && document.querySelector('[data-sweep-state="current"]')`);
+  const same = await evaluate(client, READ_LABELS);
+  check("no newer sweep: the build stands and its label says when it was checked", same.page?.state === "current" && same.page.sweep === builtSweep && new RegExp(`^checked ${AGE}$`).test(same.page.text) && (await evaluate(client, noPatch)) === panel.verdict.noFullPatch, JSON.stringify(same.page));
+
+  // the Worker down, and a file of a shape the page does not know: the snapshot and its age, nothing swapped
+  for (const [m, name] of [["down", "the Worker answers 503"], ["foreign", "a file of another version"]]) {
+    mode = m;
+    await navigate(client, `${base}/?final`, `${HOME_READY} && document.querySelector('[data-sweep-state="built"]')`);
+    const kept = await evaluate(client, `({ labels: ${READ_LABELS}, noPatch: ${noPatch}, fresh: document.querySelectorAll('a[data-fresh-slug]').length })`);
+    check(`${name}: the page keeps its snapshot and says its age`, kept.labels.page?.state === "built" && kept.labels.page.sweep === builtSweep && new RegExp(`^data from ${AGE}$`).test(kept.labels.page.text) && kept.noPatch === panel.verdict.noFullPatch && kept.fresh === 0, JSON.stringify(kept.labels.page));
+  }
+  await stubHost(client, WORKER, null);
   await blockHosts(client, [WORKER]);
 }
 
@@ -439,6 +546,7 @@ async function main() {
     await client.send("Runtime.enable");
     const [home, panel, stackFile] = await Promise.all(["/stats/home.json", "/stats/panel.json", "/stats/stack.json"].map((f) => fetch(`${site.base}${f}`).then((r) => r.json())));
     await checkHome(client, site.base, dir, home, panel, stackFile);
+    await checkLiveLayer(client, site.base, home, panel);
     await checkTrends(client, site.base, home, panel);
     const failed = checks.filter((c) => !c.ok);
     console.log(`\n${checks.length - failed.length}/${checks.length} home-page checks pass in ${((Date.now() - t0) / 1000).toFixed(1)} s · ${exe.split(/[\\/]/).pop()} · ${site.base}`);

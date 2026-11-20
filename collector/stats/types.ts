@@ -1,5 +1,5 @@
 import type { ZodType } from "zod";
-import type { HttpOptions } from "../lib/http";
+import type { HttpOptions, HttpResult } from "../lib/http";
 import type { Settings } from "../lib/config";
 
 /**
@@ -28,6 +28,8 @@ export interface StatsModule<T> {
 /** The HTTP client the modules use; tests inject a recorded one. */
 export interface StatsHttp {
   json<T>(url: string, opts?: HttpOptions): Promise<T>;
+  /** The whole response, for a module that makes a conditional request; absent in tests that only record JSON. */
+  fetch?(url: string, opts?: HttpOptions): Promise<HttpResult>;
   sleep(ms: number): Promise<void>;
 }
 
@@ -37,8 +39,14 @@ export interface StatsContext {
   http: StatsHttp;
   /** CVE ids named by our published records, for the EPSS module. */
   recordCveIds: readonly string[];
-  /** CVE ids named by our live records, for the fix module. */
-  liveCveIds: readonly string[];
+  /** CVE ids named by our live records, for the fix module; absent means none. */
+  liveCveIds?: readonly string[];
+  /**
+   * False on a sweep that is committed only if the statistics change (index.ts RunStatsOptions.rechecks): the
+   * fix module then looks up new CVEs only and leaves re-reading what it holds to a sweep committed anyway.
+   * Absent means true.
+   */
+  rechecks?: boolean;
   /** CVE ids the other modules produced this run (recent CVEs, the KEV catalog), filled by the runner before the EPSS module runs. */
   extraCveIds: readonly string[];
   /** Each earlier module's file this run, by module name: what it just produced, or the previous file when it was skipped or failed (null when there is none). */
