@@ -1,5 +1,69 @@
 [
   {
+    "id": "AIR-2026-2093",
+    "slug": "cve-2026-99312-linux-kvm-flaw-allows-guest-vms-access-to-hos",
+    "title": "CVE-2026-99312: Linux KVM Flaw Allows Guest VMs Access to Host Memory",
+    "summary": "A vulnerability in Linux KVM on AMD hosts allows guest virtual machines to access host memory and potentially other customers' virtual machines. Fixed kernels have been released.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Linux KVM"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html",
+        "publisher": "The Hacker News",
+        "title": "Linux KVM Flaw CVE-2026-99312 Lets Guest VMs Access Host Memory on AMD Hosts",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "CVE-2026-99312",
+      "kvm",
+      "linux",
+      "virtualization"
+    ],
+    "created_at": "2026-11-20T12:51:21.011Z",
+    "updated_at": "2026-11-20T12:51:21.011Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-99312"
+    ],
+    "affected": [
+      "Linux kernel KVM with AMD processors"
+    ],
+    "fixed_in": [
+      "patched Linux kernels"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Linux KVM Flaw CVE-2026-99312 Lets Guest VMs Access Host Memory on AMD Hosts",
+        "source_url": "https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html",
+        "added_at": "2026-11-20T12:51:21.011Z"
+      }
+    ],
+    "action": "Update the Linux kernel to the latest patched version.",
+    "severity_note": "Disclosed vulnerability with a patch and no confirmed in-the-wild exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2092",
     "slug": "alioth-orchestrating-multi-agent-llms-for-autonomous-iot-pen",
     "title": "ALIoTh: Orchestrating Multi-Agent LLMs for Autonomous IoT Penetration Testing",
