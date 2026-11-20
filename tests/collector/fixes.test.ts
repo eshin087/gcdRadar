@@ -13,6 +13,7 @@ import {
   fixedVersions,
   fixesModule,
   ghsaParts,
+  isHostOf,
   kevBlock,
   mergeLinks,
   needsGhsa,
@@ -203,6 +204,32 @@ describe("CISA KEV, NVD and GitHub", () => {
     expect(parseKevNotes(undefined)).toEqual({ links: [], guidance: [], note: "" });
   });
 
+  it("calls a link CISA's only when its hostname is cisa.gov or under it, whatever the note labels it", () => {
+    // look-alikes: a name that ends in "cisa.gov", one that starts with it, and the same two for NVD
+    const notes = [
+      "https://notcisa.gov/a",
+      "https://cisa.gov.example.org/b",
+      "https://www.cisa.gov/c",
+      "https://CISA.gov/d",
+      "BOD 26-04: https://evilcisa.gov/e",
+      `BOD 26-04: ${BOD}`,
+      "Vendor fix: https://vendor.example/f",
+      "https://nvd.nist.gov.example.org/g",
+      "https://evilnvd.nist.gov/h",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-0001",
+    ].join(" ; ");
+    const link = (url: string, title = ""): FixLink => ({ url, kind: "advisory", title, source: "kev" });
+    expect(parseKevNotes(notes)).toEqual({
+      links: [link("https://notcisa.gov/a"), link("https://cisa.gov.example.org/b"), link("https://evilcisa.gov/e", "BOD 26-04"), link("https://vendor.example/f", "Vendor fix"), link("https://nvd.nist.gov.example.org/g"), link("https://evilnvd.nist.gov/h")],
+      guidance: [{ label: "CISA", url: "https://www.cisa.gov/c" }, { label: "CISA", url: "https://cisa.gov/d" }, { label: "BOD 26-04", url: BOD }],
+      note: "",
+    });
+    expect(isHostOf("https://cisa.gov/x", "cisa.gov")).toBe(true);
+    expect(isHostOf("https://www.cisa.gov:443/x", "cisa.gov")).toBe(true);
+    expect(isHostOf("https://cisa.gov./x", "cisa.gov")).toBe(true);
+    for (const url of ["https://notcisa.gov/", "https://cisa.gov.example.org/", "https://example.org/cisa.gov", "https://example.org/?u=https://www.cisa.gov/", "https://user@example.org/#cisa.gov", "not a url"]) expect(isHostOf(url, "cisa.gov"), url).toBe(false);
+  });
+
   it("keeps CISA's deadline, action and description as written", () => {
     const { kev, links } = kevBlock({ cveID: "CVE-2026-0007", vendorProject: "V", product: "P", vulnerabilityName: "N", dateAdded: "2026-11-18", shortDescription: "V P contains a flaw.", requiredAction: "Apply mitigations per vendor instructions.", dueDate: "2026-12-09", notes: "https://vendor.example/advisory ; https://nvd.nist.gov/vuln/detail/CVE-2026-0007" });
     expect(kev).toEqual({ added: "2026-11-18", due: "2026-12-09", action: "Apply mitigations per vendor instructions.", description: "V P contains a flaw.", note: "", guidance: [] });
@@ -233,6 +260,9 @@ describe("CISA KEV, NVD and GitHub", () => {
     });
     expect(ghsaParts({ ...adv, type: "unreviewed" })).toEqual({ patches: [], links: [] });
     expect(ghsaParts(null)).toEqual({ patches: [], links: [] });
+    // shown as a GitHub advisory, so the page must be on github.com: a look-alike host is not taken
+    expect(ghsaParts({ ...adv, html_url: "https://github.com.example.org/advisories/GHSA-aaaa-bbbb-cccc" })).toEqual({ patches: [], links: [] });
+    expect(ghsaParts({ ...adv, html_url: "https://notgithub.com/advisories/GHSA-aaaa-bbbb-cccc" })).toEqual({ patches: [], links: [] });
   });
 
   it("merges links: each page once under its best mention, patch first, capped with a place for every kind", () => {
@@ -280,6 +310,9 @@ describe("which CVEs, and which this run", () => {
 });
 
 /* ---------- the module, against a recorded-shape HTTP client ---------- */
+
+/** The recorded requests that went to one host, by the parsed hostname (a substring of the URL would also match a look-alike). */
+const sentTo = (calls: readonly string[], hostname: string) => calls.filter((u) => new URL(u).hostname === hostname);
 
 function fakeHttp(answer: (url: string, opts?: HttpOptions) => unknown): StatsHttp & { calls: string[] } {
   const calls: string[] = [];
@@ -359,9 +392,9 @@ describe("the fixes module", () => {
     expect(c.links).toEqual([{ url: "https://acme.example/CVE-2026-0003", kind: "advisory", title: "", source: "nvd" }]);
     // one catalog read, one file per CVE, NVD and GitHub for the two with gaps
     expect(http.calls.filter((u) => u.startsWith("https://www.cisa.gov/"))).toHaveLength(1);
-    expect(http.calls.filter((u) => u.includes("cvelistV5"))).toHaveLength(3);
-    expect(http.calls.filter((u) => u.includes("nvd.nist.gov"))).toHaveLength(2);
-    expect(http.calls.filter((u) => u.includes("api.github.com"))).toHaveLength(2);
+    expect(sentTo(http.calls, "raw.githubusercontent.com")).toHaveLength(3);
+    expect(sentTo(http.calls, "services.nvd.nist.gov")).toHaveLength(2);
+    expect(sentTo(http.calls, "api.github.com")).toHaveLength(2);
   });
 
   it("spends at most the run's budgets, and gives an entry its missing NVD and GitHub answers on a later run without reading the record again", async () => {
@@ -376,8 +409,8 @@ describe("the fixes module", () => {
     const second = (await fixesModule.fetch({ ...ctx(http, { liveCveIds: ["CVE-2026-0003", "CVE-2026-0004"], fix: { per_run: 3, nvd_per_run: 5, ghsa_per_run: 5 } }), now: later }, first))!;
     expect(second.entries.map((e) => e.cve)).toEqual(["CVE-2026-0001", "CVE-2026-0002", "CVE-2026-0003", "CVE-2026-0004"]);
     // only the waiting record is read; 0002 and 0003 get their NVD and GitHub answers, 0004 is left alone
-    expect(http.calls.filter((u) => u.includes("cvelistV5")).map((u) => /CVE-\d+-\d+/.exec(u)![0])).toEqual(["CVE-2026-0001"]);
-    expect(http.calls.filter((u) => u.includes("nvd.nist.gov")).map((u) => /cveId=(CVE-\d+-\d+)/.exec(u)![1]).sort()).toEqual(["CVE-2026-0002", "CVE-2026-0003"]);
+    expect(sentTo(http.calls, "raw.githubusercontent.com").map((u) => /CVE-\d+-\d+/.exec(u)![0])).toEqual(["CVE-2026-0001"]);
+    expect(sentTo(http.calls, "services.nvd.nist.gov").map((u) => /cveId=(CVE-\d+-\d+)/.exec(u)![1]).sort()).toEqual(["CVE-2026-0002", "CVE-2026-0003"]);
     const by = new Map(second.entries.map((e) => [e.cve, e]));
     expect(by.get("CVE-2026-0002")).toMatchObject({ fetched_at: NOW.toISOString(), nvd_at: later.toISOString(), ghsa_at: later.toISOString() });
     expect(by.get("CVE-2026-0002")!.links.some((l) => l.source === "nvd")).toBe(true);
@@ -390,7 +423,7 @@ describe("the fixes module", () => {
     const by = new Map(out.entries.map((e) => [e.cve, e]));
     expect(by.get("CVE-2026-0002")).toMatchObject({ found: false, cna: "", patches: [], links: [], nvd_at: null, ghsa_at: null, kev: null });
     // one refused GitHub call ends the lookups for the run; the entries stay marked as not asked
-    expect(http.calls.filter((u) => u.includes("api.github.com"))).toHaveLength(1);
+    expect(sentTo(http.calls, "api.github.com")).toHaveLength(1);
     expect(out.entries.every((e) => e.ghsa_at === null)).toBe(true);
     // no catalog: no KEV blocks yet, and the version stays unset so the next run reads it
     expect(out.kev_catalog_version).toBe("");
@@ -436,14 +469,14 @@ describe("the fixes module", () => {
     // a new CVE is still looked up, with its NVD answer: that is a real change, and the sweep is committed for it
     const fresh = world();
     const grown = (await fixesModule.fetch({ ...ctx(fresh, { liveCveIds: ["CVE-2026-0003", "CVE-2026-0004"] }), now: fourDays, rechecks: false }, first))!;
-    expect(fresh.calls.filter((u) => u.includes("cvelistV5")).map((u) => /CVE-\d+-\d+/.exec(u)![0])).toEqual(["CVE-2026-0004"]);
-    expect(fresh.calls.filter((u) => u.includes("nvd.nist.gov"))).toHaveLength(1);
+    expect(sentTo(fresh.calls, "raw.githubusercontent.com").map((u) => /CVE-\d+-\d+/.exec(u)![0])).toEqual(["CVE-2026-0004"]);
+    expect(sentTo(fresh.calls, "services.nvd.nist.gov")).toHaveLength(1);
     expect(grown.entries.map((e) => e.cve)).toEqual(["CVE-2026-0001", "CVE-2026-0002", "CVE-2026-0003", "CVE-2026-0004"]);
     expect(grown.entries.slice(0, 3)).toEqual(first.entries);
     // the same day on a sweep that is committed anyway: the re-reads and the missing answers are done
     const busy = world();
     const done = (await fixesModule.fetch({ ...ctx(busy, { liveCveIds: ["CVE-2026-0003"] }), now: fourDays }, first))!;
-    expect(busy.calls.filter((u) => u.includes("cvelistV5"))).toHaveLength(3);
+    expect(sentTo(busy.calls, "raw.githubusercontent.com")).toHaveLength(3);
     expect(done.entries.every((e) => e.fetched_at === fourDays.toISOString())).toBe(true);
     expect(done.entries.filter((e) => e.nvd_at !== null).map((e) => e.cve)).toEqual(["CVE-2026-0002", "CVE-2026-0003"]);
   });

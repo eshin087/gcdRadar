@@ -368,31 +368,50 @@ export function parseCveRecord(record: CveRecord, cve: string): CveParts {
 const NOTE_TAIL = /\s*For more information,? please see:?\s*$/i;
 
 /**
- * An entry's notes: links and remarks separated by " ; ". A bare link is
- * where CISA sends readers for the vendor's instructions (NVD's page is left
- * to the reference row); "Label: link" is CISA's own guidance (the binding
- * directive); anything else is a remark.
+ * True when a URL's hostname is `domain` itself or a subdomain of it:
+ * "www.cisa.gov" for "cisa.gov", never "notcisa.gov" or
+ * "cisa.gov.example.org". Every test of whose page a link is goes through
+ * here, on the parsed hostname, never on a substring of the URL.
+ */
+export function isHostOf(url: string, domain: string): boolean {
+  let hostname: string;
+  try {
+    hostname = new URL(url).hostname.toLowerCase().replace(/\.$/, "");
+  } catch {
+    return false;
+  }
+  return hostname === domain || hostname.endsWith(`.${domain}`);
+}
+
+/**
+ * An entry's notes: links and remarks separated by " ; ". A link on
+ * cisa.gov is CISA's own guidance (the binding directive, labelled as the
+ * note labels it); NVD's page is left to the reference row; any other link,
+ * labelled or bare, is where CISA sends readers for the vendor's
+ * instructions; anything else is a remark. Whose page a link is is decided
+ * by its hostname alone: a label in the note never makes a link CISA's.
  */
 export function parseKevNotes(notes: string | undefined): { links: FixLink[]; guidance: FixKev["guidance"]; note: string } {
   const links: FixLink[] = [];
   const guidance: FixKev["guidance"] = [];
   const remarks: string[] = [];
+  const file = (url: string, label: string) => {
+    if (isHostOf(url, "nvd.nist.gov")) return;
+    if (isHostOf(url, "cisa.gov")) {
+      if (guidance.length < 4) guidance.push({ label: label || "CISA", url });
+    } else links.push({ url, kind: "advisory", title: label.slice(0, 200), source: "kev" });
+  };
   for (const part of (notes ?? "").split(/\s+;\s*|;\s+/).map((s) => s.trim()).filter(Boolean)) {
     const labelled = /^([^:]{2,80}?):\s*(https?:\/\/\S+)$/.exec(part);
     if (labelled && !/^https?$/i.test(labelled[1]!)) {
       const url = webUrl(labelled[2]);
-      if (url && guidance.length < 4) guidance.push({ label: labelled[1]!.trim(), url });
+      if (url) file(url, labelled[1]!.trim());
       continue;
     }
     const urls = part.match(/https?:\/\/\S+/g) ?? [];
     for (const raw of urls) {
       const url = webUrl(raw.replace(/[),.]+$/, ""));
-      if (!url) continue;
-      const host = new URL(url).host.toLowerCase();
-      if (host === "nvd.nist.gov") continue;
-      if (host.endsWith("cisa.gov")) {
-        if (guidance.length < 4) guidance.push({ label: "CISA", url });
-      } else links.push({ url, kind: "advisory", title: "", source: "kev" });
+      if (url) file(url, "");
     }
     const text = part.replace(/https?:\/\/\S+/g, "").replace(NOTE_TAIL, "").trim();
     if (text.length > 3) remarks.push(text);
@@ -439,7 +458,8 @@ export function nvdLinks(refs: readonly { url?: string; tags?: string[] }[] | un
 /** A reviewed advisory's first patched version per package, and the advisory itself as a link. An unreviewed one is NVD's text again and adds nothing. */
 export function ghsaParts(adv: Advisory | null): { patches: FixPatch[]; links: FixLink[] } {
   const url = adv ? webUrl(adv.html_url) : null;
-  if (!adv || !url || adv.type !== "reviewed") return { patches: [], links: [] };
+  // the link is shown as a GitHub advisory, so it must be a page on github.com
+  if (!adv || !url || !isHostOf(url, "github.com") || adv.type !== "reviewed") return { patches: [], links: [] };
   const patches: FixPatch[] = [];
   for (const v of adv.vulnerabilities ?? []) {
     const name = v.package?.name?.trim();
