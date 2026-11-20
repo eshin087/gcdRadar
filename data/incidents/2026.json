@@ -1,5 +1,65 @@
 [
   {
+    "id": "AIR-2026-2079",
+    "slug": "fastunlock-unpatched-windows-zero-day-allows-program-executi",
+    "title": "FastUnlock unpatched Windows zero-day allows program execution from lock screen",
+    "summary": "A researcher disclosed an unpatched zero-day technique called FastUnlock that allows physical users of a locked Windows PC to execute programs under a limited account. Microsoft has not yet issued a patch for the method.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Windows"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html",
+        "publisher": "The Hacker News",
+        "title": "New Unpatched Windows 0-Day FastUnlock Lets Someone Holding a Locked PC Run Programs on It",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "zero-day",
+      "windows",
+      "local-privilege-escalation",
+      "fastunlock"
+    ],
+    "created_at": "2026-11-20T05:41:11.042Z",
+    "updated_at": "2026-11-20T05:41:11.042Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "Windows"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "New Unpatched Windows 0-Day FastUnlock Lets Someone Holding a Locked PC Run Programs on It",
+        "source_url": "https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html",
+        "added_at": "2026-11-20T05:41:11.042Z"
+      }
+    ],
+    "action": "Monitor for updates from Microsoft and restrict physical access to sensitive endpoints.",
+    "severity_note": "Researcher-disclosed unpatched vulnerability with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2078",
     "slug": "cve-2026-24205-nvidia-tensorrt-llm-race-condition-vulnerabil",
     "title": "CVE-2026-24205: NVIDIA TensorRT-LLM Race Condition Vulnerability",

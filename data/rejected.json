@@ -1,5 +1,15 @@
 [
   {
+    "key": "d3f93292594d13f0",
+    "title": "AI agent API security hasn’t caught up with agents already running in production",
+    "url": "https://helpnetsecurity.com/2026/11/20/ai-agent-api-security-production",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Survey and statistics piece without a specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-20T05:41:11.042Z"
+  },
+  {
     "key": "6a2597afdf90d3f4",
     "title": "Most CIOs and CISOs expect to contain attacks, though few can reach their gear right away",
     "url": "https://helpnetsecurity.com/2026/11/20/network-outage-recovery-resilience",
