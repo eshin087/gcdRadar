@@ -2089,6 +2089,10 @@
   "status": "rejected",
   "at": "2026-10-18T10:14:26.300Z"
  },
+ "14b1eb3d9075aa79": {
+  "status": "rejected",
+  "at": "2026-11-20T16:06:58.736Z"
+ },
  "14b9b77152abb212": {
   "status": "published",
   "id": "AIR-2025-0339",
@@ -13743,6 +13747,11 @@
   "status": "published",
   "id": "AIR-2026-1052",
   "at": "2026-10-18T10:04:21.885Z"
+ },
+ "8aa9f2e23f66897b": {
+  "status": "published",
+  "id": "AIR-2026-2095",
+  "at": "2026-11-20T16:06:58.736Z"
  },
  "8ac10c198861f748": {
   "status": "published",

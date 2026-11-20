@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2095",
+    "slug": "vendor-data-breach-exposes-chase-visa-mastercard-customer-in",
+    "title": "Vendor data breach exposes Chase, Visa, Mastercard customer info",
+    "summary": "J.P. Morgan Chase disclosed a data breach originating from a third‑party service provider that exposed personal and marketing data of its customers, including Visa and Mastercard holders. The breach resulted in the compromise of sensitive customer information.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info",
+        "publisher": "BleepingComputer",
+        "title": "Vendor data breach exposes Chase, Visa, Mastercard customer info",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "chase",
+      "visa",
+      "mastercard",
+      "personal-data"
+    ],
+    "created_at": "2026-11-20T16:06:58.736Z",
+    "updated_at": "2026-11-20T16:06:58.736Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Vendor data breach exposes Chase, Visa, Mastercard customer info",
+        "source_url": "https://bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info",
+        "added_at": "2026-11-20T16:06:58.736Z"
+      }
+    ],
+    "action": "Investigate the breach and notify affected customers",
+    "severity_note": "Confirmed exposure of personal and marketing data",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2094",
     "slug": "cve-2026-133710-llama-cpp-integer-overflow-allows-memory-cor",
     "title": "CVE-2026-133710: llama.cpp integer overflow allows memory corruption",
