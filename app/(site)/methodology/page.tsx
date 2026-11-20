@@ -421,7 +421,7 @@ export default function MethodologyPage() {
           and product columns, a record on its products, title and tags. A chip carries a coloured word only while something is exploited and open: a
           KEV due date ahead or passed in the last seven days (CISA&rsquo;s deadline), no full patch, or confirmed impact (severity 4: data, money or
           service lost). New critical CVEs (CVSS 9.0 or more, published in the last 14 days) are a second, quieter signal: a grey count in the
-          product list and a list of their own under a chip, never a coloured word. They are matched by name in NVD&rsquo;s one-line description, strictly, so the count can miss some. Every list of products is
+          product list and a list of their own under a chip, never a coloured word. A CVE that is already on CISA&rsquo;s list or in one of our exploited records is not counted among them: it is one of the exploited items. They are matched by name in NVD&rsquo;s one-line description, strictly, so the count can miss some. Every list of products is
           in one order: exploited with no full patch or a deadline within three days, then later deadlines, then confirmed impact, then new critical
           CVEs, then the rest; the higher CVSS score first inside a group. Until you choose, the strip shows the most urgent of the best-known
           products that day. Your picks stay in your browser.

@@ -1,4 +1,4 @@
-import { productFamily } from "../products";
+import { PRODUCT_FAMILY_LABELS, productFamily } from "../products";
 import { CATALOG, ancestorsOf } from "./index";
 import type { CatalogEntry } from "./types";
 
@@ -54,6 +54,9 @@ function memo<V>(make: (s: string) => V, max = 60_000): (s: string) => V {
 export const norm = memo((s: string) => s.toLowerCase().replace(/\s+/g, " ").trim());
 
 const familyOf = memo((name: string) => productFamily(name));
+
+/** The family labels themselves: productFamily answers a label with the label, as it answers a name it does not know with the name. */
+const FAMILY_LABELS: ReadonlySet<string> = new Set(PRODUCT_FAMILY_LABELS);
 
 /** A set of term sources as one pattern with word boundaries; null for none. Throws on a source that does not compile. */
 export function termPattern(sources: readonly string[], flags = ""): RegExp | null {
@@ -150,7 +153,8 @@ function readRecord(i: RecordLike): ReadRecord {
   for (const raw of i.products) {
     const fam = familyOf(raw);
     const n = norm(raw);
-    if (fam === raw.trim()) names.push(n);
+    // a name productFamily hands back unchanged maps to no family, unless it is a family's own label ("LiteLLM")
+    if (fam === raw.trim() && !FAMILY_LABELS.has(fam)) names.push(n);
     else {
       families.add(fam);
       if (n) owned.push(n, n.replace(/ /g, "-"));
