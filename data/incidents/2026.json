@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2082",
+    "slug": "careers360-data-breach-exposes-3-609-421-accounts",
+    "title": "Careers360 data breach exposes 3,609,421 accounts",
+    "summary": "In November 2026, user data from Indian education platform Careers360 was leaked on a public hacking forum. The breach exposed over 3.6 million unique accounts containing personal details, phone numbers, and academic records.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Careers360"
+    ],
+    "incident_date": "2026-11-14",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://haveibeenpwned.com/Breach/Careers360",
+        "publisher": "Have I Been Pwned",
+        "title": "Careers360 data breach exposes 3,609,421 accounts",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "pii-leak"
+    ],
+    "created_at": "2026-11-20T08:51:52.399Z",
+    "updated_at": "2026-11-20T08:51:52.399Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "Careers360 data breach exposes 3,609,421 accounts",
+        "source_url": "https://haveibeenpwned.com/Breach/Careers360",
+        "added_at": "2026-11-20T08:51:52.399Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed PII breach affecting millions of user accounts.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2081",
     "slug": "jpmorgan-visa-mastercard-cite-third-party-incidents-amid-dat",
     "title": "JPMorgan, Visa, Mastercard Cite Third-Party Incidents Amid Data Leak",
