@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ExploitedWeek } from "@/components/hero/ExploitedWeek";
 import { Verdict } from "@/components/home/panel/Verdict";
 import { InternetBand } from "@/components/internet/InternetBand";
-import { Ago } from "@/components/ui/Ago";
-import type { HomePayload } from "@/lib/home-data";
+import { SweepAgo } from "@/components/live/SweepAgo";
+import type { HomeView } from "@/lib/live/shape";
 import { SITE } from "@/lib/site";
 
 /**
@@ -15,13 +15,13 @@ import { SITE } from "@/lib/site";
  * the caption column stays narrow (164 to 180 px). Phones stack the three
  * columns.
  */
-export function HomeHero({ data }: { data: HomePayload }) {
+export function HomeHero({ data }: { data: HomeView }) {
   return (
     <section className="grid gap-8 lg:min-h-[300px] lg:grid-cols-[minmax(0,236px)_280px_minmax(0,1fr)] lg:gap-x-8 xl:grid-cols-[minmax(0,272px)_280px_minmax(0,1fr)] xl:gap-x-12">
       <div className="min-w-0 space-y-5 self-center">
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[12px] text-dim">
           <span aria-hidden className="live-dot" />
-          <span className="uppercase tracking-[0.1em]">Live</span> · <Ago iso={data.lastUpdated} prefix="last sweep" className="text-soft" />
+          <span className="uppercase tracking-[0.1em]">Live</span> · <SweepAgo iso={data.lastUpdated} className="text-soft" />
         </p>
         <h1 className="text-[26px] font-semibold leading-[1.08] tracking-tight text-balance sm:text-[28px]">What&rsquo;s being exploited now</h1>
         <Verdict v={data.panel.verdict} />

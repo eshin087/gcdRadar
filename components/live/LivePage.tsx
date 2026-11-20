@@ -2,10 +2,11 @@ import Link from "next/link";
 import { ThreatScope } from "@/components/hero/ThreatScope";
 import { LiveBoard } from "@/components/live/LiveBoard";
 import { LiveHeatmap } from "@/components/live/LiveHeatmap";
-import { Ago } from "@/components/ui/Ago";
+import { SweepAgo } from "@/components/live/SweepAgo";
 import { FAMILY_META } from "@/lib/families";
 import { monthLabel } from "@/lib/format";
 import type { LiveData } from "@/lib/live";
+import type { BoardView } from "@/lib/live/shape";
 import { SITE } from "@/lib/site";
 import { tagHref } from "@/lib/tags";
 
@@ -13,7 +14,10 @@ import { tagHref } from "@/lib/tags";
  * The home page: the headline and the radar scope, the counters, the feed
  * with its lane tabs, and a rail with the calendar, the AI lens, the live
  * tags and the machine-readable endpoints. Everything is built at deploy
- * time from lib/live.ts; the feed's tabs and filters run in the browser.
+ * time from lib/live.ts; the feed's tabs and filters run in the browser, and
+ * on /live the whole model is replaced by a newer sweep's when there is one
+ * (LiveBoardPage.tsx), so the label under "Live" states the age of the
+ * sweep on screen (SweepAgo.tsx).
  */
 
 function Counter({ id, label, value, href, title }: { id: string; label: string; value: number; href?: string; title: string }) {
@@ -44,7 +48,7 @@ function RailHead({ title, note }: { title: string; note?: string }) {
   );
 }
 
-export function LivePage({ data, variant = "home" }: { data: LiveData; variant?: "home" | "board" }) {
+export function LivePage({ data, variant = "home" }: { data: BoardView & Partial<Pick<LiveData, "scope">>; variant?: "home" | "board" }) {
   const c = data.counters;
   const longest = c.quiet.longest;
   return (
@@ -53,7 +57,7 @@ export function LivePage({ data, variant = "home" }: { data: LiveData; variant?:
         <header className="space-y-3">
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[12px] text-dim">
             <span aria-hidden className="live-dot" />
-            <span className="uppercase tracking-[0.1em]">Live</span> · <Ago iso={data.lastUpdated} prefix="last sweep" className="text-soft" />
+            <span className="uppercase tracking-[0.1em]">Live</span> · <SweepAgo iso={data.lastUpdated} className="text-soft" />
           </p>
           <h1 className="text-2xl font-semibold tracking-tight">The live board</h1>
           <p className="max-w-3xl text-[14.5px] leading-relaxed text-soft">
@@ -70,7 +74,7 @@ export function LivePage({ data, variant = "home" }: { data: LiveData; variant?:
           <div className="order-2 min-w-0 space-y-3 self-center lg:order-1">
             <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[12px] text-dim">
               <span aria-hidden className="live-dot" />
-              <span className="uppercase tracking-[0.1em]">Live</span> · <Ago iso={data.lastUpdated} prefix="last sweep" className="text-soft" />
+              <span className="uppercase tracking-[0.1em]">Live</span> · <SweepAgo iso={data.lastUpdated} className="text-soft" />
             </p>
             <h1 className="text-[30px] font-semibold leading-[1.08] tracking-tight text-balance sm:text-[34px]">What is being exploited right now.</h1>
             <p className="text-[15px] leading-relaxed text-soft">
@@ -89,7 +93,7 @@ export function LivePage({ data, variant = "home" }: { data: LiveData; variant?:
               </Link>
             </div>
           </div>
-          <ThreatScope scope={data.scope} running className="order-1 h-[200px] lg:order-2 lg:h-full" />
+          {data.scope && <ThreatScope scope={data.scope} running className="order-1 h-[200px] lg:order-2 lg:h-full" />}
         </section>
       )}
 

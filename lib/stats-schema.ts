@@ -81,6 +81,8 @@ export const KevStatsSchema = z.object({
   fetched_at: isoDateTime,
   source: StatsSourceSchema,
   catalog_version: z.string(),
+  /** The feed's Last-Modified header when this file was read from it: sent back as If-Modified-Since on the next sweep. */
+  feed_modified: z.string().optional(),
   entries: z.array(KevStatEntrySchema),
 });
 export type KevStats = z.infer<typeof KevStatsSchema>;

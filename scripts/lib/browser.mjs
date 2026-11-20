@@ -194,6 +194,41 @@ export async function blockHosts(client, hosts) {
   await client.send("Network.setBlockedURLs", { urls: hosts.flatMap((h) => [`*://${h}/*`, `*://${h}`]) });
 }
 
+const stubs = new WeakMap();
+
+/**
+ * Answers every request to `host` from `handler` instead of the network, so
+ * a check can hand the page a live file of its own making: `handler(url)`
+ * returns `{ body, status? }` (the body an object or a string, served as
+ * JSON with open CORS) or null for a failed request. Pass a null handler to
+ * stop. A blocked host (blockHosts) must be unblocked first: a block wins.
+ */
+export async function stubHost(client, host, handler) {
+  if (!stubs.has(client)) {
+    const state = { handler: null };
+    stubs.set(client, state);
+    client.on("Fetch.requestPaused", (p) => {
+      const res = state.handler?.(new URL(p.request.url)) ?? null;
+      const done = res
+        ? client.send("Fetch.fulfillRequest", {
+            requestId: p.requestId,
+            responseCode: res.status ?? 200,
+            responseHeaders: [
+              { name: "Content-Type", value: "application/json; charset=utf-8" },
+              { name: "Access-Control-Allow-Origin", value: "*" },
+              { name: "Cache-Control", value: "no-store" },
+            ],
+            body: Buffer.from(typeof res.body === "string" ? res.body : JSON.stringify(res.body)).toString("base64"),
+          })
+        : client.send("Fetch.failRequest", { requestId: p.requestId, errorReason: "Failed" });
+      done.catch(() => undefined);
+    });
+  }
+  stubs.get(client).handler = handler;
+  if (handler) await client.send("Fetch.enable", { patterns: [{ urlPattern: `*://${host}/*` }] });
+  else await client.send("Fetch.disable");
+}
+
 /** Collects page exceptions and console.error calls for the run. */
 export function collectErrors(client) {
   const errors = [];

@@ -40,6 +40,13 @@ export interface SourceContext {
   limit?: number;
   /** Candidate keys already processed (seen.json); adapters that must fetch per page use it to skip work. */
   seenKeys?: Set<string>;
+  /**
+   * The validators this source's last processed answer carried, for a conditional request; absent on a backfill
+   * or a run that names its sources, which read everything.
+   */
+  validators?: { etag?: string; lastModified?: string };
+  /** Called by an adapter with the validators of the answer it has just read, to be kept for the next run. */
+  remember?: (v: { etag?: string | null; lastModified?: string | null }) => void;
 }
 
 export interface SourceAdapter {

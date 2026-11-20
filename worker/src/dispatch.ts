@@ -2,13 +2,16 @@
  * The collector's clock. GitHub runs scheduled workflows when it has room,
  * and in October 2026 the hourly collect.yml ran three to five times a day,
  * so news waited up to seven hours. The Worker's cron trigger starts the
- * collector through workflow_dispatch instead, every 30 minutes, and skips a
- * tick while a run is still queued or running so runs never stack (the
- * workflow's concurrency group would cancel the older waiting one). GitHub's
- * own schedule stays in collect.yml as the fallback.
+ * collector through workflow_dispatch instead, every 15 minutes since
+ * 2026-11-20 (every 30 before), and skips a tick while a run is still queued
+ * or running so runs never stack (the workflow's concurrency group would
+ * cancel the older waiting one). GitHub's own schedule stays in collect.yml
+ * as the fallback.
  *
  * The token is the secret GITHUB_DISPATCH_TOKEN: a fine-grained token for
- * this repository only, with Actions read and write and nothing else.
+ * this repository only, with Actions read and write and nothing else. The
+ * live route (./live.ts) also reads the repository's public `live` branch
+ * with it, which any GitHub token may do.
  */
 
 export const REPO = "eshin087/gcdRadar";

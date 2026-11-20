@@ -37,6 +37,39 @@ export async function lastDeployingCommitAt(): Promise<string | null> {
   }
 }
 
+function minutesSince(iso: string, now: number): number | null {
+  const t = Date.parse(iso);
+  return Number.isFinite(t) ? Math.max(0, (now - t) / 60_000) : null;
+}
+
+/**
+ * How main has been used lately, for collector/cadence.ts: minutes since the
+ * branch's newest commit, minutes since the newest data commit of a sweep
+ * (subject "data: run …"), and commits in the last 24 hours. Each is null
+ * when git cannot say, and the caller then commits and sweeps as before.
+ */
+export async function mainActivity(now = Date.now()): Promise<{ sinceLastCommit: number | null; sinceLastDataCommit: number | null; commitsLastDay: number | null }> {
+  const read = async (args: string[]): Promise<string | null> => {
+    try {
+      return await git(args);
+    } catch (err) {
+      log.warn("git: could not read the branch's recent activity", { error: errorMessage(err).slice(0, 200) });
+      return null;
+    }
+  };
+  const [last, lastData, count] = await Promise.all([
+    read(["log", "-1", "--format=%cI"]),
+    read(["log", "-1", "--format=%cI", "--fixed-strings", "--grep=data: run "]),
+    read(["rev-list", "--count", `--since=${new Date(now - 86_400_000).toISOString()}`, "HEAD"]),
+  ]);
+  const n = count === null ? NaN : Number(count);
+  return {
+    sinceLastCommit: last ? minutesSince(last, now) : null,
+    sinceLastDataCommit: lastData ? minutesSince(lastData, now) : null,
+    commitsLastDay: Number.isInteger(n) ? n : null,
+  };
+}
+
 /**
  * Stages the data directory, commits as the configured identity (the repo
  * owner's, so Vercel's Hobby plan deploys the push) and pushes with a

@@ -10,10 +10,13 @@ import type { StatsModule } from "./types";
  * remediation deadline, and (joined from NVD) the days between a CVE's
  * publication and its listing. CC0 1.0, verified 2026-10-26.
  *
- * Read again once the file is 0.9 hours old, so on about every hourly
- * collector run (every other run at a 30-minute cadence): the home page's
- * deadline rows and its known-exploited-this-week count come from here, and
- * CISA adds entries at any hour. A read that changes nothing writes nothing.
+ * Asked on every sweep since 2026-11-20 (about hourly before): the home
+ * page's deadline rows and its known-exploited-this-week count come from
+ * here, and CISA adds entries at any hour. The request carries
+ * If-Modified-Since with the Last-Modified of the catalog this file was
+ * read from (`feed_modified`), and CISA's server answers an unchanged
+ * catalog with 304 and no body, so a sweep that finds nothing new costs one
+ * small round trip. A read that changes nothing writes nothing.
  * The NVD join (about 19 MB) runs only when there is no previous file, when
  * the catalog lists a CVE the previous file lacks, or while an entry listed
  * in the last 30 days still lacks its publish date or score (a failed join,
@@ -75,9 +78,22 @@ export const kevModule: StatsModule<KevStats> = {
   name: "kev",
   file: STATS_FILES.kev,
   schema: KevStatsSchema,
-  maxAgeHours: 0.9,
+  maxAgeHours: 0,
   async fetch(ctx, previous) {
-    const catalog = await ctx.http.json<KevCatalog>(KEV_URL, { userAgent: ctx.settings.fetch.user_agent, timeoutMs: 40_000, retries: 2, maxBytes: 10_000_000 });
+    const request = { userAgent: ctx.settings.fetch.user_agent, timeoutMs: 40_000, retries: 2, maxBytes: 10_000_000 };
+    let catalog: KevCatalog;
+    let feedModified: string | undefined = previous?.feed_modified;
+    if (ctx.http.fetch) {
+      const res = await ctx.http.fetch(KEV_URL, { ...request, headers: { accept: "application/json" }, lastModified: previous?.feed_modified });
+      if (res.notModified) {
+        ctx.log("stats kev: the catalog has not changed", { since: previous?.feed_modified });
+        return null;
+      }
+      catalog = JSON.parse(res.body) as KevCatalog;
+      feedModified = res.headers.get("last-modified") ?? undefined;
+    } else {
+      catalog = await ctx.http.json<KevCatalog>(KEV_URL, request);
+    }
     const listed = catalog.vulnerabilities.filter((v) => DATE.test(v.dateAdded) && CVE.test(v.cveID));
     let nvd = new Map<string, { published: string; cvss: number | null }>();
     if (needsNvdJoin(listed, previous, ctx.now)) {
@@ -94,6 +110,6 @@ export const kevModule: StatsModule<KevStats> = {
       .map((v) => kevStatEntry(v, nvd.get(v.cveID), prev.get(v.cveID)))
       .sort((a, b) => b.added.localeCompare(a.added) || a.cve.localeCompare(b.cve));
     ctx.log("stats kev: fetched", { entries: entries.length, with_published: entries.filter((e) => e.published).length, nvd_matched: nvd.size });
-    return { fetched_at: ctx.now.toISOString(), source: KEV_SOURCE, catalog_version: catalog.catalogVersion ?? "", entries };
+    return { fetched_at: ctx.now.toISOString(), source: KEV_SOURCE, catalog_version: catalog.catalogVersion ?? "", ...(feedModified ? { feed_modified: feedModified } : {}), entries };
   },
 };

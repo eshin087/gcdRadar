@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { HomePage } from "@/components/home/HomePage";
-import { getHomeData } from "@/lib/home-data";
+import { getHomeView } from "@/lib/home-data";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const data = await getHomeData();
+  // the part of the model the page draws, in the shape a sweep publishes: the browser swaps in a newer one
+  const data = await getHomeView();
   return <HomePage data={data} />;
 }

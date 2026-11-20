@@ -12,11 +12,14 @@
  * `stale: true`; with nothing to serve, a 503 lets the page show its idle
  * state.
  *
- * The cron trigger (wrangler.jsonc) is the collector's clock: every 30
+ * The cron trigger (wrangler.jsonc) is the collector's clock: every 15
  * minutes it starts collect.yml on GitHub (./dispatch.ts).
  *
  * GET /v1/pulse: live NVD CVE counts (last 24 hours, last 7 days), cached ten minutes in KV; see pulse.ts.
+ *
+ * GET /v1/live/<name>: the newest sweep's files, passed through from the repository's `live` branch; see live.ts.
  */
+import { live } from "./live";
 import { pulse } from "./pulse";
 import {
   assemble,
@@ -45,6 +48,7 @@ const FRESH_S = 300;
 /** Seconds the last good payload stays in KV for stale service. */
 const KEEP_S = 3600;
 const UPSTREAM_TIMEOUT_MS = 8000;
+const LIVE_PREFIX = "/v1/live/";
 
 interface Stored {
   payload: InternetPayload;
@@ -188,7 +192,9 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
     if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method not allowed" }, 405, { Allow: "GET, HEAD, OPTIONS" });
     if (url.pathname === "/v1/pulse") return pulse(request, env.CACHE, ctx);
-    if (url.pathname !== "/v1/internet") return json({ error: "not found", routes: ["/v1/internet", "/v1/pulse"] }, 404, { "Cache-Control": "public, max-age=60" });
+    // the token reads the public repository through GitHub's API; without it the route falls back to the raw host
+    if (url.pathname.startsWith(LIVE_PREFIX)) return live(request, url.pathname.slice(LIVE_PREFIX.length), { token: env.GITHUB_DISPATCH_TOKEN, cache: caches.default, ctx });
+    if (url.pathname !== "/v1/internet") return json({ error: "not found", routes: ["/v1/internet", "/v1/pulse", "/v1/live/home.json"] }, 404, { "Cache-Control": "public, max-age=60" });
 
     const now = new Date();
     let res: Response;

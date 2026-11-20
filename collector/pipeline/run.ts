@@ -47,10 +47,12 @@ export interface RunSummary {
   rejected: RejectedRecord[];
   merged: Merge[];
   pendingCount: number;
+  /** GitHub advisory lookups made this run (their answers are kept in collector-state.json). */
+  lookedUp: number;
 }
 
 /** Hours since the last success before a scheduled source is read again (a little under the nominal period so an hourly cron hits it); Infinity for a source its own workflow reads. */
-export const DUE_HOURS: Record<SourceConfig["schedule"], number> = { every_run: 0, six_hourly: 5.5, daily: 20, weekly: 6 * 24, monthly: 27 * 24, own_workflow: Infinity };
+export const DUE_HOURS: Record<SourceConfig["schedule"], number> = { every_run: 0, two_hourly: 1.9, six_hourly: 5.5, daily: 20, weekly: 6 * 24, monthly: 27 * 24, own_workflow: Infinity };
 
 /**
  * When each source last succeeded: collector-state.json, which outlives the
@@ -125,6 +127,10 @@ export async function runCollector(opts: RunOptions): Promise<RunSummary> {
           log.debug("not due", { source: src.id, schedule: src.schedule });
           return;
         }
+        // conditional requests: only on an ordinary sweep, and only against an answer this branch's state remembers
+        const known = state.collector.sources[src.id];
+        const conditional = !opts.sourceIds && !opts.since && !opts.limit && known ? { etag: known.etag, lastModified: known.last_modified } : undefined;
+        const remembered: { set: boolean; etag?: string; last_modified?: string } = { set: false };
         const ctx: SourceContext = {
           config,
           settings,
@@ -133,13 +139,22 @@ export async function runCollector(opts: RunOptions): Promise<RunSummary> {
           since: opts.since,
           limit: opts.limit,
           seenKeys: new Set(Object.keys(state.seen)),
+          validators: conditional,
+          remember: (v) => {
+            remembered.set = true;
+            remembered.etag = v.etag ?? undefined;
+            remembered.last_modified = v.lastModified ?? undefined;
+          },
         };
         const t0 = Date.now();
         try {
           const items = await adapter.fetch(src, ctx);
           fetched.push(...items);
           record.sources.push({ id: src.id, ok: true, items: items.length, duration_ms: Date.now() - t0 });
-          if (opts.mode !== "dry-run") state.collector.sources[src.id] = { last_success_at: new Date().toISOString() };
+          // a 304 leaves `remembered` unset and the validators as they were
+          const from = remembered.set ? remembered : known;
+          const validators = { ...(from?.etag ? { etag: from.etag } : {}), ...(from?.last_modified ? { last_modified: from.last_modified } : {}) };
+          if (opts.mode !== "dry-run") state.collector.sources[src.id] = { last_success_at: new Date().toISOString(), ...validators };
           log.info(`${src.id}: ${items.length} candidates`);
         } catch (err) {
           record.sources.push({
@@ -378,8 +393,10 @@ export async function runCollector(opts: RunOptions): Promise<RunSummary> {
   record.counts.rejected = rejected.length;
 
   // 9b. Version data for live patch and supply-chain records that carry a CVE and no fixed version yet (GitHub Advisory Database, by CVE id)
+  let lookedUp = 0;
   if (!opts.sourceIds || opts.sourceIds.includes("ghsa")) {
     const lookups = await enrichVersions(state.incidents, state.collector, settings, stamp);
+    lookedUp = lookups.looked_up;
     record.errors.push(...lookups.errors);
     if (lookups.looked_up) log.info(`ghsa lookups: ${lookups.looked_up} CVE(s) asked, ${lookups.enriched.length} record(s) given version data`, { ids: lookups.enriched.slice(0, 10) });
   }
@@ -418,5 +435,5 @@ export async function runCollector(opts: RunOptions): Promise<RunSummary> {
   } else {
     log.info("dry run: nothing written");
   }
-  return { record, changedFiles, published, review, rejected, merged: merges, pendingCount: pending.length };
+  return { record, changedFiles, published, review, rejected, merged: merges, pendingCount: pending.length, lookedUp };
 }

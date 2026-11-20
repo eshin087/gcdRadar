@@ -2,7 +2,9 @@ import { existsSync, readFileSync } from "node:fs";
 import { appendFile } from "node:fs/promises";
 import path from "node:path";
 import { briefingCommitMessage, briefingMarkdown, readBriefings, runBriefing } from "./briefing";
-import { commitAndPush, lastDeployingCommitAt, NO_SITE_CHANGE } from "./git";
+import { BUDGET_GAP_MINUTES, commitsSweep, overPushBudget, PUSH_BUDGET, quietSweep } from "./cadence";
+import { commitAndPush, lastDeployingCommitAt, mainActivity, NO_SITE_CHANGE } from "./git";
+import { liveFilesFromDisk, publishLive, type LivePublishResult } from "./live";
 import { loadConfig } from "./lib/config";
 import { errorMessage, log, setVerbose } from "./lib/log";
 import { BOOKKEEPING_FILES, loadState } from "./lib/state";
@@ -64,7 +66,8 @@ function parseArgs(argv: string[]): Args {
 
 /**
  * The deploy windows: the UTC hours by which the site must have been rebuilt.
- * Every run commits and pushes its data, but a scheduled run leaves the
+ * Every run that changed something commits and pushes its data (a quiet
+ * sweep is not committed, collector/cadence.ts), but a scheduled run leaves the
  * marker off its subject and pings the deploy hook only when a window has
  * opened since the last commit that rebuilt the site (windowOpenedSince); the
  * others carry "[no site change]" and Vercel skips their build. Until
@@ -191,15 +194,31 @@ async function main() {
         since,
         enrich,
       };
+      // how main has been used lately: a quiet sweep is committed only hourly, and a fuse slows the sweeps
+      // down when main has taken its day's commits (collector/cadence.ts)
+      const fullSweep = opts.mode === "scheduled" && !sourceIds;
+      const activity = fullSweep ? await mainActivity() : null;
+      if (activity && overPushBudget(activity.commitsLastDay, activity.sinceLastDataCommit)) {
+        const note = `main has taken ${activity.commitsLastDay} commits in 24 hours (budget ${PUSH_BUDGET}): this sweep is skipped, and sweeps run at most every ${BUDGET_GAP_MINUTES} minutes until the count falls`;
+        log.warn(note);
+        if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `> ⚠️ ${note}.\n`);
+        return;
+      }
       const summary = await runCollector(opts);
       summarize(summary);
-      const settings = loadConfig().settings;
+      const config = loadConfig();
+      const settings = config.settings;
       const radarChanged = !sourceIds ? await maybeUpdateRadar(settings, { dryRun }) : false;
-      // the statistics files (data/stats): each due on its own cadence (the KEV catalog about hourly, most once a day), skipped in dry runs so a pipeline rehearsal stays quick
+      // the statistics files (data/stats): each due on its own cadence (the KEV catalog every sweep, most once a day), skipped in dry runs so a pipeline rehearsal stays quick
       const statsChanged = !sourceIds && !dryRun ? (await runStats(settings)).changed.length > 0 : false;
       const sideChanged = radarChanged || statsChanged;
+      const quiet =
+        fullSweep &&
+        quietSweep({ changedFiles: summary.changedFiles, sideChanged, record: summary.record, lookedUp: summary.lookedUp, schedules: new Map(config.sources.map((s) => [s.id, s.schedule])) });
+      const commitNow = commitsSweep(quiet, activity?.sinceLastCommit ?? null);
+      if (commit && !commitNow) log.info("a quiet sweep: nothing but the run ledger changed, so nothing is committed (the ledger is committed at least hourly)", { minutes_since_last_commit: Math.round(activity?.sinceLastCommit ?? 0) });
       let unpushed = false;
-      if (commit && (summary.changedFiles.length || sideChanged)) {
+      if (commit && commitNow && (summary.changedFiles.length || sideChanged)) {
         // a scheduled run rebuilds the site only when a deploy window has opened since the last commit that
         // rebuilt it (the windows are deadlines, so a thin schedule cannot leave the site stale for days);
         // a manual run (the owner at the keyboard) deploys as before
@@ -213,6 +232,18 @@ async function main() {
         const result = await commitAndPush(runCommitMessage(summary.record, summary.changedFiles, sideChanged, deployNow), { deploy: !quiet });
         unpushed = result.committed && !result.pushed;
       }
+      // The live layer: every full sweep posts what the home page and the live board redraw from to the
+      // `live` branch (collector/live.ts), committed to main or not. Not after a failed push to main: the
+      // next sweep redoes that work and could give a record another id.
+      let live: LivePublishResult | null = null;
+      if (commit && !sourceIds && !unpushed) {
+        try {
+          live = await publishLive(await liveFilesFromDisk(summary.record.finished_at), summary.record.finished_at);
+        } catch (err) {
+          live = { published: false, files: 0, bytes: 0, error: errorMessage(err).slice(0, 400) };
+          log.warn("live: the sweep's files could not be built; the page keeps the last ones", { error: live.error });
+        }
+      }
       // Health: a job summary on Actions, and a failed job (owner gets an email) when classification
       // has stalled or the data commit could not be pushed (rejected by push protection, or the network).
       const stalled = dryRun ? false : classificationStalled((await loadState()).runs, settings.alerts.stalled_runs);
@@ -220,6 +251,9 @@ async function main() {
       if (unpushed) {
         md += "\n\n> ❌ The data commit was made but could not be pushed. If GitHub's push protection rejected it, open the run log for the bypass link or remove the flagged text; the next run retries the push.";
       }
+      if (commit && !commitNow) md += "\n\nA quiet sweep: nothing but the run ledger changed, so nothing was committed to `main`.";
+      if (live?.published) md += `\n\nLive files published to the \`live\` branch: ${live.files} files, ${Math.round(live.bytes / 1024)} KB.`;
+      else if (live) md += `\n\n> ⚠️ The live files were not published (${live.error ?? "unknown error"}); the pages keep the last sweep's until the next one.`;
       if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `${md}\n`);
       if (stalled) {
         log.error(`classification has stalled: the last ${settings.alerts.stalled_runs} scheduled runs classified nothing while candidates waited`);
