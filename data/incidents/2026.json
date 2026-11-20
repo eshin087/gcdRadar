@@ -1,5 +1,60 @@
 [
   {
+    "id": "AIR-2026-2083",
+    "slug": "european-commission-confirms-ai-assisted-cyberattack-disrupt",
+    "title": "European Commission confirms AI-assisted cyberattack disrupted systems",
+    "summary": "The European Commission confirmed it suffered a cyberattack utilizing a publicly available AI tool, forcing several internal applications offline. Officials acknowledged the incident during a press briefing following initial reporting.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-20",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/20/european-commission-ai-generated-cyberattack-publicly-available-tool",
+        "publisher": "Help Net Security",
+        "title": "European Commission confirms AI-generated cyberattack disrupted its systems",
+        "published_at": "2026-11-20"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "european-commission",
+      "ai-enabled-attack",
+      "cyberattack"
+    ],
+    "created_at": "2026-11-20T09:06:44.373Z",
+    "updated_at": "2026-11-20T09:06:44.373Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-20",
+        "title": "European Commission confirms AI-generated cyberattack disrupted its systems",
+        "source_url": "https://helpnetsecurity.com/2026/11/20/european-commission-ai-generated-cyberattack-publicly-available-tool",
+        "added_at": "2026-11-20T09:06:44.373Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world attack causing service disruption at a named institution",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2082",
     "slug": "careers360-data-breach-exposes-3-609-421-accounts",
     "title": "Careers360 data breach exposes 3,609,421 accounts",
