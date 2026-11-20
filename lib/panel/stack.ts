@@ -1,4 +1,4 @@
-import { CATALOG, TAIL_CATEGORY, catalogKey, descendants, type CatalogEntry } from "../catalog";
+import { CATALOG, TAIL_CATEGORY, ancestorsOf, catalogKey, descendants, type CatalogEntry } from "../catalog";
 import type { Affected } from "../catalog/affected";
 import { catalogMatchers, norm, termPattern } from "../catalog/match";
 import { isDisclosedIncident } from "../counting";
@@ -10,6 +10,7 @@ import {
   CRITICAL_DAYS,
   CRITICAL_MIN,
   CRITS_KEPT,
+  CRITS_ON_TILE,
   STACK_DAYS,
   STACK_LATE_DAYS,
   STACK_SOON_DAYS,
@@ -81,7 +82,14 @@ export {
  * Program's vendor and product names (lib/catalog/affected.ts, when a file
  * carries them) they are matched on those names; without, on the description,
  * strictly (the entry has to be the subject of the sentence). They never flag
- * a tile; a product with nothing else is the fourth tier of five.
+ * a tile; a product with nothing else is the fourth tier of five. Each
+ * carries the product it names: the most specific entry that holds it.
+ *
+ * Two scores per candidate. `flagScore` is the one to show: the CVSS of the
+ * item behind the flag, null while that item has no score. `cvss` is the one
+ * the order goes by: the same, or where the flag's item has none yet, the
+ * highest among the product's exploited items of the 90 days, so an
+ * unscored, unpatched flaw does not sink below a scored minor one.
  *
  * The order (picks.ts stackUrgency, byUrgency) is the same wherever products
  * are listed: the strip, the chooser, this file.
@@ -125,7 +133,7 @@ function sortItems(items: StackItem[]): StackItem[] {
   return items.sort((a, b) => rank(a) - rank(b) || (a.open === "due" && b.open === "due" ? a.due!.localeCompare(b.due!) : 0) || b.date.localeCompare(a.date) || a.name.localeCompare(b.name));
 }
 
-/** A candidate as the page's tile: everything but the lists and the search words, which the browser fetches from the file. */
+/** A candidate as the page's tile: everything but the item list, the full critical list and the search words, which the browser fetches from the file. */
 export function tileOf(c: StackCandidate): StackCandidate {
   return {
     key: c.key,
@@ -141,11 +149,14 @@ export function tileOf(c: StackCandidate): StackCandidate {
     late: c.late,
     patch: c.patch,
     impact: c.impact,
+    flagScore: c.flagScore,
     cvss: c.cvss,
     crit: c.crit,
     tier: c.tier,
     kev7: c.kev7,
     href: c.href,
+    // the highest few of its new criticals, so the page can name them without fetching the file
+    ...(c.crits?.length ? { crits: c.crits.slice(0, CRITS_ON_TILE) } : {}),
   };
 }
 
@@ -212,11 +223,16 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
   const critFrom = new Date(Date.parse(nowIso) - CRITICAL_DAYS * 86_400_000).toISOString();
   const criticals = (extra.criticals ?? []).filter((c) => c.score !== null && c.score >= CRITICAL_MIN && c.published > critFrom && c.published <= nowIso);
   const critHeld: Set<RecentCve>[] = matchers.map(() => new Set());
+  /** The product a critical CVE names: the most specific entry that holds it (a product before its vendor, the catalog's order between equals). */
+  const critName = new Map<RecentCve, { name: string; depth: number }>();
+  const depthOf = matchers.map((m) => ancestorsOf(m.entry).length + (m.entry.level === "product" ? 1 : 0));
   for (const c of criticals) {
     const names = extra.affected?.get(c.id.toUpperCase());
     for (let n = 0; n < matchers.length; n++) {
       const m = matchers[n]!;
-      if (names?.length ? names.some((a) => m.columns(a.vendor, a.product)) : m.describes(c.description)) critHeld[n]!.add(c);
+      if (!(names?.length ? names.some((a) => m.columns(a.vendor, a.product)) : m.describes(c.description))) continue;
+      critHeld[n]!.add(c);
+      if ((critName.get(c)?.depth ?? -1) < depthOf[n]!) critName.set(c, { name: m.entry.name, depth: depthOf[n]! });
     }
   }
 
@@ -286,11 +302,19 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
                 : null;
 
     const critList = [...crits].sort((a, b2) => (b2.score ?? 0) - (a.score ?? 0) || b2.published.localeCompare(a.published) || a.id.localeCompare(b2.id));
-    // the score the order goes by: the highest among what is open, else among everything of the 90 days; a product with new criticals only goes by theirs
-    const scores = (list: StackItem[]) => list.filter((x) => x.cvss !== null).map((x) => x.cvss!);
-    const openScores = scores(items.filter((x) => x.open));
-    const anyScores = scores(items);
-    const cvss = flag === null ? (critList[0]?.score ?? null) : openScores.length ? Math.max(...openScores) : anyScores.length ? Math.max(...anyScores) : null;
+    const highest = (list: readonly (number | null)[]) => list.reduce<number | null>((top, x) => (x !== null && (top === null || x > top) ? x : top), null);
+    // the score to show: that of the item behind the flag, the same item the flag's words were taken from
+    const behind = soon || (!late && due) ? mine.filter((e) => e.due === due) : late ? mine.filter((e) => e.due === late) : [];
+    const flagScore =
+      flag === null
+        ? null
+        : behind.length
+          ? highest(behind.map((e) => e.cvss))
+          : patch
+            ? highest(open.filter((i) => i.lane === "patch" && i.patch_status === patch).map((i) => i.cvss))
+            : highest(open.filter((i) => i.severity >= 4).map((i) => i.cvss));
+    // the score the order goes by: the flag's; where that has none yet, the highest among everything of the 90 days; a product with new criticals only goes by theirs
+    const cvss = flag === null ? (critList[0]?.score ?? null) : (flagScore ?? highest(items.map((x) => x.cvss)));
     const facts = { patch, due, late, impact, crit: critList.length } as const;
     const page = productSlug(b.page);
     return {
@@ -304,12 +328,13 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
       flag,
       why,
       ...facts,
+      flagScore,
       cvss,
       tier: stackUrgency(facts, today),
       kev7: mine.filter((e) => e.added > weekFrom).map((e) => ({ name: kevName(e.vendor, e.product), cve: e.cve, due: e.due })),
       href: b.kind === "ai" && productPages.has(page) ? `/products/${page}` : kevCatalogHref(b.label),
       items: sortItems(items),
-      crits: critList.slice(0, CRITS_KEPT).map((c): StackCrit => ({ id: c.id, score: c.score!, published: c.published.slice(0, 10) })),
+      crits: critList.slice(0, CRITS_KEPT).map((c): StackCrit => ({ id: c.id, score: c.score!, published: c.published.slice(0, 10), name: critName.get(c)?.name ?? b.label })),
       ...(b.aka.length ? { aka: b.aka } : {}),
       ...(b.also.length ? { also: b.also } : {}),
       ...(b.popular ? { popular: true } : {}),

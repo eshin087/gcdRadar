@@ -174,6 +174,7 @@ describe("the ledger", () => {
         late: null,
         patch: null,
         impact: false,
+        flagScore: 7.8,
         cvss: 7.8,
         crit: 0,
         tier: 1,
@@ -302,6 +303,8 @@ describe("my stack", () => {
     // a deadline further out than three days
     kev({ cve: "CVE-2026-1005", vendor: "Langflow", product: "Langflow", added: "2026-10-10", due: "2026-11-12", cvss: 9.8 }),
     kev({ cve: "CVE-2026-1006", vendor: "Old", product: "Thing", added: "2026-01-01", due: "2026-01-22" }),
+    // an older, scored entry beside an unscored record without a patch (below)
+    kev({ cve: "CVE-2026-1007", vendor: "Veeam", product: "Backup & Replication", added: "2026-09-15", due: "2026-10-06", cvss: 9.9 }),
   ];
   const recs = [
     // the same CVE as a KEV entry: counted once
@@ -314,12 +317,15 @@ describe("my stack", () => {
     incident({ title: "Retailer breach", summary: "The attackers used a Microsoft Teams lure to reach staff before the breach.", products: ["Retail POS"], severity: 4, lane: "breach", first_reported: "2026-10-28" }),
     // confirmed impact and nothing else
     incident({ title: "Zoom client flaw drained accounts", products: ["Zoom"], severity: 4, lane: "breach", first_reported: "2026-10-25", type: "not_ai", categories: ["general"] }),
+    // exploited, no patch, and no CVSS score on it yet
+    incident({ title: "Backup servers hit through an unpatched flaw", products: ["Veeam Backup & Replication"], severity: 3, lane: "patch", patch_status: "unpatched", first_reported: "2026-10-28", type: "not_ai", categories: ["general"] }),
   ];
   const criticals = [
     { id: "CVE-2026-2001", published: "2026-10-28T10:00:00.000Z", score: 9.8, severity: "CRITICAL" as const, version: "3.1" as const, description: "PostgreSQL before 18.2 allows an unauthenticated attacker to run code." },
     { id: "CVE-2026-2002", published: "2026-10-27T10:00:00.000Z", score: 9.1, severity: "CRITICAL" as const, version: "3.1" as const, description: "The Shop Sync plugin for WordPress is vulnerable to SQL injection through its PostgreSQL connector." },
     { id: "CVE-2026-2003", published: "2026-10-28T10:00:00.000Z", score: 8.9, severity: "HIGH" as const, version: "3.1" as const, description: "PostgreSQL before 18.2 leaks memory." },
     { id: "CVE-2026-2004", published: "2026-10-01T10:00:00.000Z", score: 10, severity: "CRITICAL" as const, version: "3.1" as const, description: "PostgreSQL before 17.9 allows code execution." },
+    { id: "CVE-2026-2005", published: "2026-10-27T10:00:00.000Z", score: 9.9, severity: "CRITICAL" as const, version: "3.1" as const, description: "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core)." },
   ];
   const file = buildStack(recs, entries, TODAY, NOW, { criticals });
   const tile = (key: string) => file.candidates.find((c) => c.key === key)!;
@@ -372,11 +378,35 @@ describe("my stack", () => {
     expect(tile("zoom")).toMatchObject({ flag: "confirmed impact", impact: true, tier: 3 });
     expect(tile("litellm")).toMatchObject({ flag: null, tier: 5 });
   });
+  it("carries the score of the item behind the flag, and says so when that item has none yet", () => {
+    expect(tile("linux").flagScore).toBe(7.8);
+    expect(tile("cisco").flagScore).toBe(9.1);
+    expect(tile("langflow").flagScore).toBe(9.8);
+    // records without a CVSS score: nothing to show, whatever else the product holds
+    expect(tile("citrix")).toMatchObject({ flag: "no patch yet", flagScore: null, cvss: null });
+    expect(tile("zoom")).toMatchObject({ flag: "confirmed impact", flagScore: null });
+    // Veeam's unpatched record has no score, its older KEV entry has 9.9: none to show, 9.9 to be ordered by
+    expect(tile("veeam")).toMatchObject({ flag: "no patch yet", n: 2, flagScore: null, cvss: 9.9, tier: 1 });
+    // no flag, no flag score
+    expect(tile("microsoft").flagScore).toBeNull();
+    expect(tile("postgresql")).toMatchObject({ flagScore: null, cvss: 9.8 });
+  });
   it("counts new critical CVEs apart from the flags: 9.0 and up, the last 14 days, the product as the subject", () => {
     expect(tile("postgresql")).toMatchObject({ crit: 1, flag: null, tier: 4, cvss: 9.8, n: 0 });
-    expect(tile("postgresql").crits).toEqual([{ id: "CVE-2026-2001", score: 9.8, published: "2026-10-28" }]);
+    expect(tile("postgresql").crits).toEqual([{ id: "CVE-2026-2001", score: 9.8, published: "2026-10-28", name: "PostgreSQL" }]);
     // a plugin for WordPress is not WordPress, and its connector is not PostgreSQL
     expect(tile("wordpress").crit).toBe(0);
+  });
+  it("names the product each critical CVE is about, on its vendor's list too, and gives a tile the highest few", () => {
+    // WebLogic and Fusion Middleware both hold it; the first in the catalog names it
+    expect(tile("oracle")).toMatchObject({ crit: 1, tier: 4, crits: [{ id: "CVE-2026-2005", score: 9.9, name: "WebLogic Server" }] });
+    expect(tile("weblogic").crits).toEqual(tile("oracle").crits);
+    expect(tileOf(tile("oracle")).crits).toEqual(tile("oracle").crits);
+    const many = Array.from({ length: 12 }, (_, k) => ({ id: `CVE-2026-3${String(k).padStart(3, "0")}`, published: "2026-10-28T10:00:00.000Z", score: 9 + k / 20, severity: "CRITICAL" as const, version: "3.1" as const, description: "PostgreSQL before 18.2 allows code execution." }));
+    const pg = buildStack([], [], TODAY, NOW, { criticals: many }).candidates.find((c) => c.key === "postgresql")!;
+    expect(pg.crit).toBe(12);
+    expect(pg.crits!.map((c) => c.score)).toEqual([9.55, 9.5, 9.45, 9.4, 9.35, 9.3, 9.25, 9.2]);
+    expect(tileOf(pg).crits!.map((c) => c.score)).toEqual([9.55, 9.5, 9.45]);
   });
   it("takes the CVE Program's vendor and product names over the description when a file has them", () => {
     const named = buildStack(recs, entries, TODAY, NOW, { criticals, affected: new Map([["CVE-2026-2001", [{ vendor: "Redis", product: "Redis" }]], ["CVE-2026-2002", [{ vendor: "Old", product: "Thing" }]]]) });
@@ -389,8 +419,10 @@ describe("my stack", () => {
     const order = file.candidates.map((c) => c.key);
     const at = (key: string) => order.indexOf(key);
     expect(file.candidates.map((c) => c.tier)).toEqual([...file.candidates.map((c) => c.tier)].sort((a, b) => a - b));
-    // inside the first tier the higher CVSS leads: Cisco's 9.1 over Linux's 7.8
+    // inside the first tier the higher CVSS leads: Veeam's 9.9 (from its other entry) over Cisco's 9.1 over Linux's 7.8, the unscored last
+    expect(at("veeam")).toBeLessThan(at("cisco"));
     expect(at("cisco")).toBeLessThan(at("linux"));
+    expect(at("linux")).toBeLessThan(at("citrix"));
     expect(at("linux")).toBeLessThan(at("langflow"));
     expect(at("langflow")).toBeLessThan(at("zoom"));
     expect(at("zoom")).toBeLessThan(at("postgresql"));
@@ -398,7 +430,7 @@ describe("my stack", () => {
     for (const c of file.candidates) expect(c.tier).toBe(stackUrgency(c, TODAY));
   });
   it("defaults to the most urgent of the best-known products, one per vendor family, filled up on a quiet day", () => {
-    expect(file.default.slice(0, 4)).toEqual(["cisco", "linux", "citrix", "langflow"]);
+    expect(file.default.slice(0, 5)).toEqual(["veeam", "cisco", "linux", "citrix", "langflow"]);
     expect(file.default).not.toContain("netscaler");
     expect(file.default).not.toContain("old");
     expect(file.default.length).toBeGreaterThanOrEqual(STACK_DEFAULT_MIN);

@@ -170,6 +170,8 @@ describe("matching CISA's columns", () => {
     expect(onKev("VMware", "SD-WAN Edge")).toEqual(["vmware"]);
     expect(onKev("Microsoft", "Internet Key Exchange (IKE) Service Extensions")).toEqual(["microsoft", "windows", "windows-server"]);
     expect(onKev("Microsoft", "Edge")).toEqual(["edge", "microsoft"]);
+    // "entra" sits inside "N-central"; the old alias pattern put N-able's product under Microsoft
+    expect(onKev("N-able", "N-central")).toEqual(["n-able"]);
     expect(onKev("Microsoft", "Teams")).toEqual(["microsoft", "teams"]);
     // "for" names a platform: a driver for Windows is Intel's, a library for Node.js is not Node.js
     expect(onKev("Intel", "Ethernet Diagnostics Driver for Windows")).toEqual(["intel"]);
@@ -348,6 +350,9 @@ describe("the CVE Program's names, when a file has them", () => {
     expect(affectedByCve({ cves: { "cve-2026-0002": { vendor: "Fortinet", product: "FortiWeb" } } }).get("CVE-2026-0002")).toEqual(pairs);
     expect(affectedByCve({ fixes: [{ cve: "CVE-2026-0003", vendors: ["Fortinet"], products: ["FortiWeb", "FortiProxy"] }] }).get("CVE-2026-0003")).toEqual([...pairs, { vendor: "Fortinet", product: "FortiProxy" }]);
     expect(affectedByCve([{ id: "CVE-2026-0004", product: "FortiWeb" }]).get("CVE-2026-0004")).toEqual([{ vendor: "", product: "FortiWeb" }]);
+    // the shape the fix-first work's data/stats/fixes.json has (its hand-over note, 2026-11-20)
+    const fixes = { fetched_at: "2026-11-20T06:00:00.000Z", sources: [], kev_catalog_version: "2026.11.18", entries: [{ cve: "CVE-2024-10441", found: true, affected: [{ vendor: "Synology", product: "DiskStation Manager (DSM)" }, { vendor: "Synology", product: "BeeStation OS (BSM)" }], patches: [] }] };
+    expect(affectedByCve(fixes).get("CVE-2024-10441")).toEqual(fixes.entries[0]!.affected);
   });
   it("is empty for a file without them, or no file", () => {
     expect(affectedByCve(undefined).size).toBe(0);
@@ -358,11 +363,18 @@ describe("the CVE Program's names, when a file has them", () => {
     expect(onKev("Oracle Corporation", "WebLogic Server")).toEqual(["oracle", "weblogic"]);
     expect(onKev("Apache Software Foundation", "Apache Tomcat")).toEqual(["apache", "tomcat"]);
     expect(onKev("The PHP Group", "PHP")).toEqual(["php"]);
+    // the CVE Program's records spell names their own way
+    expect(onKev("jfrog", "artifactory")).toEqual(["jfrog"]);
+    expect(onKev("Microsoft", "Windows 11 Version 24H2")).toEqual(["microsoft", "windows", "windows-server"]);
+    expect(onKev("Linux", "Linux")).toEqual(["linux"]);
+    // a record that names no vendor: the vendor's own naming scheme still says whose it is, a product's short name alone does not
+    expect(onKev("", "FortiWeb")).toEqual(["fortinet"]);
+    expect(onKev("", "Edge")).toEqual([]);
   });
 });
 
 describe("the urgency order", () => {
-  const c = (over: Partial<StackCandidate>): StackCandidate => ({ key: "k", label: "K", kind: "vendor", vendor: "K", cat: "os", level: "product", n: 0, flag: null, why: [], due: null, late: null, patch: null, impact: false, cvss: null, crit: 0, tier: 5, kev7: [], href: "", ...over });
+  const c = (over: Partial<StackCandidate>): StackCandidate => ({ key: "k", label: "K", kind: "vendor", vendor: "K", cat: "os", level: "product", n: 0, flag: null, why: [], due: null, late: null, patch: null, impact: false, flagScore: null, cvss: null, crit: 0, tier: 5, kev7: [], href: "", ...over });
   const TODAY = "2026-11-20";
 
   it("puts a product in one of five tiers", () => {
@@ -399,7 +411,7 @@ describe("the urgency order", () => {
 });
 
 describe("the chooser's search", () => {
-  const c = (key: string, label: string, over: Partial<StackCandidate> = {}): StackCandidate => ({ key, label, kind: "vendor", vendor: label, cat: "os", level: "product", n: 0, flag: null, why: [], due: null, late: null, patch: null, impact: false, cvss: null, crit: 0, tier: 5, kev7: [], href: "", ...over });
+  const c = (key: string, label: string, over: Partial<StackCandidate> = {}): StackCandidate => ({ key, label, kind: "vendor", vendor: label, cat: "os", level: "product", n: 0, flag: null, why: [], due: null, late: null, patch: null, impact: false, flagScore: null, cvss: null, crit: 0, tier: 5, kev7: [], href: "", ...over });
   const list = [
     c("microsoft", "Microsoft", { level: "vendor", also: ["Silverlight", "Skype for Business"], aka: ["msft"] }),
     c("windows", "Windows", { vendor: "Microsoft", tier: 1, patch: "unpatched" }),

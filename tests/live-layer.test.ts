@@ -135,7 +135,7 @@ describe("what the page does with a file", () => {
 
   it("accepts a well-formed file and nothing else", () => {
     expect(parseLiveFile(file, HOME_VIEW_KEYS, now)).toBe(file);
-    expect(parseLiveFile({ ...file, v: 2 }, HOME_VIEW_KEYS, now)).toBeNull();
+    expect(parseLiveFile({ ...file, v: LIVE_VERSION + 1 }, HOME_VIEW_KEYS, now)).toBeNull();
     expect(parseLiveFile({ ...file, sweep: "soon" }, HOME_VIEW_KEYS, now)).toBeNull();
     expect(parseLiveFile({ ...file, view: { ...file.view, panel: undefined } }, HOME_VIEW_KEYS, now)).toBeNull();
     expect(parseLiveFile({ ...file, fresh: [{ slug: "x" }] }, HOME_VIEW_KEYS, now)).toBeNull();

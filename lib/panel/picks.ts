@@ -15,6 +15,8 @@ export const CRITICAL_MIN = 9;
 export const CRITICAL_DAYS = 14;
 /** The newest critical CVEs a product's list keeps; `crit` counts them all. */
 export const CRITS_KEPT = 8;
+/** Of those, how many travel with a tile in the page's HTML, so the page can name the highest without the file. */
+export const CRITS_ON_TILE = 3;
 /** A CISA deadline this close puts a product in the first tier. */
 export const STACK_SOON_DAYS = 3;
 /** A CISA deadline that passed this recently still counts, as past due. */
@@ -51,6 +53,8 @@ export interface StackCrit {
   score: number;
   /** The day NVD published it. */
   published: string;
+  /** The product it names: the most specific catalog entry that holds it ("Microsoft Entra ID" on Microsoft's list). */
+  name: string;
 }
 
 /**
@@ -85,7 +89,16 @@ export interface StackCandidate {
   patch: "unpatched" | "partial" | null;
   /** A live record with confirmed impact (data, money or service lost). */
   impact: boolean;
-  /** The highest CVSS among what makes it urgent: its open items, else its new criticals. */
+  /**
+   * The CVSS of the item behind the flag: the highest among the items the flag's words come from (the
+   * entries with that deadline, the records without a patch, the records with confirmed impact). Null
+   * when none of them has a score yet, and when there is no flag. This is the score to show.
+   */
+  flagScore: number | null;
+  /**
+   * The score the order goes by: `flagScore`; where the flag's own items have none yet, the highest among
+   * its exploited items of the 90 days; for a product with new criticals only, the highest of those.
+   */
   cvss: number | null;
   /** New critical CVEs (CRITICAL_MIN and up) of the last CRITICAL_DAYS days that name it. */
   crit: number;
@@ -96,7 +109,7 @@ export interface StackCandidate {
   href: string;
   /** Every item behind `n`, open ones first, then newest first. Only in /stats/stack.json; the page's tiles leave it out. */
   items?: StackItem[];
-  /** The newest CRITS_KEPT of the `crit` CVEs, highest score first. Only in /stats/stack.json. */
+  /** The highest-scored of the `crit` CVEs, highest first: CRITS_KEPT of them in /stats/stack.json, CRITS_ON_TILE on a page's tile. */
   crits?: StackCrit[];
   /** Other words the chooser's search answers to. Only in /stats/stack.json. */
   aka?: string[];
@@ -314,8 +327,8 @@ export function searchStack(list: readonly StackCandidate[], query: string, limi
 
 /** kind (0 KEV, 1 record), name, CVE ids, date, due or 0, CVSS, open or 0, href or 0 (a KEV entry's NVD page). */
 export type StackWireItem = [0 | 1, string, string[], string, string | 0, number | null, NonNullable<StackItem["open"]> | 0, string | 0];
-/** id, score, the day published. */
-export type StackWireCrit = [string, number, string];
+/** id, score, the day published, the product it names. */
+export type StackWireCrit = [string, number, string, string];
 
 export interface StackWireCandidate {
   /** Left out when it is stackKey(label). */
@@ -333,6 +346,8 @@ export interface StackWireCandidate {
   late?: string;
   patch?: "unpatched" | "partial";
   impact?: 1;
+  /** `flagScore`. */
+  fs?: number;
   cvss?: number;
   crit?: number;
   tier?: StackTier;
@@ -387,6 +402,7 @@ export function packStack(file: StackFile): StackWire {
     if (c.late) w.late = c.late;
     if (c.patch) w.patch = c.patch;
     if (c.impact) w.impact = 1;
+    if (c.flagScore !== null) w.fs = c.flagScore;
     if (c.cvss !== null) w.cvss = c.cvss;
     if (c.crit) w.crit = c.crit;
     if (c.tier !== 5) w.tier = c.tier;
@@ -397,7 +413,7 @@ export function packStack(file: StackFile): StackWire {
         rowOf(items, itemIndex, `${it.kind}|${it.href}|${it.cves.join(",")}|${it.name}`, () => [it.kind === "kev" ? 0 : 1, it.name, it.cves, it.date, it.due ?? 0, it.cvss, it.open ?? 0, it.kind === "kev" && it.href === nvdHref(it.cves[0]) ? 0 : it.href]),
       );
     }
-    if (c.crits?.length) w.cr = c.crits.map((x) => rowOf(crits, critIndex, x.id, () => [x.id, x.score, x.published]));
+    if (c.crits?.length) w.cr = c.crits.map((x) => rowOf(crits, critIndex, x.id, () => [x.id, x.score, x.published, x.name]));
     if (c.aka?.length) w.aka = c.aka;
     if (c.also?.length) w.also = c.also;
     if (c.popular) w.pop = 1;
@@ -412,7 +428,7 @@ export function unpackStack(wire: StackWire): StackFile {
     const link = href || nvdHref(cves[0]);
     return { kind: kind === 0 ? "kev" : "record", name, cves, date, due: due || null, cvss, open: open || null, href: link, external: link.startsWith("http") };
   });
-  const crits = wire.crits.map(([id, score, published]): StackCrit => ({ id, score, published }));
+  const crits = wire.crits.map(([id, score, published, name]): StackCrit => ({ id, score, published, name }));
   const candidates = wire.candidates.map((w): StackCandidate => {
     const cat = wire.cats[w.c] ?? "";
     return {
@@ -429,6 +445,7 @@ export function unpackStack(wire: StackWire): StackFile {
       late: w.late ?? null,
       patch: w.patch ?? null,
       impact: Boolean(w.impact),
+      flagScore: w.fs ?? null,
       cvss: w.cvss ?? null,
       crit: w.crit ?? 0,
       tier: w.tier ?? 5,

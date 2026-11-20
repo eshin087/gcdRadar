@@ -124,10 +124,10 @@ const stackKey = (label) => label.normalize("NFKD").toLowerCase().replace(/[^a-z
 /** /stats/stack.json as the page works with it (lib/panel/picks.ts unpackStack): items and critical CVEs out of their tables, quiet fields filled in. */
 function unpackStack(wire) {
   const items = wire.items.map(([kind, name, cves, date, due, cvss, open, href]) => ({ kind: kind === 0 ? "kev" : "record", name, cves, date, due: due || null, cvss, open: open || null, href: href || `https://nvd.nist.gov/vuln/detail/${cves[0] ?? ""}` }));
-  const crits = wire.crits.map(([id, score, published]) => ({ id, score, published }));
+  const crits = wire.crits.map(([id, score, published, name]) => ({ id, score, published, name }));
   const candidates = wire.candidates.map((w) => ({
     key: w.key ?? stackKey(w.label), label: w.label, vendor: w.vendor ?? w.label, cat: wire.cats[w.c], level: w.v ? "vendor" : "product",
-    n: w.n ?? 0, flag: w.flag ?? null, due: w.due ?? null, late: w.late ?? null, cvss: w.cvss ?? null, crit: w.crit ?? 0, tier: w.tier ?? 5, kev7: w.kev7 ?? [],
+    n: w.n ?? 0, flag: w.flag ?? null, due: w.due ?? null, late: w.late ?? null, flagScore: w.fs ?? null, cvss: w.cvss ?? null, crit: w.crit ?? 0, tier: w.tier ?? 5, kev7: w.kev7 ?? [],
     items: (w.it ?? []).map((n) => items[n]), crits: (w.cr ?? []).map((n) => crits[n]), aka: w.aka ?? [], popular: Boolean(w.pop), tail: Boolean(w.tail),
   }));
   return { default: wire.default, aliases: wire.aliases, candidates };

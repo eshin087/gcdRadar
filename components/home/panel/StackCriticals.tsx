@@ -24,9 +24,13 @@ export function StackCriticals({ cand, crits }: { cand: StackCandidate; crits: S
             <span title={`CVSS base score ${c.score.toFixed(1)}`} className="num text-[13.5px] text-soft">
               {c.score.toFixed(1)}
             </span>
-            <a href={`https://nvd.nist.gov/vuln/detail/${c.id}`} target="_blank" rel="noopener noreferrer" className="num whitespace-nowrap text-[13.5px] text-ink hover:text-accent">
-              {c.id}
-            </a>
+            <span className="min-w-0">
+              <a href={`https://nvd.nist.gov/vuln/detail/${c.id}`} target="_blank" rel="noopener noreferrer" className="num whitespace-nowrap text-[13.5px] text-ink hover:text-accent">
+                {c.id}
+              </a>
+              {/* on a vendor's list, which of its products the CVE names */}
+              {c.name !== cand.label && <span className="block truncate text-[12.5px] text-dim sm:ml-2 sm:inline">{c.name}</span>}
+            </span>
             <span className="num whitespace-nowrap text-[12px] text-dim">
               <span className="hidden sm:inline">published </span>
               {dateLabel(c.published)}
