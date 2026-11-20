@@ -22173,6 +22173,11 @@
   "status": "rejected",
   "at": "2026-10-18T06:33:31.967Z"
  },
+ "dfbade8483cd7428": {
+  "status": "merged",
+  "id": "AIR-2026-2067",
+  "at": "2026-11-20T21:21:32.303Z"
+ },
  "dfc17daeb144fdf8": {
   "status": "rejected",
   "at": "2026-10-18T10:14:26.300Z"
