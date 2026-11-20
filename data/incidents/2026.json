@@ -617,9 +617,15 @@
         "publisher": "SecurityWeek",
         "title": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september",
+        "publisher": "BleepingComputer",
+        "title": "VMware patches vCenter zero-day exploited in attacks since September",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -631,7 +637,7 @@
       "critical"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-19T19:41:27.994Z",
+    "updated_at": "2026-11-20T00:41:44.832Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -3612,9 +3618,15 @@
         "publisher": "CERT-EU",
         "title": "2026-021: High Severity Vulnerability in Java SE and OpenJDK",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://security.paloaltonetworks.com/CVE-2026-114938",
+        "publisher": "Palo Alto Networks",
+        "title": "CVE-2026-114938 Portfolio Status: Impact of Java Vulnerability (CVE-2026-114938) on Palo Alto Networks Products (Severity: CRITICAL)",
+        "published_at": "2026-11-19"
       }
     ],
-    "source_count": 11,
+    "source_count": 12,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -3625,7 +3637,7 @@
       "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-18T19:41:51.600Z",
+    "updated_at": "2026-11-20T00:41:44.832Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -3653,6 +3665,12 @@
         "title": "Researchers reveal that CVE-2026-114938 enables pre-authentication remote code execution in Jira, Jenkins, Keycloak, and other applications on specific Java versions and hardware.",
         "source_url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
         "added_at": "2026-11-18T05:41:22.607Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "Palo Alto Networks reports portfolio impact assessment regarding the critical Java vulnerability",
+        "source_url": "https://security.paloaltonetworks.com/CVE-2026-114938",
+        "added_at": "2026-11-20T00:41:44.832Z"
       }
     ],
     "action": "Identify affected Java installations and immediately patch the Oracle Java vulnerability CVE-2026-114938.",
