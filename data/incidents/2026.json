@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2111",
+    "slug": "badbox-3-0-botnet-returns-with-large-scale-android-ad-fraud",
+    "title": "BADBOX 3.0 Botnet Returns with Large-Scale Android Ad-Fraud Operations",
+    "summary": "The BADBOX malware campaign has returned across generic Android TV boxes to conduct large-scale ad fraud. The botnet generates billions of daily requests following previous disruptions.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [
+      "BADBOX"
+    ],
+    "incident_date": "2026-11-21",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests",
+        "publisher": "BleepingComputer",
+        "title": "BADBOX 3.0 botnet returns with record-breaking 40 billion daily ad requests",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "badbox",
+      "botnet",
+      "android",
+      "ad-fraud",
+      "malware"
+    ],
+    "created_at": "2026-11-21T15:25:45.844Z",
+    "updated_at": "2026-11-21T15:25:45.844Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "BADBOX 3.0 botnet returns with record-breaking 40 billion daily ad requests",
+        "source_url": "https://bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests",
+        "added_at": "2026-11-21T15:25:45.844Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed active large-scale fraud operation in the wild.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2110",
     "slug": "fbi-national-crime-information-center-breached-in-second-inc",
     "title": "FBI National Crime Information Center breached in second incident",
