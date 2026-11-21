@@ -378,6 +378,24 @@ describe("my stack", () => {
     expect(tile("zoom")).toMatchObject({ flag: "confirmed impact", impact: true, tier: 3 });
     expect(tile("litellm")).toMatchObject({ flag: null, tier: 5 });
   });
+  it("names a missing patch before a deadline that is not soon, since the patch is what puts it first", () => {
+    const rows = [kev({ cve: "CVE-2026-5001", vendor: "Fortinet", product: "FortiOS", added: "2026-10-25", due: "2026-11-12", cvss: 5.0 })];
+    const open = (patch_status: "unpatched" | "partial") => [
+      incident({ title: "FortiOS gateways attacked", products: ["FortiOS"], cvss: 9.1, severity: 3, first_reported: "2026-10-27", lane: "patch", patch_status, type: "not_ai", categories: ["general"] }),
+    ];
+    for (const [status, words] of [["unpatched", "no patch yet"], ["partial", "partly patched"]] as const) {
+      const t = buildStack(open(status), rows, TODAY, NOW).candidates.find((c) => c.key === "fortios")!;
+      // tier one for the patch, so the flag says so and the scores are the patch record's, not the later deadline's
+      expect(t, status).toMatchObject({ tier: 1, flag: words, due: "2026-11-12", flagScore: 9.1, cvss: 9.1 });
+      expect(t.why, status).toEqual(["CISA deadline 2026-11-12", words]);
+    }
+    // a deadline within three days still leads
+    const soon = buildStack(open("unpatched"), [{ ...rows[0]!, due: "2026-10-31" }], TODAY, NOW).candidates.find((c) => c.key === "fortios")!;
+    expect(soon).toMatchObject({ tier: 1, flag: "patch by 31 Oct", flagScore: 5 });
+    // every tier-one tile of the shared fixture shows a tier-one reason
+    for (const c of file.candidates.filter((x) => x.tier === 1)) expect(c.flag, c.key).toMatch(/^(no patch yet|partly patched|past due |patch by )/);
+    for (const c of file.candidates.filter((x) => x.tier === 1 && x.flag?.startsWith("patch by "))) expect(c.due! <= "2026-11-01", c.key).toBe(true);
+  });
   it("carries the score of the item behind the flag, and says so when that item has none yet", () => {
     expect(tile("linux").flagScore).toBe(7.8);
     expect(tile("cisco").flagScore).toBe(9.1);
