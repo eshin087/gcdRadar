@@ -49,8 +49,8 @@ describe("buildFixView: the join", () => {
       [6, "CISA", kevEntryUrl("CVE-2026-0001")],
     ]);
     expect(v.patch.versions).toEqual([
-      { label: "Acme Router", version: "1.2", from: "1.0", cite: 1 },
-      { label: "acme-router (npm)", version: "1.2.0", from: "< 1.2.0", cite: 2 },
+      { label: "Acme Router", version: "1.2", from: "1.0", status: "fixed", cite: 1 },
+      { label: "acme-router (npm)", version: "1.2.0", from: "< 1.2.0", status: "fixed", cite: 2 },
     ]);
     expect(v.patch.more).toBe(3);
     // the vendor's solution and workaround are the same source as the versions: the same number
@@ -107,7 +107,7 @@ describe("buildFixView: the join", () => {
   it("shows our own sentence only where no publisher's text is shown, labelled by its citation, and our fixed versions only where no source gave one", () => {
     const record = { action: "Update the router firmware.", fixed_in: ["Router 1.2"], source_count: 3, sourcesUrl: "#sources" };
     const bare = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001")], record, today: TODAY });
-    expect(bare.patch.recorded).toEqual([{ label: "", version: "Router 1.2", from: "", cite: 1 }]);
+    expect(bare.patch.recorded).toEqual([{ label: "", version: "Router 1.2", from: "", status: "fixed", cite: 1 }]);
     expect(bare.summary).toEqual({ text: "Update the router firmware.", cite: 1 });
     expect(bare.citations).toEqual([{ n: 1, publisher: "gcdRadar", title: "This record, written by a language model from its 3 sources", url: "#sources" }]);
     const quoted = buildFixView({ cves: ["CVE-2026-0001"], entries: [full], record, today: TODAY });
@@ -116,6 +116,25 @@ describe("buildFixView: the join", () => {
     expect(buildFixView({ cves: ["CVE-2026-0001"], entries: [], record: { ...record, action: "  ", fixed_in: [] }, today: TODAY })).toMatchObject({ summary: null, checked: null, deadline: null, citations: [] });
     expect(hasFixDetail(buildFixView({ cves: ["CVE-2026-0001"], entries: [], today: TODAY }))).toBe(false);
     expect(hasFixDetail(bare)).toBe(true);
+  });
+
+  it("says \"not affected\" for a version the CVE record only lists as unaffected, and still shows a fixed version our record names", () => {
+    const listed = entry("CVE-2026-0001", {
+      patches: [
+        { label: "Ivanti Connect Secure", version: "25.1.3.0", from: "", url: null, source: "cve", status: "unaffected" },
+        { label: "Ivanti Connect Secure", version: "22.7R2.14", from: "", url: null, source: "cve", status: "unaffected" },
+      ],
+    });
+    const v = buildFixView({ cves: ["CVE-2026-0001"], entries: [listed], record: { action: "", fixed_in: ["Connect Secure 25.1.3.0"], source_count: 2, sourcesUrl: "#sources" }, today: TODAY });
+    expect(v.patch.versions).toEqual([
+      { label: "Ivanti Connect Secure", version: "25.1.3.0", from: "", status: "unaffected", cite: 1 },
+      { label: "Ivanti Connect Secure", version: "22.7R2.14", from: "", status: "unaffected", cite: 1 },
+    ]);
+    // the record's own fixed version is not displaced by versions that are only listed as not affected
+    expect(v.patch.recorded).toEqual([{ label: "", version: "Connect Secure 25.1.3.0", from: "", status: "fixed", cite: 2 }]);
+    const md = fixMarkdown(v, "https://example.test/x");
+    expect(md).toContain("- Ivanti Connect Secure: not affected 25.1.3.0 [1]\n- Ivanti Connect Secure: not affected 22.7R2.14 [1]\n- fixed in Connect Secure 25.1.3.0 [2]");
+    expect(md).not.toContain("fixed in 22.7R2.14");
   });
 
   it("names a third-party CNA in the record's citation", () => {
@@ -143,7 +162,7 @@ describe("the record's view, its brief and the drawer's files", () => {
     const brief = buildBrief(record, site, fixViewForRecord(record, stats, TODAY, site));
     expect(brief).toContain("## What to do\n\nUpdate to Router 1.2.\n\n(gcdRadar's summary, written by a language model from the sources below; not the vendor's words.)");
     expect(brief).toContain("## How to fix\n\nPatch\n- Acme Router: fixed in 1.2 (for 1.0) [1]");
-    expect(brief).toContain("- 3 more fixed versions: https://example.test/incidents/acme-router-rce");
+    expect(brief).toContain("- 3 more versions: https://example.test/incidents/acme-router-rce");
     expect(brief).toContain('- Acme\'s solution: "Upgrade to Router 1.2 or later." [1]');
     expect(brief).toContain("- Patch: https://acme.example/patch-1 [3]");
     expect(brief).toContain('Workaround\n- Acme\'s workaround: "Disable remote management until the update is applied." [1]\n- Mitigation: https://acme.example/harden [5]');

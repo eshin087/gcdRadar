@@ -46,6 +46,9 @@ function check(name, ok, detail) {
 
 const json = (base, path) => fetch(`${base}${path}`).then((r) => (r.ok ? r.json() : null));
 
+/** A label's slug, the key a candidate has when the file leaves it out (lib/panel/picks.ts stackKey). */
+const stackKey = (label) => label.normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
 /** What the record page shows, read in the page. */
 const READ_PAGE = `(() => {
   const article = document.querySelector("article");
@@ -82,10 +85,13 @@ const READ_PAGE = `(() => {
   };
 })()`;
 
-/** A KEV-listed record and the fix view its own JSON carries (the `fix` field of /data/incidents/<slug>.json, built by the same join as the page). */
-/** /stats/stack.json as the page works with it (lib/panel/picks.ts unpackStack): each candidate's items out of the shared table. */
+/**
+ * /stats/stack.json as the page works with it (lib/panel/picks.ts unpackStack): every item once in a table that candidates
+ * point into by index, unpacked into each candidate's items. A KEV entry with no record of ours has no link in the file and
+ * falls back to NVD, so it reads as external.
+ */
 function unpackStack(wire) {
-  const key = (label) => label.normalize("NFKD").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  const key = stackKey;
   const items = wire.items.map(([kind, name, cves, date, due, cvss, open, href]) => {
     const link = href || `https://nvd.nist.gov/vuln/detail/${cves[0] ?? ""}`;
     return { kind: kind === 0 ? "kev" : "record", name, cves, date, due: due || null, cvss, open: open || null, href: link, external: link.startsWith("http") };
@@ -93,6 +99,7 @@ function unpackStack(wire) {
   return { default: wire.default, candidates: wire.candidates.map((w) => ({ key: w.key ?? key(w.label), label: w.label, flag: w.flag ?? null, tier: w.tier ?? 5, items: (w.it ?? []).map((n) => items[n]).filter(Boolean) })) };
 }
 
+/** A KEV-listed record and the fix view its own JSON carries (the `fix` field of /data/incidents/<slug>.json, built by the same join as the page). */
 async function pickKevRecord(base, stack) {
   if (typeof args.slug === "string") {
     const rec = await json(base, `/data/incidents/${args.slug}.json`);

@@ -41,9 +41,9 @@ export function fixMarkdown(fix: FixView, pageUrl: string): string {
   const out: string[] = [];
   const patch: string[] = [];
   const versions = [...fix.patch.versions, ...fix.patch.recorded];
-  for (const v of versions.slice(0, BRIEF_VERSIONS)) patch.push(`- ${v.label ? `${v.label}: ` : ""}fixed in ${v.version}${v.from ? ` (for ${v.from})` : ""} [${v.cite}]`);
+  for (const v of versions.slice(0, BRIEF_VERSIONS)) patch.push(`- ${v.label ? `${v.label}: ` : ""}${v.status === "unaffected" ? "not affected" : "fixed in"} ${v.version}${v.from ? ` (for ${v.from})` : ""} [${v.cite}]`);
   const moreVersions = versions.length - Math.min(versions.length, BRIEF_VERSIONS) + fix.patch.more;
-  if (moreVersions > 0) patch.push(`- ${moreVersions} more fixed ${moreVersions === 1 ? "version" : "versions"}: ${pageUrl}`);
+  if (moreVersions > 0) patch.push(`- ${moreVersions} more ${moreVersions === 1 ? "version" : "versions"}: ${pageUrl}`);
   for (const t of fix.patch.texts) patch.push(`- ${whose(t, "solution")}: ${quoted(t)}`);
   for (const l of fix.patch.links.slice(0, BRIEF_LINKS)) patch.push(`- ${l.label}: ${l.url} [${l.cite}]`);
   if (patch.length === 0) patch.push(fix.checked ? "- No fixed version or patch link in the CVE record, CISA's entry, NVD or GitHub's advisories yet." : "- Not looked up; see the CVE record below.");

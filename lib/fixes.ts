@@ -37,6 +37,11 @@ export interface FixVersionRow {
   version: string;
   /** The affected branch or range the fix belongs to, "" when the source names none. */
   from: string;
+  /**
+   * "fixed": the source names the version as the fix ("fixed in"). "unaffected": the CVE record lists it as not
+   * affected and says no more, so the row reads "not affected": it may be an older release the flaw never reached.
+   */
+  status: "fixed" | "unaffected";
   cite: number;
 }
 
@@ -208,7 +213,7 @@ export function buildFixView(input: FixInput): FixView {
     for (const p of e.patches) {
       if (versions.some((v) => v.label === p.label && v.version === p.version && v.from === p.from)) continue;
       const n = p.source === "ghsa" && p.url ? cite({ publisher: "GitHub Advisory Database", title: e.links.find((l) => l.url === p.url)?.title || `Advisory for ${e.cve}`, url: p.url }) : recordCite(e);
-      versions.push({ label: p.label, version: p.version, from: p.from, cite: n });
+      versions.push({ label: p.label, version: p.version, from: p.from, status: p.status ?? "fixed", cite: n });
     }
   }
   const solutionTexts: FixPassage[] = [];
@@ -254,7 +259,8 @@ export function buildFixView(input: FixInput): FixView {
 
   // our record: its own fixed versions when no source gave one, and its model-written sentence when no publisher's text is shown
   const recordCitation = () => cite({ publisher: siteName, title: `This record, written by a language model from its ${record!.source_count === 1 ? "one source" : `${record!.source_count} sources`}`, url: record!.sourcesUrl });
-  const recorded: FixVersionRow[] = record && versions.length === 0 ? record.fixed_in.map((f) => ({ label: "", version: f, from: "", cite: recordCitation() })) : [];
+  // (a version the CVE record only lists as not affected does not stand in for a fixed version our record names)
+  const recorded: FixVersionRow[] = record && !versions.some((v) => v.status === "fixed") ? record.fixed_in.map((f) => ({ label: "", version: f, from: "", status: "fixed" as const, cite: recordCitation() })) : [];
   const summary = record && record.action.trim() && solutionTexts.length === 0 && texts.length === 0 ? { text: record.action.trim(), cite: recordCitation() } : null;
 
   const reads = entries.map((e) => e.fetched_at).sort();

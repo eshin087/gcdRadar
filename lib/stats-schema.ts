@@ -153,6 +153,13 @@ export const FixPatchSchema = z.object({
   /** Where the source points for it; null when it states a version and no link. */
   url: webUrl.nullable(),
   source: z.enum(["cve", "ghsa"]),
+  /**
+   * Absent or "fixed": the source names this version as the fix. "unaffected": the CVE record lists the version
+   * as not affected and says no more. It is usually the fixed release, but it can be an older release the flaw
+   * never reached (Ivanti lists 22.7R2.14 for CVE-2026-104935 and writes that it "or prior" is not impacted),
+   * so the site says "not affected", never "fixed in".
+   */
+  status: z.enum(["fixed", "unaffected"]).optional(),
 });
 export type FixPatch = z.infer<typeof FixPatchSchema>;
 
