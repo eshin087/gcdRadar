@@ -1,5 +1,69 @@
 [
   {
+    "id": "AIR-2026-2112",
+    "slug": "cve-2026-134293-surrealdb-sql-injection-vulnerability-in-mcp",
+    "title": "CVE-2026-134293: SurrealDB SQL injection vulnerability in MCP server",
+    "summary": "SurrealDB contains an SQL injection vulnerability in its Model Context Protocol server due to improper identifier validation of backticks. Attackers can supply crafted MCP tool arguments to execute arbitrary SurrealQL statements.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "SurrealDB"
+    ],
+    "incident_date": "2026-11-21",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134293",
+        "publisher": "NVD",
+        "title": "CVE-2026-134293: SurrealDB 3.1.0 before 4.0.0 contains an SQL injection vulnerability in its Model Context Protocol (MCP) server because the…",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-134293",
+      "sql-injection",
+      "mcp",
+      "surrealdb"
+    ],
+    "created_at": "2026-11-21T17:25:46.902Z",
+    "updated_at": "2026-11-21T17:25:46.902Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-21",
+    "patch_status": "unpatched",
+    "cve_ids": [
+      "CVE-2026-134293"
+    ],
+    "affected": [
+      "SurrealDB 3.1.0 to 4.0.0"
+    ],
+    "fixed_in": [
+      "SurrealDB 4.0.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "CVE-2026-134293: SurrealDB 3.1.0 before 4.0.0 contains an SQL injection vulnerability in its Model Context Protocol (MCP) server because the…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134293",
+        "added_at": "2026-11-21T17:25:46.902Z"
+      }
+    ],
+    "action": "Update SurrealDB to version 4.0.0 or later.",
+    "severity_note": "Disclosed vulnerability with a High CVSS score and a fix pending or available in version 4.0.0.",
+    "cvss": 8.8
+  },
+  {
     "id": "AIR-2026-2111",
     "slug": "badbox-3-0-botnet-returns-with-large-scale-android-ad-fraud",
     "title": "BADBOX 3.0 Botnet Returns with Large-Scale Android Ad-Fraud Operations",
