@@ -31,7 +31,7 @@ export interface SlimIncident {
   cve_ids: string[];
   /** The CVSS base score a source states, or null. */
   cvss: number | null;
-  /** Tag slugs (lib/tags.ts), at most five. */
+  /** Tag slugs (lib/tags.ts tagSlugsOf), every one the record carries. */
   tags: string[];
   /** The newest dated activity: a timeline entry, a source or the first report. */
   last_update: string;

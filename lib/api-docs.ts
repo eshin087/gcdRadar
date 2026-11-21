@@ -190,7 +190,7 @@ export const SLIM_NOTES: Record<keyof SlimIncident, { type: string; note: string
   patch_status: null,
   cve_ids: null,
   cvss: null,
-  tags: { type: "string[]", note: "Tag slugs as the tag pages use them (/tags/<slug>), at most five; the full record carries the tags as written." },
+  tags: { type: "string[]", note: "Tag slugs as the tag pages use them (/tags/<slug>), every one the record carries; the full record carries the tags as written." },
   last_update: { type: "string (YYYY-MM-DD)", note: "The newest dated activity: a timeline entry, a source or the first report." },
 };
 

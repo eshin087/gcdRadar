@@ -218,13 +218,18 @@ export interface TagIndex {
   months: string[];
 }
 
-/** The slugs a record carries, deduplicated, at most five. */
+/**
+ * The slugs a record carries, deduplicated, in the order written, every one:
+ * rows, slim records, feeds and tag filters read this, and buildTagIndex
+ * counts the same set, so a tag's count and the rows that carry it agree. No
+ * cap: the collector appends "cisa-kev" last when a CVE joins the catalog
+ * later, and a cap would drop exactly that tag (it caps raw tags at 20).
+ */
 export function tagSlugsOf(i: Pick<FullIncident, "tags">): string[] {
   const out: string[] = [];
   for (const t of i.tags) {
     const s = normalizeTag(t);
     if (s && !out.includes(s)) out.push(s);
-    if (out.length === 5) break;
   }
   return out;
 }

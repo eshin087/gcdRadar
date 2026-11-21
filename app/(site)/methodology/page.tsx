@@ -614,6 +614,11 @@ export default function MethodologyPage() {
           footer strip are gone (the AI tab and the section links do their jobs), and numbers no longer dissolve in. No counting rule changed; the
           news ranking and the radar&rsquo;s placement are new and described above.
         </li>
+        <li>
+          2026-11-20 · a record carries every one of its tags in lists, feeds and tag filters; they kept only the first five while tag pages counted all,
+          so a tag could read 17 live and list 16. Four records had more than five, among them a cisa-kev tag the collector adds last when a CVE joins the
+          catalog.
+        </li>
       </ul>
     </div>
   );

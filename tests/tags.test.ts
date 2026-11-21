@@ -92,8 +92,21 @@ describe("buildTagIndex", () => {
     expect(topLiveTags(index, 5).map((t) => t.slug)).toEqual(["path-traversal", "rce"]);
   });
 
-  it("gives a record at most five distinct slugs", () => {
-    const i = incident({ tags: ["a", "b", "b", "CVE-2026-1", "c", "d", "e", "f"] });
-    expect(tagSlugsOf(i)).toEqual(["a", "b", "c", "d", "e"]);
+  it("gives a record every distinct slug, in the order written", () => {
+    const i = incident({ tags: ["a", "b", "b", "CVE-2026-1", "c", "d", "e", "f", "cisa-kev"] });
+    expect(tagSlugsOf(i)).toEqual(["a", "b", "c", "d", "e", "f", "cisa-kev"]);
+  });
+
+  it("counts a tag on exactly the records whose slugs carry it", () => {
+    // the collector appends cisa-kev last when a CVE joins the catalog after the record was written
+    const kevLate = incident({ tags: ["rce", "auth-bypass", "vmware", "vcenter", "zero-day", "exploited-in-the-wild", "cisa-kev"], first_reported: "2026-10-22", state: "live" });
+    const all = [...records, kevLate];
+    const idx = buildTagIndex(all, now);
+    expect(idx.bySlug.get("cisa-kev")!.live).toBe(1);
+    for (const t of idx.tags) {
+      const carriers = all.filter((i) => tagSlugsOf(i).includes(t.slug));
+      expect(carriers.length, t.slug).toBe(t.total);
+      expect(carriers.filter((i) => i.state === "live").length, t.slug).toBe(t.live);
+    }
   });
 });
