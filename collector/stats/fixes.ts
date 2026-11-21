@@ -262,31 +262,52 @@ function productLabel(a: CveAffected): string {
  * ranges for where a flaw was introduced (the Linux kernel's "5.4.73, less
  * than 5.5" is a branch, not a fix). An inclusive bound names the last
  * affected version and is left out, as are wildcards and commit hashes.
+ *
+ * 3. Where a product has neither, the versions the record marks unaffected
+ *    on their own, with no range at all ("unaffected: 25.1.1.3"). These are
+ *    kept with status "unaffected" and shown as "not affected", not as
+ *    fixes: most are the fixed release (Ivanti, Atlassian, Adobe and VulDB
+ *    write fixes this way), but a CNA also lists an older release the flaw
+ *    never reached the same way (Ivanti's 22.7R2.14 for CVE-2026-104935,
+ *    which its description says "or prior" is not impacted), and nothing in
+ *    the record tells the two apart. A version marked unaffected with a
+ *    bounded range ("unaffected from 0, less than 5.10") is an older range
+ *    and is left out; so is "All", which says the product is not affected.
  */
 export function fixedVersions(affected: readonly CveAffected[]): { patches: FixPatch[]; more: number } {
   const stated = new Map<string, FixPatch[]>();
   const bounds = new Map<string, FixPatch[]>();
-  const add = (to: Map<string, FixPatch[]>, label: string, version: string, from: string) => {
+  const listed = new Map<string, FixPatch[]>();
+  const add = (to: Map<string, FixPatch[]>, label: string, version: string, from: string, status?: "unaffected") => {
     if (!label) return;
     const key = label.toLowerCase();
     const list = to.get(key) ?? [];
-    if (!list.some((p) => p.version === version.trim() && p.from === from)) list.push({ label, version: version.trim(), from, url: null, source: "cve" });
+    if (!list.some((p) => p.version === version.trim() && p.from === from)) list.push({ label, version: version.trim(), from, url: null, source: "cve", ...(status ? { status } : {}) });
     to.set(key, list);
   };
   for (const a of affected) {
     const label = productLabel(a);
     for (const v of a.versions ?? []) {
       const from = concrete(v.version, v.versionType) && v.version !== v.lessThan ? v.version.trim() : "";
-      const open = v.lessThan ?? v.lessThanOrEqual ?? "";
+      const upper = v.lessThan ?? v.lessThanOrEqual;
+      const open = upper ?? "";
       if (v.status === "unaffected" && concrete(v.version, v.versionType) && open.includes("*")) add(stated, label, v.version, open === "*" ? "" : open.trim().slice(0, 80));
+      if (v.status === "unaffected" && upper === undefined) for (const one of standaloneVersions(v.version, v.versionType)) add(listed, label, one, "", "unaffected");
       if (v.status === "affected" && concrete(v.lessThan, v.versionType)) add(bounds, label, v.lessThan, from);
       const last = v.changes?.[v.changes.length - 1];
       if (v.status === "affected" && last?.status === "unaffected" && concrete(last.at, v.versionType)) add(bounds, label, last.at, from);
     }
   }
   const out: FixPatch[] = [];
-  for (const key of new Set([...stated.keys(), ...bounds.keys()])) out.push(...(stated.get(key) ?? bounds.get(key) ?? []));
+  for (const key of new Set([...stated.keys(), ...bounds.keys(), ...listed.keys()])) out.push(...(stated.get(key) ?? bounds.get(key) ?? listed.get(key) ?? []));
   return { patches: out.slice(0, FIX_PATCH_MAX), more: Math.max(0, out.length - FIX_PATCH_MAX) };
+}
+
+/** A standalone version field as the versions it names: itself, or each of a comma-separated list (Adobe writes "2.4.9-2026-jul, 2.4.8-2026-jul, …" in one field). */
+function standaloneVersions(version: string | undefined, type: string | undefined): string[] {
+  const parts = (version ?? "").split(/,\s+/).map((s) => s.trim()).filter(Boolean);
+  if (parts.length > 1 && parts.every((p) => concrete(p, type))) return parts;
+  return concrete(version, type) ? [version.trim()] : [];
 }
 
 const CVE_TAGS: [string, FixLink["kind"]][] = [

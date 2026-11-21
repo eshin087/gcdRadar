@@ -151,9 +151,10 @@ function Versions({ rows, more, view }: { rows: FixVersionRow[]; more: number; v
         {g.label && <div className="text-[14.5px] font-medium text-ink">{g.label}</div>}
         <ul>
           {g.rows.map((r) => (
-            <li key={`${r.version}-${r.from}`} data-fix-version="" className="flex flex-wrap items-baseline gap-x-2">
-              <span className="text-[12.5px] text-dim">fixed in</span>
-              <span className="num break-all text-[14.5px] text-patched">{r.version}</span>
+            // "not affected" is the CVE record's own word for a version it lists without saying it is the fix: usually the fixed release, sometimes an older one the flaw never reached
+            <li key={`${r.status}-${r.version}-${r.from}`} data-fix-version={r.status} className="flex flex-wrap items-baseline gap-x-2">
+              <span className="text-[12.5px] text-dim">{r.status === "unaffected" ? "not affected" : "fixed in"}</span>
+              <span className={`num break-all text-[14.5px] ${r.status === "unaffected" ? "text-ink" : "text-patched"}`}>{r.version}</span>
               {r.from && <span className="num text-[12.5px] text-dim">for {r.from}</span>}
               <Cite n={r.cite} view={view} />
             </li>
@@ -167,7 +168,7 @@ function Versions({ rows, more, view }: { rows: FixVersionRow[]; more: number; v
       {hidden > 0 && (
         <details>
           <summary className="cursor-pointer select-none font-mono text-[12.5px] text-dim hover:text-ink">
-            {hidden} more fixed {hidden === 1 ? "version" : "versions"}
+            {hidden} more {hidden === 1 ? "version" : "versions"}
           </summary>
           <div className="mt-2 space-y-2">{list(tail)}</div>
         </details>
@@ -209,7 +210,7 @@ export function FixBlock({ view, today, className = "" }: FixBlockProps) {
         {patch.recorded.length > 0 && (
           <ul>
             {patch.recorded.map((r) => (
-              <li key={r.version} data-fix-version="" className="flex flex-wrap items-baseline gap-x-2">
+              <li key={r.version} data-fix-version={r.status} className="flex flex-wrap items-baseline gap-x-2">
                 <span className="text-[12.5px] text-dim">fixed in</span>
                 <span className="num text-[14.5px] text-patched">{r.version}</span>
                 <Cite n={r.cite} view={view} />

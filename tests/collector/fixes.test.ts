@@ -149,6 +149,33 @@ describe("the CVE record", () => {
     expect(patches.map((x) => `${x.label} ${x.version}`)).toEqual(["EG SiteGuard Ver8.00 Update 5", "Acme Switch 4.2"]);
   });
 
+  it("keeps a version the record lists as unaffected on its own, as not affected and never as a fix", () => {
+    // Ivanti, CVE-2026-104935: its description says 22.7R2.14 "or prior" is not impacted, so one of the four is an older release, not a fix
+    const ivanti = fixedVersions([{ vendor: "Ivanti", product: "Connect Secure", versions: ["25.1.3.0", "25.1.3.1", "22.8R2.5", "22.7R2.14"].map((version) => ({ version, status: "unaffected", versionType: "custom" })) }]);
+    expect(ivanti.patches).toEqual(["25.1.3.0", "25.1.3.1", "22.8R2.5", "22.7R2.14"].map((version) => ({ label: "Ivanti Connect Secure", version, from: "", url: null, source: "cve", status: "unaffected" })));
+    // a product whose fix the record states (a bounded affected range, or unaffected with an open range) shows that, once: the same version listed on its own adds nothing
+    const perforce = fixedVersions([{ vendor: "Perforce", product: "Puppet Enterprise", versions: [{ version: "2023.8.0", status: "affected", lessThan: "2023.8.13" }, { version: "2023.8.13", status: "unaffected" }] }]);
+    expect(perforce.patches).toEqual([{ label: "Perforce Puppet Enterprise", version: "2023.8.13", from: "2023.8.0", url: null, source: "cve" }]);
+    const stated = fixedVersions([{ vendor: "Zammad", product: "Zammad", versions: [{ version: "7.2.2", status: "unaffected", lessThan: "*" }, { version: "6.0.0", status: "unaffected" }] }]);
+    expect(stated.patches.map((p) => [p.version, p.status])).toEqual([["7.2.2", undefined]]);
+    // "All" says the product is not affected at all; an unaffected range with a bound is an older range: neither is a version to install
+    expect(fixedVersions([{ vendor: "Palo Alto Networks", product: "Cloud NGFW", versions: [{ version: "All", status: "unaffected", versionType: "custom" }] }]).patches).toEqual([]);
+    expect(fixedVersions([{ vendor: "Linux", product: "Linux", versions: [{ version: "0", status: "unaffected", lessThan: "5.10" }, { version: "4.19", status: "unaffected", lessThanOrEqual: "5.9" }] }]).patches).toEqual([]);
+    // Adobe writes several versions in one field; each is kept, and a product's free-text fix stays as written
+    const adobe = fixedVersions([
+      { vendor: "Adobe", product: "Magento Open Source", versions: [{ version: "2.4.9-2026-jul, 2.4.8-2026-jul, 2.4.7-2026-jul", status: "unaffected", versionType: "custom" }, { version: "0", status: "affected", lessThanOrEqual: "2.4.9, 2.4.8-p5" }] },
+      { vendor: "Atlassian", product: "Crucible Data Center", versions: [{ version: "Patch version 4.9.15 and later", status: "unaffected" }, { version: "All other versions", status: "affected" }] },
+    ]);
+    expect(adobe.patches.map((p) => `${p.label}: ${p.status} ${p.version}`)).toEqual([
+      "Adobe Magento Open Source: unaffected 2.4.9-2026-jul",
+      "Adobe Magento Open Source: unaffected 2.4.8-2026-jul",
+      "Adobe Magento Open Source: unaffected 2.4.7-2026-jul",
+      "Atlassian Crucible Data Center: unaffected Patch version 4.9.15 and later",
+    ]);
+    // such a record has named safe versions, so GitHub is not asked for them
+    expect(needsGhsa({ found: true, patches: ivanti.patches })).toBe(false);
+  });
+
   it("keeps the CNA's solution and workaround as written, tidied, in English, and says a third-party CNA wrote them", () => {
     const p = parseCveRecord(unreal, "CVE-2026-114713");
     expect(p).toMatchObject({ by: "MITRE", by_vendor: false, affected: [{ vendor: "", product: "UnrealIRCd" }] });
