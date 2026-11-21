@@ -115,14 +115,17 @@ function fromRecordFile(r: RecordFile): Shown {
   return { kicker: `Quick look · ${r.cve_ids[0] ?? "record"}`, title: r.title, product: "", note: "", about: { text: r.summary, by: null, url: null }, cvss: r.cvss, fix: r.fix, action: r.fix ? "" : r.action, sources: [], slug: r.slug, cve: r.cve_ids[0] ?? null };
 }
 
-/** A record passed in as data: the caller's view, else one built from the first CVE's file (when the site has it) and the record's own fields. */
+/**
+ * A record passed in as data: the caller's view, else one built from the first CVE's file (when the site has it) and
+ * the record's own fields. With no file, nothing the site read says whether CISA lists the CVE: the block says so.
+ */
 function fromRecordData(r: QuickLookRecord, file: QuickLookFile | null, today: string, sourcesId: string): Shown {
   const cves = [...(r.cve_ids ?? [])];
   const sources = r.sources ?? [];
   const fix =
     r.fix ??
     (cves.length
-      ? buildFixView({ cves, entries: file?.entries ?? [], kev: file?.kev ?? [], record: { action: r.action ?? "", fixed_in: r.fixed_in ?? [], source_count: Math.max(1, sources.length), sourcesUrl: `#${sourcesId}` }, today })
+      ? buildFixView({ cves, entries: file?.entries ?? [], kev: file ? file.kev : null, record: { action: r.action ?? "", fixed_in: r.fixed_in ?? [], source_count: Math.max(1, sources.length), sourcesUrl: `#${sourcesId}` }, today })
       : null);
   return { kicker: `Quick look · ${cves[0] ?? "record"}`, title: r.title, product: "", note: r.note ?? "", about: { text: r.summary, by: null, url: null }, cvss: r.cvss ?? file?.cvss ?? null, fix, action: fix ? "" : (r.action ?? ""), sources, slug: r.slug ?? null, cve: cves[0] ?? null };
 }

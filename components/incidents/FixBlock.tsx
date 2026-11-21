@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { FixHref, FixPassage, FixVersionRow, FixView } from "@/lib/fixes";
-import { bestFixLink } from "@/lib/fixes";
+import { bestFixLink, kevEntryUrl } from "@/lib/fixes";
 import { dateLabel } from "@/lib/format";
 
 /**
@@ -305,9 +305,19 @@ export function FixBlock({ view, today, className = "" }: FixBlockProps) {
             )}
           </>
         ) : (
-          <p data-fix-empty="deadline" className="text-dim">
-            Not on CISA&rsquo;s list of known exploited vulnerabilities, so no federal deadline.
-          </p>
+          view.kevRead ? (
+            <p data-fix-empty="deadline" className="text-dim">
+              Not on CISA&rsquo;s list of known exploited vulnerabilities, so no federal deadline.
+            </p>
+          ) : (
+            // the catalog was not read: say what is not known, never that CISA does not list it
+            <p data-fix-empty="deadline" data-fix-kev="unknown" className="text-dim">
+              CISA&rsquo;s catalog could not be read for this page, so whether it lists {view.cves.length > 1 ? "these CVEs" : "this CVE"} with a deadline is not known here.{" "}
+              <a href={kevEntryUrl(view.cves[0] ?? "")} {...EXT} className="link">
+                Check CISA&rsquo;s catalog ↗
+              </a>
+            </p>
+          )
         )}
       </Row>
 

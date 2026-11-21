@@ -1,4 +1,4 @@
-import { hasFixDetail, type FixPassage, type FixView } from "./fixes";
+import { hasFixDetail, kevEntryUrl, type FixPassage, type FixView } from "./fixes";
 import { timelineOf, type FullIncident } from "./lifecycle";
 import { LANE_META, PATCH_META, SEVERITY_META, TYPE_META } from "./taxonomy";
 
@@ -67,7 +67,9 @@ export function fixMarkdown(fix: FixView, pageUrl: string): string {
     ];
     if (d.action) dl.push(`- CISA's required action: "${d.action}" [${d.cite}]`);
     out.push(`Deadline\n${dl.join("\n")}`);
-  } else out.push("Deadline\n- Not on CISA's list of known exploited vulnerabilities, so no federal deadline.");
+  } else if (fix.kevRead) out.push("Deadline\n- Not on CISA's list of known exploited vulnerabilities, so no federal deadline.");
+  // the catalog was not read for this brief: say so, never that CISA does not list it
+  else out.push(`Deadline\n- CISA's catalog could not be read for this brief, so whether it lists ${fix.cves.join(", ")} is not known here; check ${kevEntryUrl(fix.cves[0] ?? "")}`);
 
   out.push(`References\n${fix.refs.map((r) => `- ${r.cve}: ${r.links.map((l) => `${l.label} ${l.url}`).join(" · ")}`).join("\n")}`);
   // only the sources the lines above cite (our own sentence sits under "What to do", outside this section)

@@ -36,7 +36,7 @@ const full = entry("CVE-2026-0001", {
 
 describe("buildFixView: the join", () => {
   it("answers patch, workaround and deadline from the entry, and numbers each source once, in the order the view first uses it", () => {
-    const v = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-9999"), full], today: TODAY });
+    const v = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-9999"), full], kev: [], today: TODAY });
     expect(v.cves).toEqual(["CVE-2026-0001"]);
     expect(v.checked).toBe("2026-11-19T06:00:00.000Z");
     // 1: the CVE record (the first version row), 2: the GitHub advisory (the second), then the links in order, then CISA
@@ -87,13 +87,13 @@ describe("buildFixView: the join", () => {
     expect(fixMarkdown(v, "https://example.test/x")).toContain("- CISA lists CVE-2026-0001, CVE-2026-0002, CVE-2026-0003 as exploited in the wild; US federal agencies must fix CVE-2026-0003 (listed 2026-11-10) by 2026-12-01.");
     // the oldest read among the entries is what the block's date says
     expect(v.checked).toBe("2026-11-17T00:00:00.000Z");
-    const passed = buildFixView({ cves: ["CVE-2026-0001", "CVE-2026-0002"], entries: [a, b], today: "2026-12-20" });
+    const passed = buildFixView({ cves: ["CVE-2026-0001", "CVE-2026-0002"], entries: [a, b], kev: [], today: "2026-12-20" });
     expect(passed.deadline).toMatchObject({ due: "2026-12-09", action: "New action." });
     expect(v.refs.map((r) => r.links.map((l) => l.key).join(","))).toEqual(["cve,nvd,kev,epss", "cve,nvd,kev,epss", "cve,nvd,kev,epss"]);
   });
 
   it("never invents a workaround: it quotes one, reports that the vendor lists none, or says none is listed, not read, or not published", () => {
-    const state = (entries: FixEntry[], cves = ["CVE-2026-0001"]) => buildFixView({ cves, entries, today: TODAY }).workaround;
+    const state = (entries: FixEntry[], cves = ["CVE-2026-0001"]) => buildFixView({ cves, entries, kev: [], today: TODAY }).workaround;
     expect(state([entry("CVE-2026-0001", { workarounds: [text("CVE-2026-0001", "F5", "None")] })])).toMatchObject({ state: "stated_none", texts: [], none: { by: "F5", cite: 1 } });
     expect(state([entry("CVE-2026-0001")])).toEqual({ state: "none_listed", texts: [], links: [], none: null });
     expect(state([entry("CVE-2026-0001", { found: false, cna: "", by: "" })])).toMatchObject({ state: "no_record" });
@@ -106,15 +106,15 @@ describe("buildFixView: the join", () => {
 
   it("shows our own sentence only where no publisher's text is shown, labelled by its citation, and our fixed versions only where no source gave one", () => {
     const record = { action: "Update the router firmware.", fixed_in: ["Router 1.2"], source_count: 3, sourcesUrl: "#sources" };
-    const bare = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001")], record, today: TODAY });
+    const bare = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001")], record, kev: [], today: TODAY });
     expect(bare.patch.recorded).toEqual([{ label: "", version: "Router 1.2", from: "", status: "fixed", cite: 1 }]);
     expect(bare.summary).toEqual({ text: "Update the router firmware.", cite: 1 });
     expect(bare.citations).toEqual([{ n: 1, publisher: "gcdRadar", title: "This record, written by a language model from its 3 sources", url: "#sources" }]);
-    const quoted = buildFixView({ cves: ["CVE-2026-0001"], entries: [full], record, today: TODAY });
+    const quoted = buildFixView({ cves: ["CVE-2026-0001"], entries: [full], record, kev: [], today: TODAY });
     expect(quoted.summary).toBeNull();
     expect(quoted.patch.recorded).toEqual([]);
-    expect(buildFixView({ cves: ["CVE-2026-0001"], entries: [], record: { ...record, action: "  ", fixed_in: [] }, today: TODAY })).toMatchObject({ summary: null, checked: null, deadline: null, citations: [] });
-    expect(hasFixDetail(buildFixView({ cves: ["CVE-2026-0001"], entries: [], today: TODAY }))).toBe(false);
+    expect(buildFixView({ cves: ["CVE-2026-0001"], entries: [], record: { ...record, action: "  ", fixed_in: [] }, kev: [], today: TODAY })).toMatchObject({ summary: null, checked: null, deadline: null, citations: [] });
+    expect(hasFixDetail(buildFixView({ cves: ["CVE-2026-0001"], entries: [], kev: [], today: TODAY }))).toBe(false);
     expect(hasFixDetail(bare)).toBe(true);
   });
 
@@ -125,7 +125,7 @@ describe("buildFixView: the join", () => {
         { label: "Ivanti Connect Secure", version: "22.7R2.14", from: "", url: null, source: "cve", status: "unaffected" },
       ],
     });
-    const v = buildFixView({ cves: ["CVE-2026-0001"], entries: [listed], record: { action: "", fixed_in: ["Connect Secure 25.1.3.0"], source_count: 2, sourcesUrl: "#sources" }, today: TODAY });
+    const v = buildFixView({ cves: ["CVE-2026-0001"], entries: [listed], record: { action: "", fixed_in: ["Connect Secure 25.1.3.0"], source_count: 2, sourcesUrl: "#sources" }, kev: [], today: TODAY });
     expect(v.patch.versions).toEqual([
       { label: "Ivanti Connect Secure", version: "25.1.3.0", from: "", status: "unaffected", cite: 1 },
       { label: "Ivanti Connect Secure", version: "22.7R2.14", from: "", status: "unaffected", cite: 1 },
@@ -137,8 +137,31 @@ describe("buildFixView: the join", () => {
     expect(md).not.toContain("fixed in 22.7R2.14");
   });
 
+  it("says CISA's listing is unknown when the catalog was not read, never that the CVE is not listed", () => {
+    // no catalog, and no KEV block in the fix file: unknown, with CISA's entry linked so the reader can look
+    const unread = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001")], kev: null, today: TODAY });
+    expect(unread).toMatchObject({ deadline: null, kevRead: false });
+    expect(unread.refs[0]!.links.map((l) => l.key)).toEqual(["cve", "nvd", "kev", "epss"]);
+    const md = fixMarkdown(unread, "https://example.test/x");
+    expect(md).toContain(`Deadline\n- CISA's catalog could not be read for this brief, so whether it lists CVE-2026-0001 is not known here; check ${kevEntryUrl("CVE-2026-0001")}`);
+    expect(md).not.toContain("Not on CISA's list");
+    // read, and not listed: the confirmed negative, and no KEV link
+    const read = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001")], kev: [], today: TODAY });
+    expect(read).toMatchObject({ deadline: null, kevRead: true });
+    expect(read.refs[0]!.links.map((l) => l.key)).toEqual(["cve", "nvd", "epss"]);
+    expect(fixMarkdown(read, "https://example.test/x")).toContain("Deadline\n- Not on CISA's list of known exploited vulnerabilities, so no federal deadline.");
+    // no catalog, but the fix file holds CISA's block: the deadline is still shown
+    expect(buildFixView({ cves: ["CVE-2026-0001"], entries: [full], kev: null, today: TODAY }).deadline).toMatchObject({ due: "2026-12-09", action: "Apply mitigations per vendor instructions." });
+    // a record's view and the drawer's file both keep the unknown when the build has no kev.json
+    const record = incident({ cve_ids: ["CVE-2026-0007"], state: "live" });
+    expect(fixViewForRecord(record, { fixes: null, kev: null }, TODAY, "")).toMatchObject({ deadline: null, kevRead: false });
+    const [file] = buildQuickLookFiles([record], { fixes: null, kev: null }, TODAY, "2026-11-19T07:00:00.000Z");
+    expect(file).toMatchObject({ cve: "CVE-2026-0007", kev: null });
+    expect(quickLookView(file!, TODAY)).toMatchObject({ deadline: null, kevRead: false });
+  });
+
   it("names a third-party CNA in the record's citation", () => {
-    const v = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001", { cna: "mitre", by: "MITRE", by_vendor: false, patches: [{ label: "UnrealIRCd", version: "6.2.7.1", from: "", url: null, source: "cve" }] })], today: TODAY });
+    const v = buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001", { cna: "mitre", by: "MITRE", by_vendor: false, patches: [{ label: "UnrealIRCd", version: "6.2.7.1", from: "", url: null, source: "cve" }] })], kev: [], today: TODAY });
     expect(v.citations[0]).toEqual({ n: 1, publisher: "MITRE", title: "CVE record CVE-2026-0001, written by MITRE as the CNA", url: cveOrgUrl("CVE-2026-0001") });
   });
 });
@@ -175,7 +198,7 @@ describe("the record's view, its brief and the drawer's files", () => {
     expect(buildBrief(noCve, site, fixViewForRecord(noCve, stats, TODAY, site))).not.toContain("## How to fix");
     expect(buildBrief(record, site)).not.toContain("## How to fix");
     // multi-line vendor text stays one list item
-    const md = fixMarkdown(buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001", { solutions: [text("CVE-2026-0001", "Acme", "Upgrade to 1.2.\nRestart the service.", "vendor", true)] })], today: TODAY }), "https://example.test/x");
+    const md = fixMarkdown(buildFixView({ cves: ["CVE-2026-0001"], entries: [entry("CVE-2026-0001", { solutions: [text("CVE-2026-0001", "Acme", "Upgrade to 1.2.\nRestart the service.", "vendor", true)] })], kev: [], today: TODAY }), "https://example.test/x");
     expect(md).toContain('- Acme\'s solution: "Upgrade to 1.2. / Restart the service." (cut; the source has the rest) [1]');
     expect(md).toContain("Workaround\n- No workaround published in the CVE record or by CISA yet.");
     expect(md).toContain("Deadline\n- Not on CISA's list of known exploited vulnerabilities, so no federal deadline.");
