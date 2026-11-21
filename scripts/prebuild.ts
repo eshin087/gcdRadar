@@ -36,6 +36,7 @@ import type { Briefing } from "../lib/schema";
 import { SCOPE_FILE } from "../lib/scope";
 import { STACK_FILE, packStack } from "../lib/panel/stack";
 import { SITE } from "../lib/site";
+import { clockFrom } from "../lib/clock";
 import { slim } from "../lib/slim";
 import { ATLAS_RELEASE, INCIDENT_TYPES, LANES, LANE_META, OWASP_LLM_EDITION, atlasFor, owaspFor, type Lane } from "../lib/taxonomy";
 import { aiLens, isDisclosedIncident, recordKind } from "../lib/counting";
@@ -117,6 +118,8 @@ async function resetDir(dir: string) {
 async function main() {
   const { incidents } = await loadIncidents();
   const updated = await lastUpdated();
+  // every model below is computed for the newest sweep's time, as the pages are (lib/clock.ts); generated_at stamps keep the real time
+  const clock = clockFrom(updated, Date.now());
   const base = siteUrl();
   const dataDir = path.join(PUBLIC, "data");
   const perIncident = path.join(dataDir, "incidents");
@@ -178,14 +181,14 @@ async function main() {
     license_url: SITE.dataLicense.url,
   };
   await fs.writeFile(path.join(dataDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
-  const summary = buildSummary(sorted, { now: new Date(), site: base, lastUpdated: updated });
+  const summary = buildSummary(sorted, { now: clock, site: base, lastUpdated: updated });
   await fs.writeFile(path.join(dataDir, "summary.json"), JSON.stringify(summary, null, 2) + "\n");
   // the feed carries incidents; disclosed vulnerabilities arrive in vendor batches and would drown it
   const siteChannel = (title: string, description: string, homeUrl: string, feedUrl: string) => ({ title, description, homeUrl, feedUrl, updated });
   const feedTitle = `${SITE.name} — new incidents, all lanes`;
   await fs.writeFile(path.join(PUBLIC, "feed.xml"), rssXml(counted, base, siteChannel(feedTitle, SITE.description, base, `${base}/feed.xml`)));
   await fs.writeFile(path.join(PUBLIC, "feed.json"), JSON.stringify(jsonFeed(counted, base, siteChannel(feedTitle, SITE.description, base, `${base}/feed.json`)), null, 1) + "\n");
-  const now = new Date();
+  const now = clock;
   await fs.writeFile(path.join(PUBLIC, "changes.json"), JSON.stringify(buildChanges(sorted, { site: base, now }), null, 1) + "\n");
   const tagIndex = buildTagIndex(sorted, now);
   await fs.writeFile(path.join(PUBLIC, "llms.txt"), buildLlmsTxt({ site: base, incidents: sorted, tags: tagIndex.directory, scope: { kind: "site" }, now }));
@@ -233,7 +236,7 @@ async function main() {
     ]);
   }
   // live.json: the home page's counters and per-lane counts, what scripts/check-live.mjs compares the page against
-  const live = buildLive(sorted, new Date(), updated);
+  const live = buildLive(sorted, clock, updated);
   await fs.writeFile(
     path.join(PUBLIC, "live.json"),
     JSON.stringify(
@@ -308,7 +311,7 @@ async function main() {
   // the chart images draw the AI series (lib/counting.ts aiLens)
   const aiCounted = aiLens(counted);
   const written = await renderOgImages(
-    { incidents: aiCounted, disclosed: aiLens(sorted).length - aiCounted.length, now: new Date(), siteHost: base.replace(/^https?:\/\//, "") },
+    { incidents: aiCounted, disclosed: aiLens(sorted).length - aiCounted.length, now: clock, siteHost: base.replace(/^https?:\/\//, "") },
     path.join(PUBLIC, "og"),
   );
   console.log(

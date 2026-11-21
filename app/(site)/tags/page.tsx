@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TagDirectory, type DirectoryGroup } from "@/components/tags/TagDirectory";
+import { buildNow } from "@/lib/clock";
 import { loadIncidents } from "@/lib/data";
 import { TAG_GROUPS, TAG_GROUP_META, buildTagIndex, tagHref } from "@/lib/tags";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default async function TagsPage() {
   const { incidents } = await loadIncidents();
-  const index = buildTagIndex(incidents, new Date());
+  const index = buildTagIndex(incidents, await buildNow());
   const live = index.directory.reduce((n, t) => n + t.live, 0);
   const groups: DirectoryGroup[] = TAG_GROUPS.map((g) => ({
     key: g,
