@@ -1,5 +1,65 @@
 [
   {
+    "id": "AIR-2026-2113",
+    "slug": "microsoft-entra-connect-health-vulnerability-exploited-to-st",
+    "title": "Microsoft Entra Connect Health vulnerability exploited to steal tenant data",
+    "summary": "Microsoft reported that attackers exploited a flaw in its Entra Connect Health service to obtain administrator email addresses and tenant configuration details, resulting in a data breach. The company is urging affected organizations to review and secure their environments.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "Microsoft",
+      "enterprise_deployment"
+    ],
+    "products": [
+      "Entra Connect Health"
+    ],
+    "incident_date": "2026-11-21",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data",
+        "publisher": "BleepingComputer",
+        "title": "Microsoft Entra Connect Health flaw exploited to steal tenant data",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "entra",
+      "connect-health",
+      "tenant-data",
+      "microsoft"
+    ],
+    "created_at": "2026-11-21T18:06:47.028Z",
+    "updated_at": "2026-11-21T18:06:47.028Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "Microsoft Entra Connect Health flaw exploited to steal tenant data",
+        "source_url": "https://bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data",
+        "added_at": "2026-11-21T18:06:47.028Z"
+      }
+    ],
+    "action": "Review and secure Entra Connect Health configurations and rotate compromised credentials",
+    "severity_note": "Confirmed exploitation leading to theft of administrator emails and tenant configuration data",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2112",
     "slug": "cve-2026-134293-surrealdb-sql-injection-vulnerability-in-mcp",
     "title": "CVE-2026-134293: SurrealDB SQL injection vulnerability in MCP server",
