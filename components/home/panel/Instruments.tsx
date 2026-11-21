@@ -1,18 +1,15 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { FlowRibbons } from "@/components/home/panel/FlowRibbons";
 import { Instrument } from "@/components/home/panel/Instrument";
 import { Cells, Units } from "@/components/home/panel/marks";
 import { Num } from "@/components/home/panel/Num";
 import type { AiFlow as AiFlowData, AttackTypeRow, FlowRole, SurfaceRow } from "@/lib/panel";
-import type { Lane } from "@/lib/taxonomy";
 
 /**
  * The server-rendered instruments in the panel's grammar (rules in
- * lib/panel): the attack types and the attack surface, how AI shows up, and
- * the home page's footer rows. The first three sit on /trends under the
- * web's charts; each is final in the HTML, and the client only builds the
- * marks in and draws the AI flow's ribbons.
+ * lib/panel): the attack types, the attack surface and how AI shows up.
+ * They sit on /trends under the web's charts; each is final in the HTML,
+ * and the client only builds the marks in and draws the AI flow's ribbons.
  */
 
 /* ---------- Attack types and Attack surface: two tables on one grid ---------- */
@@ -158,79 +155,5 @@ export function AiFlow({ ai }: { ai: AiFlowData }) {
         </div>
       </div>
     </Instrument>
-  );
-}
-
-/* ---------- the footer strip ---------- */
-
-/** One row of the strip: its key, then the items with an interpunct between each pair. */
-function FootRow({ k, items }: { k: string; items: ReactNode[] }) {
-  return (
-    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5 py-2">
-      <span className="min-w-[112px] uppercase tracking-[0.1em] text-dim">{k}</span>
-      {items.flatMap((item, i) =>
-        i
-          ? [
-              <span key={`dot-${i}`} aria-hidden className="text-faint">
-                ·
-              </span>,
-              item,
-            ]
-          : [item],
-      )}
-    </div>
-  );
-}
-
-/**
- * The home page's footer strip under the day sheet's bands: what else is live and
- * this week's briefing, each one quiet mono line without a hairline of its
- * own. The data files and feeds are not listed anywhere on the site.
- */
-export function PanelFoot({ lanes, live, breachesMonth, accountsMonth, briefing }: { lanes: Record<Lane, number>; live: number; breachesMonth: number | null; accountsMonth: number | null; briefing: { week: string; headline: string } | null }) {
-  const n = (v: number) => <span className="num text-ink">{v.toLocaleString("en-US")}</span>;
-  const link = "hover:text-ink";
-  const also: ReactNode[] = [
-    <Link key="patch" href="/live?lane=patch" className={link}>
-      Patch {n(lanes.patch)}
-    </Link>,
-    <Link key="breach" href="/live?lane=breach" className={link}>
-      Breaches {n(lanes.breach)}
-    </Link>,
-    <Link key="supply" href="/live?lane=supply_chain" className={link}>
-      Supply chain {n(lanes.supply_chain)}
-    </Link>,
-    <Link key="research" href="/live?lane=research" className={link}>
-      Research {n(lanes.research)}
-    </Link>,
-  ];
-  if (breachesMonth !== null && accountsMonth !== null)
-    also.push(
-      <Link key="month" href="/trends#web" className={link}>
-        Breaches this month {n(breachesMonth)}, <span className="num text-ink">{(accountsMonth / 1e6).toFixed(1)} M</span> accounts
-      </Link>,
-    );
-  also.push(
-    <Link key="live" href="/live" className="text-soft hover:text-accent">
-      all {live} on the live board →
-    </Link>,
-  );
-  return (
-    <footer data-panel-foot className="mt-9 border-t border-line-soft pt-3.5 font-mono text-[13.5px] text-dim">
-      <FootRow k="Also live" items={also} />
-      {briefing && (
-        <FootRow
-          k="This week"
-          items={[
-            <Link key="headline" href={`/briefing/${briefing.week}`} className="font-sans text-[15px] text-soft hover:text-accent">
-              {briefing.headline}
-            </Link>,
-            <span key="week" className="text-faint">
-              {briefing.week}
-            </span>,
-          ]}
-        />
-      )}
-    </footer>
   );
 }

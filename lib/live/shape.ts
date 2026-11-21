@@ -22,8 +22,9 @@ import type { Lane, PatchStatus, Severity } from "../taxonomy";
 /**
  * Bumped when a file's shape changes; the page ignores a version it does not know and keeps what it was built with.
  * 2: My stack's tiles carry their tier and new critical CVEs, and stack.json is written compactly (lib/panel/picks.ts packStack).
+ * 3: the home view carries the news lists and only the deadlines of the ledger (the redesigned home page).
  */
-export const LIVE_VERSION = 2;
+export const LIVE_VERSION = 3;
 
 /** The branch the collector publishes the files to (one commit, replaced every sweep; Vercel never deploys it). */
 export const LIVE_BRANCH = "live";
@@ -53,7 +54,8 @@ export interface HomeView {
   columns: { patch: { live: number }; breach: { live: number }; supply_chain: number; research: number };
   /** The counters and the lists they open; the charts' series stay on /trends and are empty here. */
   stats: HomeStats;
-  panel: Pick<PanelData, "verdict" | "stack" | "ledger" | "week" | "sieve">;
+  /** Of the ledger, the page draws the deadlines; the records without a patch are a number (verdict.noFullPatch). */
+  panel: Pick<PanelData, "verdict" | "stack" | "news" | "week" | "sieve"> & { ledger: Pick<PanelData["ledger"], "due" | "later"> };
   briefing: { week: string; headline: string; start: string; end: string } | null;
 }
 

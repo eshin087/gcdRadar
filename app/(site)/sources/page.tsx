@@ -113,6 +113,19 @@ export default async function SourcesPage() {
         <p>
           Includes data from the AI Incident Database (CC BY-SA 4.0), MITRE ATLAS (Apache 2.0), NVD, the GitHub Advisory Database (CC BY 4.0) and CISA KEV (CC0). This product uses the NVD API but is not endorsed or certified by the NVD.
         </p>
+        {/* the CVE Program's terms ask for MITRE's copyright designation and the licence itself beside any copy of CVE content */}
+        <p id="cve-notice" className="scroll-mt-24">
+          The &ldquo;How to fix&rdquo; block on a record quotes the CVE Program&rsquo;s records (fixed versions, tagged links, and the vendor&rsquo;s or CNA&rsquo;s solution and
+          workaround text, as written), CISA&rsquo;s required actions and deadlines (CC0), NVD&rsquo;s reference tags and the GitHub Advisory Database&rsquo;s patched versions
+          (CC BY 4.0). Each quoted line names its publisher and links its source. CVE content: Copyright © 1999-{new Date().getUTCFullYear()}, The MITRE Corporation. CVE is a
+          trademark and the CVE logo is a registered trademark of The MITRE Corporation. Licence, from the{" "}
+          <a className="link" href="https://www.cve.org/Legal/TermsOfUse" rel="noopener noreferrer" target="_blank">
+            CVE Program Terms of Use
+          </a>
+          : &ldquo;MITRE hereby grants you a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare derivative works of,
+          publicly display, publicly perform, sublicense, and distribute Common Vulnerabilities and Exposures (CVE™). Any copy you make for such purposes is authorized provided
+          that you reproduce MITRE&rsquo;s copyright designation and this license in any such copy.&rdquo; {SITE.name} is not endorsed by MITRE, the CVE Program, CISA or DHS.
+        </p>
         <p>
           Incidents are mapped to the OWASP Top 10 for LLM Applications (CC BY-SA 4.0, © OWASP Foundation) and MITRE ATLAS techniques (Apache 2.0, © MITRE); the{" "}
           <Link className="link" href="/methodology#standards">

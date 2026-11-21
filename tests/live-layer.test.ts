@@ -101,7 +101,9 @@ describe("the files of a sweep", () => {
   it("leave the charts' series off the home view", () => {
     expect(home.view.stats.series.cves_by_year).toEqual([]);
     expect(home.view.stats.epss_top).toEqual([]);
-    expect(Object.keys(home.view.panel).sort()).toEqual(["ledger", "sieve", "stack", "verdict", "week"]);
+    expect(Object.keys(home.view.panel).sort()).toEqual(["ledger", "news", "sieve", "stack", "verdict", "week"]);
+    // of the ledger, only the deadlines travel: the records without a patch are a number on the page
+    expect(Object.keys(home.view.panel.ledger).sort()).toEqual(["due", "later"]);
     expect("scope" in board.view).toBe(false);
   });
 

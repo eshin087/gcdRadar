@@ -4,15 +4,13 @@ import { useEffect } from "react";
 import { BAR_GAP_MS, BUILD_EVENT, BUILD_GLYPHS, CELL_GAP_MS, CELL_STEP_MS, UNIT_GAP_MS, UNIT_ROW_GAP_MS, UNIT_STEP_MS, motionOn, type BuildDetail } from "@/components/fx/ascii";
 
 /**
- * The panel's director, mounted once on the home page and once on /trends.
- * Each instrument (`[data-build]`) builds once, when its top passes 85% of
- * the viewport: its cells and unit squares assemble through · : + left to
- * right, then it fires BUILD_EVENT so its numbers (Num), the newest ledger
- * row (TypeIn) and the AI flow's ribbons start. Without html.motion every
+ * The panel's director, mounted on /trends (the home page's sections are
+ * final as rendered and need none). Each instrument (`[data-build]`) builds
+ * once, when its top passes 85% of the viewport: its cells and unit squares
+ * assemble through · : + left to right, then it fires BUILD_EVENT so its
+ * numbers (Num) and the AI flow's ribbons start. Without html.motion every
  * instrument builds at once, final and still. Once built, nothing here
- * moves again; the only loops on the sheet are the runway's approach lights
- * and the light along its open bars, which are CSS alone (globals.css
- * .rw-*), as are the marks that arrive when the runway card builds.
+ * moves again.
  */
 
 declare global {

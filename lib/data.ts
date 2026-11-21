@@ -96,15 +96,16 @@ async function loadStatsFresh(): Promise<StatsFiles> {
   // a missing file is part of the signature (its stat fails), so the memo also knows when one appears
   const signature = await Promise.all(Object.values(STATS_FILES).map((f) => fs.stat(path.join(dir, f)).then((st) => `${f}:${st.mtimeMs}:${st.size}`, () => `${f}:absent`))).then((parts) => parts.join("|"));
   if (statsMemo && statsMemo.signature === signature) return statsMemo.data;
-  const [nvdCounts, cvesRecent, daily, kev, hibp, epss] = await Promise.all([
+  const [nvdCounts, cvesRecent, daily, kev, hibp, epss, fixes] = await Promise.all([
     read(STATS_FILES.nvdCounts, STATS_SCHEMAS.nvdCounts),
     read(STATS_FILES.cvesRecent, STATS_SCHEMAS.cvesRecent),
     read(STATS_FILES.daily, STATS_SCHEMAS.daily),
     read(STATS_FILES.kev, STATS_SCHEMAS.kev),
     read(STATS_FILES.hibp, STATS_SCHEMAS.hibp),
     read(STATS_FILES.epss, STATS_SCHEMAS.epss),
+    read(STATS_FILES.fixes, STATS_SCHEMAS.fixes),
   ]);
-  const data: StatsFiles = { nvdCounts, cvesRecent, daily, kev, hibp, epss };
+  const data: StatsFiles = { nvdCounts, cvesRecent, daily, kev, hibp, epss, fixes };
   statsMemo = { signature, data };
   return data;
 }

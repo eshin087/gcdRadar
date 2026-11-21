@@ -209,16 +209,23 @@ async function main() {
       const config = loadConfig();
       const settings = config.settings;
       const radarChanged = !sourceIds ? await maybeUpdateRadar(settings, { dryRun }) : false;
+      const schedules = new Map(config.sources.map((s) => [s.id, s.schedule]));
+      // Is this sweep committed whatever the statistics find? Then the fix stage may also re-read the entries it
+      // already holds: a re-read moves only their lookup stamps, which need a commit to persist, and must not
+      // be the reason a quiet sweep reaches main (collector/cadence.ts). A new CVE is looked up on any sweep.
+      const committedAnyway =
+        !fullSweep || commitsSweep(quietSweep({ changedFiles: summary.changedFiles, sideChanged: radarChanged, record: summary.record, lookedUp: summary.lookedUp, schedules }), activity?.sinceLastCommit ?? null);
       // the statistics files (data/stats): each due on its own cadence (the KEV catalog every sweep, most once a day), skipped in dry runs so a pipeline rehearsal stays quick
-      const statsChanged = !sourceIds && !dryRun ? (await runStats(settings)).changed.length > 0 : false;
+      const stats = !sourceIds && !dryRun ? await runStats(settings, { rechecks: committedAnyway }) : null;
+      const statsChanged = (stats?.changed.length ?? 0) > 0;
+      // a stats file whose lookup stamps alone moved (fixes.json) is committed with the run, but is no reason to rebuild the site
+      const statsTouched = (stats?.touched.length ?? 0) > 0;
       const sideChanged = radarChanged || statsChanged;
-      const quiet =
-        fullSweep &&
-        quietSweep({ changedFiles: summary.changedFiles, sideChanged, record: summary.record, lookedUp: summary.lookedUp, schedules: new Map(config.sources.map((s) => [s.id, s.schedule])) });
+      const quiet = fullSweep && quietSweep({ changedFiles: summary.changedFiles, sideChanged: sideChanged || statsTouched, record: summary.record, lookedUp: summary.lookedUp, schedules });
       const commitNow = commitsSweep(quiet, activity?.sinceLastCommit ?? null);
       if (commit && !commitNow) log.info("a quiet sweep: nothing but the run ledger changed, so nothing is committed (the ledger is committed at least hourly)", { minutes_since_last_commit: Math.round(activity?.sinceLastCommit ?? 0) });
       let unpushed = false;
-      if (commit && commitNow && (summary.changedFiles.length || sideChanged)) {
+      if (commit && commitNow && (summary.changedFiles.length || sideChanged || statsTouched)) {
         // a scheduled run rebuilds the site only when a deploy window has opened since the last commit that
         // rebuilt it (the windows are deadlines, so a thin schedule cannot leave the site stale for days);
         // a manual run (the owner at the keyboard) deploys as before
@@ -226,10 +233,12 @@ async function main() {
         const deployNow =
           opts.mode !== "scheduled" ||
           (lastRebuild ? windowOpenedSince(lastRebuild, summary.record.started_at) : inDeployWindow(summary.record.started_at));
-        const quiet = !deployNow || siteUnchanged(summary.changedFiles, sideChanged);
+        // nothing but lookup stamps: bookkeeping too, even when the run itself wrote no file
+        const stampsOnly = statsTouched && !sideChanged && summary.changedFiles.length === 0;
+        const quiet = !deployNow || stampsOnly || siteUnchanged(summary.changedFiles, sideChanged);
         if (!deployNow) log.info("no deploy window has opened since the site was last rebuilt: the data is committed, the site is rebuilt at the next window", { last_rebuild: lastRebuild, hours: deployHours() });
         else if (opts.mode === "scheduled") log.info("a deploy window has opened since the site was last rebuilt: this run rebuilds it", { last_rebuild: lastRebuild, hours: deployHours() });
-        const result = await commitAndPush(runCommitMessage(summary.record, summary.changedFiles, sideChanged, deployNow), { deploy: !quiet });
+        const result = await commitAndPush(runCommitMessage(summary.record, summary.changedFiles, sideChanged, deployNow && !stampsOnly), { deploy: !quiet });
         unpushed = result.committed && !result.pushed;
       }
       // The live layer: every full sweep posts what the home page and the live board redraw from to the
@@ -282,6 +291,9 @@ async function main() {
       const result = await runStats(settings, { dryRun, force: Boolean(flags["force"]), only });
       if (commit && result.changed.length) {
         await commitAndPush(`data: stats refresh (${result.changed.map((f) => path.basename(f, ".json")).join(", ")})`);
+      } else if (commit && result.touched.length) {
+        // only lookup stamps moved: nothing the site shows changed, so no build
+        await commitAndPush(`data: stats lookups (${result.touched.map((f) => path.basename(f, ".json")).join(", ")}) ${NO_SITE_CHANGE}`, { deploy: false });
       }
       if (result.failed.length) process.exitCode = 2;
       return;

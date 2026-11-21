@@ -418,12 +418,15 @@ export default function MethodologyPage() {
           <strong>My stack</strong> counts, per product, KEV entries and our exploited records of the last 90 days, once per CVE; a tile opens that
           list. The products come from a catalog of several hundred well-known vendors and products, always listed whether or not anything hit them
           lately, plus every other vendor on CISA&rsquo;s catalog; a vendor covers everything it makes. A KEV entry is matched on CISA&rsquo;s vendor
-          and product columns, a record on its products, title and tags. A chip carries a coloured word only while something is exploited and open: a
+          and product columns, a record on its products, title and tags. The home page draws a product only while something of it is exploited and open: a
           KEV due date ahead or passed in the last seven days (CISA&rsquo;s deadline), no full patch, or confirmed impact (severity 4: data, money or
-          service lost). New critical CVEs (CVSS 9.0 or more, published in the last 14 days) are a second, quieter signal: a grey count in the
-          product list and a list of their own under a chip, never a coloured word. A CVE that is already on CISA&rsquo;s list or in one of our exploited records is not counted among them: it is one of the exploited items. They are matched by name in NVD&rsquo;s one-line description, strictly, so the count can miss some. Every list of products is
+          service lost). Its row says which, and shows the CVSS score of the item behind that reason (the entries with that deadline, the records
+          without a patch, the records with confirmed impact) beside a ten-cell meter lit to the score, or &ldquo;no score yet&rdquo;. A product
+          with nothing open is counted in the section&rsquo;s line and not drawn. New critical CVEs (CVSS 9.0 or more, published in the last 14
+          days) are a second, quieter signal: one grey line under the rows names the highest by score, and a product&rsquo;s list
+          holds its own, never a coloured word. A CVE that is already on CISA&rsquo;s list or in one of our exploited records is not counted among them: it is one of the exploited items. They are matched by name in NVD&rsquo;s one-line description, strictly, so the count can miss some. Every list of products is
           in one order: exploited with no full patch or a deadline within three days, then later deadlines, then confirmed impact, then new critical
-          CVEs, then the rest; the higher CVSS score first inside a group. Until you choose, the strip shows the most urgent of the best-known
+          CVEs, then the rest; the higher CVSS score first inside a group. Until you choose, the page uses the most urgent of the best-known
           products that day. Your picks stay in your browser.
         </li>
         <li>
@@ -431,19 +434,26 @@ export default function MethodologyPage() {
           the collector tracked AI incidents only, so an AI share trend would chart the collector, not the world.
         </li>
         <li>
-          <strong>Needs action</strong>, the home page&rsquo;s ledger, has three groups: CISA deadlines within seven days, folded per vendor, product and
-          deadline; our live exploited records without a full patch (a record whose CVEs are all on one of the week&rsquo;s deadline rows is that row); and the
-          live exploited records that entered the dataset in the last seven days, confirmed impact first. The runway card draws them on one time axis, a week
-          back and a week ahead (to the end of the seventh day, so every deadline it counts is on it): the nearest deadline leads as a countdown to the end of its UTC day, each deadline day is a marker, each of the first
-          six records without a patch is a bar from its first report to now, and each new record is a dot in its 24-hour window (several to a dot in a very
-          busy week, and the card says so). A deadline that has passed since the page was built drops off, and a record without a patch that was folded into it is listed on its own again. A row is tagged &ldquo;your stack&rdquo; when one
-          of your stack picks counts its CVE or record. &ldquo;AI only&rdquo; shows the AI rows; a deadline counts as AI when an AI record without a full
-          patch names one of its CVEs.
+          <strong>Next due</strong> lists CISA&rsquo;s patch deadlines still ahead, nearest first, folded per vendor, product and deadline with the
+          group&rsquo;s highest CVSS score. The nearest leads as a countdown to the end of its UTC day; a deadline that has passed since the page was
+          built drops off. The ten cells beside a row show how much of CISA&rsquo;s window is used, from the day it listed the entry to the deadline. The
+          lead says &ldquo;patch&rdquo; when the fix file holds a fixed version or a patch link for the CVE, and &ldquo;what to do&rdquo; when
+          CISA&rsquo;s instruction is all there is. A square marks a row one of your stack picks counts. The number of exploited records without a full
+          patch is in the hero; their list is the live board&rsquo;s patch lane.
+        </li>
+        <li>
+          <strong>The news</strong> on the home page is our own records of the last seven days (live ones; a CVE that only vulnerability databases list is
+          not news). A row counts its sources as distinct publishers, so two articles from one outlet are one source, and names the first four in the
+          record&rsquo;s own order. Top stories are ranked by that count, then confirmed impact, then the newest; breaches, AI and your stack are
+          newest first. One story can be split across records when outlets report it under different names, which lowers its count; the collector
+          merges what it can match.
         </li>
         <li>
           <strong>The week</strong> judges each count against its own typical: CVEs published against this year&rsquo;s average week; critical ones against the
           daily file&rsquo;s earlier days; KEV additions against every seven-day window of the last 36 months (the usual range is the middle half); breaches
-          against the median of the previous 36 months. Patch Tuesday is the second Tuesday of the month, from the calendar.
+          against the median of the previous 36 months. Patch Tuesday is the second Tuesday of the month, from the calendar. The radar scope beside
+          the facts is a picture of the week&rsquo;s new exploited records, one contact each: once round the dial is seven days with now at twelve
+          o&rsquo;clock, a higher CVSS score sits nearer the centre (no score: the middle ring), and red means confirmed impact. It shows at most 48.
         </li>
       </ul>
 
@@ -581,12 +591,28 @@ export default function MethodologyPage() {
           (50 records cleaned). One duplicate pair merged, one police-action record and nine queued items removed.
         </li>
         <li>
+          2026-11-19 · a record with a CVE id now opens with &ldquo;How to fix&rdquo;: the fixed versions, the patch and vendor-advisory links, the
+          vendor&rsquo;s workaround as written (or a plain line that none is published) and CISA&rsquo;s deadline, each with a numbered source. The
+          text comes from the CVE Program&rsquo;s records, CISA, NVD&rsquo;s reference tags and the GitHub Advisory Database, read for live records and
+          for CISA&rsquo;s listings of the last 90 days; no language model writes any of it, and the one model-written sentence a record carries is
+          labelled as ours. The page&rsquo;s sections are set apart, and the classification rows fold away. No counting rule changed.
+        </li>
+        <li>
           2026-11-20 · My stack gets a catalog and an order. The products to pick from were the 88 vendors and AI products hit in the last 90 days; they
           are now several hundred well-known vendors and products, always listed, plus every other vendor on CISA&rsquo;s catalog. A stack holds up to
           40 (it was 12), and the strip, the chooser and the file list products most urgent first. New critical CVEs of the last 14 days are counted
           per product as a quiet second signal, and a deadline that passed in the last seven days reads &ldquo;past due&rdquo;. A record that only
           mentions a university or a company&rsquo;s internal system no longer makes it a product. Saved picks and shared links keep working. A
           tile&rsquo;s number is counted as before; what belongs to a product is now decided by the catalog.
+        </li>
+        <li>
+          2026-11-20 · the home page is rebuilt for a daily check. My stack shows only the products that need action, each with the CVSS score behind
+          its reason; quiet products are counted, not drawn. A news section lists the week&rsquo;s top stories by the number of outlets that reported
+          them, with breaches, AI and your stack behind tabs, and names the outlets on every row. &ldquo;Next due&rdquo; replaces the runway card and
+          its three lists: the nearest CISA deadline as a countdown and the next six in one short list. This week is six one-line facts beside a radar
+          scope of the week&rsquo;s new exploited records. Rows open a quick look instead of leaving the page. The &ldquo;AI only&rdquo; switch and the
+          footer strip are gone (the AI tab and the section links do their jobs), and numbers no longer dissolve in. No counting rule changed; the
+          news ranking and the radar&rsquo;s placement are new and described above.
         </li>
       </ul>
     </div>
