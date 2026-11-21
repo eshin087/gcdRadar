@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2114",
+    "slug": "rackspace-spot-breach-exposes-customer-kubernetes-secrets",
+    "title": "Rackspace Spot breach exposes customer Kubernetes secrets",
+    "summary": "Hackers breached the Rackspace Spot cloud platform using compromised credentials to deploy unauthorized workloads and access customer Kubernetes secrets. Rackspace notified affected customers about the security incident.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Rackspace Spot"
+    ],
+    "incident_date": "2026-11-21",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets",
+        "publisher": "BleepingComputer",
+        "title": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "rackspace",
+      "kubernetes",
+      "breach",
+      "credential-access"
+    ],
+    "created_at": "2026-11-21T23:06:50.283Z",
+    "updated_at": "2026-11-21T23:06:50.283Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
+        "source_url": "https://bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets",
+        "added_at": "2026-11-21T23:06:50.283Z"
+      }
+    ],
+    "action": "Check your Rackspace Spot accounts for unauthorized workloads and rotate compromised credentials.",
+    "severity_note": "Confirmed real-world intrusion and access to customer secrets.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2113",
     "slug": "microsoft-entra-connect-health-vulnerability-exploited-to-st",
     "title": "Microsoft Entra Connect Health vulnerability exploited to steal tenant data",
