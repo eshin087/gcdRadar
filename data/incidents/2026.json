@@ -774,9 +774,15 @@
         "publisher": "The Register",
         "title": "Chinese attackers used AI agents to find and exploit a university zero-day",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own",
+        "publisher": "aws.amazon.com",
+        "title": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
+        "published_at": "2026-11-21"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -787,7 +793,7 @@
       "universities"
     ],
     "created_at": "2026-11-20T17:51:38.694Z",
-    "updated_at": "2026-11-20T17:51:38.694Z",
+    "updated_at": "2026-11-21T13:36:35.192Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
