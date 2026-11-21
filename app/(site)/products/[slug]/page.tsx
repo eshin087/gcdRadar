@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { blockSpark } from "@/components/fx/text";
 import { IncidentRow } from "@/components/incidents/IncidentRow";
 import { isDisclosedIncident } from "@/lib/counting";
+import { buildNow } from "@/lib/clock";
 import { loadIncidents } from "@/lib/data";
 import { monthLabel } from "@/lib/format";
 import type { FullIncident } from "@/lib/lifecycle";
@@ -67,7 +68,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const disclosed = p.items.filter((i) => !patchIds.has(i.id) && isDisclosedIncident(i));
   const other = p.items.filter((i) => !patchIds.has(i.id) && !isDisclosedIncident(i));
 
-  const now = toMonthKey(new Date());
+  const now = toMonthKey(await buildNow());
   const series = monthlyDisclosures(p.items, now, SPARK_MONTHS);
   const inWindow = series.reduce((n, m) => n + m.count, 0);
   const busiest = series.reduce((a, b) => (b.count > a.count ? b : a), series[0]!);

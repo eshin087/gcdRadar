@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IncidentRow } from "@/components/incidents/IncidentRow";
+import { buildNow } from "@/lib/clock";
 import { loadIncidents } from "@/lib/data";
 import { monthLabel } from "@/lib/format";
 import { daysBetween } from "@/lib/lifecycle";
@@ -13,13 +14,14 @@ export const dynamicParams = false;
 /** Rows shown on the page; the rest is one click away in the archive. */
 const MAX_ROWS = 200;
 
-function tagIndexNow(incidents: Awaited<ReturnType<typeof loadIncidents>>["incidents"]) {
-  return buildTagIndex(incidents, new Date());
+/** The tag index for the build's one clock (lib/clock.ts), as prebuild's tag files are. */
+async function tagIndexNow(incidents: Awaited<ReturnType<typeof loadIncidents>>["incidents"]) {
+  return buildTagIndex(incidents, await buildNow());
 }
 
 export async function generateStaticParams() {
   const { incidents } = await loadIncidents();
-  const slugs = tagIndexNow(incidents).directory.map((t) => ({ slug: t.slug }));
+  const slugs = (await tagIndexNow(incidents)).directory.map((t) => ({ slug: t.slug }));
   // a static export needs at least one param; the placeholder page is a 404
   return slugs.length ? slugs : [{ slug: "none" }];
 }
@@ -27,7 +29,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const { incidents } = await loadIncidents();
-  const t = tagIndexNow(incidents).bySlug.get(slug);
+  const t = (await tagIndexNow(incidents)).bySlug.get(slug);
   if (!t) return {};
   const description = `${t.total} records tagged ${t.label}, ${t.live} live. ${TAG_GROUP_META[t.group].label}; with its own RSS and JSON feeds.`;
   return { title: `${t.label} · tag`, description, openGraph: { title: `${t.label} · tag`, description, images: ["/og/default.png"] } };
@@ -47,14 +49,14 @@ function Bars({ tag, months }: { tag: TagEntry; months: string[] }) {
 export default async function TagPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const { incidents } = await loadIncidents();
-  const index = tagIndexNow(incidents);
+  const index = await tagIndexNow(incidents);
   const tag = index.bySlug.get(slug);
   if (!tag) notFound();
   const byId = new Map(incidents.map((i) => [i.id, i]));
   const rows = tag.ids.map((id) => byId.get(id)!).filter(Boolean);
   const live = rows.filter((i) => i.state === "live");
   const closed = rows.filter((i) => i.state !== "live");
-  const today = new Date().toISOString().slice(0, 10);
+  const today = (await buildNow()).toISOString().slice(0, 10);
   const since = tag.latest ? daysBetween(tag.latest, today) : null;
   const meta = TAG_GROUP_META[tag.group];
   const feeds = [
