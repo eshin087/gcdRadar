@@ -9,7 +9,8 @@
  *   public/data/rows/<year>.json      compact rows per year: what the dashboard's drawers fetch
  *   public/data/slim/<year>.json      slim records per year: what the incidents explorer fetches
  *   public/data/search-index.json     token index over id, title and products for the explorer's search box
- *   public/data/incidents/<slug>.json one file per incident
+ *   public/data/incidents/<slug>.json one file per incident, with its brief and its fix view (lib/fixes.ts)
+ *   public/data/fix/<CVE>.json        how to fix one CVE: what the quick-look drawer fetches (lib/fix-join.ts)
  *   public/data/meta.json             counts, last run, generation time
  *   public/data/summary.json          headline numbers and the 24-month series, for widgets (lib/summary.ts)
  *   public/data/briefings/<week>.json the weekly briefings, plus briefings/index.json
@@ -22,7 +23,8 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import type { MetaFile, YearIndexFile } from "../lib/api-docs";
 import { briefingSummaryLine } from "../lib/briefing";
-import { lastUpdated, loadBriefings, loadIncidents, loadStats, siteUrl } from "../lib/data";
+import { BUILD_DAY, lastUpdated, loadBriefings, loadIncidents, loadStats, siteUrl } from "../lib/data";
+import { buildQuickLookFiles, fixViewForRecord } from "../lib/fix-join";
 import { breachesMonthList, buildHome, kevMonthList } from "../lib/home";
 import { statsListFiles } from "../lib/live/build";
 import { lastActivity, type FullIncident } from "../lib/lifecycle";
@@ -36,6 +38,7 @@ import type { Briefing } from "../lib/schema";
 import { SCOPE_FILE } from "../lib/scope";
 import { STACK_FILE, packStack } from "../lib/panel/stack";
 import { SITE } from "../lib/site";
+import { clockFrom } from "../lib/clock";
 import { slim } from "../lib/slim";
 import { ATLAS_RELEASE, INCIDENT_TYPES, LANES, LANE_META, OWASP_LLM_EDITION, atlasFor, owaspFor, type Lane } from "../lib/taxonomy";
 import { aiLens, isDisclosedIncident, recordKind } from "../lib/counting";
@@ -117,6 +120,8 @@ async function resetDir(dir: string) {
 async function main() {
   const { incidents } = await loadIncidents();
   const updated = await lastUpdated();
+  // every model below is computed for the newest sweep's time, as the pages are (lib/clock.ts); generated_at stamps keep the real time
+  const clock = clockFrom(updated, Date.now());
   const base = siteUrl();
   const dataDir = path.join(PUBLIC, "data");
   const perIncident = path.join(dataDir, "incidents");
@@ -124,7 +129,10 @@ async function main() {
   const rowsDir = path.join(dataDir, "rows");
   const slimDir = path.join(dataDir, "slim");
   const briefingsDir = path.join(dataDir, "briefings");
-  await Promise.all([perIncident, yearsDir, rowsDir, slimDir, briefingsDir].map(resetDir));
+  const fixDir = path.join(dataDir, "fix");
+  await Promise.all([perIncident, yearsDir, rowsDir, slimDir, briefingsDir, fixDir].map(resetDir));
+  // the fix file (data/stats/fixes.json), joined to every record with a CVE id and cut into one small file per CVE for the quick-look drawer
+  const fixStats = await loadStats();
 
   const sorted = [...incidents].sort((a, b) => b.first_reported.localeCompare(a.first_reported) || b.id.localeCompare(a.id));
   const counted = sorted.filter((i) => !isDisclosedIncident(i));
@@ -132,7 +140,14 @@ async function main() {
   // The download carries the derived standards ids; the explorer's slim shards stay lean and derive them in the browser.
   await fs.writeFile(path.join(dataDir, "incidents.min.json"), JSON.stringify(sorted.map((i) => ({ ...slim(i), owasp_llm: owaspFor(i), atlas: atlasFor(i) }))) + "\n");
   await fs.writeFile(path.join(dataDir, "incidents.csv"), toCsv(sorted));
-  await Promise.all(sorted.map((i) => fs.writeFile(path.join(perIncident, `${i.slug}.json`), JSON.stringify({ ...i, brief: buildBrief(i, base) }, null, 1) + "\n")));
+  await Promise.all(
+    sorted.map((i) => {
+      const fix = fixViewForRecord(i, fixStats, BUILD_DAY, base);
+      return fs.writeFile(path.join(perIncident, `${i.slug}.json`), JSON.stringify({ ...i, brief: buildBrief(i, base, fix), fix }, null, 1) + "\n");
+    }),
+  );
+  const quickLooks = buildQuickLookFiles(sorted, fixStats, BUILD_DAY, new Date().toISOString());
+  await Promise.all(quickLooks.map((q) => fs.writeFile(path.join(fixDir, `${q.cve}.json`), JSON.stringify(q) + "\n")));
 
   // Year shards: the full records for download, compact rows for the dashboard's drawers, slim records for the explorer.
   const shards = groupByShard(sorted);
@@ -178,14 +193,14 @@ async function main() {
     license_url: SITE.dataLicense.url,
   };
   await fs.writeFile(path.join(dataDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
-  const summary = buildSummary(sorted, { now: new Date(), site: base, lastUpdated: updated });
+  const summary = buildSummary(sorted, { now: clock, site: base, lastUpdated: updated });
   await fs.writeFile(path.join(dataDir, "summary.json"), JSON.stringify(summary, null, 2) + "\n");
   // the feed carries incidents; disclosed vulnerabilities arrive in vendor batches and would drown it
   const siteChannel = (title: string, description: string, homeUrl: string, feedUrl: string) => ({ title, description, homeUrl, feedUrl, updated });
   const feedTitle = `${SITE.name} — new incidents, all lanes`;
   await fs.writeFile(path.join(PUBLIC, "feed.xml"), rssXml(counted, base, siteChannel(feedTitle, SITE.description, base, `${base}/feed.xml`)));
   await fs.writeFile(path.join(PUBLIC, "feed.json"), JSON.stringify(jsonFeed(counted, base, siteChannel(feedTitle, SITE.description, base, `${base}/feed.json`)), null, 1) + "\n");
-  const now = new Date();
+  const now = clock;
   await fs.writeFile(path.join(PUBLIC, "changes.json"), JSON.stringify(buildChanges(sorted, { site: base, now }), null, 1) + "\n");
   const tagIndex = buildTagIndex(sorted, now);
   await fs.writeFile(path.join(PUBLIC, "llms.txt"), buildLlmsTxt({ site: base, incidents: sorted, tags: tagIndex.directory, scope: { kind: "site" }, now }));
@@ -233,7 +248,7 @@ async function main() {
     ]);
   }
   // live.json: the home page's counters and per-lane counts, what scripts/check-live.mjs compares the page against
-  const live = buildLive(sorted, new Date(), updated);
+  const live = buildLive(sorted, clock, updated);
   await fs.writeFile(
     path.join(PUBLIC, "live.json"),
     JSON.stringify(
@@ -308,7 +323,7 @@ async function main() {
   // the chart images draw the AI series (lib/counting.ts aiLens)
   const aiCounted = aiLens(counted);
   const written = await renderOgImages(
-    { incidents: aiCounted, disclosed: aiLens(sorted).length - aiCounted.length, now: new Date(), siteHost: base.replace(/^https?:\/\//, "") },
+    { incidents: aiCounted, disclosed: aiLens(sorted).length - aiCounted.length, now: clock, siteHost: base.replace(/^https?:\/\//, "") },
     path.join(PUBLIC, "og"),
   );
   console.log(

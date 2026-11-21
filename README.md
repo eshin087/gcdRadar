@@ -8,7 +8,7 @@
 
 </div>
 
-<a href="https://gcdradar.vercel.app"><img src="docs/media/home.webp" alt="The gcdRadar home page: the headline 'What's being exploited now' with 0 hits on your stack this week, 13 exploited with no full patch and 569 new CVEs in 24 hours; this week's newly exploited vulnerabilities from CISA KEV with patch-by dates; a dotted globe of DDoS traffic from Cloudflare Radar; a My stack strip of product chips; and the runway card counting down to the next KEV due date" width="100%"></a>
+<a href="https://gcdradar.vercel.app"><img src="docs/media/home.webp" alt="The gcdRadar home page: the headline 'What's being exploited now' with three numbers (hits on your stack this week, exploited with no full patch, new CVEs in 24 hours); this week's newly exploited vulnerabilities from CISA KEV as a block numeral with the products named; a dotted globe of DDoS traffic from Cloudflare Radar; and My stack, the products that need action with the CVSS score behind each" width="100%"></a>
 
 Security news is loud and spread across dozens of feeds. gcdRadar reads 45 of them, the advisories and the official databases (NVD, CISA KEV, GitHub Advisories, Have I Been Pwned) every 15 minutes and turns them into one calm page that answers three questions:
 
@@ -18,14 +18,14 @@ Security news is loud and spread across dozens of feeds. gcdRadar reads 45 of th
 
 Every record is counted once, however many outlets cover it, and links back to the reporting it came from.
 
-## A day sheet, not a news feed
+## One page for the daily check
 
-<a href="https://gcdradar.vercel.app"><img src="docs/media/day-sheet.webp" alt="The gcdRadar day sheet: a My stack strip of chips for Microsoft, Linux, Cisco, Citrix, Google, LiteLLM, Claude and ChatGPT; the runway card, a countdown to the Adobe Commerce and Magento patch deadline beside a timeline from seven days ago to seven days ahead with dots for new incidents, red bars for holes with no patch and markers for the deadlines; three short lists of patches due this week, vulnerabilities with no patch yet and new incidents; and a strip comparing published, critical and exploited CVEs, breaches and AI incidents with a typical week" width="100%"></a>
+<a href="https://gcdradar.vercel.app"><img src="docs/media/day-sheet.webp" alt="The lower half of the gcdRadar home page: the week's top stories with the outlets that reported each one and how many there are; Next due, a countdown to the nearest CISA patch deadline above a short list of the next ones with their CVSS scores; and This week, six facts against a typical week beside a radar scope drawn in characters" width="100%"></a>
 
-- **My stack.** One chip per product you care about, most urgent first, with its exploitation over the last 90 days and a coloured word only while something is exploited and still open. Pick up to 40 from several hundred well-known vendors and products (or any other vendor on CISA's list); new critical CVEs show as a quiet count. Your picks stay in your browser; a share link puts them in the URL so a teammate opens the same view.
-- **The runway.** The nearest KEV due date (CISA's patch deadline) as a large countdown, beside one timeline of the two weeks around now: new incidents as dots, holes with no patch as bars that keep growing, deadlines as markers ahead.
-- **Needs action.** Three short lists under it: what else has a KEV due date this week, exploited vulnerabilities with no full patch yet, and what's new this week with confirmed impact first. CVE ids, plain scores, plain times ("1 day left", "open 3 days").
-- **The week.** Published, critical and exploited CVEs, breaches and AI incidents, each against a typical week, plus the next Patch Tuesday.
+- **My stack.** The products you care about that need action today, most urgent first: why (no patch, a CISA deadline, confirmed impact) and the CVSS score behind it. Quiet products are counted, not shown. Pick up to 40 from several hundred well-known vendors and products (or any other vendor on CISA's list); new critical CVEs sit in one quiet line. Your picks stay in your browser; a share link puts them in the URL so a teammate opens the same view.
+- **News.** The week's top stories, ranked by how many outlets reported them, with breaches, AI and your own stack behind tabs. Every row names its sources and opens the record.
+- **Next due.** The nearest CISA patch deadline as a countdown, then the next ones in a short list: time left, how much of CISA's window is used, the product and its score. A click shows the patch or what to do.
+- **This week.** Published, critical and exploited CVEs, breaches and AI incidents, each against a typical week, the days to Patch Tuesday, and a radar scope of the week's new exploited records.
 - **Live board.** Everything open right now in four lanes: patch now, breaches and attacks, supply chain, research.
 
 ## Follow one product

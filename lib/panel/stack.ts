@@ -70,12 +70,12 @@ export {
  * else NVD; a record whose CVEs are all on KEV is that entry's link, not a
  * row of its own. Open items come first, then newest first.
  *
- * The flag, in the order of urgency: a KEV deadline within three days
- * ("patch by 31 Oct"), else one that passed in the last seven ("past due 28
- * Oct"), else a later deadline, else a live patch-lane record of severity 3
- * or more with no patch yet or a partial one ("no patch yet", "partly
- * patched"), else a live record of severity 4 ("confirmed impact"). Nothing
- * else colours a tile.
+ * The flag, in the order of urgency, so it always names what put the product
+ * in its tier: a KEV deadline within three days ("patch by 31 Oct"), else one
+ * that passed in the last seven ("past due 28 Oct"), else a live patch-lane
+ * record of severity 3 or more with no patch yet or a partial one ("no patch
+ * yet", "partly patched"), else a later deadline, else a live record of
+ * severity 4 ("confirmed impact"). Nothing else colours a tile.
  *
  * New criticals, the quiet second signal: the CVEs NVD published in the last
  * 14 days with a CVSS score of 9.0 or more that name the entry, and that are
@@ -298,16 +298,17 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
     if (patch) why.push(patch === "unpatched" ? "no patch yet" : "partly patched");
     if (impact) why.push("confirmed impact");
     const soon = due !== null && due <= addDays(today, STACK_SOON_DAYS);
+    // the flag names what put the product in its tier (picks.ts stackUrgency): the tier-one reasons first, so a later deadline never hides a missing patch
     const flag = soon
       ? `patch by ${shortDate(due!)}`
       : late
         ? `past due ${shortDate(late)}`
-        : due
-          ? `patch by ${shortDate(due)}`
-          : patch === "unpatched"
-            ? "no patch yet"
-            : patch === "partial"
-              ? "partly patched"
+        : patch === "unpatched"
+          ? "no patch yet"
+          : patch === "partial"
+            ? "partly patched"
+            : due
+              ? `patch by ${shortDate(due)}`
               : impact
                 ? "confirmed impact"
                 : null;
@@ -315,7 +316,7 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
     const critList = [...crits].sort((a, b2) => (b2.score ?? 0) - (a.score ?? 0) || b2.published.localeCompare(a.published) || a.id.localeCompare(b2.id));
     const highest = (list: readonly (number | null)[]) => list.reduce<number | null>((top, x) => (x !== null && (top === null || x > top) ? x : top), null);
     // the score to show: that of the item behind the flag, the same item the flag's words were taken from
-    const behind = soon || (!late && due) ? mine.filter((e) => e.due === due) : late ? mine.filter((e) => e.due === late) : [];
+    const behind = soon || (!late && !patch && due) ? mine.filter((e) => e.due === due) : late ? mine.filter((e) => e.due === late) : [];
     const flagScore =
       flag === null
         ? null

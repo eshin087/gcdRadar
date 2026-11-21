@@ -6,7 +6,7 @@
  */
 
 export const WORKER = "gcd-ai-radar-internet.eshin087.workers.dev";
-export const LIVE_VERSION = 2;
+export const LIVE_VERSION = 3;
 export const FRESH_SLUG = "check-script-fresh-record";
 export const FRESH_SOURCE = "https://example.com/check-script-fresh-record";
 const DAY_MS = 86_400_000;

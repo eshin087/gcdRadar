@@ -16,24 +16,12 @@ export function dueEnd(due: string): number {
 }
 
 /**
- * A record without a full patch is folded into a deadline row, and not
- * listed a second time, when every one of its CVEs is on a deadline row.
- * `dueCves` holds the CVE ids of the rows that count: this week's at build
- * time, and in the browser only those still ahead, so a record whose
- * deadline has passed while the page stayed open is listed again.
+ * How much of CISA's window is used at `now`, from the day it listed the
+ * entry to the end of the due day: 0 on the listing day, 1 at the deadline.
  */
-export function foldedOnDeadline(cves: readonly string[], dueCves: ReadonlySet<string>): boolean {
-  return cves.length > 0 && cves.every((c) => dueCves.has(c));
-}
-
-/**
- * How far the runway's axis reaches each side of now, in milliseconds. The
- * ledger keeps deadlines through the seventh calendar day after today and a
- * deadline passes at the end of its UTC day, so the axis runs to the end of
- * that seventh day, and an eighth of a day further so a marker on the last
- * midnight sits inside the edge: between seven and a little over eight
- * days. The same on both sides, so NOW stays in the middle.
- */
-export function runwaySpan(now: number): number {
-  return (Math.floor(now / DAY_MS) + LEDGER_SOON_DAYS + 1) * DAY_MS - now + DAY_MS / 8;
+export function windowUsed(added: string, due: string, now: number): number {
+  const start = Date.parse(`${added}T00:00:00Z`);
+  const end = dueEnd(due);
+  if (!(end > start)) return 1;
+  return Math.min(1, Math.max(0, (now - start) / (end - start)));
 }

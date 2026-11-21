@@ -55,6 +55,7 @@ function stats(): StatsFiles {
       ],
     },
     epss: { fetched_at: hoursAgo(5), source: { ...SRC, name: "EPSS, FIRST" }, model_date: "2026-10-26", scores: { "CVE-2026-0001": [0.2, 0.9], "CVE-2026-0002": [0.95, 0.999], "CVE-2026-0003": [0.01, 0.3] } },
+    fixes: null,
   };
 }
 

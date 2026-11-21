@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import type { ZodType } from "zod";
+import { withLifecycle } from "../../lib/lifecycle";
 import { readIncidents } from "../../lib/shards";
 import { STATS_FILES, STATS_SCHEMAS, type StatsFiles } from "../../lib/stats-schema";
 import type { Settings } from "../lib/config";
@@ -9,27 +10,31 @@ import { errorMessage, log } from "../lib/log";
 import { DATA_DIR, writeAtomic } from "../lib/state";
 import { dailyModule } from "./daily";
 import { epssModule } from "./epss";
+import { fixesModule } from "./fixes";
 import { hibpModule } from "./hibp";
 import { kevModule } from "./kev";
 import { cvesRecentModule, nvdCountsModule } from "./nvd";
 import type { StatsContext, StatsHttp, StatsModule, StatsResult } from "./types";
 
 /**
- * The stats stage: six files under data/stats/, each owned by one module
- * (nvd.ts, daily.ts, kev.ts, hibp.ts, epss.ts). Like the Radar sidebar data,
- * each file carries its own fetched_at and is due again once it is older
- * than the module's maxAgeHours (about a day for most; every run for the
- * KEV catalog, which asks with If-Modified-Since, and for daily.json, which
- * only counts what cves-recent holds); a failed fetch keeps the previous file and logs a
- * warning; a changed file is a site change, so the run deploys.
+ * The stats stage: seven files under data/stats/, each owned by one module
+ * (nvd.ts, daily.ts, kev.ts, hibp.ts, epss.ts, fixes.ts). Like the Radar
+ * sidebar data, each file carries its own fetched_at and is due again once
+ * it is older than the module's maxAgeHours (about a day for most; every run
+ * for the KEV catalog, which asks with If-Modified-Since, for daily.json,
+ * which only counts what cves-recent holds, and for fixes.json, which reads
+ * a few CVE records a run); a failed fetch keeps the previous file and logs
+ * a warning; a changed file is a site change, so the run deploys at its next
+ * window, while a file whose lookup stamps alone moved (StatsModule.volatile)
+ * is written as bookkeeping.
  * `npm run stats` runs it by hand (--dry-run, --force, --only=<name>).
  */
 
 export const STATS_SUBDIR = "stats";
 export const STATS_DIR = path.join(DATA_DIR, STATS_SUBDIR);
 
-/** In dependency order: daily counts what cves-recent produced, EPSS needs the ids the earlier modules produced. */
-export const STATS_MODULES: readonly StatsModule<unknown>[] = [nvdCountsModule, cvesRecentModule, dailyModule, kevModule, hibpModule, epssModule] as readonly StatsModule<unknown>[];
+/** In dependency order: daily counts what cves-recent produced, EPSS needs the ids the earlier modules produced, the fix module the KEV entries. */
+export const STATS_MODULES: readonly StatsModule<unknown>[] = [nvdCountsModule, cvesRecentModule, dailyModule, kevModule, hibpModule, epssModule, fixesModule] as readonly StatsModule<unknown>[];
 
 export interface RunStatsOptions {
   dryRun?: boolean;
@@ -40,6 +45,12 @@ export interface RunStatsOptions {
   http?: StatsHttp;
   dataDir?: string;
   recordCveIds?: readonly string[];
+  liveCveIds?: readonly string[];
+  /**
+   * False on a sweep that will not be committed unless the statistics change: a module that re-reads what it
+   * already holds (fixes.json) then leaves that for a sweep that is committed anyway. Default true.
+   */
+  rechecks?: boolean;
 }
 
 export function isFresh(previous: { fetched_at: string } | null, maxAgeHours: number, now: Date): boolean {
@@ -57,15 +68,16 @@ export async function readStatsFile<T>(dataDir: string, file: string, schema: Zo
 
 /** Every stats file, each null when absent or invalid (the site's loader uses the same rule). */
 export async function readAllStats(dataDir = DATA_DIR): Promise<StatsFiles> {
-  const [nvdCounts, cvesRecent, daily, kev, hibp, epss] = await Promise.all([
+  const [nvdCounts, cvesRecent, daily, kev, hibp, epss, fixes] = await Promise.all([
     readStatsFile(dataDir, STATS_FILES.nvdCounts, STATS_SCHEMAS.nvdCounts),
     readStatsFile(dataDir, STATS_FILES.cvesRecent, STATS_SCHEMAS.cvesRecent),
     readStatsFile(dataDir, STATS_FILES.daily, STATS_SCHEMAS.daily),
     readStatsFile(dataDir, STATS_FILES.kev, STATS_SCHEMAS.kev),
     readStatsFile(dataDir, STATS_FILES.hibp, STATS_SCHEMAS.hibp),
     readStatsFile(dataDir, STATS_FILES.epss, STATS_SCHEMAS.epss),
+    readStatsFile(dataDir, STATS_FILES.fixes, STATS_SCHEMAS.fixes),
   ]);
-  return { nvdCounts, cvesRecent, daily, kev, hibp, epss };
+  return { nvdCounts, cvesRecent, daily, kev, hibp, epss, fixes };
 }
 
 /**
@@ -93,13 +105,18 @@ function idsFrom(name: string, value: unknown): string[] {
   return [];
 }
 
-async function recordCveIdsFromDisk(dataDir: string): Promise<string[]> {
+/** The CVE ids our published records name, and those of them on records that are live today. */
+async function recordCveIdsFromDisk(dataDir: string, today: string): Promise<{ all: string[]; live: string[] }> {
   try {
     const { incidents } = await readIncidents(dataDir);
-    return [...new Set(incidents.filter((i) => i.status === "published").flatMap((i) => i.cve_ids ?? []))];
+    const published = incidents.filter((i) => i.status === "published");
+    return {
+      all: [...new Set(published.flatMap((i) => i.cve_ids ?? []))],
+      live: [...new Set(published.filter((i) => withLifecycle(i, today).state === "live").flatMap((i) => i.cve_ids ?? []))],
+    };
   } catch (err) {
     log.warn("stats: could not read the records' CVE ids", { error: errorMessage(err).slice(0, 160) });
-    return [];
+    return { all: [], live: [] };
   }
 }
 
@@ -107,11 +124,13 @@ export async function runStats(settings: Settings, opts: RunStatsOptions = {}): 
   const now = opts.now ?? new Date();
   const dataDir = opts.dataDir ?? DATA_DIR;
   const http: StatsHttp = opts.http ?? { json: (url, o) => httpJson(url, o), fetch: (url, o) => httpFetch(url, o), sleep };
-  const recordCveIds = opts.recordCveIds ?? (await recordCveIdsFromDisk(dataDir));
-  const result: StatsResult = { changed: [], failed: [], skipped: [] };
+  const fromDisk = opts.recordCveIds && opts.liveCveIds ? null : await recordCveIdsFromDisk(dataDir, now.toISOString().slice(0, 10));
+  const recordCveIds = opts.recordCveIds ?? fromDisk?.all ?? [];
+  const liveCveIds = opts.liveCveIds ?? fromDisk?.live ?? [];
+  const result: StatsResult = { changed: [], touched: [], failed: [], skipped: [] };
   const extraCveIds: string[] = [];
   const produced: Record<string, unknown> = {};
-  const ctx: StatsContext = { settings, now, http, recordCveIds, extraCveIds, produced, log: (msg, meta) => log.info(msg, meta) };
+  const ctx: StatsContext = { settings, now, http, recordCveIds, liveCveIds, rechecks: opts.rechecks ?? true, extraCveIds, produced, log: (msg, meta) => log.info(msg, meta) };
 
   for (const mod of STATS_MODULES) {
     const previous = await readStatsFile(dataDir, mod.file, mod.schema);
@@ -150,15 +169,17 @@ export async function runStats(settings: Settings, opts: RunStatsOptions = {}): 
         result.skipped.push(mod.name);
         continue;
       }
+      // only the stamps of when entries were last looked up moved: written so they persist, but bookkeeping, not a site change
+      const stampsOnly = mod.volatile !== undefined && current !== null && current.replace(mod.volatile, "") === content.replace(mod.volatile, "");
       if (!opts.dryRun) await writeAtomic(dataDir, file, content);
-      result.changed.push(file.replace(/\\/g, "/"));
+      (stampsOnly ? result.touched : result.changed).push(file.replace(/\\/g, "/"));
     } catch (err) {
       result.failed.push(mod.name);
       extraCveIds.push(...idsFrom(mod.name, previous));
       log.warn(`stats ${mod.name}: fetch failed, keeping the previous file`, { error: errorMessage(err).slice(0, 200) });
     }
   }
-  log.info("stats: done", { changed: result.changed, failed: result.failed, skipped: result.skipped, dry_run: Boolean(opts.dryRun) });
+  log.info("stats: done", { changed: result.changed, touched: result.touched, failed: result.failed, skipped: result.skipped, dry_run: Boolean(opts.dryRun) });
   return result;
 }
 

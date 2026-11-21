@@ -1,3 +1,4 @@
+import { clockFrom } from "./clock";
 import { lastUpdated, loadBriefings, loadIncidents, loadStats, siteUrl } from "./data";
 import { buildHome, type HomeData } from "./home";
 import { briefingLine, homeView } from "./live/build";
@@ -8,11 +9,11 @@ export interface HomePayload extends HomeData {
   briefing: { week: string; headline: string; start: string; end: string } | null;
 }
 
-/** Build-time payload for the home page and /trends: the live columns plus the statistics (lib/home.ts). */
+/** Build-time payload for the home page and /trends: the live columns plus the statistics (lib/home.ts), computed for the build's one clock (lib/clock.ts). */
 export async function getHomeData(): Promise<HomePayload> {
   const [{ incidents }, stats, updated, briefings] = await Promise.all([loadIncidents(), loadStats(), lastUpdated(), loadBriefings()]);
   return {
-    ...buildHome(incidents, stats, new Date(), updated, siteUrl()),
+    ...buildHome(incidents, stats, clockFrom(updated, Date.now()), updated, siteUrl()),
     briefing: briefingLine(briefings),
   };
 }

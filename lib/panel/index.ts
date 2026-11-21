@@ -5,6 +5,7 @@ import { buildAiFlow, type AiFlow } from "./ai-flow";
 import { buildAttackTypes, weekIncidents, type AttackTypeRow } from "./attack-types";
 import { buildLedger, type Ledger } from "./ledger";
 import { bandOf, levelOf, ratioLevel, type Band, type Level } from "./levels";
+import { buildNews, type News } from "./news";
 import { buildStack, stackMatches, tileOf, type StackCandidate, type StackFile, type StackMatch } from "./stack";
 import { buildSurface, type SurfaceRow } from "./technology";
 import { DAY_MS } from "./util";
@@ -16,8 +17,8 @@ import { buildWeek, typicalBreachMonth, typicalCriticalWeek, typicalCveWeek, typ
  * writes it as public/stats/panel.json for scripts/check-home.mjs and the
  * stack candidates as public/stats/stack.json for the browser.
  *
- * The page: My stack (lib/panel/stack.ts), the ledger (lib/panel/ledger.ts)
- * and the week (lib/panel/week.ts). Attack types, the attack surface and
+ * The page: My stack (lib/panel/stack.ts), the news lists (lib/panel/news.ts),
+ * the deadlines ahead (lib/panel/ledger.ts) and the week (lib/panel/week.ts). Attack types, the attack surface and
  * how AI shows up are built here too and shown on /trends.
  *
  * The verdict: the day's level is the higher of two. New CVEs: the last 24
@@ -69,6 +70,7 @@ export interface PanelData {
   verdict: Verdict;
   stack: { tiles: StackCandidate[]; default: string[] };
   ledger: Ledger;
+  news: News;
   week: Week;
   types: AttackTypeRow[];
   surface: SurfaceRow[];
@@ -120,7 +122,8 @@ export function buildPanel(incidents: readonly FullIncident[], stats: StatsFiles
   // the CVE Program's vendor and product names per CVE, when a stats file on main carries them (lib/catalog/affected.ts)
   const affected = affectedByCve((stats as unknown as Record<string, unknown>).fixes);
   const stackFile = buildStack(incidents, kev, today, nowIso, { criticals: stats.cvesRecent?.cves, affected });
-  const ledger = buildLedger(incidents, kev, stackFile, today, nowIso);
+  const ledger = buildLedger(incidents, kev, stackFile, today, stats.fixes);
+  const news = buildNews(incidents, stackFile, nowIso);
   const week = weekIncidents(incidents, today);
   const ai = buildAiFlow(week, incidents, kev, today);
 
@@ -170,6 +173,7 @@ export function buildPanel(incidents: readonly FullIncident[], stats: StatsFiles
     },
     stack: { tiles: stackFile.default.map((k) => tileOf(stackFile.candidates.find((x) => x.key === k)!)), default: stackFile.default },
     ledger,
+    news,
     week: buildWeek({
       today,
       published: { n: c.cves_7d, typical: typicalWeek, level: publishedLevel },
@@ -199,7 +203,8 @@ export function buildPanel(incidents: readonly FullIncident[], stats: StatsFiles
 export { LEVEL_WORDS } from "./levels";
 export type { Level } from "./levels";
 export type { StackCandidate, StackFile, StackItem, StackMatch } from "./stack";
-export type { DueRow, Ledger, NewRow, PatchRow } from "./ledger";
+export type { DueRow, Ledger, PatchRow } from "./ledger";
+export type { News, NewsRow } from "./news";
 export type { Week } from "./week";
 export type { AttackTypeRow } from "./attack-types";
 export type { SurfaceRow } from "./technology";
