@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2109",
+    "slug": "malicious-webpage-vulnerability-lets-researchers-hijack-meta",
+    "title": "Malicious Webpage Vulnerability Lets Researchers Hijack Meta Muse",
+    "summary": "Researchers demonstrated that a malicious webpage could extract private conversations, stored memories, and connected account credentials from Meta Muse without approval prompts. The issue was found in a laboratory setting with no real-world exploitation reported.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "Meta"
+    ],
+    "products": [
+      "Meta Muse"
+    ],
+    "incident_date": "2026-11-21",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
+        "publisher": "The Hacker News",
+        "title": "A Single Malicious Webpage Let Researchers Hijack Meta Muse and Access Private Chats",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt_injection",
+      "meta-muse",
+      "data-exfiltration"
+    ],
+    "created_at": "2026-11-21T12:06:47.072Z",
+    "updated_at": "2026-11-21T12:06:47.072Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "A Single Malicious Webpage Let Researchers Hijack Meta Muse and Access Private Chats",
+        "source_url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
+        "added_at": "2026-11-21T12:06:47.072Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated by researchers in a laboratory setting with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2108",
     "slug": "critical-memory-bug-in-gpgme-cve-2026-129975-allows-data-the",
     "title": "Critical memory bug in GPGME (CVE‑2026‑129975) allows data theft via crafted OpenPGP keys",
