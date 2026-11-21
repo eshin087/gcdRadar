@@ -1,5 +1,129 @@
 [
   {
+    "id": "AIR-2026-2108",
+    "slug": "critical-memory-bug-in-gpgme-cve-2026-129975-allows-data-the",
+    "title": "Critical memory bug in GPGME (CVE‑2026‑129975) allows data theft via crafted OpenPGP keys",
+    "summary": "A critical memory corruption vulnerability (CVE‑2026‑129975) in the GPGME library can be triggered by a malicious OpenPGP key with an unusually long user ID, potentially allowing attackers to read application data. The GnuPG project released patched versions fixing the issue, affecting all software using GPGME prior to version 2.3.0.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "GPGME"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html",
+        "publisher": "The Hacker News",
+        "title": "GnuPG Warns Critical GPGME Flaw Could Expose App Data via Malicious OpenPGP Keys",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.96,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "gpgme",
+      "CVE-2026-129975",
+      "memory-corruption",
+      "critical"
+    ],
+    "created_at": "2026-11-21T11:36:30.019Z",
+    "updated_at": "2026-11-21T11:36:30.019Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-129975"
+    ],
+    "affected": [
+      "GPGME < 2.3.0"
+    ],
+    "fixed_in": [
+      "GPGME >= 2.3.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "GnuPG Warns Critical GPGME Flaw Could Expose App Data via Malicious OpenPGP Keys",
+        "source_url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html",
+        "added_at": "2026-11-21T11:36:30.019Z"
+      }
+    ],
+    "action": "Upgrade to GPGME 2.3.0 or later",
+    "severity_note": "Critical disclosed vulnerability with a patch, no confirmed exploitation",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2107",
+    "slug": "ai-agents-discover-zero-day-in-monai-label-allowing-unauthen",
+    "title": "AI agents discover zero‑day in MONAI Label allowing unauthenticated file write and root access",
+    "summary": "Attackers using autonomous AI agents identified a previously unknown vulnerability in the MONAI Label medical‑imaging server that permits unauthenticated file‑write outside its storage directory. The flaw was exploited to gain root access on a university server; no patch is currently available.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "MONAI Label"
+    ],
+    "incident_date": "2026-11",
+    "incident_date_precision": "month",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+        "publisher": "The Hacker News",
+        "title": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "monai",
+      "zero-day",
+      "root",
+      "ai_assisted_intrusion"
+    ],
+    "created_at": "2026-11-21T11:36:30.019Z",
+    "updated_at": "2026-11-21T11:36:30.019Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [
+      "MONAI Label < 0.8.6"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
+        "source_url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+        "added_at": "2026-11-21T11:36:30.019Z"
+      }
+    ],
+    "action": "Monitor for patches and mitigate by restricting file‑write permissions",
+    "severity_note": "Confirmed exploitation of the zero‑day to obtain root on a server",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2106",
     "slug": "too-lost-data-breach-exposes-724-323-accounts",
     "title": "Too Lost data breach exposes 724,323 accounts",
