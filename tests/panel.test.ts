@@ -358,6 +358,20 @@ describe("my stack", () => {
     expect(tile("zoom")).toMatchObject({ flag: "confirmed impact", impact: true, tier: 3 });
     expect(tile("litellm")).toMatchObject({ flag: null, tier: 5 });
   });
+  it("shows a missing patch before a later deadline, since the missing patch is what puts the product first", () => {
+    const both = buildStack(
+      [incident({ title: "Langflow servers hijacked through an unpatched flaw", products: ["Langflow"], severity: 3, lane: "patch", patch_status: "unpatched", first_reported: "2026-10-28", cvss: 8.1, type: "not_ai", categories: ["general"] })],
+      [entries[4]!],
+      TODAY,
+      NOW,
+    ).candidates.find((c) => c.key === "langflow")!;
+    // the deadline is 14 days out (tier 2 on its own); no patch makes it tier 1, and the row says so, with that record's score
+    expect(both).toMatchObject({ flag: "no patch yet", due: "2026-11-12", patch: "unpatched", tier: 1, flagScore: 8.1, cvss: 8.1 });
+    expect(both.why).toEqual(["CISA deadline 2026-11-12", "no patch yet"]);
+    // a deadline within three days still leads, with its own score
+    const soon = buildStack([incident({ title: "Linux hosts hit through an unpatched flaw", products: ["Linux kernel"], severity: 3, lane: "patch", patch_status: "unpatched", first_reported: "2026-10-28", cvss: 6.5, type: "not_ai", categories: ["general"] })], [entries[2]!], TODAY, NOW).candidates.find((c) => c.key === "linux")!;
+    expect(soon).toMatchObject({ flag: "patch by 31 Oct", tier: 1, flagScore: 7.8 });
+  });
   it("carries the score of the item behind the flag, and says so when that item has none yet", () => {
     expect(tile("linux").flagScore).toBe(7.8);
     expect(tile("cisco").flagScore).toBe(9.1);

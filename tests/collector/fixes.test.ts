@@ -149,6 +149,20 @@ describe("the CVE record", () => {
     expect(patches.map((x) => `${x.label} ${x.version}`)).toEqual(["EG SiteGuard Ver8.00 Update 5", "Acme Switch 4.2"]);
   });
 
+  it("takes a version marked unaffected on its own as the fix when the affected versions start below it, never a release from before the flaw", () => {
+    const { patches } = fixedVersions([
+      // the CNA names 2.4.1 as unaffected after an affected 2.0 to 2.3: that is the fix, and it wins over the range's bound
+      { vendor: "Acme", product: "Gateway", versions: [{ version: "2.0", status: "affected", lessThan: "2.4" }, { version: "2.4.1", status: "unaffected" }] },
+      // affected from the open start: any standalone unaffected version comes after it
+      { vendor: "Acme", product: "Agent", versions: [{ version: "0", status: "affected", lessThan: "5.2.0" }, { version: "5.2.0", status: "unaffected" }] },
+      // 1.4 predates the flaw (introduced in 3.0): unaffected, but no fix; the range's bound stays the fix
+      { vendor: "Acme", product: "Panel", versions: [{ version: "1.4", status: "unaffected" }, { version: "3.0", status: "affected", lessThan: "3.2" }] },
+      // nothing to compare against: left out rather than guessed
+      { vendor: "Acme", product: "Relay", versions: [{ version: "r7", status: "unaffected" }, { version: "unknown", status: "affected" }] },
+    ]);
+    expect(patches.map((x) => `${x.label} ${x.version}`)).toEqual(["Acme Gateway 2.4.1", "Acme Agent 5.2.0", "Acme Panel 3.2"]);
+  });
+
   it("keeps the CNA's solution and workaround as written, tidied, in English, and says a third-party CNA wrote them", () => {
     const p = parseCveRecord(unreal, "CVE-2026-114713");
     expect(p).toMatchObject({ by: "MITRE", by_vendor: false, affected: [{ vendor: "", product: "UnrealIRCd" }] });

@@ -247,13 +247,47 @@ function productLabel(a: CveAffected): string {
   return (p || v).slice(0, 120);
 }
 
+/** The numbers in a version, for ordering two of them ("Ver4.00 Update 5" is 4, 0, 5); empty when it has none. */
+function versionNumbers(v: string): number[] {
+  return (v.match(/\d+/g) ?? []).slice(0, 8).map(Number);
+}
+
+/** Whether `a` comes after `b` by their numbers; false when either has none, so an unreadable pair never counts. */
+function versionAfter(a: string, b: string): boolean {
+  const x = versionNumbers(a);
+  const y = versionNumbers(b);
+  if (!x.length || !y.length) return false;
+  for (let i = 0; i < Math.max(x.length, y.length); i++) {
+    const d = (x[i] ?? 0) - (y[i] ?? 0);
+    if (d) return d > 0;
+  }
+  return false;
+}
+
+/**
+ * A version marked unaffected on its own, with no range above it
+ * ("unaffected 7.2.2"), is a fix only when the same product's affected
+ * versions start below it, or are a range from the very start ("0, less
+ * than 5.2"). Otherwise it may be a release from before the flaw came in,
+ * which is unaffected but no fix; an affected "unknown" with no range says
+ * nothing about where it starts.
+ */
+function fixesAnAffectedRange(version: string, versions: readonly NonNullable<CveAffected["versions"]>[number][]): boolean {
+  return versions.some((o) => {
+    if (o.status !== "affected") return false;
+    if (concrete(o.version, o.versionType)) return versionAfter(version, o.version);
+    return OPEN_VERSION.test((o.version ?? "").trim()) && concrete(o.lessThan ?? o.lessThanOrEqual, o.versionType);
+  });
+}
+
 /**
  * The fixed versions a record states, never a guess. Per product, in this
  * order of trust:
  *
  * 1. a version marked unaffected with an open range above it ("unaffected
- *    from 6.1.176 through 6.1.*", "unaffected from 7.2.2"): the CNA names
- *    the fix itself;
+ *    from 6.1.176 through 6.1.*"), or on its own ("unaffected 7.2.2") when
+ *    the product's affected versions start below it: the CNA names the fix
+ *    itself;
  * 2. where a product has none of those, the exclusive upper bound of an
  *    affected range ("affected from 7.2.2, less than 7.2.2-72806-1"), or a
  *    range's last change when that change is to unaffected.
@@ -279,6 +313,8 @@ export function fixedVersions(affected: readonly CveAffected[]): { patches: FixP
       const from = concrete(v.version, v.versionType) && v.version !== v.lessThan ? v.version.trim() : "";
       const open = v.lessThan ?? v.lessThanOrEqual ?? "";
       if (v.status === "unaffected" && concrete(v.version, v.versionType) && open.includes("*")) add(stated, label, v.version, open === "*" ? "" : open.trim().slice(0, 80));
+      // a standalone unaffected version (no range at all) names the fix when the affected versions start below it
+      if (v.status === "unaffected" && concrete(v.version, v.versionType) && !v.lessThan && !v.lessThanOrEqual && fixesAnAffectedRange(v.version, a.versions ?? [])) add(stated, label, v.version, "");
       if (v.status === "affected" && concrete(v.lessThan, v.versionType)) add(bounds, label, v.lessThan, from);
       const last = v.changes?.[v.changes.length - 1];
       if (v.status === "affected" && last?.status === "unaffected" && concrete(last.at, v.versionType)) add(bounds, label, last.at, from);
