@@ -1,5 +1,15 @@
 [
   {
+    "key": "669406732a3f4212",
+    "title": "CTO of ‘RansomwareHelp’ Indicted for Wire Fraud",
+    "url": "https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud",
+    "publisher": "Krebs on Security",
+    "source_id": "krebs",
+    "reason": "out of scope: an indictment and follow-up on a fraud scheme rather than a live security incident or newly disclosed vulnerability",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-21T00:51:38.715Z"
+  },
+  {
     "key": "4a16eda10cea7aba",
     "title": "Dialing for Data: Inside the Com’s High-Profile Heists",
     "url": "https://unit42.paloaltonetworks.com/com-affiliate-vishing-attacks",
