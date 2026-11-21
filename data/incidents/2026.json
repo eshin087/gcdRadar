@@ -146,9 +146,15 @@
         "publisher": "The Hacker News",
         "title": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
         "published_at": "2026-11-21"
+      },
+      {
+        "url": "https://securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day",
+        "publisher": "SecurityWeek",
+        "title": "Amazon: China-Linked Hackers’ AI Agents Exploited Medical Software Zero-Day",
+        "published_at": "2026-11-21"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -159,7 +165,7 @@
       "ai_assisted_intrusion"
     ],
     "created_at": "2026-11-21T11:36:30.019Z",
-    "updated_at": "2026-11-21T11:36:30.019Z",
+    "updated_at": "2026-11-21T12:21:44.154Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -175,6 +181,12 @@
         "title": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
         "source_url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
         "added_at": "2026-11-21T11:36:30.019Z"
+      },
+      {
+        "date": "2026-11-21",
+        "title": "Threat intelligence attributes the autonomous AI agent exploit activity to a China-linked threat group",
+        "source_url": "https://securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day",
+        "added_at": "2026-11-21T12:21:44.154Z"
       }
     ],
     "action": "Monitor for patches and mitigate by restricting file‑write permissions",
