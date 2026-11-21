@@ -24,7 +24,8 @@ export function fixViewForRecord(i: FullIncident, stats: Pick<StatsFiles, "fixes
   return buildFixView({
     cves: i.cve_ids,
     entries: stats.fixes?.entries ?? [],
-    kev: stats.kev?.entries ?? [],
+    // null, not [], when the catalog is missing or invalid: "not read" must never read as "not listed"
+    kev: stats.kev?.entries ?? null,
     record: { action: i.action, fixed_in: i.fixed_in, source_count: i.source_count, sourcesUrl: site ? `${site}/incidents/${i.slug}#sources` : "#sources" },
     today,
     siteName: SITE.name,
@@ -73,7 +74,7 @@ export function buildQuickLookFiles(incidents: readonly FullIncident[], stats: P
       cvss: listed?.cvss ?? record?.cvss ?? null,
       record: record ? { slug: record.slug, title: record.title, summary: record.summary, cve_ids: record.cve_ids, action: record.action, fixed_in: record.fixed_in, source_count: record.source_count } : null,
       entries: fixEntriesFor(cves, all),
-      kev: cves.map((c) => kev.get(c)).filter((k): k is KevStatEntry => Boolean(k)).map((k) => ({ cve: k.cve, added: k.added, due: k.due })),
+      kev: stats.kev ? cves.map((c) => kev.get(c)).filter((k): k is KevStatEntry => Boolean(k)).map((k) => ({ cve: k.cve, added: k.added, due: k.due })) : null,
       sources,
     });
   }

@@ -107,6 +107,12 @@ export interface FixView {
     none: { by: string; cite: number } | null;
   };
   deadline: FixDeadline | null;
+  /**
+   * Whether CISA's catalog was read for this view. False when the stats file was missing or invalid at build time
+   * (or, in the drawer, when no file was found for a record passed in as data): with no deadline, the block then
+   * says it cannot tell whether CISA lists the CVE, never that CISA does not.
+   */
+  kevRead: boolean;
   /** gcdRadar's own model-written sentence, only when no publisher's text is shown. */
   summary: { text: string; cite: number } | null;
   /** The reference row: per CVE, the same few places to read on. */
@@ -128,8 +134,12 @@ export interface FixInput {
   cves: readonly string[];
   /** The fix file's entries, any order; those for other CVEs are ignored. */
   entries: readonly FixEntry[];
-  /** CISA's catalog as the stats stage keeps it: the due date for a CVE the fix file has not read yet. */
-  kev?: readonly Pick<KevStatEntry, "cve" | "added" | "due">[];
+  /**
+   * CISA's catalog as the stats stage keeps it: the due date for a CVE the fix file has not read yet. null when the
+   * catalog was not read (data/stats/kev.json missing or invalid): a CVE with no KEV block in the fix file is then
+   * "unknown", not "not listed". Required, so no caller turns a missing catalog into a confirmed negative by default.
+   */
+  kev: readonly Pick<KevStatEntry, "cve" | "added" | "due">[] | null;
   record?: FixRecord | null;
   /** The build's UTC day: which deadline is still ahead. */
   today: string;
@@ -236,6 +246,7 @@ export function buildFixView(input: FixInput): FixView {
 
   // DEADLINE: CISA's entry; among several, the nearest deadline still ahead, else the latest one passed
   const listed = new Map<string, { added: string; due: string | null; entry: FixEntry | null }>();
+  const kevRead = input.kev !== null;
   for (const k of input.kev ?? []) if (cves.includes(k.cve)) listed.set(k.cve, { added: k.added, due: k.due, entry: null });
   for (const e of entries) if (e.kev) listed.set(e.cve, { added: e.kev.added, due: e.kev.due, entry: e });
   let deadline: FixDeadline | null = null;
@@ -270,13 +281,15 @@ export function buildFixView(input: FixInput): FixView {
     patch: { versions, more, texts: solutionTexts, links: patchLinks, recorded },
     workaround: { state, texts, links: mitigationLinks, none: state === "stated_none" ? none : null },
     deadline,
+    kevRead,
     summary,
     refs: cves.map((cve) => ({
       cve,
       links: [
         { key: "cve" as const, label: "cve.org", url: cveOrgUrl(cve) },
         { key: "nvd" as const, label: "NVD", url: nvdUrl(cve) },
-        ...(listed.has(cve) ? [{ key: "kev" as const, label: "CISA KEV", url: kevEntryUrl(cve) }] : []),
+        // CISA's entry when it lists the CVE, and when the catalog was not read, so the reader can look it up there
+        ...(listed.has(cve) || !kevRead ? [{ key: "kev" as const, label: "CISA KEV", url: kevEntryUrl(cve) }] : []),
         { key: "epss" as const, label: "EPSS", url: epssUrl(cve) },
       ],
     })),
@@ -316,8 +329,8 @@ export interface QuickLookFile {
   record: { slug: string; title: string; summary: string; cve_ids: string[]; action: string; fixed_in: string[]; source_count: number } | null;
   /** The fix file's entries behind the view: this CVE's, or those of every CVE on our record. Empty until the fix stage has read them. */
   entries: FixEntry[];
-  /** CISA's listing and due dates for those CVEs. */
-  kev: { cve: string; added: string; due: string | null }[];
+  /** CISA's listing and due dates for those CVEs; null when the build could not read the catalog (the drawer then says it cannot tell). */
+  kev: { cve: string; added: string; due: string | null }[] | null;
   /** The sources the entries were read from, with their licence notices. */
   sources: StatsSource[];
 }

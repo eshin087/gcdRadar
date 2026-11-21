@@ -149,6 +149,23 @@ describe("the CVE record", () => {
     expect(patches.map((x) => `${x.label} ${x.version}`)).toEqual(["EG SiteGuard Ver8.00 Update 5", "Acme Switch 4.2"]);
   });
 
+  it("never takes a bound the record itself marks affected as a fix, and keeps per-branch fixes", () => {
+    // consecutive ranges: 2.0 starts the second affected range, so only 3.0 is a fix
+    expect(fixedVersions([{ vendor: "Acme", product: "Router", versions: [{ version: "1.0", status: "affected", lessThan: "2.0" }, { version: "2.0", status: "affected", lessThan: "3.0" }] }]).patches.map((p) => `${p.from}->${p.version}`)).toEqual(["2.0->3.0"]);
+    // the same through a second block for the product, a single affected version, or a change back to affected
+    expect(fixedVersions([{ vendor: "Acme", product: "Router", versions: [{ version: "1.0", status: "affected", lessThan: "2.0" }] }, { vendor: "Acme", product: "Router", versions: [{ version: "2.0", status: "affected" }] }]).patches).toEqual([]);
+    expect(fixedVersions([{ vendor: "Acme", product: "Switch", versions: [{ version: "1.0", status: "affected", lessThan: "1.5" }, { version: "0.9", status: "affected", lessThan: "2.0", changes: [{ at: "1.5", status: "affected" }] }] }]).patches.map((p) => p.version)).toEqual(["2.0"]);
+    // a bound marked affected for another product does not count against this one
+    expect(fixedVersions([{ vendor: "Acme", product: "Router", versions: [{ version: "1.0", status: "affected", lessThan: "2.0" }] }, { vendor: "Acme", product: "Switch", versions: [{ version: "2.0", status: "affected" }] }]).patches.map((p) => `${p.label} ${p.version}`)).toEqual(["Acme Router 2.0"]);
+    // real shapes that must stay: Apple writes one range per branch from 0 (iOS 16.7.8 sorts inside "0, less than 17.5" and is still the 16.x fix),
+    // Synology's default status is affected while its description calls 7.2.2-72806-1 the fix
+    const apple = fixedVersions([{ vendor: "Apple", product: "iOS and iPadOS", versions: [{ version: "0", status: "affected", lessThan: "16.7.8", versionType: "custom" }, { version: "0", status: "affected", lessThan: "17.5", versionType: "custom" }] }]);
+    expect(apple.patches.map((p) => p.version)).toEqual(["16.7.8", "17.5"]);
+    expect(parseCveRecord(synology, "CVE-2024-10441").patches.map((p) => p.version)).toEqual(["7.2.2-72806-1", "7.2.1-69057-6", "1.1-65374"]);
+    // and Chrome, which writes "affected from X, less than X" for "below X" (CVE-2026-125350): X is the fix, not an affected version
+    expect(fixedVersions([{ vendor: "Google", product: "Chrome", versions: [{ version: "157.0.8103.50", status: "affected", lessThan: "157.0.8103.50", versionType: "custom" }] }]).patches.map((p) => `${p.label} ${p.version}`)).toEqual(["Google Chrome 157.0.8103.50"]);
+  });
+
   it("keeps a version the record lists as unaffected on its own, as not affected and never as a fix", () => {
     // Ivanti, CVE-2026-104935: its description says 22.7R2.14 "or prior" is not impacted, so one of the four is an older release, not a fix
     const ivanti = fixedVersions([{ vendor: "Ivanti", product: "Connect Secure", versions: ["25.1.3.0", "25.1.3.1", "22.8R2.5", "22.7R2.14"].map((version) => ({ version, status: "unaffected", versionType: "custom" })) }]);

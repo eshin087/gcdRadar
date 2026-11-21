@@ -262,6 +262,16 @@ function productLabel(a: CveAffected): string {
  * ranges for where a flaw was introduced (the Linux kernel's "5.4.73, less
  * than 5.5" is a branch, not a fix). An inclusive bound names the last
  * affected version and is left out, as are wildcards and commit hashes.
+ * So is a bound the same product's record marks affected itself: the start
+ * of another affected range ("1.0, less than 2.0" and "2.0, less than 3.0":
+ * 2.0 is affected, 3.0 is the fix), a single affected version, or a change
+ * back to affected at it. That test is on the exact version string only.
+ * Ordering versions to ask whether a bound falls inside another range would
+ * be wrong here: CNAs write one range per branch from 0 ("0, less than
+ * 16.7.8" and "0, less than 17.5" for iOS; Citrix per release line), where
+ * 16.7.8 sorts inside the second range and is still the 16.x fix; and a
+ * product's default status "affected" does not undo a bound the description
+ * itself calls the fix (Synology "before 7.2.2-72806-1").
  *
  * 3. Where a product has neither, the versions the record marks unaffected
  *    on their own, with no range at all ("unaffected: 25.1.1.3"). These are
@@ -285,6 +295,26 @@ export function fixedVersions(affected: readonly CveAffected[]): { patches: FixP
     if (!list.some((p) => p.version === version.trim() && p.from === from)) list.push({ label, version: version.trim(), from, url: null, source: "cve", ...(status ? { status } : {}) });
     to.set(key, list);
   };
+  // every version string a product's record marks affected itself, across all its blocks: a bound equal to one of these is not a fix
+  const markedAffected = new Map<string, Set<string>>();
+  const mark = (label: string, version: string | undefined) => {
+    const v = version?.trim().toLowerCase();
+    if (!label || !v) return;
+    const key = label.toLowerCase();
+    const set = markedAffected.get(key) ?? new Set<string>();
+    set.add(v);
+    markedAffected.set(key, set);
+  };
+  for (const a of affected) {
+    const label = productLabel(a);
+    for (const v of a.versions ?? []) {
+      // Chrome writes "affected from X, less than X" for "below X": that range does not mark X itself affected
+      const shorthand = v.lessThan !== undefined && v.version?.trim() === v.lessThan.trim();
+      if (v.status === "affected" && !shorthand) mark(label, v.version);
+      for (const c of v.changes ?? []) if (c.status === "affected") mark(label, c.at);
+    }
+  }
+  const isMarkedAffected = (label: string, version: string) => markedAffected.get(label.toLowerCase())?.has(version.trim().toLowerCase()) ?? false;
   for (const a of affected) {
     const label = productLabel(a);
     for (const v of a.versions ?? []) {
@@ -293,9 +323,9 @@ export function fixedVersions(affected: readonly CveAffected[]): { patches: FixP
       const open = upper ?? "";
       if (v.status === "unaffected" && concrete(v.version, v.versionType) && open.includes("*")) add(stated, label, v.version, open === "*" ? "" : open.trim().slice(0, 80));
       if (v.status === "unaffected" && upper === undefined) for (const one of standaloneVersions(v.version, v.versionType)) add(listed, label, one, "", "unaffected");
-      if (v.status === "affected" && concrete(v.lessThan, v.versionType)) add(bounds, label, v.lessThan, from);
+      if (v.status === "affected" && concrete(v.lessThan, v.versionType) && !isMarkedAffected(label, v.lessThan)) add(bounds, label, v.lessThan, from);
       const last = v.changes?.[v.changes.length - 1];
-      if (v.status === "affected" && last?.status === "unaffected" && concrete(last.at, v.versionType)) add(bounds, label, last.at, from);
+      if (v.status === "affected" && last?.status === "unaffected" && concrete(last.at, v.versionType) && !isMarkedAffected(label, last.at)) add(bounds, label, last.at, from);
     }
   }
   const out: FixPatch[] = [];
