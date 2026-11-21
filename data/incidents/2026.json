@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2110",
+    "slug": "fbi-national-crime-information-center-breached-in-second-inc",
+    "title": "FBI National Crime Information Center breached in second incident",
+    "summary": "FBI systems containing the National Crime Information Center database were breached by attackers. The incident marks the second time the agency has been compromised within two months.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "National Crime Information Center"
+    ],
+    "incident_date": "2026-11-21",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-21",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database",
+        "publisher": "BleepingComputer",
+        "title": "FBI reportedly hacked again, this time targeting nationwide police database",
+        "published_at": "2026-11-21"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "fbi",
+      "breach",
+      "ncic",
+      "law-enforcement"
+    ],
+    "created_at": "2026-11-21T14:36:45.561Z",
+    "updated_at": "2026-11-21T14:36:45.561Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-21",
+        "title": "FBI reportedly hacked again, this time targeting nationwide police database",
+        "source_url": "https://bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database",
+        "added_at": "2026-11-21T14:36:45.561Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world breach of a federal law enforcement database.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2109",
     "slug": "malicious-webpage-vulnerability-lets-researchers-hijack-meta",
     "title": "Malicious Webpage Vulnerability Lets Researchers Hijack Meta Muse",
