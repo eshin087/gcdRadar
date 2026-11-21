@@ -298,18 +298,16 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
     if (patch) why.push(patch === "unpatched" ? "no patch yet" : "partly patched");
     if (impact) why.push("confirmed impact");
     const soon = due !== null && due <= addDays(today, STACK_SOON_DAYS);
-    // the flag is the reason for the product's tier (picks.ts stackUrgency): a deadline within three days or just passed, then no full
-    // patch, which also puts it in the first tier, and only then a later deadline, so a row never hides why it leads
     const flag = soon
       ? `patch by ${shortDate(due!)}`
       : late
         ? `past due ${shortDate(late)}`
-        : patch === "unpatched"
-          ? "no patch yet"
-          : patch === "partial"
-            ? "partly patched"
-            : due
-              ? `patch by ${shortDate(due)}`
+        : due
+          ? `patch by ${shortDate(due)}`
+          : patch === "unpatched"
+            ? "no patch yet"
+            : patch === "partial"
+              ? "partly patched"
               : impact
                 ? "confirmed impact"
                 : null;
@@ -317,7 +315,7 @@ export function buildStack(incidents: readonly FullIncident[], kev: readonly Kev
     const critList = [...crits].sort((a, b2) => (b2.score ?? 0) - (a.score ?? 0) || b2.published.localeCompare(a.published) || a.id.localeCompare(b2.id));
     const highest = (list: readonly (number | null)[]) => list.reduce<number | null>((top, x) => (x !== null && (top === null || x > top) ? x : top), null);
     // the score to show: that of the item behind the flag, the same item the flag's words were taken from
-    const behind = soon ? mine.filter((e) => e.due === due) : late ? mine.filter((e) => e.due === late) : !patch && due ? mine.filter((e) => e.due === due) : [];
+    const behind = soon || (!late && due) ? mine.filter((e) => e.due === due) : late ? mine.filter((e) => e.due === late) : [];
     const flagScore =
       flag === null
         ? null
