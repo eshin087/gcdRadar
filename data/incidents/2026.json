@@ -3762,9 +3762,15 @@
         "publisher": "Cisco",
         "title": "Vulnerabilities in nginx Affecting Cisco Products: November 2026",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://security.paloaltonetworks.com/CVE-2026-123633",
+        "publisher": "Palo Alto Networks",
+        "title": "CVE-2026-123633 Portfolio Status: Impact of NGINX Vulnerabilities (CVE-2026-123633, CVE-2026-123007) on Palo Alto Networks Products (Severity: CRITICAL)",
+        "published_at": "2026-11-20"
       }
     ],
-    "source_count": 6,
+    "source_count": 7,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -3774,7 +3780,7 @@
       "nginx"
     ],
     "created_at": "2026-11-18T19:41:51.600Z",
-    "updated_at": "2026-11-20T20:21:50.773Z",
+    "updated_at": "2026-11-21T00:21:38.689Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
