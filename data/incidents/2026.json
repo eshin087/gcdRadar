@@ -327,9 +327,15 @@
         "publisher": "BleepingComputer",
         "title": "FBI reportedly hacked again, this time targeting nationwide police database",
         "published_at": "2026-11-21"
+      },
+      {
+        "url": "https://securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says",
+        "publisher": "SecurityWeek",
+        "title": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
+        "published_at": "2026-11-22"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -340,7 +346,7 @@
       "law-enforcement"
     ],
     "created_at": "2026-11-21T14:36:45.561Z",
-    "updated_at": "2026-11-21T14:36:45.561Z",
+    "updated_at": "2026-11-22T01:04:37.369Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
