@@ -1,5 +1,15 @@
 [
   {
+    "key": "61357bda33c777c7",
+    "title": "Debian 13.8 bundles kernel and Chromium security fixes with a 122-package bugfix list",
+    "url": "https://helpnetsecurity.com/2026/11/23/debian-13-8-released",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: OS point release roundup covering multiple separate advisories",
+    "confidence": 0.98,
+    "rejected_at": "2026-11-22T23:25:49.044Z"
+  },
+  {
     "key": "669406732a3f4212",
     "title": "CTO of ‘RansomwareHelp’ Indicted for Wire Fraud",
     "url": "https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud",

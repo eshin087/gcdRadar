@@ -1,5 +1,68 @@
 [
   {
+    "id": "AIR-2026-2120",
+    "slug": "cve-2026-134825-gradio-authentication-bypass-via-forged-host",
+    "title": "CVE-2026-134825: Gradio authentication bypass via forged Host header",
+    "summary": "An authentication bypass vulnerability in Gradio allows remote unauthenticated attackers to leverage locally saved Hugging Face tokens by sending a forged Host header. Attackers can call run history endpoints to list buckets, read records, and write buckets under the operator's account.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Gradio"
+    ],
+    "incident_date": "2026-11-22",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-22",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134825",
+        "publisher": "NVD",
+        "title": "CVE-2026-134825: Gradio 6.27.0 before 6.32.0 contains an authentication bypass vulnerability in gradio/history.py that allows remote…",
+        "published_at": "2026-11-22"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-134825",
+      "authentication_bypass",
+      "gradio"
+    ],
+    "created_at": "2026-11-22T23:25:49.044Z",
+    "updated_at": "2026-11-22T23:25:49.044Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-22",
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-134825"
+    ],
+    "affected": [
+      "Gradio 6.27.0 to 6.31.x"
+    ],
+    "fixed_in": [
+      "Gradio 6.32.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-22",
+        "title": "CVE-2026-134825: Gradio 6.27.0 before 6.32.0 contains an authentication bypass vulnerability in gradio/history.py that allows remote…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134825",
+        "added_at": "2026-11-22T23:25:49.044Z"
+      }
+    ],
+    "action": "Update Gradio to version 6.32.0 or later.",
+    "severity_note": "Disclosed vulnerability with high CVSS score and no reported exploitation.",
+    "cvss": 8.3
+  },
+  {
     "id": "AIR-2026-2119",
     "slug": "hackers-exploit-gl-inet-cloud-flaw-to-infect-routers-and-kvm",
     "title": "Hackers exploit GL.iNet cloud flaw to infect routers and KVM devices",
