@@ -1,5 +1,119 @@
 [
   {
+    "id": "AIR-2026-2117",
+    "slug": "openrouter-drops-providers-following-months-of-prompt-theft",
+    "title": "OpenRouter Drops Providers Following Months of Prompt Theft",
+    "summary": "Attackers surreptitiously stole user data from three AI inference providers over several months without the companies realizing. The incident exposed zero-data-retention requests, prompting OpenRouter to drop the affected hosting partners.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak"
+    ],
+    "severity": 3,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "OpenRouter"
+    ],
+    "incident_date": "2026-11-22",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-22",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+        "publisher": "The Hacker News",
+        "title": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+        "published_at": "2026-11-22"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-leak",
+      "inference-providers",
+      "openrouter"
+    ],
+    "created_at": "2026-11-22T06:21:41.735Z",
+    "updated_at": "2026-11-22T06:21:41.735Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-22",
+        "title": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+        "source_url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+        "added_at": "2026-11-22T06:21:41.735Z"
+      }
+    ],
+    "action": "Review API endpoints and rotate keys associated with affected providers.",
+    "severity_note": "Confirmed real-world data theft across multiple AI hosting providers.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2116",
+    "slug": "ghostscript-sandbox-escape-rce-discovered-in-file-processing",
+    "title": "Ghostscript Sandbox-Escape RCE Discovered in File Processing",
+    "summary": "A vulnerability in Ghostscript permits crafted files to break out of the security sandbox and achieve remote code execution. Security researchers demonstrated the flaw affecting servers that process uploaded PDF and image documents.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Ghostscript"
+    ],
+    "incident_date": "2026-11-22",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-22",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html",
+        "publisher": "The Hacker News",
+        "title": "Researchers Demonstrate Ghostscript Sandbox-Escape RCE via Crafted File Uploads in Popular Apps",
+        "published_at": "2026-11-22"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "rce",
+      "sandbox-escape",
+      "ghostscript"
+    ],
+    "created_at": "2026-11-22T06:21:41.735Z",
+    "updated_at": "2026-11-22T06:21:41.735Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-22",
+        "title": "Researchers Demonstrate Ghostscript Sandbox-Escape RCE via Crafted File Uploads in Popular Apps",
+        "source_url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html",
+        "added_at": "2026-11-22T06:21:41.735Z"
+      }
+    ],
+    "action": "Update Ghostscript to the latest patched version.",
+    "severity_note": "Disclosed vulnerability with a patch available.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2115",
     "slug": "cve-2026-134540-flaw-in-llama-cpp-llama-server-sampling-comp",
     "title": "CVE-2026-134540: Flaw in llama.cpp llama-server sampling component",
