@@ -1,251 +1,5 @@
 [
   {
-    "id": "run-20261116T230705",
-    "started_at": "2026-11-16T23:07:05.106Z",
-    "finished_at": "2026-11-16T23:11:35.602Z",
-    "mode": "scheduled",
-    "sources": [
-      {
-        "id": "securityweek",
-        "ok": true,
-        "items": 10,
-        "duration_ms": 122
-      },
-      {
-        "id": "thn",
-        "ok": true,
-        "items": 9,
-        "duration_ms": 167
-      },
-      {
-        "id": "krebs",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 223
-      },
-      {
-        "id": "bleepingcomputer",
-        "ok": true,
-        "items": 15,
-        "duration_ms": 112
-      },
-      {
-        "id": "darkreading",
-        "ok": true,
-        "items": 4,
-        "duration_ms": 108
-      },
-      {
-        "id": "therecord",
-        "ok": true,
-        "items": 5,
-        "duration_ms": 84
-      },
-      {
-        "id": "helpnetsecurity",
-        "ok": true,
-        "items": 9,
-        "duration_ms": 90
-      },
-      {
-        "id": "cyberscoop",
-        "ok": true,
-        "items": 3,
-        "duration_ms": 135
-      },
-      {
-        "id": "openai",
-        "ok": true,
-        "items": 11,
-        "duration_ms": 174
-      },
-      {
-        "id": "deepmind",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 128
-      },
-      {
-        "id": "ms-security",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 46
-      },
-      {
-        "id": "google-security",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 227
-      },
-      {
-        "id": "ms-threat-intel",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 57
-      },
-      {
-        "id": "meta-eng",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 59
-      },
-      {
-        "id": "cisa-alerts",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 50
-      },
-      {
-        "id": "ms-ai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 152
-      },
-      {
-        "id": "paloalto-psirt",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 188
-      },
-      {
-        "id": "cisco-psirt",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 521
-      },
-      {
-        "id": "simonw-pi",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 368
-      },
-      {
-        "id": "gtig",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 1274
-      },
-      {
-        "id": "simonw-sec",
-        "ok": true,
-        "items": 2,
-        "duration_ms": 165
-      },
-      {
-        "id": "embracethered",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 112
-      },
-      {
-        "id": "trailofbits",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 227
-      },
-      {
-        "id": "unit42",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 43
-      },
-      {
-        "id": "talos",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 83
-      },
-      {
-        "id": "owasp-genai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 198
-      },
-      {
-        "id": "straiker",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 189
-      },
-      {
-        "id": "checkmarx-zero",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 153
-      },
-      {
-        "id": "unit42-ai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 1109
-      },
-      {
-        "id": "ghsa",
-        "ok": true,
-        "items": 11,
-        "duration_ms": 621
-      },
-      {
-        "id": "hn",
-        "ok": true,
-        "items": 2,
-        "duration_ms": 9498
-      },
-      {
-        "id": "fortinet-psirt",
-        "ok": false,
-        "items": 0,
-        "status": 503,
-        "error": "HTTP 503 for https://www.fortiguard.com/rss/ir.xml",
-        "duration_ms": 59148
-      },
-      {
-        "id": "nvd",
-        "ok": true,
-        "items": 5,
-        "duration_ms": 253529
-      }
-    ],
-    "counts": {
-      "fetched": 89,
-      "prefiltered": 65,
-      "merged": 1,
-      "classified": 2,
-      "published": 2,
-      "review": 0,
-      "rejected": 0,
-      "pending": 0,
-      "updated": 1,
-      "closed": 0,
-      "reopened": 0
-    },
-    "llm": {
-      "calls": 6,
-      "prompt_tokens": 4316,
-      "completion_tokens": 1062,
-      "by_model": {
-        "gemini-lite/gemini-3.5-flash-lite": {
-          "calls": 4,
-          "prompt_tokens": 3724,
-          "completion_tokens": 838
-        },
-        "gemini-flash/gemini-3.8-flash": {
-          "calls": 1,
-          "prompt_tokens": 0,
-          "completion_tokens": 0
-        },
-        "groq/openai/gpt-oss-120b": {
-          "calls": 1,
-          "prompt_tokens": 592,
-          "completion_tokens": 224
-        }
-      }
-    },
-    "errors": [
-      "fortinet-psirt: HTTP 503 for https://www.fortiguard.com/rss/ir.xml"
-    ]
-  },
-  {
     "id": "run-20261116T233054",
     "started_at": "2026-11-16T23:30:54.026Z",
     "finished_at": "2026-11-17T00:03:34.641Z",
@@ -53934,6 +53688,40 @@
     "counts": {
       "fetched": 44,
       "prefiltered": 32,
+      "merged": 0,
+      "classified": 0,
+      "published": 0,
+      "review": 0,
+      "rejected": 0,
+      "pending": 0,
+      "updated": 0,
+      "closed": 0,
+      "reopened": 0
+    },
+    "llm": {
+      "calls": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "by_model": {}
+    },
+    "errors": []
+  },
+  {
+    "id": "run-20261122T004220",
+    "started_at": "2026-11-22T00:42:20.384Z",
+    "finished_at": "2026-11-22T01:03:19.258Z",
+    "mode": "scheduled",
+    "sources": [
+      {
+        "id": "gdelt",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 1258710
+      }
+    ],
+    "counts": {
+      "fetched": 0,
+      "prefiltered": 0,
       "merged": 0,
       "classified": 0,
       "published": 0,
