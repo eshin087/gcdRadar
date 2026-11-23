@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2130",
+    "slug": "azure-api-management-flaw-exploited-to-target-norwegian-ener",
+    "title": "Azure API Management Flaw Exploited to Target Norwegian Energy Firms",
+    "summary": "Microsoft patched an Azure API Management vulnerability that was actively exploited to compromise secrets at Norwegian energy companies and other sectors. The vendor closed the security gap after observing targeted attacks.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Azure API Management"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms",
+        "publisher": "SecurityWeek",
+        "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "azure",
+      "api-management",
+      "exploitation-in-the-wild"
+    ],
+    "created_at": "2026-11-23T15:51:41.359Z",
+    "updated_at": "2026-11-23T15:51:41.359Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+        "source_url": "https://securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms",
+        "added_at": "2026-11-23T15:51:41.359Z"
+      }
+    ],
+    "action": "Verify Azure API Management instances are updated and check exposed secrets for unauthorized access.",
+    "severity_note": "Confirmed exploitation in the wild against real targets.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2129",
     "slug": "phpaftershell-session-overwrite-deserialization-vulnerabilit",
     "title": "phpAfterShell Session Overwrite Deserialization Vulnerability",
