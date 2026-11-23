@@ -264,9 +264,15 @@
         "publisher": "The Record",
         "title": "Norway says hackers exploited Microsoft security flaw to attack energy firms Equinor, Skagerak Energi",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials",
+        "publisher": "BleepingComputer",
+        "title": "Microsoft Azure flaw exploited to steal customers' API credentials",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -276,7 +282,7 @@
       "exploitation-in-the-wild"
     ],
     "created_at": "2026-11-23T15:51:41.359Z",
-    "updated_at": "2026-11-23T16:06:46.456Z",
+    "updated_at": "2026-11-23T19:51:46.406Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -296,9 +302,15 @@
         "title": "Report identifies Equinor and Skagerak Energi as victims of the exploited Azure API Management flaw.",
         "source_url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
         "added_at": "2026-11-23T16:06:46.456Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "Microsoft warns customers that the Azure API Management Classic tier vulnerability was exploited to steal stored API credentials.",
+        "source_url": "https://bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials",
+        "added_at": "2026-11-23T19:51:46.406Z"
       }
     ],
-    "action": "Update victim list to include Equinor and Skagerak Energi.",
+    "action": "Notify customers to apply the Azure API Management patch if not already done.",
     "severity_note": "Confirmed exploitation in the wild against real targets.",
     "cvss": null
   },
@@ -4574,95 +4586,6 @@
     "cvss": 9.8
   },
   {
-    "id": "AIR-2026-2062",
-    "slug": "cve-2026-115560-php-critical-security-release-advisory",
-    "title": "CVE-2026-115560: PHP Critical Security Release Advisory",
-    "summary": "PHP published an emergency security release regarding CVE-2026-115560. Technical details and fixed versions are currently developing.",
-    "type": "not_ai",
-    "categories": [
-      "general"
-    ],
-    "severity": 2,
-    "targets": [
-      "n/a"
-    ],
-    "products": [
-      "PHP"
-    ],
-    "incident_date": "2026-11-19",
-    "incident_date_precision": "day",
-    "first_reported": "2026-11-19",
-    "sources": [
-      {
-        "url": "https://checkmarx.com/zero-post/php-rings-the-alarm-again-what-we-know-and-dont-about-todays-critical-php-security-release",
-        "publisher": "Checkmarx",
-        "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
-        "published_at": "2026-11-19"
-      },
-      {
-        "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
-        "publisher": "The Hacker News",
-        "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
-        "published_at": "2026-11-19"
-      },
-      {
-        "url": "https://bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs",
-        "publisher": "BleepingComputer",
-        "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
-        "published_at": "2026-11-19"
-      },
-      {
-        "url": "https://darkreading.com/application-security/critical-php-flaws-code-execution-panic-php2shell",
-        "publisher": "Dark Reading",
-        "title": "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
-        "published_at": "2026-11-19"
-      }
-    ],
-    "source_count": 4,
-    "confidence": 0.8,
-    "status": "published",
-    "origin": "news",
-    "tags": [
-      "CVE-2026-115560",
-      "php",
-      "vulnerability"
-    ],
-    "created_at": "2026-11-19T13:11:05.476Z",
-    "updated_at": "2026-11-19T21:41:26.992Z",
-    "lane": "patch",
-    "state": "live",
-    "closed_at": null,
-    "patch_status": "patched",
-    "cve_ids": [
-      "CVE-2026-115560"
-    ],
-    "affected": [],
-    "fixed_in": [],
-    "timeline": [
-      {
-        "date": "2026-11-19",
-        "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
-        "source_url": "https://checkmarx.com/zero-post/php-rings-the-alarm-again-what-we-know-and-dont-about-todays-critical-php-security-release",
-        "added_at": "2026-11-19T13:11:05.476Z"
-      },
-      {
-        "date": "2026-11-19",
-        "title": "Vendor releases security updates addressing seven critical vulnerabilities including remote code execution and CVE-2026-115560.",
-        "source_url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
-        "added_at": "2026-11-19T15:44:16.278Z"
-      },
-      {
-        "date": "2026-11-19",
-        "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
-        "source_url": "https://bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs",
-        "added_at": "2026-11-19T16:50:40.862Z"
-      }
-    ],
-    "action": "Apply the latest PHP security updates immediately to mitigate remote code execution risks.",
-    "severity_note": "Critical security release announced for PHP.",
-    "cvss": null
-  },
-  {
     "id": "AIR-2026-2061",
     "slug": "cisa-kev-adds-exploited-flaws-in-litellm-synology-axis-and-r",
     "title": "CISA KEV Adds Exploited Flaws in LiteLLM, Synology, Axis, and REDCap",
@@ -6603,6 +6526,107 @@
     "action": "",
     "severity_note": "Disclosed vulnerability with no confirmed exploitation.",
     "cvss": 7.8
+  },
+  {
+    "id": "AIR-2026-2062",
+    "slug": "cve-2026-115560-php-critical-security-release-advisory",
+    "title": "CVE-2026-115560: PHP Critical Security Release Advisory",
+    "summary": "PHP published an emergency security release regarding CVE-2026-115560. Technical details and fixed versions are currently developing.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "PHP"
+    ],
+    "incident_date": "2026-11-19",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-17",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1836",
+        "publisher": "AI Incident Database",
+        "title": "U.S. National Security Agency's Classified Network Disrupted During Patching Reportedly Prompted by AI-Assisted Security Research",
+        "published_at": "2026-11-17"
+      },
+      {
+        "url": "https://checkmarx.com/zero-post/php-rings-the-alarm-again-what-we-know-and-dont-about-todays-critical-php-security-release",
+        "publisher": "Checkmarx",
+        "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
+        "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
+        "publisher": "The Hacker News",
+        "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
+        "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs",
+        "publisher": "BleepingComputer",
+        "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
+        "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://darkreading.com/application-security/critical-php-flaws-code-execution-panic-php2shell",
+        "publisher": "Dark Reading",
+        "title": "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
+        "published_at": "2026-11-19"
+      }
+    ],
+    "source_count": 5,
+    "confidence": 0.8,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "CVE-2026-115560",
+      "php",
+      "vulnerability"
+    ],
+    "created_at": "2026-11-19T13:11:05.476Z",
+    "updated_at": "2026-11-23T19:51:46.406Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-115560"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-17",
+        "title": "NSA reported internal system disruption linked to patching of PHP vulnerabilities.",
+        "source_url": "https://incidentdatabase.ai/cite/1836",
+        "added_at": "2026-11-23T19:51:46.406Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "PHP Rings the Alarm Again: What We Know (and Don’t) About Today’s Critical PHP Security Release",
+        "source_url": "https://checkmarx.com/zero-post/php-rings-the-alarm-again-what-we-know-and-dont-about-todays-critical-php-security-release",
+        "added_at": "2026-11-19T13:11:05.476Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "Vendor releases security updates addressing seven critical vulnerabilities including remote code execution and CVE-2026-115560.",
+        "source_url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
+        "added_at": "2026-11-19T15:44:16.278Z"
+      },
+      {
+        "date": "2026-11-19",
+        "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
+        "source_url": "https://bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs",
+        "added_at": "2026-11-19T16:50:40.862Z"
+      }
+    ],
+    "action": "Assess whether the NSA incident indicates any unmet issues in the PHP patches and verify patch integrity.",
+    "severity_note": "Critical security release announced for PHP.",
+    "cvss": null
   },
   {
     "id": "AIR-2026-2031",
@@ -57162,6 +57186,65 @@
     "cvss": 3.1
   },
   {
+    "id": "AIR-2026-2136",
+    "slug": "123-reg-customer-data-exposed-in-breach-involving-artex-ai-t",
+    "title": "123 Reg Customer Data Exposed in Breach Involving ARTEX AI Tool",
+    "summary": "A cyberattack on UK domain registrar 123 Reg resulted in unauthorized access to customer names, phone numbers, and tax registration numbers. The intrusion was observed to involve the ARTEX AI security-testing tool, though the tool’s role was unclear.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "123 Reg",
+      "ARTEX AI"
+    ],
+    "incident_date": "2026-09-18",
+    "incident_date_precision": "day",
+    "first_reported": "2026-09-18",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1834",
+        "publisher": "AI Incident Database",
+        "title": "UK Domain Registrar 123 Reg Reported Customer Data Exposure in Cyberattack Involving ARTEX AI Tool",
+        "published_at": "2026-09-18"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.94,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "data-breach",
+      "customer-data",
+      "artex",
+      "uk"
+    ],
+    "created_at": "2026-11-23T19:51:46.406Z",
+    "updated_at": "2026-11-23T19:51:46.406Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-10-02",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-09-18",
+        "title": "UK Domain Registrar 123 Reg Reported Customer Data Exposure in Cyberattack Involving ARTEX AI Tool",
+        "source_url": "https://incidentdatabase.ai/cite/1834",
+        "added_at": "2026-11-23T19:51:46.406Z"
+      }
+    ],
+    "action": "Investigate the intrusion, reset affected accounts, and notify customers of the data exposure.",
+    "severity_note": "Confirmed exploitation of customer data in breach",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-1495",
     "slug": "fraud-ring-used-ai-cloned-voices-of-relatives-to-steal-valua",
     "title": "Fraud Ring Used AI-Cloned Voices of Relatives to Steal Valuables",
@@ -92759,6 +92842,62 @@
     "action": "",
     "severity_note": "",
     "cvss": 9.6
+  },
+  {
+    "id": "AIR-2026-2135",
+    "slug": "ai-voice-imitation-of-economist-hans-werner-sinn-used-in-150",
+    "title": "AI Voice Imitation of Economist Hans‑Werner Sinn Used in €150,000 Investment Scam",
+    "summary": "Scammers used an AI-generated imitation of economist Hans‑Werner Sinn’s voice to persuade a German retiree to transfer at least €150,000 to a fraudulent brokerage account. The victim and his wife suffered significant financial loss.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "deepfake_fraud"
+    ],
+    "severity": 4,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [],
+    "incident_date": "2026-06-01",
+    "incident_date_precision": "day",
+    "first_reported": "2026-06-01",
+    "sources": [
+      {
+        "url": "https://incidentdatabase.ai/cite/1843",
+        "publisher": "AI Incident Database",
+        "title": "Retiree in Germany Reportedly Lost at Least €150,000 in Investment Scam Involving a Purported AI Imitation of Economist Hans-Werner Sinn's Voice",
+        "published_at": "2026-06-01"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.96,
+    "status": "published",
+    "origin": "seed_aiid",
+    "tags": [
+      "deepfake",
+      "voice",
+      "fraud",
+      "financial-theft"
+    ],
+    "created_at": "2026-11-23T19:51:46.406Z",
+    "updated_at": "2026-11-23T19:51:46.406Z",
+    "lane": "breach",
+    "state": "closed",
+    "closed_at": "2026-06-15",
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-06-01",
+        "title": "Retiree in Germany Reportedly Lost at Least €150,000 in Investment Scam Involving a Purported AI Imitation of Economist Hans-Werner Sinn's Voice",
+        "source_url": "https://incidentdatabase.ai/cite/1843",
+        "added_at": "2026-11-23T19:51:46.406Z"
+      }
+    ],
+    "action": "Verify identities through independent channels before transferring funds and report suspected deepfake calls to authorities.",
+    "severity_note": "Confirmed real-world financial loss from AI-generated voice fraud",
+    "cvss": null
   },
   {
     "id": "AIR-2026-1100",

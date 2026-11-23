@@ -1,5 +1,15 @@
 [
   {
+    "key": "11637a8ffa0fc083",
+    "title": "Google AI Overviews Alleged to Have Falsely Linked Two German Publishers to Fraud Schemes",
+    "url": "https://incidentdatabase.ai/cite/1838",
+    "publisher": "AI Incident Database",
+    "source_id": "aiid",
+    "reason": "out of scope: AI harms without security angle; reputational damage only",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-23T19:51:46.406Z"
+  },
+  {
     "key": "c2240fa661b1a6dc",
     "title": "Indicted Kosovo credit card theft suspect extradited to US",
     "url": "https://cyberscoop.com/hektor-avdyli-kosovo-credit-card-fraud-extradition",
