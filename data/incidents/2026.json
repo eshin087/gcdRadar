@@ -1,5 +1,66 @@
 [
   {
+    "id": "AIR-2026-2127",
+    "slug": "gl-inet-routers-kvms-compromised-via-remote-management-servi",
+    "title": "GL.iNet Routers, KVMs Compromised via Remote Management Service Flaw",
+    "summary": "Attackers exploited a vulnerability in the GoodCloud remote management service to install malware on GL.iNet routers and KVM devices. Remediation requires flashing new firmware to the affected hardware.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "GoodCloud",
+      "GL.iNet routers",
+      "KVM"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://securityweek.com/gl-inet-routers-kvms-compromised-via-remote-management-service-flaw",
+        "publisher": "SecurityWeek",
+        "title": "GL.iNet Routers, KVMs Compromised via Remote Management Service Flaw",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "remote-management",
+      "firmware",
+      "malware",
+      "router",
+      "kvm"
+    ],
+    "created_at": "2026-11-23T13:40:53.427Z",
+    "updated_at": "2026-11-23T13:40:53.427Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "GL.iNet Routers, KVMs Compromised via Remote Management Service Flaw",
+        "source_url": "https://securityweek.com/gl-inet-routers-kvms-compromised-via-remote-management-service-flaw",
+        "added_at": "2026-11-23T13:40:53.427Z"
+      }
+    ],
+    "action": "Flash affected devices with the new firmware provided by GL.iNet",
+    "severity_note": "Exploitation confirmed in the wild, leading to device compromise",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2126",
     "slug": "austrian-foreign-ministry-website-breached-contact-details-a",
     "title": "Austrian Foreign Ministry website breached, contact details accessed",
