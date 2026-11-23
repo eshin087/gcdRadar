@@ -3670,9 +3670,15 @@
         "publisher": "Dark Reading",
         "title": "China's 'Armory Castle' Lays Siege to VMware vCenter Zero-Day",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/23/cisco-expressway-vulnerability-exploited-cve-2026-76466",
+        "publisher": "Help Net Security",
+        "title": "Cisco Expressway vulnerability exploited to breach internal networks (CVE-2026-76466)",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 7,
+    "source_count": 8,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -3686,7 +3692,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-20T21:21:32.303Z",
+    "updated_at": "2026-11-23T12:36:40.404Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
