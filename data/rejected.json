@@ -1,5 +1,25 @@
 [
   {
+    "key": "92ecbd2cf37758a3",
+    "title": "SecretAgent: A Multi-Agent Framework for Privacy Protection against Vision Language Models",
+    "url": "https://arxiv.org/abs/2611.26936",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defence‑only research paper, no demonstrated attack or vulnerability",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T22:21:47.717Z"
+  },
+  {
+    "key": "13d5335364a50a3a",
+    "title": "Isonomy: Isolating Every Request from Timing Side Channels at Nearly Full-Sharing Throughput in Multi-Instance LLM Prefill",
+    "url": "https://arxiv.org/abs/2611.27596",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defence‑only research paper, no active attack demonstrated",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T22:21:47.717Z"
+  },
+  {
     "key": "9d582e64d3e47437",
     "title": "Railroads as Cyber-Physical Systems: Cybersecurity Implications of Increasing Automation -- Threats, Consequences, and Operational Resilience",
     "url": "https://arxiv.org/abs/2611.27088",

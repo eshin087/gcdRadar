@@ -1,5 +1,117 @@
 [
   {
+    "id": "AIR-2026-2144",
+    "slug": "mjolnir-finding-and-reproducing-vulnerabilities-in-root-of-t",
+    "title": "Mjolnir: Finding and Reproducing Vulnerabilities in Root‑of‑Trust Firmware and RTL with Project‑Grounded Agents",
+    "summary": "Mjolnir describes how LLM agents can be employed to discover and reproduce vulnerabilities in root‑of‑trust firmware and RTL designs. The paper showcases the feasibility of AI‑assisted vulnerability discovery without reporting a specific exploited flaw.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.27567",
+        "publisher": "arXiv",
+        "title": "Mjolnir: Finding and Reproducing Vulnerabilities in Root-of-Trust Firmware and RTL with Project-Grounded Agents",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "firmware",
+      "llm",
+      "vulnerability‑discovery",
+      "ai‑assisted"
+    ],
+    "created_at": "2026-11-23T22:21:47.717Z",
+    "updated_at": "2026-11-23T22:21:47.717Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Mjolnir: Finding and Reproducing Vulnerabilities in Root-of-Trust Firmware and RTL with Project-Grounded Agents",
+        "source_url": "https://arxiv.org/abs/2611.27567",
+        "added_at": "2026-11-23T22:21:47.717Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept showing AI agents can find firmware bugs",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2143",
+    "slug": "more-than-you-expect-leakage-abuse-attacks-on-encrypted-vect",
+    "title": "\"More Than You Expect!\": Leakage‑Abuse Attacks on Encrypted Vector Search",
+    "summary": "The study presents SAGE, a passive attack that exploits access‑pattern leakage in encrypted vector search to infer semantic categories of encrypted records and queries. The authors demonstrate the technique on benchmark systems, showing a viable data‑leakage threat.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.27174",
+        "publisher": "arXiv",
+        "title": "\"More Than You Expect!\": Leakage-Abuse Attacks on Encrypted Vector Search",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.96,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "encrypted‑vector‑search",
+      "leakage",
+      "sage",
+      "privacy"
+    ],
+    "created_at": "2026-11-23T22:21:47.717Z",
+    "updated_at": "2026-11-23T22:21:47.717Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "\"More Than You Expect!\": Leakage-Abuse Attacks on Encrypted Vector Search",
+        "source_url": "https://arxiv.org/abs/2611.27174",
+        "added_at": "2026-11-23T22:21:47.717Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept attack with no known exploitation",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2142",
     "slug": "autonomous-parameter-surgery-llm-implanted-backdoors-in-lang",
     "title": "Autonomous Parameter Surgery: LLM-Implanted Backdoors in Language Models",
@@ -23152,9 +23264,15 @@
         "publisher": "arXiv",
         "title": "Right Tool, Wrong Parameters: Defending LLM Agents Against Parameter Poisoning",
         "published_at": "2026-11-04"
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.27041",
+        "publisher": "arXiv",
+        "title": "Subverting Tool Arguments: Defense-Evading Metadata Poisoning in LLM Agents",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -23164,7 +23282,7 @@
       "indirect_prompt_injection"
     ],
     "created_at": "2026-11-04T15:36:32.106Z",
-    "updated_at": "2026-11-19T00:12:00.663Z",
+    "updated_at": "2026-11-23T22:21:47.717Z",
     "lane": "research",
     "state": "closed",
     "closed_at": "2026-11-18",
@@ -23178,6 +23296,12 @@
         "title": "Right Tool, Wrong Parameters: Defending LLM Agents Against Parameter Poisoning",
         "source_url": "https://arxiv.org/abs/2611.04673",
         "added_at": "2026-11-04T15:36:32.106Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "Research details metadata poisoning via Model Context Protocol tool descriptions to subvert LLM argument generation",
+        "source_url": "https://arxiv.org/abs/2611.27041",
+        "added_at": "2026-11-23T22:21:47.717Z"
       }
     ],
     "action": "",
