@@ -3548,9 +3548,15 @@
         "publisher": "CISA",
         "title": "CVE-2026-76466: Cisco Expressway Series — Cisco Expressway Series Use of Hard-coded Credentials Vulnerability",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/cisa-flags-critical-cisco-expressway-rce-flaw-as-actively-exploited",
+        "publisher": "BleepingComputer",
+        "title": "CISA flags critical Cisco RCE flaw as actively exploited in attacks",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -3563,7 +3569,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T13:41:53.079Z",
-    "updated_at": "2026-11-20T18:06:31.593Z",
+    "updated_at": "2026-11-23T07:51:24.610Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
