@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2133",
+    "slug": "webworm-modifies-softether-vpn-bridge-to-evade-detection-and",
+    "title": "Webworm modifies SoftEther VPN Bridge to evade detection and hide remote access",
+    "summary": "Webworm, a China-aligned threat actor, is using a custom-modified version of SoftEther VPN Bridge to hide its presence and establish covert remote access. The altered binary evades security tools by masquerading as network‑monitoring software.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "SoftEther VPN Bridge"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+        "publisher": "The Hacker News",
+        "title": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "softether",
+      "webworm",
+      "vpn",
+      "malware",
+      "supply-chain"
+    ],
+    "created_at": "2026-11-23T18:06:45.404Z",
+    "updated_at": "2026-11-23T18:06:45.404Z",
+    "lane": "supply_chain",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
+        "source_url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+        "added_at": "2026-11-23T18:06:45.404Z"
+      }
+    ],
+    "action": "Monitor for unauthorized SoftEther VPN binaries and block any modified versions",
+    "severity_note": "Confirmed exploitation of a modified VPN tool in the wild",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2132",
     "slug": "cve-2026-135287-litellm-proxy-callback-injection-allows-prom",
     "title": "CVE-2026-135287: LiteLLM Proxy callback injection allows prompt and response leakage",

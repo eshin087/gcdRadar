@@ -1,5 +1,15 @@
 [
   {
+    "key": "eaf4bdf4f329ecf9",
+    "title": "Behind the Alias: How One Researcher Unmasked a Decade of Ransomware Actors",
+    "url": "https://darkreading.com/cybersecurity-operations/alias-researcher-unmasked-ransomware-actors",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "out of scope, no AI role (0.60): General analysis without a specific incident or breach",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-23T18:06:45.404Z"
+  },
+  {
     "key": "ca0d1bdeb307b963",
     "title": "⚡ Weekly Recap: VMware 0-Day, Java4Shell, NGINX2Root, Ruby2Shell, and a Whole Lot of Shell Trouble",
     "url": "https://thehackernews.com/2026/11/weekly-recap-vmware-0-day-java4shell.html",
