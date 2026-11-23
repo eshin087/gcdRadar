@@ -9796,9 +9796,15 @@
         "publisher": "arXiv",
         "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
         "published_at": "2026-11-16"
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.27425",
+        "publisher": "arXiv",
+        "title": "TrojanMaxxing: One-shotting VLM Backdoors with Weight-Space Programming",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -9808,7 +9814,7 @@
       "supply-chain"
     ],
     "created_at": "2026-11-16T06:24:59.316Z",
-    "updated_at": "2026-11-16T06:24:59.316Z",
+    "updated_at": "2026-11-23T21:51:35.615Z",
     "lane": "research",
     "state": "live",
     "closed_at": null,
@@ -9822,6 +9828,12 @@
         "title": "Can LLMs Write Backdoors? An Empirical Security Study of Weight-Space Programming",
         "source_url": "https://arxiv.org/abs/2611.17395",
         "added_at": "2026-11-16T06:24:59.316Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "TrojanMaxxing: One-shotting VLM Backdoors with Weight-Space Programming",
+        "source_url": "https://arxiv.org/abs/2611.27425",
+        "added_at": "2026-11-23T21:51:35.615Z"
       }
     ],
     "action": "",
