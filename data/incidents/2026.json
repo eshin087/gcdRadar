@@ -1,5 +1,60 @@
 [
   {
+    "id": "AIR-2026-2134",
+    "slug": "spanish-laliga-confirms-hackers-stole-soccer-fans-personal-d",
+    "title": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
+    "summary": "LaLiga announced that hackers accessed and stole personal data of fans and affiliated club users. The breach exposed names, contact details and other identifying information.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data",
+        "publisher": "BleepingComputer",
+        "title": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "personal-data",
+      "laliga"
+    ],
+    "created_at": "2026-11-23T19:06:36.762Z",
+    "updated_at": "2026-11-23T19:06:36.762Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
+        "source_url": "https://bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data",
+        "added_at": "2026-11-23T19:06:36.762Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Personal data of fans exposed, confirming real-world loss",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2133",
     "slug": "webworm-modifies-softether-vpn-bridge-to-evade-detection-and",
     "title": "Webworm modifies SoftEther VPN Bridge to evade detection and hide remote access",

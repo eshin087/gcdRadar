@@ -1,5 +1,15 @@
 [
   {
+    "key": "c2240fa661b1a6dc",
+    "title": "Indicted Kosovo credit card theft suspect extradited to US",
+    "url": "https://cyberscoop.com/hektor-avdyli-kosovo-credit-card-fraud-extradition",
+    "publisher": "CyberScoop",
+    "source_id": "cyberscoop",
+    "reason": "out of scope: Indictment and extradition is a follow‑up, not a new incident",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-23T19:06:36.762Z"
+  },
+  {
     "key": "eaf4bdf4f329ecf9",
     "title": "Behind the Alias: How One Researcher Unmasked a Decade of Ransomware Actors",
     "url": "https://darkreading.com/cybersecurity-operations/alias-researcher-unmasked-ransomware-actors",
