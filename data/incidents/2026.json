@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2129",
+    "slug": "phpaftershell-session-overwrite-deserialization-vulnerabilit",
+    "title": "phpAfterShell Session Overwrite Deserialization Vulnerability",
+    "summary": "An interrupted session overwrite operation in phpAfterShell allows attackers controlling fresh data to trigger deserialization and remote code execution. Security researchers disclosed the flaw and recommended applying available vendor updates.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "phpAfterShell"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://securityweek.com/phpaftershell-vulnerability-revives-php2shells-attack-path",
+        "publisher": "SecurityWeek",
+        "title": "phpAfterShell Vulnerability Revives PHP2Shell’s Attack Path",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "rce",
+      "deserialization",
+      "phparsershell"
+    ],
+    "created_at": "2026-11-23T14:07:08.468Z",
+    "updated_at": "2026-11-23T14:07:08.468Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "phpAfterShell Vulnerability Revives PHP2Shell’s Attack Path",
+        "source_url": "https://securityweek.com/phpaftershell-vulnerability-revives-php2shells-attack-path",
+        "added_at": "2026-11-23T14:07:08.468Z"
+      }
+    ],
+    "action": "Check vendor advisories for updates and patch phpAfterShell immediately.",
+    "severity_note": "Disclosed vulnerability allowing RCE.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2128",
     "slug": "cve-2026-134814-critical-binary-parser-flaw-enables-javascri",
     "title": "CVE-2026-134814: Critical binary-parser Flaw Enables JavaScript Injection via Malicious Parser Definitions",
