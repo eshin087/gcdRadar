@@ -1,5 +1,15 @@
 [
   {
+    "key": "a1776b5e4653306a",
+    "title": "Xalgorix: Open-source AI penetration testing tool",
+    "url": "https://helpnetsecurity.com/2026/11/23/xalgorix-ai-penetration-testing-tool",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and tool announcement, not a specific security incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T06:36:28.929Z"
+  },
+  {
     "key": "61357bda33c777c7",
     "title": "Debian 13.8 bundles kernel and Chromium security fixes with a 122-package bugfix list",
     "url": "https://helpnetsecurity.com/2026/11/23/debian-13-8-released",
