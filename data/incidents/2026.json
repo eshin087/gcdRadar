@@ -881,9 +881,15 @@
         "publisher": "BleepingComputer",
         "title": "BADBOX 3.0 botnet returns with record-breaking 40 billion daily ad requests",
         "published_at": "2026-11-21"
+      },
+      {
+        "url": "https://securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted",
+        "publisher": "SecurityWeek",
+        "title": "BadBox 3.0 Ad Fraud Operation Generating 40 Billion Daily Bid Requests Disrupted",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -895,7 +901,7 @@
       "malware"
     ],
     "created_at": "2026-11-21T15:25:45.844Z",
-    "updated_at": "2026-11-21T15:25:45.844Z",
+    "updated_at": "2026-11-23T11:51:35.554Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -909,6 +915,12 @@
         "title": "BADBOX 3.0 botnet returns with record-breaking 40 billion daily ad requests",
         "source_url": "https://bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests",
         "added_at": "2026-11-21T15:25:45.844Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "Authorities disrupt the BadBox 3.0 ad fraud operation that generated billions of daily requests",
+        "source_url": "https://securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted",
+        "added_at": "2026-11-23T11:51:35.554Z"
       }
     ],
     "action": "",
@@ -3820,9 +3832,15 @@
         "publisher": "BleepingComputer",
         "title": "CISA flags critical Cisco RCE flaw as actively exploited in attacks",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks",
+        "publisher": "SecurityWeek",
+        "title": "SAP NetWeaver, Cisco Expressway Flaws Exploited in Attacks",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 4,
+    "source_count": 5,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -3835,7 +3853,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T13:41:53.079Z",
-    "updated_at": "2026-11-23T07:51:24.610Z",
+    "updated_at": "2026-11-23T11:51:35.554Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
