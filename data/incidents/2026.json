@@ -1463,9 +1463,15 @@
         "publisher": "SecurityWeek",
         "title": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
         "published_at": "2026-11-22"
+      },
+      {
+        "url": "https://therecord.media/fbi-cyberattack-data-breach",
+        "publisher": "The Record",
+        "title": "FBI reportedly facing second data breach involving National Crime Information Center",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1476,7 +1482,7 @@
       "law-enforcement"
     ],
     "created_at": "2026-11-21T14:36:45.561Z",
-    "updated_at": "2026-11-22T01:04:37.369Z",
+    "updated_at": "2026-11-23T18:36:50.024Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
