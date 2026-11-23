@@ -1,5 +1,122 @@
 [
   {
+    "id": "AIR-2026-2147",
+    "slug": "gofundme-donor-information-exposed-in-data-breach",
+    "title": "GoFundMe donor information exposed in data breach",
+    "summary": "GoFundMe reported that donor personal information was exposed in a data breach. The incident affects donor records and may lead to privacy risks.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://10tv.com/article/news/nation-world/gofundme-data-breach-donor-data-nonprofits/507-6efe578f-8a12-49f8-88d3-90bcc948b1b1",
+        "publisher": "10tv.com",
+        "title": "GoFundMe says donor information was exposed in data breach",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.94,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "gofundme",
+      "data_breach",
+      "donor_info"
+    ],
+    "created_at": "2026-11-23T23:40:44.767Z",
+    "updated_at": "2026-11-23T23:40:44.767Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "GoFundMe says donor information was exposed in data breach",
+        "source_url": "https://10tv.com/article/news/nation-world/gofundme-data-breach-donor-data-nonprofits/507-6efe578f-8a12-49f8-88d3-90bcc948b1b1",
+        "added_at": "2026-11-23T23:40:44.767Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Donor personal information exposed in breach",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2146",
+    "slug": "cve-2026-69437-missing-authorization-in-azure-ai-foundry-all",
+    "title": "CVE-2026-69437: Missing authorization in Azure AI Foundry allows an unauthorized attacker to disclose information over a network",
+    "summary": "A missing authorization check in Azure AI Foundry enables an unauthenticated attacker to read data over the network. The vulnerability is assigned CVSS 8.6 (HIGH) and has no known exploitation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "Microsoft"
+    ],
+    "products": [
+      "Azure AI Foundry"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69437",
+        "publisher": "NVD",
+        "title": "CVE-2026-69437: Missing authorization in Azure AI Foundry allows an unauthorized attacker to disclose information over a network.",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.92,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-69437",
+      "azure",
+      "ai",
+      "authorization",
+      "info_disclosure",
+      "high"
+    ],
+    "created_at": "2026-11-23T23:40:44.767Z",
+    "updated_at": "2026-11-23T23:40:44.767Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-23",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-69437"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "CVE-2026-69437: Missing authorization in Azure AI Foundry allows an unauthorized attacker to disclose information over a network.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69437",
+        "added_at": "2026-11-23T23:40:44.767Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "High CVSS 8.6, no exploitation confirmed",
+    "cvss": 8.6
+  },
+  {
     "id": "AIR-2026-2145",
     "slug": "cve-2026-126714-critical-remote-code-execution-vulnerability",
     "title": "CVE-2026-126714: Critical Remote Code Execution Vulnerability in PHP",
