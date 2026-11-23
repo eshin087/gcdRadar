@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2122",
+    "slug": "ai-assisted-cyberattacks-target-indian-banks-and-fintech-fir",
+    "title": "AI-Assisted Cyberattacks Target Indian Banks and Fintech Firms for Unauthorized Payments",
+    "summary": "Threat actors utilized AI-assisted cyberattacks to target banking and financial entities in India. The campaign resulted in unauthorized financial transactions and impacted technology service providers.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion",
+      "deepfake_fraud"
+    ],
+    "severity": 3,
+    "targets": [
+      "individual_victims",
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html",
+        "publisher": "The Hacker News",
+        "title": "AI-Assisted Cyberattacks Trigger Unauthorized Payments at Indian Banks and Fintech Firms",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "cert-in",
+      "fraud",
+      "financial-sector",
+      "ai-assisted-attack"
+    ],
+    "created_at": "2026-11-23T08:51:42.625Z",
+    "updated_at": "2026-11-23T08:51:42.625Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "AI-Assisted Cyberattacks Trigger Unauthorized Payments at Indian Banks and Fintech Firms",
+        "source_url": "https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html",
+        "added_at": "2026-11-23T08:51:42.625Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world financial impact on banking and fintech entities.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2121",
     "slug": "cve-2026-134783-server-side-request-forgery-in-xuxueli-xxl-j",
     "title": "CVE-2026-134783: Server-side request forgery in xuxueli xxl-job AI Executor",
