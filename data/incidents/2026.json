@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2138",
+    "slug": "korea-electric-power-corporation-confirms-data-breach-impact",
+    "title": "Korea Electric Power Corporation confirms data breach impacting 1.5 million",
+    "summary": "Korea Electric Power Corporation confirmed that a threat actor breached its internal network and accessed systems holding customer and employee records. The incident impacted approximately 1.5 million individuals.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "KEPCO internal network"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million",
+        "publisher": "BleepingComputer",
+        "title": "South Korea’s power giant KEPCO confirms data breach impacting 1.5 million",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "kepco"
+    ],
+    "created_at": "2026-11-23T21:06:49.048Z",
+    "updated_at": "2026-11-23T21:06:49.048Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "South Korea’s power giant KEPCO confirms data breach impacting 1.5 million",
+        "source_url": "https://bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million",
+        "added_at": "2026-11-23T21:06:49.048Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world breach impacting named organisation and records.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2137",
     "slug": "cve-2026-134624-n-able-mailassure-server-side-request-forger",
     "title": "CVE-2026-134624: N-able MailAssure Server-Side Request Forgery",
