@@ -1,0 +1,158 @@
+{
+  "week": "2026-W47",
+  "start": "2026-11-16",
+  "end": "2026-11-22",
+  "counts": {
+    "records": 71,
+    "incidents": 48,
+    "real_world": 13,
+    "disclosed_vulnerabilities": 23,
+    "by_type": {
+      "attack_on_ai": 30,
+      "ai_enabled_attack": 18
+    },
+    "by_family": {
+      "injection": 4,
+      "infra": 3,
+      "exposure": 3,
+      "agent": 14,
+      "supply": 6,
+      "social": 2,
+      "offense": 16,
+      "other": 0
+    },
+    "by_severity": {
+      "1": 35,
+      "2": 0,
+      "3": 11,
+      "4": 2
+    }
+  },
+  "previous": {
+    "week": "2026-W46",
+    "incidents": 50,
+    "real_world": 14,
+    "disclosed_vulnerabilities": 22
+  },
+  "deltas": {
+    "incidents": {
+      "now": 48,
+      "before": 50,
+      "change": -2,
+      "pct": -4
+    },
+    "real_world": {
+      "now": 13,
+      "before": 14,
+      "change": -1,
+      "pct": -7.142857142857142
+    },
+    "disclosed_vulnerabilities": {
+      "now": 23,
+      "before": 22,
+      "change": 1,
+      "pct": 4.545454545454546
+    }
+  },
+  "busiest_family": {
+    "family": "offense",
+    "count": 16
+  },
+  "top_targets": [
+    {
+      "target": "framework_or_tooling",
+      "count": 22
+    },
+    {
+      "target": "open_weight_model",
+      "count": 11
+    },
+    {
+      "target": "enterprise_deployment",
+      "count": 4
+    }
+  ],
+  "notable": [
+    {
+      "id": "AIR-2026-1994",
+      "slug": "california-sues-openai-over-ai-agents-escaping-sandboxes-and",
+      "title": "California sues OpenAI over AI agents escaping sandboxes and launching attacks",
+      "type": "attack_on_ai",
+      "category": "agent_hijack",
+      "family": "agent",
+      "severity": 4,
+      "targets": [
+        "OpenAI"
+      ],
+      "first_reported": "2026-11-16",
+      "source_count": 3
+    },
+    {
+      "id": "AIR-2026-2050",
+      "slug": "coinbase-blocks-4-7-million-in-transfers-to-elon-musk-deepfa",
+      "title": "Coinbase blocks $4.7 million in transfers to Elon Musk deepfake scam",
+      "type": "ai_enabled_attack",
+      "category": "deepfake_fraud",
+      "family": "social",
+      "severity": 4,
+      "targets": [
+        "individual_victims"
+      ],
+      "first_reported": "2026-11-18",
+      "source_count": 1
+    },
+    {
+      "id": "AIR-2026-2097",
+      "slug": "china-linked-threat-actors-used-cairn-ai-tool-to-attack-univ",
+      "title": "China-linked threat actors used Cairn AI tool to attack universities",
+      "type": "ai_enabled_attack",
+      "category": "ai_assisted_intrusion",
+      "family": "offense",
+      "severity": 3,
+      "targets": [
+        "individual_victims"
+      ],
+      "first_reported": "2026-11-20",
+      "source_count": 4
+    },
+    {
+      "id": "AIR-2026-2036",
+      "slug": "microsoft-agent-framework-pypi-package-compromised-to-steal",
+      "title": "Microsoft Agent Framework PyPI Package Compromised to Steal Credentials",
+      "type": "attack_on_ai",
+      "category": "supply_chain",
+      "family": "supply",
+      "severity": 3,
+      "targets": [
+        "Microsoft",
+        "framework_or_tooling"
+      ],
+      "first_reported": "2026-11-18",
+      "source_count": 4
+    },
+    {
+      "id": "AIR-2026-2107",
+      "slug": "ai-agents-discover-zero-day-in-monai-label-allowing-unauthen",
+      "title": "AI agents discover zero‑day in MONAI Label allowing unauthenticated file write and root access",
+      "type": "ai_enabled_attack",
+      "category": "ai_assisted_intrusion",
+      "family": "offense",
+      "severity": 3,
+      "targets": [
+        "framework_or_tooling"
+      ],
+      "first_reported": "2026-11-21",
+      "source_count": 3
+    }
+  ],
+  "generated_at": "2026-11-23T18:48:00.391Z",
+  "narrative": null,
+  "notes": [
+    "No language model was available when this briefing was generated; the numbers and the list stand on their own."
+  ],
+  "dataset": {
+    "records": 2338,
+    "incidents": 689,
+    "last_collector_run": "2026-11-23T18:36:52.581Z"
+  }
+}

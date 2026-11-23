@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-11-16T16:29:50.905Z",
+  "generated_at": "2026-11-23T18:48:00.397Z",
   "briefings": [
+    {
+      "week": "2026-W47",
+      "start": "2026-11-16",
+      "end": "2026-11-22",
+      "generated_at": "2026-11-23T18:48:00.391Z",
+      "incidents": 48,
+      "real_world": 13,
+      "disclosed_vulnerabilities": 23,
+      "headline": null,
+      "file": "briefings/2026-W47.json"
+    },
     {
       "week": "2026-W46",
       "start": "2026-11-09",
