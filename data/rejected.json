@@ -1,5 +1,15 @@
 [
   {
+    "key": "ca0d1bdeb307b963",
+    "title": "⚡ Weekly Recap: VMware 0-Day, Java4Shell, NGINX2Root, Ruby2Shell, and a Whole Lot of Shell Trouble",
+    "url": "https://thehackernews.com/2026/11/weekly-recap-vmware-0-day-java4shell.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Roundup article without a single specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T16:21:25.744Z"
+  },
+  {
     "key": "c07c38cdc3fe3f36",
     "title": "AI Inference Providers Failed to Detect Hacking and Prompt Theft, Says Dragos",
     "url": "https://securityweek.com/ai-inference-providers-failed-to-detect-hacking-and-prompt-theft-says-dragos",
