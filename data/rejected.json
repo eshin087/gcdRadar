@@ -1,5 +1,15 @@
 [
   {
+    "key": "061d31301d88d5c5",
+    "title": "Why Data Breach Disclosure Is So Hard",
+    "url": "https://troyhunt.com/heres-why-data-breach-disclosure-is-so-hard-lessons-from-hundreds-of-emails-with-hacked-companies",
+    "publisher": "troyhunt.com",
+    "source_id": "hn",
+    "reason": "out of scope: Opinion or commentary piece discussing data breach disclosure challenges without reporting a specific new incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T09:06:49.105Z"
+  },
+  {
     "key": "a1776b5e4653306a",
     "title": "Xalgorix: Open-source AI penetration testing tool",
     "url": "https://helpnetsecurity.com/2026/11/23/xalgorix-ai-penetration-testing-tool",
