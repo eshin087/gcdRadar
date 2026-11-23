@@ -1,5 +1,25 @@
 [
   {
+    "key": "dcfda84070a2d7a2",
+    "title": "A Unified Framework for Intelligent Cyber Attack Detection and Alert Correlation",
+    "url": "https://arxiv.org/abs/2611.26824",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): Out of scope: paper proposes detection framework without demonstrating an AI attack",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-23T21:40:35.111Z"
+  },
+  {
+    "key": "382a08f40d63de35",
+    "title": "Exploring Early Vulnerability Analysis via Automatic Identification of Vulnerability-Introducing Commits",
+    "url": "https://arxiv.org/abs/2611.26739",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): Out of scope: paper focuses on software vulnerability analysis, not AI attacks",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-23T21:40:35.111Z"
+  },
+  {
     "key": "11637a8ffa0fc083",
     "title": "Google AI Overviews Alleged to Have Falsely Linked Two German Publishers to Fraud Schemes",
     "url": "https://incidentdatabase.ai/cite/1838",

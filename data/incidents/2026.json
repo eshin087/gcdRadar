@@ -1,5 +1,174 @@
 [
   {
+    "id": "AIR-2026-2141",
+    "slug": "detecting-word-substitution-poisoning-of-a-rag-knowledge-bas",
+    "title": "Detecting Word-Substitution Poisoning of a RAG Knowledge Base with Relative Entropy and Runtime Verification",
+    "summary": "The authors examine word‑substitution poisoning of a cybersecurity RAG knowledge base and show that synonym swaps reduce answer correctness from 0.714 to 0.555. They also propose runtime verification to detect such poisoning.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_poisoning"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.27410",
+        "publisher": "arXiv",
+        "title": "Detecting Word-Substitution Poisoning of a RAG Knowledge Base with Relative Entropy and Runtime Verification",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "poisoning",
+      "rag",
+      "mitre_att&ck",
+      "runtime_verification"
+    ],
+    "created_at": "2026-11-23T21:40:35.111Z",
+    "updated_at": "2026-11-23T21:40:35.111Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Detecting Word-Substitution Poisoning of a RAG Knowledge Base with Relative Entropy and Runtime Verification",
+        "source_url": "https://arxiv.org/abs/2611.27410",
+        "added_at": "2026-11-23T21:40:35.111Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept poisoning of RAG knowledge base (research)",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2140",
+    "slug": "cleave-severing-guardrails-and-auditing-spectral-coupling-in",
+    "title": "Cleave: Severing Guardrails and Auditing Spectral Coupling in Open-Weight LLMs",
+    "summary": "Researchers introduce Cleave, a training‑free method that edits the weights of open‑weight LLMs to remove embedded safety guardrails while preserving functionality. The attack successfully bypasses refusals, showing a new jailbreak technique.",
+    "type": "attack_on_ai",
+    "categories": [
+      "jailbreak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.27426",
+        "publisher": "arXiv",
+        "title": "Cleave: Severing Guardrails and Auditing Spectral Coupling in Open-Weight LLMs",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "jailbreak",
+      "llm",
+      "weight_editing"
+    ],
+    "created_at": "2026-11-23T21:40:35.111Z",
+    "updated_at": "2026-11-23T21:40:35.111Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Cleave: Severing Guardrails and Auditing Spectral Coupling in Open-Weight LLMs",
+        "source_url": "https://arxiv.org/abs/2611.27426",
+        "added_at": "2026-11-23T21:40:35.111Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept weight editing jailbreak (research)",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2139",
+    "slug": "poisoning-attacks-and-collaborative-defense-framework-for-li",
+    "title": "Poisoning Attacks and Collaborative Defense Framework for LightRAG-Based Construction Regulation Knowledge",
+    "summary": "The paper presents a series of poisoning attacks against a LightRAG system used for construction regulation knowledge and evaluates a three‑layer defense framework. Experiments show the attacks significantly degrade answer correctness, demonstrating a viable threat to RAG‑based AI applications.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_poisoning"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [
+      "LightRAG"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.27460",
+        "publisher": "arXiv",
+        "title": "Poisoning Attacks and Collaborative Defense Framework for LightRAG-Based Construction Regulation Knowledge",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "poisoning",
+      "rag",
+      "lightrag",
+      "data_poisoning"
+    ],
+    "created_at": "2026-11-23T21:40:35.111Z",
+    "updated_at": "2026-11-23T21:40:35.111Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Poisoning Attacks and Collaborative Defense Framework for LightRAG-Based Construction Regulation Knowledge",
+        "source_url": "https://arxiv.org/abs/2611.27460",
+        "added_at": "2026-11-23T21:40:35.111Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept poisoning attacks on LightRAG (research)",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2138",
     "slug": "korea-electric-power-corporation-confirms-data-breach-impact",
     "title": "Korea Electric Power Corporation confirms data breach impacting 1.5 million",
