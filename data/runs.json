@@ -1,39 +1,5 @@
 [
   {
-    "id": "run-20261117T224226",
-    "started_at": "2026-11-17T22:42:26.665Z",
-    "finished_at": "2026-11-17T23:05:22.525Z",
-    "mode": "scheduled",
-    "sources": [
-      {
-        "id": "gdelt",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 1375680
-      }
-    ],
-    "counts": {
-      "fetched": 0,
-      "prefiltered": 0,
-      "merged": 0,
-      "classified": 0,
-      "published": 0,
-      "review": 0,
-      "rejected": 0,
-      "pending": 0,
-      "updated": 0,
-      "closed": 0,
-      "reopened": 0
-    },
-    "llm": {
-      "calls": 0,
-      "prompt_tokens": 0,
-      "completion_tokens": 0,
-      "by_model": {}
-    },
-    "errors": []
-  },
-  {
     "id": "run-20261117T230619",
     "started_at": "2026-11-17T23:06:19.933Z",
     "finished_at": "2026-11-17T23:12:15.952Z",
@@ -53634,6 +53600,40 @@
           "completion_tokens": 770
         }
       }
+    },
+    "errors": []
+  },
+  {
+    "id": "run-20261123T111600",
+    "started_at": "2026-11-23T11:16:00.238Z",
+    "finished_at": "2026-11-23T11:30:01.175Z",
+    "mode": "scheduled",
+    "sources": [
+      {
+        "id": "gdelt",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 840651
+      }
+    ],
+    "counts": {
+      "fetched": 0,
+      "prefiltered": 0,
+      "merged": 0,
+      "classified": 0,
+      "published": 0,
+      "review": 0,
+      "rejected": 0,
+      "pending": 0,
+      "updated": 0,
+      "closed": 0,
+      "reopened": 0
+    },
+    "llm": {
+      "calls": 0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "by_model": {}
     },
     "errors": []
   }
