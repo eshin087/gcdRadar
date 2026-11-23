@@ -34,23 +34,6 @@
     }
   },
   {
-    "key": "9d582e64d3e47437",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.27088",
-    "title": "Railroads as Cyber-Physical Systems: Cybersecurity Implications of Increasing Automation -- Threats, Consequences, and Operational Resilience",
-    "published_at": "2026-11-23",
-    "publisher": "arXiv",
-    "hint": "Objectives: Rail automation improves train protection, traffic management, inspection, and operational efficiency but increases dependence on software, communications, remote access, and external providers. This paper examines its impact on railroad cyber-physical system security and operational resilience. Methods: A narrative review synthesizes railroad automation literature, OT security guidance, FRA and TSA materials, and documented rail cyber incidents. Automation functions are mapped to exposed assets, attack vectors, and operational…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-23T21:36:18.375Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": false
-    }
-  },
-  {
     "key": "92ecbd2cf37758a3",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -93,57 +76,6 @@
     "published_at": "2026-11-23",
     "publisher": "arXiv",
     "hint": "A root of trust (RoT) anchors secure boot and attestation for the system above it, so a bug in RoT firmware or hardware undermines every layer that trusts it. LLM agents now find real vulnerabilities in general-purpose software, but RoT code presents two challenges. First, many security-relevant bugs depend on project-specific trust boundaries and fault-injection countermeasures rather than generic vulnerability patterns, and may cause no crash. Second, without RoT hardware, agents must exercise RoT inputs through the project's own hardware…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-23T21:36:18.376Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "9d87b20872e4b90c",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.27920",
-    "title": "Autonomous Parameter Surgery: How LLMs Implant Selective Backdoors into Language Models",
-    "published_at": "2026-11-23",
-    "publisher": "arXiv",
-    "hint": "Neural network weights are usually treated as opaque artifacts of gradient descent. Recent work on weight space programming, however, suggests that large language models can inspect and rewrite another network's parameters directly. In this paper, we ask whether a general language model can turn a natural language backdoor specification into persistent, selective weight edits on its own, without gradient training, layer hints, external corpora, or a prescribed editing formula. Using DeepSeek Flash at low reasoning effort inside a restricted…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-23T21:36:18.376Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "fa1db7cdd4162899",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.27199",
-    "title": "Enhancing Metaverse Security using Explainable AI-based Intrusion Detection Framework",
-    "published_at": "2026-11-23",
-    "publisher": "arXiv",
-    "hint": "The MoT virtual environment, called the Metaverse of Things (MoT), combines machine learning (ML) and Internet of Things (IoT) to offer significant business opportunities in various sectors such as entertainment, healthcare, and education. In addition to its benefits, the MoT poses risks to privacy and security through unauthorized access, which threatens trustworthiness. While traditional intrusion detection systems (IDS) exist to handle this challenge, they struggle with high-dimensional data and poor interpretability. To address this…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-23T21:36:18.376Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "ba03b3f0d6e79179",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.27253",
-    "title": "Proactive Defense Benchmark against Deepfake Generation",
-    "published_at": "2026-11-23",
-    "publisher": "arXiv",
-    "hint": "Despite the proliferation of proactive defenses against deepfakes, the lack of a unified evaluation protocol precludes fair comparison and masks critical vulnerabilities. To bridge this gap, we present the first comprehensive benchmark that systematically assesses disruption, robustness, and transferability encompassing pixel, perceptual, and identity metrics. Our extensive analysis reveals that fidelity and identity metrics capture orthogonal performance axes, often leading to conflicting interpretations when relied upon individually.…",
     "cve_ids": [],
     "discovered_at": "2026-11-23T21:36:18.376Z",
     "extra": {

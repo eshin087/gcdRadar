@@ -1,5 +1,35 @@
 [
   {
+    "key": "9d582e64d3e47437",
+    "title": "Railroads as Cyber-Physical Systems: Cybersecurity Implications of Increasing Automation -- Threats, Consequences, and Operational Resilience",
+    "url": "https://arxiv.org/abs/2611.27088",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Survey and narrative review paper examining railroad cyber-physical system security, which is out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T22:06:45.927Z"
+  },
+  {
+    "key": "fa1db7cdd4162899",
+    "title": "Enhancing Metaverse Security using Explainable AI-based Intrusion Detection Framework",
+    "url": "https://arxiv.org/abs/2611.27199",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defense-focused research paper proposing an intrusion detection framework for the Metaverse, out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T22:06:45.927Z"
+  },
+  {
+    "key": "ba03b3f0d6e79179",
+    "title": "Proactive Defense Benchmark against Deepfake Generation",
+    "url": "https://arxiv.org/abs/2611.27253",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Benchmark and evaluation paper for proactive deepfake defenses, which is out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-23T22:06:45.927Z"
+  },
+  {
     "key": "dcfda84070a2d7a2",
     "title": "A Unified Framework for Intelligent Cyber Attack Detection and Alert Correlation",
     "url": "https://arxiv.org/abs/2611.26824",

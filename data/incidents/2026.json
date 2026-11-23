@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2142",
+    "slug": "autonomous-parameter-surgery-llm-implanted-backdoors-in-lang",
+    "title": "Autonomous Parameter Surgery: LLM-Implanted Backdoors in Language Models",
+    "summary": "Researchers demonstrated that large language models can directly inspect and rewrite another network's parameters to implant selective backdoors without gradient training. The work highlights risks in automated weight space manipulation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "supply_chain",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [
+      "DeepSeek"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.27920",
+        "publisher": "arXiv",
+        "title": "Autonomous Parameter Surgery: How LLMs Implant Selective Backdoors into Language Models",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "backdoor",
+      "weight-manipulation",
+      "llm",
+      "supply-chain"
+    ],
+    "created_at": "2026-11-23T22:06:45.927Z",
+    "updated_at": "2026-11-23T22:06:45.927Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Autonomous Parameter Surgery: How LLMs Implant Selective Backdoors into Language Models",
+        "source_url": "https://arxiv.org/abs/2611.27920",
+        "added_at": "2026-11-23T22:06:45.927Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating a novel attack method with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2141",
     "slug": "detecting-word-substitution-poisoning-of-a-rag-knowledge-bas",
     "title": "Detecting Word-Substitution Poisoning of a RAG Knowledge Base with Relative Entropy and Runtime Verification",
