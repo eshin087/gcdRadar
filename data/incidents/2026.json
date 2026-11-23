@@ -517,9 +517,15 @@
         "publisher": "BleepingComputer",
         "title": "Cleverbridge warns hackers stole credit card numbers, CVVs in data breach",
         "published_at": "2026-11-22"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/23/cleverbridge-data-breach-card-numbers-cvv",
+        "publisher": "Help Net Security",
+        "title": "Cleverbridge alerts customers that hackers stole their credit card and CVV numbers",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -529,7 +535,7 @@
       "credit-card"
     ],
     "created_at": "2026-11-22T15:51:26.352Z",
-    "updated_at": "2026-11-22T15:51:26.352Z",
+    "updated_at": "2026-11-23T13:06:50.238Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -543,6 +549,12 @@
         "title": "Cleverbridge warns hackers stole credit card numbers, CVVs in data breach",
         "source_url": "https://bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach",
         "added_at": "2026-11-22T15:51:26.352Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "Cleverbridge confirms unauthorized activity was detected on November 4, 2026",
+        "source_url": "https://helpnetsecurity.com/2026/11/23/cleverbridge-data-breach-card-numbers-cvv",
+        "added_at": "2026-11-23T13:06:50.238Z"
       }
     ],
     "action": "Notify affected customers and reset compromised payment credentials",

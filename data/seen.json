@@ -12258,6 +12258,11 @@
   "status": "rejected",
   "at": "2026-10-18T10:14:26.300Z"
  },
+ "799fd7f747a78daa": {
+  "status": "merged",
+  "id": "AIR-2026-2118",
+  "at": "2026-11-23T13:06:50.238Z"
+ },
  "79a10457ea22cab9": {
   "status": "published",
   "id": "AIR-2024-0263",
