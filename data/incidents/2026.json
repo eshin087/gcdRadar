@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2126",
+    "slug": "austrian-foreign-ministry-website-breached-contact-details-a",
+    "title": "Austrian Foreign Ministry website breached, contact details accessed",
+    "summary": "Hackers breached an Austrian Foreign Ministry website to access official contact details of employees and diplomats. The ministry reported the incident after discovering unauthorized access to staff information.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Austrian Foreign Ministry website"
+    ],
+    "incident_date": "2026-11-20",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://therecord.media/austrian-foreign-ministry-says-website-hacked",
+        "publisher": "The Record",
+        "title": "Hackers breach Austrian Foreign Ministry website, access diplomats' contact details",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "breach",
+      "data-exfiltration",
+      "government"
+    ],
+    "created_at": "2026-11-23T12:20:09.656Z",
+    "updated_at": "2026-11-23T12:20:09.656Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "Hackers breach Austrian Foreign Ministry website, access diplomats' contact details",
+        "source_url": "https://therecord.media/austrian-foreign-ministry-says-website-hacked",
+        "added_at": "2026-11-23T12:20:09.656Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed breach with data access.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2125",
     "slug": "bromcom-data-breach-exposes-355-051-accounts",
     "title": "Bromcom data breach exposes 355,051 accounts",
