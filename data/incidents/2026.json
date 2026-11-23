@@ -631,9 +631,15 @@
         "publisher": "BleepingComputer",
         "title": "Microsoft Entra Connect Health flaw exploited to steal tenant data",
         "published_at": "2026-11-21"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/23/microsoft-entra-connect-health-vulnerability-tenant-data",
+        "publisher": "Help Net Security",
+        "title": "Attackers exploited Microsoft Entra Connect Health flaw to access tenant data",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -645,7 +651,7 @@
       "microsoft"
     ],
     "created_at": "2026-11-21T18:06:47.028Z",
-    "updated_at": "2026-11-21T18:06:47.028Z",
+    "updated_at": "2026-11-23T10:51:34.261Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -1633,9 +1639,15 @@
         "publisher": "aws.amazon.com",
         "title": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
         "published_at": "2026-11-21"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/23/cairn-ai-agents-autonomous-attacks",
+        "publisher": "Help Net Security",
+        "title": "Open-source AI pentesting framework Cairn keeps turning up in real-world attacks",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1646,7 +1658,7 @@
       "universities"
     ],
     "created_at": "2026-11-20T17:51:38.694Z",
-    "updated_at": "2026-11-21T13:36:35.192Z",
+    "updated_at": "2026-11-23T10:51:34.261Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
