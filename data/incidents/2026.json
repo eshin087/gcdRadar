@@ -1526,9 +1526,15 @@
         "publisher": "SecurityWeek",
         "title": "Amazon: China-Linked Hackers’ AI Agents Exploited Medical Software Zero-Day",
         "published_at": "2026-11-21"
+      },
+      {
+        "url": "https://darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes",
+        "publisher": "Dark Reading",
+        "title": "AI Agents Zip From Flaw Discovery to Root Access in 11 Minutes",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1539,7 +1545,7 @@
       "ai_assisted_intrusion"
     ],
     "created_at": "2026-11-21T11:36:30.019Z",
-    "updated_at": "2026-11-21T12:21:44.154Z",
+    "updated_at": "2026-11-23T17:06:50.978Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -1561,9 +1567,15 @@
         "title": "Threat intelligence attributes the autonomous AI agent exploit activity to a China-linked threat group",
         "source_url": "https://securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day",
         "added_at": "2026-11-21T12:21:44.154Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "Report identifies the Cairn penetration testing tool as used to exploit the MONAI Label zero‑day.",
+        "source_url": "https://darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes",
+        "added_at": "2026-11-23T17:06:50.978Z"
       }
     ],
-    "action": "Monitor for patches and mitigate by restricting file‑write permissions",
+    "action": "Add detection for the Cairn tool targeting medical imaging applications.",
     "severity_note": "Confirmed exploitation of the zero‑day to obtain root on a server",
     "cvss": null
   },
