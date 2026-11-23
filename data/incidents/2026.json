@@ -24,9 +24,15 @@
         "publisher": "SecurityWeek",
         "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
+        "publisher": "The Record",
+        "title": "Norway says hackers exploited Microsoft security flaw to attack energy firms Equinor, Skagerak Energi",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -36,7 +42,7 @@
       "exploitation-in-the-wild"
     ],
     "created_at": "2026-11-23T15:51:41.359Z",
-    "updated_at": "2026-11-23T15:51:41.359Z",
+    "updated_at": "2026-11-23T16:06:46.456Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -50,9 +56,15 @@
         "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
         "source_url": "https://securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms",
         "added_at": "2026-11-23T15:51:41.359Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "Report identifies Equinor and Skagerak Energi as victims of the exploited Azure API Management flaw.",
+        "source_url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
+        "added_at": "2026-11-23T16:06:46.456Z"
       }
     ],
-    "action": "Verify Azure API Management instances are updated and check exposed secrets for unauthorized access.",
+    "action": "Update victim list to include Equinor and Skagerak Energi.",
     "severity_note": "Confirmed exploitation in the wild against real targets.",
     "cvss": null
   },
@@ -4185,9 +4197,15 @@
         "publisher": "SecurityWeek",
         "title": "SAP NetWeaver, Cisco Expressway Flaws Exploited in Attacks",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco+Security+Advisory%26vs_cat%3DSecurity+Intelligence%26vs_type%3DRSS%26vs_p%3DCisco+Expressway+Series+Remote+Code+Execution+Vulnerability%26vs_k%3D1",
+        "publisher": "Cisco",
+        "title": "Cisco Expressway Series Remote Code Execution Vulnerability",
+        "published_at": "2026-11-23"
       }
     ],
-    "source_count": 5,
+    "source_count": 6,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -4200,7 +4218,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T13:41:53.079Z",
-    "updated_at": "2026-11-23T11:51:35.554Z",
+    "updated_at": "2026-11-23T16:06:46.456Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -4228,9 +4246,15 @@
         "title": "Added to the CISA KEV catalog (exploitation confirmed)",
         "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-76466",
         "added_at": "2026-11-20T18:06:31.593Z"
+      },
+      {
+        "date": "2026-11-23",
+        "title": "Report details that the Expressway Series flaw allows unauthenticated RCE via database service and improper certificate validation.",
+        "source_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco+Security+Advisory%26vs_cat%3DSecurity+Intelligence%26vs_type%3DRSS%26vs_p%3DCisco+Expressway+Series+Remote+Code+Execution+Vulnerability%26vs_k%3D1",
+        "added_at": "2026-11-23T16:06:46.456Z"
       }
     ],
-    "action": "",
+    "action": "Review and apply any available Cisco Expressway patches addressing the database service RCE.",
     "severity_note": "Exploitation confirmed in the wild against Cisco Expressway devices",
     "cvss": 9.8
   },
