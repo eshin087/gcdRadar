@@ -1,5 +1,15 @@
 [
   {
+    "key": "772503f380ad8089",
+    "title": "I’ve never hunted for a software vulnerability before. AI helped me find one in six hours.",
+    "url": "https://cyberscoop.com/finding-software-vulnerability-with-ai-wordpress-patchstack",
+    "publisher": "CyberScoop",
+    "source_id": "cyberscoop",
+    "reason": "out of scope: Personal account/essay about using AI to find a vulnerability rather than a specific technical security incident or advisory.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-23T11:06:44.424Z"
+  },
+  {
     "key": "061d31301d88d5c5",
     "title": "Why Data Breach Disclosure Is So Hard",
     "url": "https://troyhunt.com/heres-why-data-breach-disclosure-is-so-hard-lessons-from-hundreds-of-emails-with-hacked-companies",

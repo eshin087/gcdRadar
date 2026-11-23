@@ -1,5 +1,69 @@
 [
   {
+    "id": "AIR-2026-2124",
+    "slug": "cve-2026-124251-wpide-nonce-bypass-leading-to-rce",
+    "title": "CVE-2026-124251: WPIDE Nonce Bypass Leading to RCE",
+    "summary": "WPIDE versions up to 3.6.4 contain a CSRF nonce bypass vulnerability that allows unauthenticated remote code execution. A security service validates the nonce only under specific parameter conditions, leaving administrative endpoints exposed.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "WPIDE"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-23",
+    "sources": [
+      {
+        "url": "https://cyberscoop.com/wpide-csrf-vulnerability-cve-2026-124251",
+        "publisher": "CyberScoop",
+        "title": "WPIDE ≤ 3.6.4 — CSRF Nonce Bypass Leading to Unauthenticated RCE (CVE-2026-124251)",
+        "published_at": "2026-11-23"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "CVE-2026-124251",
+      "CVE-2026-57766",
+      "csrf",
+      "rce",
+      "wordpress"
+    ],
+    "created_at": "2026-11-23T11:06:44.424Z",
+    "updated_at": "2026-11-23T11:06:44.424Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [
+      "CVE-2026-124251",
+      "CVE-2026-57766"
+    ],
+    "affected": [
+      "WPIDE <= 3.6.4"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-23",
+        "title": "WPIDE ≤ 3.6.4 — CSRF Nonce Bypass Leading to Unauthenticated RCE (CVE-2026-124251)",
+        "source_url": "https://cyberscoop.com/wpide-csrf-vulnerability-cve-2026-124251",
+        "added_at": "2026-11-23T11:06:44.424Z"
+      }
+    ],
+    "action": "Update WPIDE once a patched version is available or disable the plugin.",
+    "severity_note": "Disclosed vulnerability with a CVE ID and technical details, but no exploitation confirmed.",
+    "cvss": 8.8
+  },
+  {
     "id": "AIR-2026-2123",
     "slug": "cve-2026-131914-idunno-anticsrf-rce-vulnerability-exploit",
     "title": "CVE-2026-131914: Idunno.AntiCsrf RCE Vulnerability Exploit",
