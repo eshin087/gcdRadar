@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2154",
+    "slug": "cisa-warns-of-exploited-n-able-bug-as-company-restores-email",
+    "title": "CISA warns of exploited N-able bug as company restores email platform",
+    "summary": "CISA warned that a vulnerability in N-able's email security platform has been exploited in the wild. The company is restoring the platform and urges agencies to apply the patch before Thanksgiving.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "N-able"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://therecord.media/cisa-nable-cybersecurity-bug",
+        "publisher": "The Record",
+        "title": "CISA warns of exploited N-able bug as company restores email platform",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "n-able",
+      "email",
+      "cisa",
+      "vulnerability",
+      "exploit"
+    ],
+    "created_at": "2026-11-24T15:06:49.984Z",
+    "updated_at": "2026-11-24T15:06:49.984Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CISA warns of exploited N-able bug as company restores email platform",
+        "source_url": "https://therecord.media/cisa-nable-cybersecurity-bug",
+        "added_at": "2026-11-24T15:06:49.984Z"
+      }
+    ],
+    "action": "Apply the available patch for the N-able vulnerability as soon as possible",
+    "severity_note": "Exploited in the wild, critical vulnerability",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2153",
     "slug": "check-point-security-management-servers-hacked-in-ai-assiste",
     "title": "Check Point Security Management Servers Hacked in AI‑Assisted Campaign",
@@ -4288,9 +4347,15 @@
         "publisher": "SecurityWeek",
         "title": "European Commission Confirms AI-Assisted Cyberattack Disrupted Services",
         "published_at": "2026-11-20"
+      },
+      {
+        "url": "https://securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation",
+        "publisher": "SecurityWeek",
+        "title": "European Commission Uncovers Data Breach in Cyberattack Investigation",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -4300,7 +4365,7 @@
       "cyberattack"
     ],
     "created_at": "2026-11-20T09:06:44.373Z",
-    "updated_at": "2026-11-20T11:02:32.782Z",
+    "updated_at": "2026-11-24T15:06:49.984Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -4320,9 +4385,15 @@
         "title": "The Commission confirmed there is no evidence of a data resulting from the AI-assisted cyberattack",
         "source_url": "https://securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services",
         "added_at": "2026-11-20T11:02:32.782Z"
+      },
+      {
+        "date": "2026-11-24",
+        "title": "Report confirms that names and email addresses of EU Academy users were exposed in the attack.",
+        "source_url": "https://securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation",
+        "added_at": "2026-11-24T15:06:49.984Z"
       }
     ],
-    "action": "",
+    "action": "Notify affected EU Academy users and assess data exposure.",
     "severity_note": "Confirmed real-world attack causing service disruption at a named institution",
     "cvss": null
   },

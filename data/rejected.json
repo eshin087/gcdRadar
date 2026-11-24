@@ -1,5 +1,15 @@
 [
   {
+    "key": "9908d788a6e00254",
+    "title": "Recent Trends and Tactics of Agentic AI Attacks",
+    "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns",
+    "publisher": "Unit 42",
+    "source_id": "unit42",
+    "reason": "out of scope, no AI role (0.60): general overview without a specific incident",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-24T15:06:49.984Z"
+  },
+  {
     "key": "6561d3ddaba666e5",
     "title": "Astelia blocks attack paths to vulnerabilities without waiting for patches",
     "url": "https://helpnetsecurity.com/2026/11/24/astelia-autonomous-network-mitigation",
