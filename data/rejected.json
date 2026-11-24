@@ -1,5 +1,55 @@
 [
   {
+    "key": "1d8602a86e1aa0bd",
+    "title": "AutoClip-DPZO: Practical Private Clipping Selection for Differentially Private Zeroth-Order LLM Fine-Tuning",
+    "url": "https://arxiv.org/abs/2611.30352",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defensive research paper without demonstrated attack",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-24T20:07:07.480Z"
+  },
+  {
+    "key": "fea549f5050d60ca",
+    "title": "Lightweight Spectral Subspace Filtering for Trojan-Resilient AI Inference Engines",
+    "url": "https://arxiv.org/abs/2611.29734",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defensive research paper without demonstrated attack",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-24T20:07:07.480Z"
+  },
+  {
+    "key": "23784861bc2da9d8",
+    "title": "Mitigating Nested GTP Attacks: A Closed-Loop eBPF Defense for 5G and Beyond Networks",
+    "url": "https://arxiv.org/abs/2611.29756",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): defense-focused research paper, no specific incident or vulnerability disclosed",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-24T20:07:07.480Z"
+  },
+  {
+    "key": "0ce6e999e1ce4802",
+    "title": "Development of an Effective Federated Learning-Based Defense System Against Phishing Attacks on Mobile Platforms",
+    "url": "https://arxiv.org/abs/2611.28245",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): defense-oriented federated‑learning paper, no concrete attack or breach reported",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-24T20:07:07.480Z"
+  },
+  {
+    "key": "292f33ddee695607",
+    "title": "LODESTONE: Linking System Events to Threat Intelligence for Evidence-Grounded Cyber Attack Investigation",
+    "url": "https://arxiv.org/abs/2611.29932",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): system‑linking research paper, no concrete incident or vulnerability disclosed",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-24T20:07:07.480Z"
+  },
+  {
     "key": "441501726a731256",
     "title": "Relativising Integrity and Robustness: Prompt Injection and Partitioned Enclaves",
     "url": "https://arxiv.org/abs/2611.29802",

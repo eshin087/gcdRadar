@@ -1,5 +1,174 @@
 [
   {
+    "id": "AIR-2026-2167",
+    "slug": "volant-manticore-deploys-ipfs-based-kuboshell-backdoor-in-es",
+    "title": "Volant Manticore deploys IPFS-based KuboShell backdoor in espionage campaigns",
+    "summary": "The Iran‑aligned group Volant Manticore has been observed using a custom backdoor called KuboShell that leverages IPFS for command‑and‑control and deploys the Homa post‑compromise framework. The campaign has targeted telecom operators, airlines and critical infrastructure in Cyprus.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [
+      "KuboShell"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+        "publisher": "The Hacker News",
+        "title": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.94,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "espionage",
+      "backdoor",
+      "ipfs"
+    ],
+    "created_at": "2026-11-24T20:07:07.480Z",
+    "updated_at": "2026-11-24T20:07:07.480Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
+        "source_url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+        "added_at": "2026-11-24T20:07:07.480Z"
+      }
+    ],
+    "action": "Detect and remove KuboShell implants and block IPFS traffic used for C2",
+    "severity_note": "Backdoor used in active espionage campaigns against multiple organisations",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2166",
+    "slug": "envtrap-reveals-environment-only-attack-surface-in-embodied",
+    "title": "EnvTrap reveals environment-only attack surface in embodied AI agents",
+    "summary": "The paper shows that rearranging objects in an environment without changing the AI model or its instructions can cause embodied agents to behave dangerously. The authors demonstrate the attack on simulated agents, highlighting a new vulnerability in spatial‑relation safety.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.30004",
+        "publisher": "arXiv",
+        "title": "EnvTrap: Revealing the Environment-Only Attack Surface in Embodied AI via Consequence-Blind Action Execution",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "embodied-ai",
+      "environment-manipulation",
+      "agent-hijack"
+    ],
+    "created_at": "2026-11-24T20:07:07.480Z",
+    "updated_at": "2026-11-24T20:07:07.480Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "EnvTrap: Revealing the Environment-Only Attack Surface in Embodied AI via Consequence-Blind Action Execution",
+        "source_url": "https://arxiv.org/abs/2611.30004",
+        "added_at": "2026-11-24T20:07:07.480Z"
+      }
+    ],
+    "action": "Review and mitigate environment manipulation risks in embodied AI deployments",
+    "severity_note": "Demonstrated attack concept with no known real‑world exploitation",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2165",
+    "slug": "fatcat-fault-injection-attacks-targeting-chip-level-alignmen",
+    "title": "FATCAT: Fault Injection Attacks Targeting Chip-level Alignment",
+    "summary": "FATCAT demonstrates a non‑invasive electromagnetic fault‑injection attack on GPU‑accelerated systems that disables refusal mechanisms in large language and vision‑language models. The attack is shown in a laboratory setting and has not been observed in the wild.",
+    "type": "attack_on_ai",
+    "categories": [
+      "adversarial_evasion",
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31129",
+        "publisher": "arXiv",
+        "title": "FATCAT: Fault Injection Attacks Targeting Chip-level Alignment",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "fatcat",
+      "fault_injection",
+      "adversarial_evasion",
+      "gpu"
+    ],
+    "created_at": "2026-11-24T20:07:07.480Z",
+    "updated_at": "2026-11-24T20:07:07.480Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "FATCAT: Fault Injection Attacks Targeting Chip-level Alignment",
+        "source_url": "https://arxiv.org/abs/2611.31129",
+        "added_at": "2026-11-24T20:07:07.480Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept attack demonstrated, no known real‑world exploitation",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2164",
     "slug": "beyond-single-turn-privacy-training-data-leakage-in-conversa",
     "title": "Beyond Single-Turn Privacy: Training-Data Leakage in Conversational RAG",

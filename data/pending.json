@@ -15,21 +15,6 @@
     }
   },
   {
-    "key": "6b48789d1147d2db",
-    "source_id": "thn",
-    "origin": "news",
-    "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
-    "title": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
-    "published_at": "2026-11-24",
-    "publisher": "The Hacker News",
-    "hint": "A previously undocumented Iran-aligned cyber espionage group called Volant Manticore has targeted telecommunications companies, airlines, and critical infrastructure in Cyprus. Central to the group's operations is a backdoor called KuboShell that uses the InterPlanetary File System (IPFS) for command-and-control (C2) and deploys Homa, a post-compromise framework that's a reimplementation of",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:39.557Z",
-    "extra": {
-      "ai_hint": false
-    }
-  },
-  {
     "key": "3af36679ac75f354",
     "source_id": "cyberscoop",
     "origin": "news",
@@ -60,23 +45,6 @@
     }
   },
   {
-    "key": "0ce6e999e1ce4802",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28245",
-    "title": "Development of an Effective Federated Learning-Based Defense System Against Phishing Attacks on Mobile Platforms",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Phishing remains one of the most pervasive and damaging cyber threats, exploiting both technical flaws and human behavior to compromise sensitive data. We present a privacy-preserving, real-time defense that analyzes full webpage source code on mobile platforms. Our system combines a lightweight Convolutional Neural Network (CNN) for end-to-end feature extraction with a Federated Learning (FL) framework that updates models collaboratively on user devices without transferring raw data-supporting regulatory compliance and personalization.…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.672Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "e0d28572d078ffc2",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -91,40 +59,6 @@
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
       "ai_hint": true
-    }
-  },
-  {
-    "key": "fea549f5050d60ca",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29734",
-    "title": "Lightweight Spectral Subspace Filtering for Trojan-Resilient AI Inference Engines",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Backdoor attacks pose a significant security threat to deep neural networks (DNNs) deployed on AI inference engines and hardware accelerators. By embedding hidden triggers during training, these attacks induce malicious behavior while maintaining high accuracy on benign inputs. Multi-trigger backdoor attacks are particularly challenging to detect and mitigate because of the distributed and stealthy nature of their effects. To address this challenge, this paper proposes a training-free Spectral Subspace Filtering framework that detects and…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "23784861bc2da9d8",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29756",
-    "title": "Mitigating Nested GTP Attacks: A Closed-Loop eBPF Defense for 5G and Beyond Networks",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "The evolving cellular networks continue to rely on the legacy GPRS Tunneling Protocol-User Plane (GTP-U) to encapsulate and route user data traffic across the data plane. Recent security research demonstrated that nested GTP-U (GTP-in-GTP) payload vulnerabilities enable a diverse range of attacks on victim users. To address this vulnerability, in this paper, we propose a closed-loop extended Berkeley Packet Filter (eBPF) and eXpress Data Path (XDP) defense to detect and mitigate nested GTP-U attacks in 5G and beyond networks. The proposed…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": false
     }
   },
   {
@@ -145,57 +79,6 @@
     }
   },
   {
-    "key": "292f33ddee695607",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29932",
-    "title": "LODESTONE: Linking System Events to Threat Intelligence for Evidence-Grounded Cyber Attack Investigation",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "System provenance graphs help reconstruct attacks through causal dependencies, but these connections alone do not explain how events accomplish an adversary's goal. Cyber threat intelligence (CTI) provides the necessary security knowledge, yet linking it to execution evidence requires bridging differences in meaning and granularity between events and attack relations amid scarce labels and sparse relevant evidence. We present LODESTONE, a cross-graph alignment system that links observed system events to CTI attack relations to support…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": false
-    }
-  },
-  {
-    "key": "1d8602a86e1aa0bd",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30352",
-    "title": "AutoClip-DPZO: Practical Private Clipping Selection for Differentially Private Zeroth-Order LLM Fine-Tuning",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Differentially private zeroth-order optimization (DPZO) is a promising approach for privacy-preserving LLM fine-tuning, offering exceptional memory efficiency. However, its utility is highly sensitive to the clipping threshold $C$, a key DP-specific hyperparameter that controls the trade-off between noise injection and clipping bias. Existing DPZO methods typically tune $C$ by repeatedly evaluating candidate values and reporting the best result, which is computationally expensive and incurs additional privacy cost that must be accounted for…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "cb98e2257a637920",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30004",
-    "title": "EnvTrap: Revealing the Environment-Only Attack Surface in Embodied AI via Consequence-Blind Action Execution",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "As AI models evolve from text and vision to physical agents, embodied AI faces a fundamentally different attack surface. Prior attacks on embodied systems have used crafted instructions, adversarial visual inputs, and training-time policy modifications; we study environment-only object rearrangements with unchanged models and instructions. We reveal an attack surface in safety-critical spatial relations among existing objects. An adversary who rearranges objects, without modifying instructions or accessing models, can cause hazardous…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "1044fc6c56839d36",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -206,23 +89,6 @@
     "hint": "Large language model agents increasingly use third-party tools to complete user tasks. Even without malicious intent, they may fill broad or weakly constrained fields with private information that is unnecessary or inappropriate for the receiving tool. Such calls can satisfy the tool schema and complete the task, yet still violate minimum-necessary disclosure. We introduce ArguShield, a mediation layer that intercepts proposed tool calls before execution. It evaluates each candidate value using three signals: Value Provenance, Task Relevance,…",
     "cve_ids": [],
     "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "ba049826a989a6da",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.31129",
-    "title": "FATCAT: Fault Injection Attacks Targeting Chip-level Alignment",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Model alignment is the primary safety and security mechanism for enforcing refusal of malicious prompts in modern foundation models; yet, existing adversarial evaluations implicitly assume underlying hardware integrity. In this paper, we present FATCAT, the first physical fault-injection attacks capable of eliminating refusal in modern large language and vision-language models. Specifically, we present a non-invasive electromagnetic (EM) fault injection attack targeting GPU-accelerated Systems-on-Chip with physical access, requiring neither…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
     "extra": {
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
