@@ -10101,7 +10101,7 @@
       "CVE-2026-114938"
     ],
     "created_at": "2026-11-17T22:41:09.132Z",
-    "updated_at": "2026-11-20T00:41:44.832Z",
+    "updated_at": "2026-11-24T23:21:34.654Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -10139,7 +10139,7 @@
     ],
     "action": "Identify affected Java installations and immediately patch the Oracle Java vulnerability CVE-2026-114938.",
     "severity_note": "Critical rating with an available patch from Oracle.",
-    "cvss": null
+    "cvss": 8.1
   },
   {
     "id": "AIR-2026-2019",
