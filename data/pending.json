@@ -164,5 +164,20 @@
     "extra": {
       "ai_hint": false
     }
+  },
+  {
+    "key": "2f99e3ac2673fbf0",
+    "source_id": "therecord",
+    "origin": "news",
+    "url": "https://therecord.media/mycolorado-app-down-data-breach",
+    "title": "Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen",
+    "published_at": "2026-11-24",
+    "publisher": "The Record",
+    "hint": "Cybercriminals likely stole data from 150,000 users of myColorado, which residents typically use for digital identification, document storage and accessing state government services.",
+    "cve_ids": [],
+    "discovered_at": "2026-11-24T21:06:37.688Z",
+    "extra": {
+      "ai_hint": false
+    }
   }
 ]
