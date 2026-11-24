@@ -1,5 +1,25 @@
 [
   {
+    "key": "5f13a2bcef35aefc",
+    "title": "Bounded Autonomy: A Trust-Anchored Defense Against Resource-Exhaustion Attacks on Tool-Augmented LLM Agents",
+    "url": "https://arxiv.org/abs/2611.30383",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defense‑only research paper without demonstrated attack",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T19:06:51.735Z"
+  },
+  {
+    "key": "5b74a9f5e1ea6165",
+    "title": "Right Verdict, Right Reason? An Execution-Grounded Study of Whether LLM Vulnerability Detectors Understand Vulnerabilities",
+    "url": "https://arxiv.org/abs/2611.28584",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: analysis paper without demonstrated attack or vulnerability",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T19:06:51.735Z"
+  },
+  {
     "key": "b78f91cbb076dc89",
     "title": "Ultrasound Watermark: Real-time Acoustic Watermarking against Voice Scams on Smartphones",
     "url": "https://arxiv.org/abs/2611.30106",
