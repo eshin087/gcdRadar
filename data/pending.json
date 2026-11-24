@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "key": "e3bc9e96af71d34d",
+    "source_id": "bleepingcomputer",
+    "origin": "news",
+    "url": "https://bleepingcomputer.com/news/security/new-shirudo-tool-uses-ai-to-shield-unpatched-linux-systems-from-exploits",
+    "title": "New Shirudo tool uses AI to shield unpatched Linux systems from exploits",
+    "published_at": "2026-11-24",
+    "publisher": "BleepingComputer",
+    "hint": "OpenAI and Cisco launched an open-source Linux security tool named Shirudo that deploys temporary runtime protections to block vulnerability exploitation while administrators prepare and roll out patches, without restarting services.…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-24T13:36:34.757Z",
+    "extra": {
+      "ai_hint": true
+    }
+  }
+]
