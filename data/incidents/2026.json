@@ -1,5 +1,181 @@
 [
   {
+    "id": "AIR-2026-2173",
+    "slug": "radware-discloses-breach-exposing-customer-cloud-access-keys",
+    "title": "Radware Discloses Breach Exposing Customer Cloud Access Keys",
+    "summary": "Radware suffered a data breach after attackers gained access to customer account details and cloud access keys via an unsecured internal Cloud WAF management API. The exposed API allowed unauthorized external access to sensitive customer assets.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Cloud WAF management API"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys",
+        "publisher": "BleepingComputer",
+        "title": "Radware discloses breach exposing customer cloud access keys",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "api-security",
+      "cloud-credentials",
+      "radware"
+    ],
+    "created_at": "2026-11-24T21:21:50.331Z",
+    "updated_at": "2026-11-24T21:21:50.331Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Radware discloses breach exposing customer cloud access keys",
+        "source_url": "https://bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys",
+        "added_at": "2026-11-24T21:21:50.331Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world data exposure incident",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2172",
+    "slug": "benchmarking-web-agent-defenses-against-adaptive-visual-prom",
+    "title": "Benchmarking Web Agent Defenses Against Adaptive Visual Prompt Injection",
+    "summary": "Researchers evaluate multimodal web agents and reveal that they remain vulnerable to visual prompt injection attacks. The paper demonstrates how adaptive attackers can bypass existing defenses using hidden malicious webpage content.",
+    "type": "attack_on_ai",
+    "categories": [
+      "prompt_injection",
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Multimodal Web Agents"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.29268",
+        "publisher": "arXiv",
+        "title": "Benchmarking Web Agent Defenses Against Adaptive Visual Prompt Injection",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "visual-prompt-injection",
+      "multimodal",
+      "web-agents",
+      "research"
+    ],
+    "created_at": "2026-11-24T21:21:50.331Z",
+    "updated_at": "2026-11-24T21:21:50.331Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Benchmarking Web Agent Defenses Against Adaptive Visual Prompt Injection",
+        "source_url": "https://arxiv.org/abs/2611.29268",
+        "added_at": "2026-11-24T21:21:50.331Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated attack in research paper",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2171",
+    "slug": "conartist-adaptive-agentic-red-teaming-of-computer-using-age",
+    "title": "Conartist: Adaptive Agentic Red-Teaming of Computer-Using Agents",
+    "summary": "Researchers demonstrate that core security mechanisms in computer-using agents remain vulnerable to multi-step prompt injection. The study shows how attackers can bypass consistency checking and risk auditing to execute malicious tasks.",
+    "type": "attack_on_ai",
+    "categories": [
+      "prompt_injection",
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Conartist"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.29977",
+        "publisher": "arXiv",
+        "title": "Conartist: Adaptive Agentic Red-Teaming of Computer-Using Agents against Multi-Step Prompt Injection",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt-injection",
+      "agents",
+      "red-teaming",
+      "research"
+    ],
+    "created_at": "2026-11-24T21:21:50.331Z",
+    "updated_at": "2026-11-24T21:21:50.331Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Conartist: Adaptive Agentic Red-Teaming of Computer-Using Agents against Multi-Step Prompt Injection",
+        "source_url": "https://arxiv.org/abs/2611.29977",
+        "added_at": "2026-11-24T21:21:50.331Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated attack by researchers",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2170",
     "slug": "turnitin-discloses-cyberattack-affecting-customer-facing-sys",
     "title": "Turnitin discloses cyberattack affecting customer‑facing systems",
@@ -3562,9 +3738,15 @@
         "publisher": "The Record",
         "title": "FBI reportedly facing second data breach involving National Crime Information Center",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://cyberscoop.com/kash-patel-fbi-ncic-database-hack",
+        "publisher": "CyberScoop",
+        "title": "Patel mum on FBI crime info database hack, citing ongoing investigation",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -3575,7 +3757,7 @@
       "law-enforcement"
     ],
     "created_at": "2026-11-21T14:36:45.561Z",
-    "updated_at": "2026-11-23T18:36:50.024Z",
+    "updated_at": "2026-11-24T21:21:50.331Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -10421,24 +10603,34 @@
         "publisher": "Krebs on Security",
         "title": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
         "published_at": "2026-11-18"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-132224",
+        "publisher": "CISA",
+        "title": "CVE-2026-132224: Optimizely Web Experimentation — Optimizely Web Experimentation External Control of Critical State Data Vulnerability",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 10,
+    "source_count": 11,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
     "tags": [
       "supply-chain",
       "malware",
-      "javascript"
+      "javascript",
+      "CVE-2026-132224",
+      "cisa-kev"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-18T03:11:24.739Z",
+    "updated_at": "2026-11-24T21:21:50.331Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
     "patch_status": "patched",
-    "cve_ids": [],
+    "cve_ids": [
+      "CVE-2026-132224"
+    ],
     "affected": [
       "Optimizely"
     ],
@@ -10473,6 +10665,12 @@
         "title": "Researchers confirm malicious scripts attempted to route iOS visitors to Coruna and DarkSword exploit kits.",
         "source_url": "https://straiker.ai/blog/optimizely-attack-coruna-darksword-ios-exploits",
         "added_at": "2026-11-18T01:11:27.892Z"
+      },
+      {
+        "date": "2026-11-24",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-132224",
+        "added_at": "2026-11-24T21:21:50.331Z"
       }
     ],
     "action": "Deploy the vendor's fix to remediate the vulnerability",
