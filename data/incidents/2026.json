@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2150",
+    "slug": "elecbrakes-bluetooth-controllers-vulnerable-to-forced-brakin",
+    "title": "Elecbrakes Bluetooth Controllers Vulnerable to Forced Braking",
+    "summary": "Elecbrakes Bluetooth controllers contain critical flaws that allow nearby attackers to force a trailer’s brakes, creating a risk of accidents. No fix has been released yet, and users are advised to disable Bluetooth and await a vendor patch.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Elecbrakes"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://securityweek.com/elecbrakes-bluetooth-vulnerabilities-expose-trailers-to-forced-braking",
+        "publisher": "SecurityWeek",
+        "title": "Elecbrakes Bluetooth Vulnerabilities Expose Trailers to Forced Braking",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "bluetooth",
+      "braking",
+      "critical"
+    ],
+    "created_at": "2026-11-24T10:51:24.120Z",
+    "updated_at": "2026-11-24T10:51:24.120Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Elecbrakes Bluetooth Vulnerabilities Expose Trailers to Forced Braking",
+        "source_url": "https://securityweek.com/elecbrakes-bluetooth-vulnerabilities-expose-trailers-to-forced-braking",
+        "added_at": "2026-11-24T10:51:24.120Z"
+      }
+    ],
+    "action": "Disable Bluetooth on the controllers and apply patches when released",
+    "severity_note": "Critical rating with potential for forced braking, no confirmed exploitation",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2149",
     "slug": "whmcs-sql-injection-flaw-exposes-customer-data-and-admin-pas",
     "title": "WHMCS SQL Injection Flaw Exposes Customer Data and Admin Password Hashes",
