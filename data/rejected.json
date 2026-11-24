@@ -1,5 +1,15 @@
 [
   {
+    "key": "3e9064fe72c037e1",
+    "title": "‘Grand Theft Auto VI’ hacker sentenced to seven years, released the same day",
+    "url": "https://therecord.media/gta-vi-hacker-arion-kurtaj-released-on-license",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Sentencings and court updates on old campaigns are follow-ups, not new incidents.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T08:51:37.300Z"
+  },
+  {
     "key": "b362fc1b56221ae5",
     "title": "Google Cloud CISO talks agentic AI security and the future of the SOC",
     "url": "https://helpnetsecurity.com/2026/11/24/chris-betz-google-agentic-ai-security",
