@@ -1,5 +1,35 @@
 [
   {
+    "key": "6f9c49c9eead9d24",
+    "title": "GTA 6 hacker sentenced to seven years and released the same day",
+    "url": "https://helpnetsecurity.com/2026/11/24/gta-vi-hacker-sentenced-seven-years-released-on-licence",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Follow-up sentencing of previously reported GTA 6 leak; not a new incident.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-24T13:51:51.477Z"
+  },
+  {
+    "key": "0c4445d4ccaf59f7",
+    "title": "Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site",
+    "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Threat‑intel report linking group to new data‑leak site; no specific breach disclosed.",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-24T13:51:51.477Z"
+  },
+  {
+    "key": "e3bc9e96af71d34d",
+    "title": "New Shirudo tool uses AI to shield unpatched Linux systems from exploits",
+    "url": "https://bleepingcomputer.com/news/security/new-shirudo-tool-uses-ai-to-shield-unpatched-linux-systems-from-exploits",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Product announcement of AI‑based security tool, not a security incident.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-24T13:51:51.477Z"
+  },
+  {
     "key": "32d784244c7b2f8c",
     "title": "ShinyHunters-linked crew resurfaces on new leak site",
     "url": "https://helpnetsecurity.com/2026/11/24/shinyhunters-inception-leak-site-okta",
