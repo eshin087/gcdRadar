@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2164",
+    "slug": "beyond-single-turn-privacy-training-data-leakage-in-conversa",
+    "title": "Beyond Single-Turn Privacy: Training-Data Leakage in Conversational RAG",
+    "summary": "The study presents CRELT, a framework that measures how conversational retrieval‑augmented generation can leak real training‑data details over multiple turns, demonstrating a practical extraction attack. No real‑world exploitation is reported.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28748",
+        "publisher": "arXiv",
+        "title": "Beyond Single-Turn Privacy: Training-Data Leakage in Conversational RAG",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-leak",
+      "rag",
+      "training-data",
+      "extraction",
+      "crelt"
+    ],
+    "created_at": "2026-11-24T19:51:40.850Z",
+    "updated_at": "2026-11-24T19:51:40.850Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Beyond Single-Turn Privacy: Training-Data Leakage in Conversational RAG",
+        "source_url": "https://arxiv.org/abs/2611.28748",
+        "added_at": "2026-11-24T19:51:40.850Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated data‑leakage attack in a research setting, severity 1.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2163",
     "slug": "who-is-prompt-injecting-coding-agents-an-empirical-study-of",
     "title": "Who Is Prompt-Injecting Coding Agents? An Empirical Study of Hidden AI-Directed Text on GitHub",

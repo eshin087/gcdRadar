@@ -94,40 +94,6 @@
     }
   },
   {
-    "key": "441501726a731256",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29802",
-    "title": "Relativising Integrity and Robustness: Prompt Injection and Partitioned Enclaves",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Relative security (RS) judges a system against a reference system, but has only been applied to confidentiality. We introduce relative integrity (RI), which states that every behaviour a system exhibits under an attacker's influence must be one the reference can exhibit for the same trusted inputs. RS and RI each choose their own reference runs, so together they accept attacks whose leak and effects the reference reproduces only in different runs. We therefore develop a further property, relative robustness (RR), which asks the same runs to…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "2a1090fa917c6a91",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29804",
-    "title": "FORGETMENOT: Auditing Memory Driven Privacy Risks in Commercial AI Agents",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Commercial AI agents increasingly incorporate long-term memory (both persistent and chat-history) to enable more accurate and personalized responses, raises significant privacy and policy concerns. Yet little is known about user privacy risks associated with memory behavior, in particular, about memory storage, disclosure, transparency and deletion control. To bridge this gap, we propose FORGETMENOT, an auditing framework for analyzing the privacy risks of long term memory in commercial AI agents. Using our framework, we collect around 3800…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "fea549f5050d60ca",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -243,23 +209,6 @@
     "extra": {
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "29bc5b749968b051",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28748",
-    "title": "Beyond Single-Turn Privacy: Training-Data Leakage in Conversational RAG",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Retrieval-augmented generation (RAG) is known to reduce training-data leakage in single-turn interactions, but whether this protection persists over multi-turn conversations is unclear. We introduce CRELT (Conversational RAG Extraction Leakage Trajectory), a reusable framework that tracks, turn by turn, the real contact details from the training data that a RAG system discloses. CRELT separates retrieval, conversation history, and attack strategy through a full-factorial design, uses a retrieval corpus verified to contain none of the target…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
       "ai_hint": true
     }
   },

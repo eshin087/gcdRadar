@@ -1,5 +1,25 @@
 [
   {
+    "key": "441501726a731256",
+    "title": "Relativising Integrity and Robustness: Prompt Injection and Partitioned Enclaves",
+    "url": "https://arxiv.org/abs/2611.29802",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defence/analysis paper; no real attack or vulnerability shown.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-24T19:51:40.850Z"
+  },
+  {
+    "key": "2a1090fa917c6a91",
+    "title": "FORGETMENOT: Auditing Memory Driven Privacy Risks in Commercial AI Agents",
+    "url": "https://arxiv.org/abs/2611.29804",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Defence‑oriented auditing framework; does not report a realized attack.",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-24T19:51:40.850Z"
+  },
+  {
     "key": "86de3a48998c3e3d",
     "title": "SecretSifter: A Runtime Secret-Detection Engine for Live Web Traffic",
     "url": "https://arxiv.org/abs/2611.28168",
