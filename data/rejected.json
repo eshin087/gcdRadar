@@ -1,5 +1,15 @@
 [
   {
+    "key": "07731621ec00c367",
+    "title": "Elastic puts AI agents to work on the SOC alert backlog",
+    "url": "https://helpnetsecurity.com/2026/11/24/elastic-security-9-6-features",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Feature announcement, not a specific security incident, breach, vulnerability, or malicious package.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T12:36:36.191Z"
+  },
+  {
     "key": "3e9064fe72c037e1",
     "title": "‘Grand Theft Auto VI’ hacker sentenced to seven years, released the same day",
     "url": "https://therecord.media/gta-vi-hacker-arion-kurtaj-released-on-license",
