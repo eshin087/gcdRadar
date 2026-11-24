@@ -145,23 +145,6 @@
     }
   },
   {
-    "key": "fea549f5050d60ca",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29734",
-    "title": "Lightweight Spectral Subspace Filtering for Trojan-Resilient AI Inference Engines",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Backdoor attacks pose a significant security threat to deep neural networks (DNNs) deployed on AI inference engines and hardware accelerators. By embedding hidden triggers during training, these attacks induce malicious behavior while maintaining high accuracy on benign inputs. Multi-trigger backdoor attacks are particularly challenging to detect and mitigate because of the distributed and stealthy nature of their effects. To address this challenge, this paper proposes a training-free Spectral Subspace Filtering framework that detects and…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "441501726a731256",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -187,6 +170,23 @@
     "published_at": "2026-11-24",
     "publisher": "arXiv",
     "hint": "Commercial AI agents increasingly incorporate long-term memory (both persistent and chat-history) to enable more accurate and personalized responses, raises significant privacy and policy concerns. Yet little is known about user privacy risks associated with memory behavior, in particular, about memory storage, disclosure, transparency and deletion control. To bridge this gap, we propose FORGETMENOT, an auditing framework for analyzing the privacy risks of long term memory in commercial AI agents. Using our framework, we collect around 3800…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-24T17:51:43.674Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "fea549f5050d60ca",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.29734",
+    "title": "Lightweight Spectral Subspace Filtering for Trojan-Resilient AI Inference Engines",
+    "published_at": "2026-11-24",
+    "publisher": "arXiv",
+    "hint": "Backdoor attacks pose a significant security threat to deep neural networks (DNNs) deployed on AI inference engines and hardware accelerators. By embedding hidden triggers during training, these attacks induce malicious behavior while maintaining high accuracy on benign inputs. Multi-trigger backdoor attacks are particularly challenging to detect and mitigate because of the distributed and stealthy nature of their effects. To address this challenge, this paper proposes a training-free Spectral Subspace Filtering framework that detects and…",
     "cve_ids": [],
     "discovered_at": "2026-11-24T17:51:43.674Z",
     "extra": {
@@ -247,23 +247,6 @@
     }
   },
   {
-    "key": "b78f91cbb076dc89",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30106",
-    "title": "Ultrasound Watermark: Real-time Acoustic Watermarking against Voice Scams on Smartphones",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Recent advances in text-to-speech (TTS), voice conversion (VC), and AI-driven speech synthesis enable adversaries to convincingly impersonate trusted individuals during phone calls. Existing defenses often rely on offline analysis, degrade under telephony distortions, or remain vulnerable to adaptive attacks. To address these limitations, we present Ultrasound Watermark, a real-time, smartphone-native framework that protects live calls by binding speech to the caller's physical articulatory motion through acoustic watermarking. During a call,…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "214412c9452cb64d",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -298,6 +281,23 @@
     }
   },
   {
+    "key": "1044fc6c56839d36",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.30360",
+    "title": "ArguShield: Enforcing Minimum-Necessary Disclosure in Tool-Calling LLM Agents",
+    "published_at": "2026-11-24",
+    "publisher": "arXiv",
+    "hint": "Large language model agents increasingly use third-party tools to complete user tasks. Even without malicious intent, they may fill broad or weakly constrained fields with private information that is unnecessary or inappropriate for the receiving tool. Such calls can satisfy the tool schema and complete the task, yet still violate minimum-necessary disclosure. We introduce ArguShield, a mediation layer that intercepts proposed tool calls before execution. It evaluates each candidate value using three signals: Value Provenance, Task Relevance,…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-24T17:51:43.675Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
     "key": "1d8602a86e1aa0bd",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -323,23 +323,6 @@
     "published_at": "2026-11-24",
     "publisher": "arXiv",
     "hint": "As AI models evolve from text and vision to physical agents, embodied AI faces a fundamentally different attack surface. Prior attacks on embodied systems have used crafted instructions, adversarial visual inputs, and training-time policy modifications; we study environment-only object rearrangements with unchanged models and instructions. We reveal an attack surface in safety-critical spatial relations among existing objects. An adversary who rearranges objects, without modifying instructions or accessing models, can cause hazardous…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "1044fc6c56839d36",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30360",
-    "title": "ArguShield: Enforcing Minimum-Necessary Disclosure in Tool-Calling LLM Agents",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Large language model agents increasingly use third-party tools to complete user tasks. Even without malicious intent, they may fill broad or weakly constrained fields with private information that is unnecessary or inappropriate for the receiving tool. Such calls can satisfy the tool schema and complete the task, yet still violate minimum-necessary disclosure. We introduce ArguShield, a mediation layer that intercepts proposed tool calls before execution. It evaluates each candidate value using three signals: Value Provenance, Task Relevance,…",
     "cve_ids": [],
     "discovered_at": "2026-11-24T17:51:43.675Z",
     "extra": {

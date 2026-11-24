@@ -1,241 +1,5 @@
 [
   {
-    "id": "run-20261119T111723",
-    "started_at": "2026-11-19T11:17:23.438Z",
-    "finished_at": "2026-11-19T11:21:50.855Z",
-    "mode": "scheduled",
-    "sources": [
-      {
-        "id": "securityweek",
-        "ok": true,
-        "items": 10,
-        "duration_ms": 182
-      },
-      {
-        "id": "krebs",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 238
-      },
-      {
-        "id": "thn",
-        "ok": true,
-        "items": 17,
-        "duration_ms": 287
-      },
-      {
-        "id": "bleepingcomputer",
-        "ok": true,
-        "items": 11,
-        "duration_ms": 214
-      },
-      {
-        "id": "therecord",
-        "ok": true,
-        "items": 5,
-        "duration_ms": 151
-      },
-      {
-        "id": "cyberscoop",
-        "ok": true,
-        "items": 4,
-        "duration_ms": 165
-      },
-      {
-        "id": "openai",
-        "ok": true,
-        "items": 7,
-        "duration_ms": 192
-      },
-      {
-        "id": "helpnetsecurity",
-        "ok": false,
-        "items": 0,
-        "status": 301,
-        "error": "too many redirects for https://www.helpnetsecurity.com/feed/",
-        "duration_ms": 412
-      },
-      {
-        "id": "deepmind",
-        "ok": true,
-        "items": 2,
-        "duration_ms": 212
-      },
-      {
-        "id": "google-security",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 348
-      },
-      {
-        "id": "ms-security",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 117
-      },
-      {
-        "id": "ms-threat-intel",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 101
-      },
-      {
-        "id": "ms-ai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 39
-      },
-      {
-        "id": "meta-eng",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 175
-      },
-      {
-        "id": "darkreading",
-        "ok": true,
-        "items": 6,
-        "duration_ms": 1329
-      },
-      {
-        "id": "cisa-alerts",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 80
-      },
-      {
-        "id": "paloalto-psirt",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 166
-      },
-      {
-        "id": "cisco-psirt",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 579
-      },
-      {
-        "id": "simonw-pi",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 133
-      },
-      {
-        "id": "gtig",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 1601
-      },
-      {
-        "id": "embracethered",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 177
-      },
-      {
-        "id": "fortinet-psirt",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 1060
-      },
-      {
-        "id": "simonw-sec",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 619
-      },
-      {
-        "id": "unit42",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 76
-      },
-      {
-        "id": "trailofbits",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 283
-      },
-      {
-        "id": "talos",
-        "ok": true,
-        "items": 3,
-        "duration_ms": 199
-      },
-      {
-        "id": "owasp-genai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 102
-      },
-      {
-        "id": "straiker",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 128
-      },
-      {
-        "id": "checkmarx-zero",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 245
-      },
-      {
-        "id": "unit42-ai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 776
-      },
-      {
-        "id": "ghsa",
-        "ok": true,
-        "items": 3,
-        "duration_ms": 900
-      },
-      {
-        "id": "hn",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 7633
-      },
-      {
-        "id": "nvd",
-        "ok": true,
-        "items": 17,
-        "duration_ms": 262149
-      }
-    ],
-    "counts": {
-      "fetched": 91,
-      "prefiltered": 66,
-      "merged": 0,
-      "classified": 1,
-      "published": 0,
-      "review": 0,
-      "rejected": 1,
-      "pending": 0,
-      "updated": 0,
-      "closed": 0,
-      "reopened": 0
-    },
-    "llm": {
-      "calls": 1,
-      "prompt_tokens": 2601,
-      "completion_tokens": 337,
-      "by_model": {
-        "gemini-lite/gemini-3.5-flash-lite": {
-          "calls": 1,
-          "prompt_tokens": 2601,
-          "completion_tokens": 337
-        }
-      }
-    },
-    "errors": [
-      "helpnetsecurity: too many redirects for https://www.helpnetsecurity.com/feed/"
-    ]
-  },
-  {
     "id": "run-20261119T113700",
     "started_at": "2026-11-19T11:37:00.763Z",
     "finished_at": "2026-11-19T11:41:22.579Z",
@@ -54218,6 +53982,245 @@
     },
     "errors": [
       "classification: groq openai/gpt-oss-120b: 429 {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m56w0qzgeb9rnszb4r86dwav` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4216, Requested 6361. Please try again in 19.3275s. Need more tokens? Upgrade to Dev Tier today at https:"
+    ]
+  },
+  {
+    "id": "run-20261124T182129",
+    "started_at": "2026-11-24T18:21:29.541Z",
+    "finished_at": "2026-11-24T18:23:13.452Z",
+    "mode": "scheduled",
+    "sources": [
+      {
+        "id": "thn",
+        "ok": true,
+        "items": 18,
+        "duration_ms": 184
+      },
+      {
+        "id": "securityweek",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 205
+      },
+      {
+        "id": "bleepingcomputer",
+        "ok": true,
+        "items": 15,
+        "duration_ms": 176
+      },
+      {
+        "id": "therecord",
+        "ok": true,
+        "items": 5,
+        "duration_ms": 277
+      },
+      {
+        "id": "cyberscoop",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 91
+      },
+      {
+        "id": "helpnetsecurity",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 91
+      },
+      {
+        "id": "krebs",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 885
+      },
+      {
+        "id": "openai",
+        "ok": true,
+        "items": 3,
+        "duration_ms": 203
+      },
+      {
+        "id": "deepmind",
+        "ok": true,
+        "items": 1,
+        "duration_ms": 78
+      },
+      {
+        "id": "darkreading",
+        "ok": true,
+        "items": 5,
+        "duration_ms": 951
+      },
+      {
+        "id": "google-security",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 310
+      },
+      {
+        "id": "ms-security",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 78
+      },
+      {
+        "id": "ms-threat-intel",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 114
+      },
+      {
+        "id": "ms-ai",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 156
+      },
+      {
+        "id": "meta-eng",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 115
+      },
+      {
+        "id": "cisa-alerts",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 43
+      },
+      {
+        "id": "paloalto-psirt",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 192
+      },
+      {
+        "id": "cisco-psirt",
+        "ok": true,
+        "items": 4,
+        "duration_ms": 518
+      },
+      {
+        "id": "simonw-pi",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 324
+      },
+      {
+        "id": "simonw-sec",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 349
+      },
+      {
+        "id": "gtig",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 1673
+      },
+      {
+        "id": "embracethered",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 283
+      },
+      {
+        "id": "trailofbits",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 157
+      },
+      {
+        "id": "unit42",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 57
+      },
+      {
+        "id": "talos",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 148
+      },
+      {
+        "id": "owasp-genai",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 232
+      },
+      {
+        "id": "unit42-ai",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 703
+      },
+      {
+        "id": "straiker",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 239
+      },
+      {
+        "id": "checkmarx-zero",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 424
+      },
+      {
+        "id": "kev",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 58
+      },
+      {
+        "id": "ghsa",
+        "ok": true,
+        "items": 1,
+        "duration_ms": 994
+      },
+      {
+        "id": "hn",
+        "ok": true,
+        "items": 1,
+        "duration_ms": 6745
+      },
+      {
+        "id": "fortinet-psirt",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 13944
+      }
+    ],
+    "counts": {
+      "fetched": 53,
+      "prefiltered": 64,
+      "merged": 0,
+      "classified": 2,
+      "published": 0,
+      "review": 0,
+      "rejected": 1,
+      "pending": 27,
+      "updated": 0,
+      "closed": 0,
+      "reopened": 0
+    },
+    "llm": {
+      "calls": 8,
+      "prompt_tokens": 11348,
+      "completion_tokens": 2527,
+      "by_model": {
+        "gemini-lite/gemini-3.5-flash-lite": {
+          "calls": 3,
+          "prompt_tokens": 2634,
+          "completion_tokens": 261
+        },
+        "groq/openai/gpt-oss-120b": {
+          "calls": 5,
+          "prompt_tokens": 8714,
+          "completion_tokens": 2266
+        }
+      }
+    },
+    "errors": [
+      "classification: groq openai/gpt-oss-120b: 429 {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m56w0qzgeb9rnszb4r86dwav` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4203, Requested 4857. Please try again in 7.95s. Need more tokens? Upgrade to Dev Tier today at https://c"
     ]
   }
 ]
