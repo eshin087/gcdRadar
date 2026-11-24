@@ -722,9 +722,15 @@
         "publisher": "BleepingComputer",
         "title": "South Korea’s power giant KEPCO confirms data breach impacting 1.5 million",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco",
+        "publisher": "SecurityWeek",
+        "title": "1.5 Million Impacted by Data Breach at South Korean Electric Company KEPCO",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -733,7 +739,7 @@
       "kepco"
     ],
     "created_at": "2026-11-23T21:06:49.048Z",
-    "updated_at": "2026-11-23T21:06:49.048Z",
+    "updated_at": "2026-11-24T12:06:25.460Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,

@@ -6734,6 +6734,11 @@
   "status": "rejected",
   "at": "2026-10-20T04:59:02.302Z"
  },
+ "421f4ebe988beaad": {
+  "status": "merged",
+  "id": "AIR-2026-2138",
+  "at": "2026-11-24T12:06:25.460Z"
+ },
  "42279ffd24bfffbd": {
   "status": "rejected",
   "at": "2026-10-28T19:40:57.881Z"
