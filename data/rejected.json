@@ -1,5 +1,15 @@
 [
   {
+    "key": "e9abaee561eb3675",
+    "title": "From Vulnerability Noise to Resilience: Rethinking Security in the AI Era",
+    "url": "https://bleepingcomputer.com/news/security/from-vulnerability-noise-to-resilience-rethinking-security-in-the-ai-era",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope: Out of scope: opinion piece without a specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T15:21:45.286Z"
+  },
+  {
     "key": "9908d788a6e00254",
     "title": "Recent Trends and Tactics of Agentic AI Attacks",
     "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns",
