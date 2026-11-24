@@ -1,5 +1,15 @@
 [
   {
+    "key": "b362fc1b56221ae5",
+    "title": "Google Cloud CISO talks agentic AI security and the future of the SOC",
+    "url": "https://helpnetsecurity.com/2026/11/24/chris-betz-google-agentic-ai-security",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Interview and commentary piece without a specific incident, vulnerability, or named attack.",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-24T07:06:33.956Z"
+  },
+  {
     "key": "fdc2bebcefd613aa",
     "title": "Ransomware gangs keep multiplying, even as fewer victims pay",
     "url": "https://helpnetsecurity.com/2026/11/24/check-point-ransomware-attacks-q3-2026-report",
