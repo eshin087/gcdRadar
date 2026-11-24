@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2156",
+    "slug": "european-commission-confirms-data-theft-in-eu-academy-breach",
+    "title": "European Commission confirms data theft in EU Academy breach",
+    "summary": "The European Commission confirmed that attackers breached its EU Academy online learning platform and stole personal data of an undisclosed number of users. The breach has prompted investigations and notifications to affected individuals.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "EU Academy"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach",
+        "publisher": "BleepingComputer",
+        "title": "European Commission confirms data theft in EU Academy breach",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data_theft",
+      "eu",
+      "breach"
+    ],
+    "created_at": "2026-11-24T16:36:36.552Z",
+    "updated_at": "2026-11-24T16:36:36.552Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "European Commission confirms data theft in EU Academy breach",
+        "source_url": "https://bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach",
+        "added_at": "2026-11-24T16:36:36.552Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "personal data of users stolen",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2155",
     "slug": "carnegie-endowment-donor-data-leaked-after-third-party-vendo",
     "title": "Carnegie Endowment donor data leaked after third‑party vendor breach",
@@ -5431,9 +5488,15 @@
         "publisher": "Help Net Security",
         "title": "Cisco Expressway vulnerability exploited to breach internal networks (CVE-2026-76466)",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities",
+        "publisher": "SecurityWeek",
+        "title": "VMware Updates Patch Critical ESX, vCenter Vulnerabilities",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 8,
+    "source_count": 9,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -5447,7 +5510,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T15:44:16.278Z",
-    "updated_at": "2026-11-23T12:36:40.404Z",
+    "updated_at": "2026-11-24T16:36:36.552Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -5481,9 +5544,15 @@
         "title": "Added to the CISA KEV catalog (exploitation confirmed)",
         "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-123890",
         "added_at": "2026-11-20T18:06:31.593Z"
+      },
+      {
+        "date": "2026-11-24",
+        "title": "VMware released patches also addressing critical ESX host vulnerabilities alongside vCenter",
+        "source_url": "https://securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities",
+        "added_at": "2026-11-24T16:36:36.552Z"
       }
     ],
-    "action": "Apply the latest patched version of VMware vCenter",
+    "action": "Apply the latest VMware patches to affected ESX hosts",
     "severity_note": "Critical CVSS 9.8, no known exploitation, vendor released patches",
     "cvss": 9.8
   },
