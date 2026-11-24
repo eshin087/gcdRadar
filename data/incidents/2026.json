@@ -1,5 +1,286 @@
 [
   {
+    "id": "AIR-2026-2161",
+    "slug": "adversarial-attacks-on-latent-dynamic-world-models-demonstra",
+    "title": "Adversarial Attacks on Latent Dynamic World Models Demonstrated",
+    "summary": "Researchers present adversarial attacks against latent dynamic world models used in embodied AI, showing how compromised models can mislead planning and training. The work highlights the need for robust defenses but does not report real-world exploitation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28345",
+        "publisher": "arXiv",
+        "title": "Toward Adversarially Robust World Models",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "adversarial",
+      "world-models",
+      "research"
+    ],
+    "created_at": "2026-11-24T18:07:03.091Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Toward Adversarially Robust World Models",
+        "source_url": "https://arxiv.org/abs/2611.28345",
+        "added_at": "2026-11-24T18:07:03.091Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrates adversarial attacks on world models, no real-world exploitation known",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2160",
+    "slug": "persistent-jailbreak-backdoor-attack",
+    "title": "Persistent Jailbreak Backdoor Attack",
+    "summary": "Researchers introduce a persistent jailbreak backdoor that activates when a universal trigger is added to harmful prompts, causing the LLM to produce attacker‑desired responses. The attack is demonstrated on a publicly available LLM.",
+    "type": "attack_on_ai",
+    "categories": [
+      "jailbreak",
+      "prompt_injection"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.29217",
+        "publisher": "arXiv",
+        "title": "Persistent Jailbreak Backdoor Attack",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "jailbreak",
+      "backdoor",
+      "llm",
+      "prompt-injection"
+    ],
+    "created_at": "2026-11-24T18:07:03.091Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Persistent Jailbreak Backdoor Attack",
+        "source_url": "https://arxiv.org/abs/2611.29217",
+        "added_at": "2026-11-24T18:07:03.091Z"
+      }
+    ],
+    "action": "Apply updated alignment patches and monitor for trigger usage.",
+    "severity_note": "Severity 1 – proof‑of‑concept jailbreak backdoor shown, no confirmed real‑world abuse.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2159",
+    "slug": "carried-over-and-agent-native-threats-in-the-supply-chain-of",
+    "title": "Carried-Over and Agent-Native Threats in the Supply Chain of LLM Agent Skills",
+    "summary": "The paper surveys the supply‑chain of LLM agent skills and shows that a malicious or careless skill can turn a prompt‑injection into arbitrary code execution. Researchers demonstrate proof‑of‑concept attacks across a registry of skills.",
+    "type": "attack_on_ai",
+    "categories": [
+      "prompt_injection",
+      "supply_chain",
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.30932",
+        "publisher": "arXiv",
+        "title": "Carried-Over and Agent-Native Threats in the Supply Chain of LLM Agent Skills",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt-injection",
+      "supply-chain",
+      "agent",
+      "llm"
+    ],
+    "created_at": "2026-11-24T18:07:03.091Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Carried-Over and Agent-Native Threats in the Supply Chain of LLM Agent Skills",
+        "source_url": "https://arxiv.org/abs/2611.30932",
+        "added_at": "2026-11-24T18:07:03.091Z"
+      }
+    ],
+    "action": "Validate and sandbox agent skill inputs to prevent code execution.",
+    "severity_note": "Severity 1 – proof‑of‑concept attack demonstrated, no real‑world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2158",
+    "slug": "oops-i-parsed-it-again-tool-call-smuggling-against-llm-agent",
+    "title": "Oops!... I Parsed It Again: Tool-Call Smuggling Against LLM Agents",
+    "summary": "The study reveals that differing JSON parsers in the guard and executor can be exploited to execute unauthorized tool calls, allowing an LLM agent to perform actions unseen in audit logs. This tool‑call smuggling technique is demonstrated on a prototype agent framework.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.30624",
+        "publisher": "arXiv",
+        "title": "Oops!... I Parsed It Again: Tool-Call Smuggling Against LLM Agents",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "tool-call",
+      "smuggling",
+      "llm-agent",
+      "json"
+    ],
+    "created_at": "2026-11-24T18:07:03.091Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Oops!... I Parsed It Again: Tool-Call Smuggling Against LLM Agents",
+        "source_url": "https://arxiv.org/abs/2611.30624",
+        "added_at": "2026-11-24T18:07:03.091Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept attack on LLM agents, no real‑world exploitation reported",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2157",
+    "slug": "weight-space-backdoors-in-open-weight-llms-cross-architectur",
+    "title": "Weight-Space Backdoors in Open-Weight LLMs: Cross-Architecture Attacks and Blind Model Forensics",
+    "summary": "The authors show that tiny modifications to the weights of open‑weight language models can create trigger‑conditioned backdoors, posing a supply‑chain risk. Experiments span 18 checkpoints across 14 architectures, demonstrating the feasibility of such attacks.",
+    "type": "attack_on_ai",
+    "categories": [
+      "supply_chain"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28543",
+        "publisher": "arXiv",
+        "title": "Weight-Space Backdoors in Open-Weight LLMs: Cross-Architecture Attacks and Blind Model Forensics",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "backdoor",
+      "weight-modification",
+      "model-forensics"
+    ],
+    "created_at": "2026-11-24T18:07:03.091Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Weight-Space Backdoors in Open-Weight LLMs: Cross-Architecture Attacks and Blind Model Forensics",
+        "source_url": "https://arxiv.org/abs/2611.28543",
+        "added_at": "2026-11-24T18:07:03.091Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept backdoor insertion demonstrated, no known exploitation",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2156",
     "slug": "european-commission-confirms-data-theft-in-eu-academy-breach",
     "title": "European Commission confirms data theft in EU Academy breach",
@@ -1923,9 +2204,15 @@
         "publisher": "The Hacker News",
         "title": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-131914",
+        "publisher": "CISA",
+        "title": "CVE-2026-131914: Idunno AntiCsrf — Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1933,14 +2220,15 @@
       "CVE-2026-131914",
       "rce",
       "csrf",
-      "asp.net"
+      "asp.net",
+      "cisa-kev"
     ],
     "created_at": "2026-11-23T10:21:39.048Z",
-    "updated_at": "2026-11-23T10:21:39.048Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
-    "patch_status": "unpatched",
+    "patch_status": "partial",
     "cve_ids": [
       "CVE-2026-131914"
     ],
@@ -1955,6 +2243,12 @@
         "title": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
         "source_url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
         "added_at": "2026-11-23T10:21:39.048Z"
+      },
+      {
+        "date": "2026-11-24",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-131914",
+        "added_at": "2026-11-24T18:07:03.091Z"
       }
     ],
     "action": "Discontinue using the vulnerable Idunno.AntiCsrf library.",
@@ -5795,7 +6089,7 @@
     "categories": [
       "general"
     ],
-    "severity": 2,
+    "severity": 3,
     "targets": [
       "n/a"
     ],
@@ -5817,24 +6111,34 @@
         "publisher": "The Hacker News",
         "title": "Drupal Patches Critical Installer Flaw That Could Give Unauthenticated Attackers Control of Sites",
         "published_at": "2026-11-19"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-132165",
+        "publisher": "CISA",
+        "title": "CVE-2026-132165: Drupal Core — Drupal Core Remote Code Execution Vulnerability",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
     "tags": [
       "drupal",
       "rce",
-      "remote-code-execution"
+      "remote-code-execution",
+      "CVE-2026-132165",
+      "cisa-kev"
     ],
     "created_at": "2026-11-19T13:19:56.132Z",
-    "updated_at": "2026-11-19T15:44:16.278Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
     "patch_status": "patched",
-    "cve_ids": [],
+    "cve_ids": [
+      "CVE-2026-132165"
+    ],
     "affected": [],
     "fixed_in": [],
     "timeline": [
@@ -5843,6 +6147,12 @@
         "title": "Drupal patches critical RCE flaw, warns exploits may surface quickly",
         "source_url": "https://bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaw-warns-exploits-may-surface-quickly",
         "added_at": "2026-11-19T13:19:56.132Z"
+      },
+      {
+        "date": "2026-11-24",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-132165",
+        "added_at": "2026-11-24T18:07:03.091Z"
       }
     ],
     "action": "Update Drupal to the latest security release.",
@@ -10876,9 +11186,15 @@
         "publisher": "arXiv",
         "title": "LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent",
         "published_at": "2026-11-16"
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.30745",
+        "publisher": "arXiv",
+        "title": "Intent-Conditioned Argument Mediation for Tool-Using LLM Agents: Blocking Trusted-but-Unauthorized Arguments",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -10888,7 +11204,7 @@
       "safety-bypass"
     ],
     "created_at": "2026-11-16T06:24:59.316Z",
-    "updated_at": "2026-11-16T06:24:59.316Z",
+    "updated_at": "2026-11-24T18:07:03.091Z",
     "lane": "research",
     "state": "live",
     "closed_at": null,
@@ -10902,6 +11218,12 @@
         "title": "LLMs are Vulnerable to Malicious Requests with Indistinguishable Intent",
         "source_url": "https://arxiv.org/abs/2611.17818",
         "added_at": "2026-11-16T06:24:59.316Z"
+      },
+      {
+        "date": "2026-11-24",
+        "title": "Intent-Conditioned Argument Mediation for Tool-Using LLM Agents: Blocking Trusted-but-Unauthorized Arguments",
+        "source_url": "https://arxiv.org/abs/2611.30745",
+        "added_at": "2026-11-24T18:07:03.091Z"
       }
     ],
     "action": "",

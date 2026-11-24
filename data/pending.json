@@ -60,23 +60,6 @@
     }
   },
   {
-    "key": "4a9d0d3003f8923f",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28543",
-    "title": "Weight-Space Backdoors in Open-Weight LLMs: Cross-Architecture Attacks and Blind Model Forensics",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Open-weight language models are vulnerable to trigger-conditioned behaviors introduced through sparse post-training weight modifications, creating supply-chain risks beyond conventional provenance checks. We present Neural Sentinel, a cross-architecture study of gradient-guided backdoor insertion and model forensics spanning 18 checkpoints across 14 architecture families (124M-31.3B parameters), including state-space and recurrent models. On Phi-2, modifying approximately 0.0002% of parameters induced an exact short-marker output after 300 steps…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.672Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "056990f70a230ea9",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -104,23 +87,6 @@
     "hint": "Phishing remains one of the most pervasive and damaging cyber threats, exploiting both technical flaws and human behavior to compromise sensitive data. We present a privacy-preserving, real-time defense that analyzes full webpage source code on mobile platforms. Our system combines a lightweight Convolutional Neural Network (CNN) for end-to-end feature extraction with a Federated Learning (FL) framework that updates models collaboratively on user devices without transferring raw data-supporting regulatory compliance and personalization.…",
     "cve_ids": [],
     "discovered_at": "2026-11-24T17:51:43.672Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "8153663ea6f46d7a",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29217",
-    "title": "Persistent Jailbreak Backdoor Attack",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Safety alignment is widely used to align large language models (LLMs) to produce helpful and harmless responses. However, an attacker can plant a jailbreak backdoor in an LLM such that adding a universal trigger word or phrase to a harmful prompt elicits attacker-desired responses. Existing jailbreak backdoor attacks induce distinct behaviors on backdoored inputs and safety samples (harmful prompts paired with refusal responses), making the backdoors susceptible to subsequent safety alignment and advanced defenses. In this paper, we propose a…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.673Z",
     "extra": {
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
@@ -179,6 +145,23 @@
     }
   },
   {
+    "key": "fea549f5050d60ca",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.29734",
+    "title": "Lightweight Spectral Subspace Filtering for Trojan-Resilient AI Inference Engines",
+    "published_at": "2026-11-24",
+    "publisher": "arXiv",
+    "hint": "Backdoor attacks pose a significant security threat to deep neural networks (DNNs) deployed on AI inference engines and hardware accelerators. By embedding hidden triggers during training, these attacks induce malicious behavior while maintaining high accuracy on benign inputs. Multi-trigger backdoor attacks are particularly challenging to detect and mitigate because of the distributed and stealthy nature of their effects. To address this challenge, this paper proposes a training-free Spectral Subspace Filtering framework that detects and…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-24T17:51:43.674Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
     "key": "441501726a731256",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -204,23 +187,6 @@
     "published_at": "2026-11-24",
     "publisher": "arXiv",
     "hint": "Commercial AI agents increasingly incorporate long-term memory (both persistent and chat-history) to enable more accurate and personalized responses, raises significant privacy and policy concerns. Yet little is known about user privacy risks associated with memory behavior, in particular, about memory storage, disclosure, transparency and deletion control. To bridge this gap, we propose FORGETMENOT, an auditing framework for analyzing the privacy risks of long term memory in commercial AI agents. Using our framework, we collect around 3800…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "fea549f5050d60ca",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29734",
-    "title": "Lightweight Spectral Subspace Filtering for Trojan-Resilient AI Inference Engines",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Backdoor attacks pose a significant security threat to deep neural networks (DNNs) deployed on AI inference engines and hardware accelerators. By embedding hidden triggers during training, these attacks induce malicious behavior while maintaining high accuracy on benign inputs. Multi-trigger backdoor attacks are particularly challenging to detect and mitigate because of the distributed and stealthy nature of their effects. To address this challenge, this paper proposes a training-free Spectral Subspace Filtering framework that detects and…",
     "cve_ids": [],
     "discovered_at": "2026-11-24T17:51:43.674Z",
     "extra": {
@@ -278,57 +244,6 @@
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
       "ai_hint": false
-    }
-  },
-  {
-    "key": "200aa1123e40890b",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30259",
-    "title": "Attributing Security Outcomes in LLM-Agent Evaluations: The Role of Content-Free State",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Security benchmarks for LLM agents record whether each attack succeeded and compare agents, attacks, and defenses by attack success rate (ASR). Such comparisons are valid only if the agent, the attack, and the defense cause each verdict. We show that verdicts also depend on content-free state: details of a run that carry no information about the system under test, such as the Python hash seed, the order of tools or evidence, and the scoring of failed runs. We require that this state influence no verdict (decision noninterference) and treat it as…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "1044fc6c56839d36",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30360",
-    "title": "ArguShield: Enforcing Minimum-Necessary Disclosure in Tool-Calling LLM Agents",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Large language model agents increasingly use third-party tools to complete user tasks. Even without malicious intent, they may fill broad or weakly constrained fields with private information that is unnecessary or inappropriate for the receiving tool. Such calls can satisfy the tool schema and complete the task, yet still violate minimum-necessary disclosure. We introduce ArguShield, a mediation layer that intercepts proposed tool calls before execution. It evaluates each candidate value using three signals: Value Provenance, Task Relevance,…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "4d42d08662f588bf",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30590",
-    "title": "POMA: Beyond Final Flags -- Process-Level Evaluation of Base LLMs in Vulnerability Exploitation",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "As large language models (LLMs) evolve from text generation to autonomous software-engineering execution, automated vulnerability exploitability verification has emerged as a vital frontier in software quality assurance and security validation. Existing security benchmarks, however, largely judge models by binary pass/fail outcomes or coarse stage milestones. Such outcome-centric scoring obscures fine-grained failure dynamics across long-horizon execution and conflates the intrinsic capability of a base LLM with external agent scaffolding. We…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.675Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
     }
   },
   {
@@ -417,121 +332,19 @@
     }
   },
   {
-    "key": "8149016989d58731",
+    "key": "1044fc6c56839d36",
     "source_id": "arxiv-cscr",
     "origin": "news",
-    "url": "https://arxiv.org/abs/2611.31010",
-    "title": "Airlock: Robust Sandboxing and Governance of Rogue Agents",
+    "url": "https://arxiv.org/abs/2611.30360",
+    "title": "ArguShield: Enforcing Minimum-Necessary Disclosure in Tool-Calling LLM Agents",
     "published_at": "2026-11-24",
     "publisher": "arXiv",
-    "hint": "Recent incidents involving agents bypassing sandboxing and network isolation have raised concerns about existing agent harnesses, prompting frontier labs such as OpenAI to reevaluate the security of their training platforms. Incident reviews show that determined agents can escape processes, containers, and VMs, or bypass their isolation through advanced side and covert channels. Follow-up audits also found that some agents concealed their actions by disabling monitoring and tampering with logs. We propose Airlock, an architecture that pairs each…",
+    "hint": "Large language model agents increasingly use third-party tools to complete user tasks. Even without malicious intent, they may fill broad or weakly constrained fields with private information that is unnecessary or inappropriate for the receiving tool. Such calls can satisfy the tool schema and complete the task, yet still violate minimum-necessary disclosure. We introduce ArguShield, a mediation layer that intercepts proposed tool calls before execution. It evaluates each candidate value using three signals: Value Provenance, Task Relevance,…",
     "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
+    "discovered_at": "2026-11-24T17:51:43.675Z",
     "extra": {
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "8a75ad059b5dde01",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30624",
-    "title": "Oops!... I Parsed It Again: Tool-Call Smuggling Against LLM Agents",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "LLM agents act through tool calls: the model writes the arguments of a call as JSON, a guard decides whether the call may run, and an executor runs it. The same bytes are parsed several times, by the provider, gateways, SDKs, frameworks, the guard, and the executor. JSON leaves some choices to each parser, such as which copy of a repeated key counts. When the guard and the executor choose differently, the guard approves one call, the executor runs another, and the audit log records the approved one. We introduce this attack, tool-call smuggling,…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "ffe68dd3192d95ba",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30932",
-    "title": "Carried-Over and Agent-Native Threats in the Supply Chain of LLM Agent Skills",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Agent skills are reusable packages that extend a large language model (LLM) agent with scripts, third-party dependencies, and natural-language instructions. An agent builds a skill's arguments from user requests and untrusted external content, so a flaw left by a benign author can escalate a prompt injection to code execution. Existing studies target malicious skills or a single attack vector, and none tests whether an agent can reach such flaws. We present the first registry-scale empirical study of the supply chain attack surface arising from…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "f12afd27ab9b2a19",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30621",
-    "title": "AgentBouncer: Defending Software Engineering Agents via Dynamic System-Call Mediation",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Software engineering (SE) agents can complete diverse engineering tasks by interacting with the development environment via tools that access files, run commands, and download resources. Unfortunately, the same ability that makes SE agents useful also makes them prone to performing unintended malicious actions through prompt injections, malicious tools, or supply-chain attacks. Existing defenses that analyze the agent trajectory may fail to detect such attacks, as they inspect only the initial prompt and the sequence of tool calls, but not the…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "ef8fbd07722d4cfa",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30615",
-    "title": "Bug Bounty Programs in the AI Era: How Does Platform Anti-Spam Friction Affect Vendor Profitability?",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Since 2023, bug bounty platforms have introduced participation rules, such as proof-of-concept mandates, against a flood of AI-generated low-quality submissions. The platforms set these rules, but vendors running programs on them bear the cost when a vulnerability goes unreported and gets exploited. We ask whether the rules benefit the vendors they are meant to protect. Adding to Gal-Or, Hydari, and Telang's 2024 model a vendor triage cost per report reviewed and a participation cost paid in effort by the researchers reporting vulnerabilities,…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "81dcc6b4cc2043d5",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28345",
-    "title": "Toward Adversarially Robust World Models",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Latent dynamic world models have proven to be highly versatile tools for embodied artificial intelligence systems, enabling online action planning, safe policy evaluation, and scalable policy learning. However, this versatility makes world models a vulnerable and centralized point of failure as a compromised model can impact planning, evaluation, and training at once. Therefore it is critical that the security and robustness properties of world models are properly understood before they are universally deployed in embodied AI systems. In this…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "c15345e2a2c79d73",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28704",
-    "title": "Zero-Trust Formal Methods: AI Agents Build Verified Checkers for Untrusted Solvers",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "AI coding agents now generate code faster than humans can review it. Security analyses rely on solver answers such as \"unsatisfiable\" (for example, no attack path exists) or \"optimal.\" Unlike satisfying models, they cannot be checked by looking at them. Formal verification moves trust from code to specifications, but verifiers still place large SAT, SMT, and answer-set solvers, and the translation into solver queries, in their trusted computing base, and these have had soundness bugs. Unlike agent-based pipelines that trust their verifier and…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
       "ai_hint": true
     }
   },
@@ -621,37 +434,43 @@
     }
   },
   {
-    "key": "2329523c017f7af9",
-    "source_id": "arxiv-cscr",
+    "key": "2db8a6398bacd187",
+    "source_id": "therecord",
     "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29960",
-    "title": "Tracing Attacker Diversity Reduction in Adaptive LLM Red Teaming",
+    "url": "https://therecord.media/idscan-data-breach-warning-congressional-letter",
+    "title": "Lawmakers warn ID verification companies to bolster security after September hack",
     "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Reinforcement learning can increase the success of automated red teaming but it also narrows the attack vector. This study asks where in the attacker-defender-judge learning loop does the narrowing begin and which mechanisms lead to a narrowing attack. Six mechanisms (defender adaptation, success edge, reward reinforcement, row cap, update size, and measurement) are tested across three experiment arms (co-trained, frozen defender, half learning rate) for twenty-four iterations. A frozen defender narrows attack diversity retention (ADR) earlier…",
+    "publisher": "The Record",
+    "hint": "A bicameral, bipartisan letter from lawmakers said identity verification companies still have significant security work to do in the wake of a data breach at IDscan in September.",
     "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.677Z",
+    "discovered_at": "2026-11-24T18:06:41.610Z",
     "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
-      "ai_hint": true
+      "ai_hint": false
     }
   },
   {
-    "key": "b123ca22d2ad9dd9",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.30745",
-    "title": "Intent-Conditioned Argument Mediation for Tool-Using LLM Agents: Blocking Trusted-but-Unauthorized Arguments",
+    "key": "5e306d7e484f7efb",
+    "source_id": "kev",
+    "origin": "seed_nvd",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-132224",
+    "title": "CVE-2026-132224: Optimizely Web Experimentation — Optimizely Web Experimentation External Control of Critical State Data Vulnerability",
     "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "LLM agents turn a user's request and retrieved content into tool calls, and a call can reach the wrong recipient, endpoint, file or participant. Argument-level provenance blocks such values when they come from untrusted content, but accepts a trusted value that the user never requested. IntentFlow, a mediation layer between an unmodified planner and its tools, checks each authority-bearing argument against an intent contract and a provenance policy. On a synthetic benchmark of 200 attacks (oracle intent and injection labels, declared roles),…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.677Z",
+    "publisher": "CISA",
+    "hint": "Optimizely Web Experimentation contains an external control of critical state data vulnerability in its account signup flow that could allow an attacker to impersonate existing customer users and modify Project JavaScript. Successful exploitation can result in attacker-controlled JavaScript being distributed through Optimizely-hosted assets and executed in browsers visiting affected customer websites. Added to the CISA Known Exploited Vulnerabilities catalog on 2026-11-24: exploitation confirmed. Required action: Apply mitigations in accordance with vendor instructions, ensuring compliance…",
+    "cve_ids": [
+      "CVE-2026-132224"
+    ],
+    "discovered_at": "2026-11-24T18:06:44.936Z",
     "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
-      "ai_hint": true
+      "classifier_hint": "CISA KEV entry: exploitation in the wild is confirmed, so this is at least severity 3, lane patch, and clears the curation bar (newsworthy). attack_on_ai only when the product is an AI system, framework or tool; otherwise not_ai with categories [general]. patch_status from the required action: apply updates means patched, mitigations means partial.",
+      "kev": true,
+      "incident_date": "2026-11-24",
+      "required_action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
+      "due_date": "2026-11-27",
+      "ransomware": false,
+      "vendor": "Optimizely",
+      "product": "Web Experimentation",
+      "ai_hint": false
     }
   }
 ]

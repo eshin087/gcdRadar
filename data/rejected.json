@@ -1,5 +1,75 @@
 [
   {
+    "key": "200aa1123e40890b",
+    "title": "Attributing Security Outcomes in LLM-Agent Evaluations: The Role of Content-Free State",
+    "url": "https://arxiv.org/abs/2611.30259",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): Paper only discusses benchmarks, no concrete attack or vulnerability demonstrated",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-24T18:07:03.091Z"
+  },
+  {
+    "key": "8149016989d58731",
+    "title": "Airlock: Robust Sandboxing and Governance of Rogue Agents",
+    "url": "https://arxiv.org/abs/2611.31010",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope, no AI role (0.60): Paper proposes a defensive architecture without demonstrating a concrete attack",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-24T18:07:03.091Z"
+  },
+  {
+    "key": "f12afd27ab9b2a19",
+    "title": "AgentBouncer: Defending Software Engineering Agents via Dynamic System-Call Mediation",
+    "url": "https://arxiv.org/abs/2611.30621",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Out of scope – defense‑only research without a demonstrated attack.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-24T18:07:03.091Z"
+  },
+  {
+    "key": "ef8fbd07722d4cfa",
+    "title": "Bug Bounty Programs in the AI Era: How Does Platform Anti-Spam Friction Affect Vendor Profitability?",
+    "url": "https://arxiv.org/abs/2611.30615",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Out of scope – economic analysis without a concrete security incident.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-24T18:07:03.091Z"
+  },
+  {
+    "key": "2329523c017f7af9",
+    "title": "Tracing Attacker Diversity Reduction in Adaptive LLM Red Teaming",
+    "url": "https://arxiv.org/abs/2611.29960",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Out of scope – experimental study without a disclosed exploit.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-24T18:07:03.091Z"
+  },
+  {
+    "key": "4d42d08662f588bf",
+    "title": "POMA: Beyond Final Flags -- Process-Level Evaluation of Base LLMs in Vulnerability Exploitation",
+    "url": "https://arxiv.org/abs/2611.30590",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: benchmark/analysis paper, no demonstrated attack or vulnerability",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-24T18:07:03.091Z"
+  },
+  {
+    "key": "c15345e2a2c79d73",
+    "title": "Zero-Trust Formal Methods: AI Agents Build Verified Checkers for Untrusted Solvers",
+    "url": "https://arxiv.org/abs/2611.28704",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Out of scope: does not demonstrate attack or vulnerability, focuses on defensive verification methods",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-24T18:07:03.091Z"
+  },
+  {
     "key": "131ea544c4e8e6e1",
     "title": "UK cyber agency, threat companies tracking rise in AI-assisted hacks",
     "url": "https://cyberscoop.com/uk-ncsc-ai-assisted-cyberattacks",
