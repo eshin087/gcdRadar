@@ -1,5 +1,60 @@
 [
   {
+    "id": "AIR-2026-2151",
+    "slug": "mcdonald-s-japan-breach-exposes-customer-purchase-and-locati",
+    "title": "McDonald’s Japan breach exposes customer purchase and location data",
+    "summary": "McDonald’s Japan disclosed a cybersecurity breach that exposed customers’ purchase histories and mobile device location data. The incident affects the personal information of many customers and may require notification and remediation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://therecord.media/japan-mcdonalds-cyberattack-breach",
+        "publisher": "The Record",
+        "title": "McDonald’s Japan discloses breach exposing customer purchase and location data",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "customer-data",
+      "location-data"
+    ],
+    "created_at": "2026-11-24T13:21:56.442Z",
+    "updated_at": "2026-11-24T13:21:56.442Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "McDonald’s Japan discloses breach exposing customer purchase and location data",
+        "source_url": "https://therecord.media/japan-mcdonalds-cyberattack-breach",
+        "added_at": "2026-11-24T13:21:56.442Z"
+      }
+    ],
+    "action": "Investigate the breach, secure systems, and notify affected customers",
+    "severity_note": "Customer purchase and location data were exposed",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2150",
     "slug": "elecbrakes-bluetooth-controllers-vulnerable-to-forced-brakin",
     "title": "Elecbrakes Bluetooth Controllers Vulnerable to Forced Braking",
