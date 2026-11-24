@@ -60,23 +60,6 @@
     }
   },
   {
-    "key": "056990f70a230ea9",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28312",
-    "title": "An LLM-Assisted Multi-Objective AutoML Framework for Efficient Network Intrusion Detection",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Conventional Machine Learning (ML)-based Intrusion Detection Systems (IDSs) require manual design, optimize only detection performance, and neglect inference latency and model size, which are critical for resource-constrained Internet of Things (IoT) and Electric Vehicle Charging System (EVCS) deployments. Automated ML (AutoML) reduces manual effort but explores broad search spaces inefficiently. Meanwhile, Multi-Objective Optimization (MOO) methods lack guided search initialization, leading to long search times. This paper proposes a Large…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.672Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "0ce6e999e1ce4802",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -261,23 +244,6 @@
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
       "ai_hint": true
-    }
-  },
-  {
-    "key": "86de3a48998c3e3d",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28168",
-    "title": "SecretSifter: A Runtime Secret-Detection Engine for Live Web Traffic",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Credentials embedded in client-delivered web artifacts, such as minified JavaScript bundles, webpack chunks, server-side-rendered state objects, and JSON or XML API responses, form a runtime attack surface that repository-time (shift-left) secret scanners do not observe, because the credential enters the served artifact at build time or at runtime, after every source-code gate has passed. This paper presents SecretSifter, an open-source runtime secret-detection engine that inspects live web traffic and reports secret-grade credentials at the…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
-      "ai_hint": false
     }
   },
   {

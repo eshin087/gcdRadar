@@ -1,5 +1,25 @@
 [
   {
+    "key": "86de3a48998c3e3d",
+    "title": "SecretSifter: A Runtime Secret-Detection Engine for Live Web Traffic",
+    "url": "https://arxiv.org/abs/2611.28168",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defense research paper without demonstrated attack or AI abuse",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-24T19:41:14.486Z"
+  },
+  {
+    "key": "056990f70a230ea9",
+    "title": "An LLM-Assisted Multi-Objective AutoML Framework for Efficient Network Intrusion Detection",
+    "url": "https://arxiv.org/abs/2611.28312",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defense/technology research paper without demonstrated attack or AI abuse",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-24T19:41:14.486Z"
+  },
+  {
     "key": "8a824cd981833873",
     "title": "Comparative Analysis of Machine Learning Classifiers for Lightweight IoT Intrusion Detection Using Feature Reduction",
     "url": "https://arxiv.org/abs/2611.29869",
