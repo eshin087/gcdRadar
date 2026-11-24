@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2155",
+    "slug": "carnegie-endowment-donor-data-leaked-after-third-party-vendo",
+    "title": "Carnegie Endowment donor data leaked after third‑party vendor breach",
+    "summary": "A cyberattack on the third‑party vendor Soapbox Engage exposed personal information of donors to the Carnegie Endowment for International Peace. The breach resulted in the leakage of donor names, contact details, and donation amounts.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [
+      "Soapbox Engage"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://therecord.media/carnegie-endowment-data-breach",
+        "publisher": "The Record",
+        "title": "Carnegie Endowment for International Peace says third-party breach leaked donation info",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "third-party",
+      "donor"
+    ],
+    "created_at": "2026-11-24T16:06:25.699Z",
+    "updated_at": "2026-11-24T16:06:25.699Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Carnegie Endowment for International Peace says third-party breach leaked donation info",
+        "source_url": "https://therecord.media/carnegie-endowment-data-breach",
+        "added_at": "2026-11-24T16:06:25.699Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed loss of donor personal data",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2154",
     "slug": "cisa-warns-of-exploited-n-able-bug-as-company-restores-email",
     "title": "CISA warns of exploited N-able bug as company restores email platform",
