@@ -1,5 +1,15 @@
 [
   {
+    "key": "60b4afe1f0a3a4a3",
+    "title": "Linux patches can take weeks, and OpenAI and Cisco built Shirudo to help in the meantime",
+    "url": "https://helpnetsecurity.com/2026/11/24/cisco-openai-shirudo",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product announcement of a mitigation tool, not a specific incident, breach, vulnerability, or malicious supply-chain event.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T06:06:44.896Z"
+  },
+  {
     "key": "92ecbd2cf37758a3",
     "title": "SecretAgent: A Multi-Agent Framework for Privacy Protection against Vision Language Models",
     "url": "https://arxiv.org/abs/2611.26936",
