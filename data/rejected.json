@@ -1,5 +1,15 @@
 [
   {
+    "key": "2db8a6398bacd187",
+    "title": "Lawmakers warn ID verification companies to bolster security after September hack",
+    "url": "https://therecord.media/idscan-data-breach-warning-congressional-letter",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Follow‑up commentary on prior breach, not a new incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T21:15:41.685Z"
+  },
+  {
     "key": "1d8602a86e1aa0bd",
     "title": "AutoClip-DPZO: Practical Private Clipping Selection for Differentially Private Zeroth-Order LLM Fine-Tuning",
     "url": "https://arxiv.org/abs/2611.30352",
