@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2153",
+    "slug": "check-point-security-management-servers-hacked-in-ai-assiste",
+    "title": "Check Point Security Management Servers Hacked in AI‑Assisted Campaign",
+    "summary": "Threat actors compromised Check Point Security Management Servers as part of a campaign that leveraged AI tools. The attacks originated from 99 IP addresses and affected organizations across multiple industries.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Check Point Security Management Server"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign",
+        "publisher": "SecurityWeek",
+        "title": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.92,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "check-point",
+      "ai-assisted",
+      "campaign"
+    ],
+    "created_at": "2026-11-24T14:36:25.051Z",
+    "updated_at": "2026-11-24T14:36:25.051Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
+        "source_url": "https://securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign",
+        "added_at": "2026-11-24T14:36:25.051Z"
+      }
+    ],
+    "action": "Investigate the breach and apply any available patches or mitigations",
+    "severity_note": "Exploitation confirmed via compromised servers",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2152",
     "slug": "vmware-vcenter-hit-by-another-critical-9-8-rated-auth-bypass",
     "title": "VMware vCenter Hit by Another Critical 9.8-Rated Auth Bypass Flaw After Zero-Day Exploitation",

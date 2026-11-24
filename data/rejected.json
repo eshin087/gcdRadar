@@ -1,5 +1,15 @@
 [
   {
+    "key": "6561d3ddaba666e5",
+    "title": "Astelia blocks attack paths to vulnerabilities without waiting for patches",
+    "url": "https://helpnetsecurity.com/2026/11/24/astelia-autonomous-network-mitigation",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope, no AI role (0.60): Vendor product announcement without a specific security incident",
+    "confidence": 0.6,
+    "rejected_at": "2026-11-24T14:36:25.051Z"
+  },
+  {
     "key": "f11098c507607eb0",
     "title": "UK cyber agency seeing ‘marked rise’ in AI-driven attacks",
     "url": "https://therecord.media/cyberattacks-uk-artificial-intelligence",
