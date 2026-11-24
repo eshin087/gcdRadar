@@ -1,5 +1,60 @@
 [
   {
+    "id": "AIR-2026-2163",
+    "slug": "who-is-prompt-injecting-coding-agents-an-empirical-study-of",
+    "title": "Who Is Prompt-Injecting Coding Agents? An Empirical Study of Hidden AI-Directed Text on GitHub",
+    "summary": "Researchers analyzed GitHub repositories and found widespread hidden prompt‑injection attacks against coding agents that execute untrusted text. The study documents real‑world exploitation of LLM‑driven tools, highlighting a prompt‑injection vulnerability.",
+    "type": "attack_on_ai",
+    "categories": [
+      "prompt_injection"
+    ],
+    "severity": 3,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.28763",
+        "publisher": "arXiv",
+        "title": "Who Is Prompt-Injecting Coding Agents? An Empirical Study of Hidden AI-Directed Text on GitHub",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt-injection",
+      "github",
+      "coding-agents"
+    ],
+    "created_at": "2026-11-24T19:21:53.528Z",
+    "updated_at": "2026-11-24T19:21:53.528Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "Who Is Prompt-Injecting Coding Agents? An Empirical Study of Hidden AI-Directed Text on GitHub",
+        "source_url": "https://arxiv.org/abs/2611.28763",
+        "added_at": "2026-11-24T19:21:53.528Z"
+      }
+    ],
+    "action": "Implement input sanitization and restrict model access to untrusted code",
+    "severity_note": "Observed real‑world prompt‑injection attacks",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2162",
     "slug": "chip-contrastive-hardware-image-projection-reveals-image-rec",
     "title": "CHIP: Contrastive Hardware‑Image Projection reveals image reconstruction from CPU side‑channel using OpenAI CLIP",

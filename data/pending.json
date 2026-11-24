@@ -94,23 +94,6 @@
     }
   },
   {
-    "key": "0560883253da1784",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28763",
-    "title": "Who Is Prompt-Injecting Coding Agents? An Empirical Study of Hidden AI-Directed Text on GitHub",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "AI coding agents now triage issues, review pull requests and pick up tasks inside GitHub repositories, and to do so they read text that anyone with a GitHub account can write. This makes GitHub a prime surface for indirect prompt injection, in which instructions embedded in untrusted content steer a model that later processes it. Prior work has demonstrated such attacks against agents on GitHub in controlled settings, but how often they occur in practice, who deploys them, and for what purpose remain unknown. We present the first large-scale…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.673Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
     "key": "e0d28572d078ffc2",
     "source_id": "arxiv-cscr",
     "origin": "news",
@@ -121,23 +104,6 @@
     "hint": "Multimodal web agents automate website interactions but remain vulnerable to visual prompt injection (VPI), where malicious webpage content manipulates their visual processing and induces unintended actions. Although several defenses focus on detecting injected instructions in screenshots, malicious destinations such as phishing URLs embedded in HTML can remain hidden yet accessible through agent interactions. Existing evaluations have also not sufficiently examined adaptive attackers who know the defense mechanisms. To address these…",
     "cve_ids": [],
     "discovered_at": "2026-11-24T17:51:43.673Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "8a824cd981833873",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.29869",
-    "title": "Comparative Analysis of Machine Learning Classifiers for Lightweight IoT Intrusion Detection Using Feature Reduction",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Machine learning-based intrusion detection systems can improve IoT security, but high-dimensional traffic features and imbalanced datasets may reduce model reliability and deployment feasibility in resource-constrained environments. This study presents a lightweight binary IoT intrusion detection framework using an approximately balanced CICIoT2023 derived dataset, feature reduction, and comparative machine learning evaluation. The original multi-class attack labels were converted into two classes: Benign and Malicious. To reduce class bias,…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.674Z",
     "extra": {
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
@@ -294,23 +260,6 @@
     "extra": {
       "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
       "announce_type": "new",
-      "ai_hint": true
-    }
-  },
-  {
-    "key": "61971d01de4d7eee",
-    "source_id": "arxiv-cscr",
-    "origin": "news",
-    "url": "https://arxiv.org/abs/2611.28314",
-    "title": "INSEP: Refusal-Direction Inseparability as a Defense Against Abliteration",
-    "published_at": "2026-11-24",
-    "publisher": "arXiv",
-    "hint": "Abliteration is a widely used white-box attack against the safety alignment of large language models (LLMs). It elicits harmful behavior by estimating a refusal direction in the model's activation space and projecting that direction out of the residual-stream write-out matrices. We propose INSEP, a defense that fine-tunes the model to reduce the separability of harmful and benign activations along the refusal direction. Abliteration estimates this direction as a difference in class means and projects it out. Reducing separability weakens the…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-24T17:51:43.676Z",
-    "extra": {
-      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
-      "announce_type": "cross",
       "ai_hint": true
     }
   },
