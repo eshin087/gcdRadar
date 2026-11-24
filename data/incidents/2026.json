@@ -1,5 +1,71 @@
 [
   {
+    "id": "AIR-2026-2148",
+    "slug": "cve-2026-133448-autogpt-input-preprocessing-flaw-allows-cli",
+    "title": "CVE-2026-133448: AutoGPT input preprocessing flaw allows CLI command execution and arbitrary file reads",
+    "summary": "AutoGPT versions 0.7.1 through 0.8.4 fail to properly pre-process chat and prompt text before passing it to the Claude Code CLI. This flaw allows messages starting with specific characters to execute arbitrary CLI commands and read host files, bypassing security hooks.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln",
+      "agent_hijack"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling",
+      "Anthropic"
+    ],
+    "products": [
+      "AutoGPT",
+      "Claude Code CLI",
+      "Claude Agent SDK"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133448",
+        "publisher": "NVD",
+        "title": "CVE-2026-133448: AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents.",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133448",
+      "command-injection",
+      "arbitrary-file-read",
+      "ai-agent"
+    ],
+    "created_at": "2026-11-24T01:40:50.194Z",
+    "updated_at": "2026-11-24T01:40:50.194Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-24",
+    "patch_status": "unpatched",
+    "cve_ids": [
+      "CVE-2026-133448"
+    ],
+    "affected": [
+      "0.7.1 to 0.8.4"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CVE-2026-133448: AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133448",
+        "added_at": "2026-11-24T01:40:50.194Z"
+      }
+    ],
+    "action": "Review the advisory and update AutoGPT once a patch is made available.",
+    "severity_note": "Disclosed vulnerability in an AI framework without confirmed wild exploitation.",
+    "cvss": 7.1
+  },
+  {
     "id": "AIR-2026-2147",
     "slug": "gofundme-donor-information-exposed-in-data-breach",
     "title": "GoFundMe donor information exposed in data breach",
