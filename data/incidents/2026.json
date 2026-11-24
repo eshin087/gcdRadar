@@ -1119,9 +1119,15 @@
         "publisher": "The Hacker News",
         "title": "Microsoft Fixes Azure API Management Classic Flaw as Actor Targets Customer Secrets",
         "published_at": "2026-11-24"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/24/azure-apim-vulnerability-credential-theft",
+        "publisher": "Help Net Security",
+        "title": "Azure API Management vulnerability exploited to steal customers’ secrets",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 4,
+    "source_count": 5,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -1131,7 +1137,7 @@
       "exploitation-in-the-wild"
     ],
     "created_at": "2026-11-23T15:51:41.359Z",
-    "updated_at": "2026-11-24T10:59:47.575Z",
+    "updated_at": "2026-11-24T12:21:50.598Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
