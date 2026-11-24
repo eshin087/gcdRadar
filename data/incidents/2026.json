@@ -727,9 +727,15 @@
         "publisher": "BleepingComputer",
         "title": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://therecord.media/laliga-hacked-spain-top-professional-league-confirms-cyber-incident",
+        "publisher": "The Record",
+        "title": "LaLiga hacked: Spain’s top football league confirms theft of fans’ personal data",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -739,7 +745,7 @@
       "laliga"
     ],
     "created_at": "2026-11-23T19:06:36.762Z",
-    "updated_at": "2026-11-23T19:06:36.762Z",
+    "updated_at": "2026-11-24T09:51:49.526Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -905,9 +911,15 @@
         "publisher": "BleepingComputer",
         "title": "GlobeTopper loses $2.5 million after hackers steal $70k in gift cards",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/24/globetopper-breach-gift-cards",
+        "publisher": "Help Net Security",
+        "title": "GlobeTopper faces up to $2.5 million in lost revenue after hackers steal $70,000 in gift cards",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -918,7 +930,7 @@
       "breach"
     ],
     "created_at": "2026-11-23T16:51:50.126Z",
-    "updated_at": "2026-11-23T16:51:50.126Z",
+    "updated_at": "2026-11-24T09:51:49.526Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -932,6 +944,12 @@
         "title": "GlobeTopper loses $2.5 million after hackers steal $70k in gift cards",
         "source_url": "https://bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards",
         "added_at": "2026-11-23T16:51:50.126Z"
+      },
+      {
+        "date": "2026-11-24",
+        "title": "SEC filing reveals the breach occurred after hackers stole API credentials and forced the platform offline on October 23",
+        "source_url": "https://helpnetsecurity.com/2026/11/24/globetopper-breach-gift-cards",
+        "added_at": "2026-11-24T09:51:49.526Z"
       }
     ],
     "action": "Investigate the incident, revoke compromised gift cards, and strengthen authentication controls.",
