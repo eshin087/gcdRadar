@@ -1,5 +1,354 @@
 [
   {
+    "id": "AIR-2026-2179",
+    "slug": "cve-2026-136538-litellm-virtual-key-model-alias-incorrect-au",
+    "title": "CVE-2026-136538: LiteLLM Virtual Key Model Alias Incorrect Authorization Privilege Escalation Vulnerability",
+    "summary": "A privilege escalation vulnerability (CVE-2026-136538) was discovered in LiteLLM's virtual key model alias handling. The flaw allows authenticated remote attackers to gain higher privileges, but it has a CVSS score of 6.5 and no known exploitation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LiteLLM"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136538",
+        "publisher": "NVD",
+        "title": "CVE-2026-136538: LiteLLM Virtual Key Model Alias Incorrect Authorization Privilege Escalation Vulnerability.",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-136538",
+      "privilege-escalation",
+      "litellm"
+    ],
+    "created_at": "2026-11-24T21:40:59.752Z",
+    "updated_at": "2026-11-24T21:40:59.752Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-24",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-136538"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CVE-2026-136538: LiteLLM Virtual Key Model Alias Incorrect Authorization Privilege Escalation Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136538",
+        "added_at": "2026-11-24T21:40:59.752Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Medium CVSS 6.5 and no exploitation reported",
+    "cvss": 6.5
+  },
+  {
+    "id": "AIR-2026-2178",
+    "slug": "cve-2026-136539-litellm-pass-through-endpoint-code-injection",
+    "title": "CVE-2026-136539: LiteLLM Pass-Through Endpoint Code Injection Remote Code Execution Vulnerability",
+    "summary": "A code injection flaw in LiteLLM's pass‑through endpoint permits authenticated attackers to execute arbitrary code via module import. The vulnerability requires authentication and runs code under the service account.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LiteLLM"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136539",
+        "publisher": "NVD",
+        "title": "CVE-2026-136539: LiteLLM Pass-Through Endpoint Code Injection Remote Code Execution Vulnerability.",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-136539",
+      "code-injection"
+    ],
+    "created_at": "2026-11-24T21:40:59.752Z",
+    "updated_at": "2026-11-24T21:40:59.752Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-24",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-136539"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CVE-2026-136539: LiteLLM Pass-Through Endpoint Code Injection Remote Code Execution Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136539",
+        "added_at": "2026-11-24T21:40:59.752Z"
+      }
+    ],
+    "action": "Disable pass‑through endpoints until a fix is released and monitor for updates",
+    "severity_note": "Disclosed vulnerability with CVSS 7.2 (HIGH), no confirmed exploitation",
+    "cvss": 7.2
+  },
+  {
+    "id": "AIR-2026-2177",
+    "slug": "cve-2026-136535-litellm-mcp-command-injection-remote-code-ex",
+    "title": "CVE-2026-136535: LiteLLM MCP Command Injection Remote Code Execution Vulnerability",
+    "summary": "LiteLLM's MCP stdio configuration handling allows command injection, enabling remote attackers to execute arbitrary code with the service account's privileges. Authentication is required to trigger the flaw.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LiteLLM"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136535",
+        "publisher": "NVD",
+        "title": "CVE-2026-136535: LiteLLM MCP Command Injection Remote Code Execution Vulnerability.",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-136535",
+      "rce"
+    ],
+    "created_at": "2026-11-24T21:40:59.752Z",
+    "updated_at": "2026-11-24T21:40:59.752Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-24",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-136535"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CVE-2026-136535: LiteLLM MCP Command Injection Remote Code Execution Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136535",
+        "added_at": "2026-11-24T21:40:59.752Z"
+      }
+    ],
+    "action": "Implement input sanitization and monitor for vendor patches",
+    "severity_note": "Disclosed vulnerability with CVSS 7.2 (HIGH), no confirmed exploitation",
+    "cvss": 7.2
+  },
+  {
+    "id": "AIR-2026-2176",
+    "slug": "cve-2026-136537-litellm-key-management-endpoints-missing-aut",
+    "title": "CVE-2026-136537: LiteLLM key_management_endpoints Missing Authorization Security Feature Bypass Vulnerability",
+    "summary": "The key_management_endpoints module in LiteLLM lacks proper authorization checks, allowing authenticated attackers to bypass security features and elevate privileges. The issue can be leveraged to access protected resources.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LiteLLM"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136537",
+        "publisher": "NVD",
+        "title": "CVE-2026-136537: LiteLLM key_management_endpoints Missing Authorization Security Feature Bypass Vulnerability.",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-136537",
+      "privilege-escalation"
+    ],
+    "created_at": "2026-11-24T21:40:59.752Z",
+    "updated_at": "2026-11-24T21:40:59.752Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-24",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-136537"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CVE-2026-136537: LiteLLM key_management_endpoints Missing Authorization Security Feature Bypass Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136537",
+        "added_at": "2026-11-24T21:40:59.752Z"
+      }
+    ],
+    "action": "Restrict access to key management endpoints and await a security update",
+    "severity_note": "Disclosed vulnerability with CVSS 6.5 (MEDIUM), no confirmed exploitation",
+    "cvss": 6.5
+  },
+  {
+    "id": "AIR-2026-2175",
+    "slug": "cve-2026-136536-litellm-is-request-body-safe-server-side-req",
+    "title": "CVE-2026-136536: LiteLLM is_request_body_safe Server-Side Request Forgery Information Disclosure Vulnerability",
+    "summary": "LiteLLM fails to validate the api_base parameter in chat completion requests, enabling remote attackers to disclose information. The flaw requires authentication and can be used to access internal resources.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LiteLLM"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136536",
+        "publisher": "NVD",
+        "title": "CVE-2026-136536: LiteLLM is_request_body_safe  Server-Side Request Forgery Information Disclosure Vulnerability.",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-136536",
+      "ssrf"
+    ],
+    "created_at": "2026-11-24T21:40:59.752Z",
+    "updated_at": "2026-11-24T21:40:59.752Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-24",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-136536"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CVE-2026-136536: LiteLLM is_request_body_safe  Server-Side Request Forgery Information Disclosure Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136536",
+        "added_at": "2026-11-24T21:40:59.752Z"
+      }
+    ],
+    "action": "Apply any vendor‑provided mitigations and monitor for a patch",
+    "severity_note": "Disclosed vulnerability with CVSS 6.4, no confirmed exploitation",
+    "cvss": 6.4
+  },
+  {
+    "id": "AIR-2026-2174",
+    "slug": "cve-2026-136540-litellm-secret-manager-oidc-resolver-informa",
+    "title": "CVE-2026-136540: LiteLLM Secret Manager OIDC Resolver Information Disclosure Vulnerability",
+    "summary": "A vulnerability in LiteLLM's secret manager OIDC resolver allows remote attackers to disclose sensitive information. Exploitation requires authentication and may lead to arbitrary code execution when chained with other flaws.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LiteLLM"
+    ],
+    "incident_date": "2026-11-24",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136540",
+        "publisher": "NVD",
+        "title": "CVE-2026-136540: LiteLLM Secret Manager oidc Resolver Information Disclosure Vulnerability.",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-136540",
+      "info-disclosure"
+    ],
+    "created_at": "2026-11-24T21:40:59.752Z",
+    "updated_at": "2026-11-24T21:40:59.752Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-24",
+    "patch_status": "unknown",
+    "cve_ids": [
+      "CVE-2026-136540"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "CVE-2026-136540: LiteLLM Secret Manager oidc Resolver Information Disclosure Vulnerability.",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136540",
+        "added_at": "2026-11-24T21:40:59.752Z"
+      }
+    ],
+    "action": "Monitor for patches and restrict access to the secret manager until a fix is released",
+    "severity_note": "Disclosed vulnerability with CVSS rating, no confirmed exploitation",
+    "cvss": 5.3
+  },
+  {
     "id": "AIR-2026-2173",
     "slug": "radware-discloses-breach-exposing-customer-cloud-access-keys",
     "title": "Radware Discloses Breach Exposing Customer Cloud Access Keys",
@@ -10623,7 +10972,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-17T02:42:20.238Z",
-    "updated_at": "2026-11-24T21:21:50.331Z",
+    "updated_at": "2026-11-24T21:40:59.752Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
@@ -10675,7 +11024,7 @@
     ],
     "action": "Deploy the vendor's fix to remediate the vulnerability",
     "severity_note": "Confirmed real-world supply chain incident affecting third-party websites.",
-    "cvss": null
+    "cvss": 8.7
   },
   {
     "id": "AIR-2026-1998",

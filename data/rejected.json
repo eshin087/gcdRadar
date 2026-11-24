@@ -1,5 +1,15 @@
 [
   {
+    "key": "514acac696549382",
+    "title": "'God Mode' Flaws Could Wreak Border-Control Havoc",
+    "url": "https://darkreading.com/vulnerabilities-threats/god-mode-flaws-wreak-border-control-havoc",
+    "publisher": "Dark Reading",
+    "source_id": "darkreading",
+    "reason": "out of scope: Speculative article without concrete incident or vulnerability",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-24T21:40:59.752Z"
+  },
+  {
     "key": "1044fc6c56839d36",
     "title": "ArguShield: Enforcing Minimum-Necessary Disclosure in Tool-Calling LLM Agents",
     "url": "https://arxiv.org/abs/2611.30360",
