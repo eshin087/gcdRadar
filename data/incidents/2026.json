@@ -82,9 +82,15 @@
         "publisher": "The Record",
         "title": "McDonald’s Japan discloses breach exposing customer purchase and location data",
         "published_at": "2026-11-24"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/mcdonalds-japan-data-breach-exposes-customer-location-information",
+        "publisher": "BleepingComputer",
+        "title": "McDonald's Japan data breach exposes customer location information",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -94,7 +100,7 @@
       "location-data"
     ],
     "created_at": "2026-11-24T13:21:56.442Z",
-    "updated_at": "2026-11-24T13:21:56.442Z",
+    "updated_at": "2026-11-24T14:21:35.332Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
