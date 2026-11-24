@@ -664,9 +664,15 @@
         "publisher": "CISA",
         "title": "CVE-2026-134624: N-able MailAssure — N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability",
         "published_at": "2026-11-23"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+        "publisher": "The Hacker News",
+        "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+        "published_at": "2026-11-24"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "seed_nvd",
@@ -676,7 +682,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-23T20:36:33.151Z",
-    "updated_at": "2026-11-23T20:36:33.151Z",
+    "updated_at": "2026-11-24T06:36:48.180Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
