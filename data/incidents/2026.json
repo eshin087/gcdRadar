@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2149",
+    "slug": "whmcs-sql-injection-flaw-exposes-customer-data-and-admin-pas",
+    "title": "WHMCS SQL Injection Flaw Exposes Customer Data and Admin Password Hashes",
+    "summary": "An unauthenticated SQL injection vulnerability in WHMCS allows attackers to retrieve customer records and administrator password hashes. The vendor disclosed the flaw and released patches.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "WHMCS"
+    ],
+    "incident_date": "2026-11-23",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/whmcs-sql-injection-flaw-could-expose.html",
+        "publisher": "The Hacker News",
+        "title": "WHMCS SQL Injection Could Expose Customer Data and Admin Password Hashes without Login",
+        "published_at": "2026-11-24"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "sql-injection",
+      "whmcs",
+      "authentication-bypass"
+    ],
+    "created_at": "2026-11-24T10:21:39.523Z",
+    "updated_at": "2026-11-24T10:21:39.523Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-24",
+        "title": "WHMCS SQL Injection Could Expose Customer Data and Admin Password Hashes without Login",
+        "source_url": "https://thehackernews.com/2026/11/whmcs-sql-injection-flaw-could-expose.html",
+        "added_at": "2026-11-24T10:21:39.523Z"
+      }
+    ],
+    "action": "Update to the latest patched version of WHMCS immediately.",
+    "severity_note": "Vendor disclosure with a fix, no active exploitation reported.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2148",
     "slug": "cve-2026-133448-autogpt-input-preprocessing-flaw-allows-cli",
     "title": "CVE-2026-133448: AutoGPT input preprocessing flaw allows CLI command execution and arbitrary file reads",
