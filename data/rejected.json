@@ -1,5 +1,25 @@
 [
   {
+    "key": "32d784244c7b2f8c",
+    "title": "ShinyHunters-linked crew resurfaces on new leak site",
+    "url": "https://helpnetsecurity.com/2026/11/24/shinyhunters-inception-leak-site-okta",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope, no AI role (0.70): No specific organization or concrete breach disclosed; only a threat actor campaign without named victims",
+    "confidence": 0.7,
+    "rejected_at": "2026-11-24T12:51:20.762Z"
+  },
+  {
+    "key": "bb2efaa9d0e695bb",
+    "title": "Google Researcher Shows How a Single Bit Change in .NET Files Bypassed Windows Code Integrity",
+    "url": "https://thehackernews.com/2026/11/google-researcher-shows-how-single-bit.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "below the curation bar: No critical CVSS rating or wild exploitation reported",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-24T12:51:20.762Z"
+  },
+  {
     "key": "07731621ec00c367",
     "title": "Elastic puts AI agents to work on the SOC alert backlog",
     "url": "https://helpnetsecurity.com/2026/11/24/elastic-security-9-6-features",

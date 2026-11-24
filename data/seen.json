@@ -5162,6 +5162,10 @@
   "id": "AIR-2026-0245",
   "at": "2026-10-18T06:33:31.967Z"
  },
+ "32d784244c7b2f8c": {
+  "status": "rejected",
+  "at": "2026-11-24T12:51:20.762Z"
+ },
  "32dce4e64f8f19cd": {
   "status": "merged",
   "id": "AIR-2026-0335",
@@ -18949,6 +18953,10 @@
  "bb2d3e892b2ecad8": {
   "status": "rejected",
   "at": "2026-10-18T10:14:26.300Z"
+ },
+ "bb2efaa9d0e695bb": {
+  "status": "rejected",
+  "at": "2026-11-24T12:51:20.762Z"
  },
  "bb347569be5a7233": {
   "status": "published",
