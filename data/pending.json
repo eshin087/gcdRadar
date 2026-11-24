@@ -149,5 +149,20 @@
     "extra": {
       "ai_hint": false
     }
+  },
+  {
+    "key": "d0dd54800f0f848c",
+    "source_id": "bleepingcomputer",
+    "origin": "news",
+    "url": "https://bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign",
+    "title": "New Inception extortion gang launches large-scale vishing campaign",
+    "published_at": "2026-11-24",
+    "publisher": "BleepingComputer",
+    "hint": "A newly formed data extortion group named 'Inception' has been linked to a large-scale campaign that targets single sign-on (SSO) credentials of multiple global brands and firms.…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-24T20:21:43.843Z",
+    "extra": {
+      "ai_hint": false
+    }
   }
 ]
