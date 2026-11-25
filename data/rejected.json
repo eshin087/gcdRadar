@@ -1,5 +1,15 @@
 [
   {
+    "key": "1c9f606d62f0b3cf",
+    "title": "Shufti Fraud Hub exposes suspicious links between seemingly legitimate accounts",
+    "url": "https://helpnetsecurity.com/2026/11/25/shufti-fraud-hub",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and vendor feature announcement",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-25T14:51:41.226Z"
+  },
+  {
     "key": "875a747b9f5bd1fe",
     "title": "CAPTA: Identifying LLMs Behind AI Agents",
     "url": "https://arxiv.org/abs/2611.32686",
