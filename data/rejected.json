@@ -1,5 +1,15 @@
 [
   {
+    "key": "15259d9b42f58278",
+    "title": "The AI Threat Horizon: Why Speed, Edge AI and Baselines Are Our Best Defense",
+    "url": "https://unit42.paloaltonetworks.com/ai-threat-horizon",
+    "publisher": "Unit 42",
+    "source_id": "unit42-ai",
+    "reason": "out of scope, no AI role (0.50): General analysis without a specific incident",
+    "confidence": 0.5,
+    "rejected_at": "2026-11-25T15:06:24.514Z"
+  },
+  {
     "key": "1c9f606d62f0b3cf",
     "title": "Shufti Fraud Hub exposes suspicious links between seemingly legitimate accounts",
     "url": "https://helpnetsecurity.com/2026/11/25/shufti-fraud-hub",
