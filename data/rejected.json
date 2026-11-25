@@ -1,5 +1,15 @@
 [
   {
+    "key": "a78c2fd43786d8ef",
+    "title": "The Great Escape: Tradecraft insights from an agentic swarm",
+    "url": "https://blog.talosintelligence.com/the-great-escape-tradecraft-insights-from-an-agentic-swarm",
+    "publisher": "Cisco Talos",
+    "source_id": "talos",
+    "reason": "out of scope: It is an analysis blog post discussing tradecraft and comparing early signals rather than reporting a specific new incident or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-25T11:06:48.105Z"
+  },
+  {
     "key": "9d73f68ea0c0501c",
     "title": "Microsoft confirms authentication issues after November updates",
     "url": "https://bleepingcomputer.com/news/microsoft/microsoft-confirms-authentication-issues-after-november-updates",
