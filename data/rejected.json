@@ -1,5 +1,15 @@
 [
   {
+    "key": "4fcf01c31362b2a5",
+    "title": "Florida ransomware recovery CEO indicted for allegedly paying hacker ransoms",
+    "url": "https://therecord.media/ransomware-doj-indictment-recovery",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Indictments and legal proceedings regarding past events are follow-ups and out of scope as new incidents",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-25T17:41:24.080Z"
+  },
+  {
     "key": "7560054da608813d",
     "title": "InfraTrust warns of exploited supply chain flaws in network appliances",
     "url": "https://bleepingcomputer.com/news/security/infratrust-warns-of-exploited-supply-chain-flaws-in-network-appliances",
