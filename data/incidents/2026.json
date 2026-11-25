@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2209",
+    "slug": "fifa-discloses-cyberattack-resulting-in-access-to-personal-a",
+    "title": "FIFA discloses cyberattack resulting in access to personal and business data",
+    "summary": "FIFA announced that unauthorized actors accessed a limited set of personal and business information during a recent cyberattack. The organization is currently working with law enforcement and relevant authorities to investigate the breach.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "FIFA"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://therecord.media/fifa-data-breach-limited",
+        "publisher": "The Record",
+        "title": "FIFA says hackers accessed ‘limited set of personal and business information’",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "breach",
+      "fifa",
+      "unauthorized-access"
+    ],
+    "created_at": "2026-11-25T21:06:25.754Z",
+    "updated_at": "2026-11-25T21:06:25.754Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "FIFA says hackers accessed ‘limited set of personal and business information’",
+        "source_url": "https://therecord.media/fifa-data-breach-limited",
+        "added_at": "2026-11-25T21:06:25.754Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world data access at a named organisation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2208",
     "slug": "cve-2026-133303-mitel-micollab-awv-xml-injection-vulnerabili",
     "title": "CVE-2026-133303: Mitel MiCollab AWV XML Injection Vulnerability",
