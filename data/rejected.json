@@ -1,5 +1,15 @@
 [
   {
+    "key": "35351ba93982344f",
+    "title": "Bots exploited leaked AWS key from Docker image in under 8 seconds",
+    "url": "https://helpnetsecurity.com/2026/11/25/docker-aws-key-exposure-bots",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Describes a Stony Brook University research experiment planting decoy credentials rather than a specific real-world breach or disclosed software vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-25T11:41:05.205Z"
+  },
+  {
     "key": "a78c2fd43786d8ef",
     "title": "The Great Escape: Tradecraft insights from an agentic swarm",
     "url": "https://blog.talosintelligence.com/the-great-escape-tradecraft-insights-from-an-agentic-swarm",
