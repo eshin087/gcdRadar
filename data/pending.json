@@ -1,1 +1,291 @@
-[]
+[
+  {
+    "key": "97dd6b1458845a19",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31429",
+    "title": "Leaks by Installments: Cross-Session Answer Disclosure in LLM Tutors and a Ledger-Based Defense",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Tutors built on large language models (LLMs) are told not to give away answers, but a learner does not have to ask for the answer all at once. Existing safeguards judge each reply within the current conversation, so a learner can open a new session, reword the problem, or request a worked solution to the same problem with different numbers. We call this cross-session disclosure and propose a defense: a persistent, per-learner disclosure ledger. For every problem a learner brings, the system builds a typed solution graph. Before a reply is…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.625Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "39db2583880389e1",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31547",
+    "title": "Aftershock: Yesterday's Linux Kernel Bugs, Tomorrow's Android Exploits",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Android kernels have long suffered from slow patch propagation from Linux upstream, with fixes often reaching devices far later than conventional Linux distributions. Until recently, this lag was largely a patch-management problem. With rapidly improving LLM agents, it is becoming an exploitation problem: public upstream patches can now serve as blueprints for building working n-day exploits before downstream devices are fixed. We test this threat end to end by building an automated pipeline that screens upstream Linux patches, reproduces…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.625Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "6e1666fbd299543b",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31744",
+    "title": "Mixed-Initiative Mining of Root-Cause Analyses into Audit Priors for C/C++ Vulnerability Hunting",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Vulnerability auditing of large C/C++ codebases is constrained by limited review attention. Human auditors and LLM-based agents need operational priors that indicate where to look first and what to suspect, but such priors are rarely available in directly usable form. Rather than proposing a new vulnerability detector, we derive audit-steering artifacts from evidence-backed root-cause analysis (RCA) reports. We introduce two complementary representations: Occurrence Context (OC), a location prior based on file role, function role, and…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.625Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "b268cc76e06e6da4",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31993",
+    "title": "Not Just Any Example: Security Requirements and Fix Patterns for Guiding LLM Vulnerability Repair",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Software vulnerabilities leave systems open to attack, and their remediation is often delayed. Large language models (LLMs) have advanced automated patch generation, yet passing functionality tests does not ensure that a patch enforces the security requirement the vulnerability violated. Existing vulnerability repair techniques rely on curated patterns or templates with limited coverage, leaving unclear which repair strategies carry over across vulnerabilities and how they can steer LLMs. We present a large-scale empirical study that relates…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "af90ee46f4903f8d",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.32503",
+    "title": "Analyzing Single-Bit Flips on LLMs and Their Backbone-Matched VLMs",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Open-weight large language models (LLMs) enable offline weight analysis and are reused as backbones in vision-language models (VLMs), increasing the risk of bit-flip attacks that manipulate stored weight bits to induce malicious model behavior. An adversary could identify vulnerable bits on a public LLM and later flip the same locations in a deployed LLM or its backbone-matched VLMs. A single-bit flip is particularly practical in this setting because it is easier to achieve under hardware fault attacks than multi-bit flips. However, existing…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "df139b75e220aeb3",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.32958",
+    "title": "Attestation is All You Need: Toward a Zero-Trust Architecture for HPC AI Agents",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "AI agents are beginning to automate data analysis, orchestration, and simulation steering in HPC environments, but they introduce a security problem that existing cluster defenses do not address: the hijacked authorized agent. An adversary can subvert an agent through prompt injection, poisoned shared data, compromised tools, or multi-agent coordination, then exfiltrate sensitive data through legitimate encrypted LLM API traffic. We propose behavioral attestation as a runtime defense for this setting. Our system, AEGIS, compiles task-derived…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "88db3c59b7e49356",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31962",
+    "title": "Are Web Agents Still Detectable? Stress-Testing Bot Defenses with Coordinated Evasion",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "AI web agents can autonomously navigate websites and complete various tasks. As their capabilities and adoption expand, evaluating bot defenses requires adversarial stress tests. Although prior work demonstrates that existing agents can remain detectable, it remains unclear how effective bot defenses are against adversaries that coordinate evasion across browser fingerprints, automation controls, and interaction behavior. To investigate this threat, we introduce DarkAgent, an autonomous web agent that combines a forked Chromium browser that…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "b7940f3d51e83d52",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.32389",
+    "title": "AgentBank: Banking on Blockchain Agentic Payments",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "AI agents increasingly pay for data and computation through protocols such as x402 and AP2, but individually funded wallets idle and require asset transfers for every payment. We present AgentBank, a smart-contract banking layer that lets agents spend bank liabilities under owner-issued mandates and on-chain spending limits. Internal payments update account balances without transferring assets, while pooled backing funds are allocated between reserves and yield-bearing strategies. We bound losses from compromised agent keys and analyze how…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "d0f7225165ac3170",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.32302",
+    "title": "Query-Guided Visual Minimization for Selective Disclosure to Cloud VLMs",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Cloud-hosted vision-language models (VLMs) require sending images beyond the user's local trust boundary, potentially exposing sensitive information the query does not need. We study query-guided visual minimization: a trusted local transformation preserves query-relevant visual content and reduces unnecessary disclosure before transmission. Unlike query-agnostic anonymization, it preserves the same sensitive content when the query requires it and suppresses it otherwise. We introduce QGVM, a framework that combines query grounding with an…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "cross",
+      "ai_hint": false
+    }
+  },
+  {
+    "key": "e19639456d8da21b",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.33015",
+    "title": "PORTA: Systematic Discovery of Vulnerabilities in Identity Brokers",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Identity brokers such as Keycloak, Vault, and Dex translate authentication proofs from an upstream identity provider into sessions for downstream services. Due to their central role in authentication and trust mediation, a single vulnerability in a broker compromises every downstream service behind it. In fact, recent incidents have demonstrated that even widely adopted platforms are not immune to such issues, highlighting the critical need for systematic analysis. To build such an analysis, this work first defines invariants for broker…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": false
+    }
+  },
+  {
+    "key": "bc9f635b28bcb20c",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.33030",
+    "title": "SALSA: Sampling Adversarial Suffixes from Learned Distributions for LLM Safety Assessment",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Large language models (LLMs) remain vulnerable to jailbreak attacks, where adversaries append optimized suffixes to otherwise benign looking prompts to bypass safety alignment. Existing optimization-based GCG-style attacks can be effective, but they are expensive at inference time, and suffer from poor transfer. We present, SALSA, a generative framework that learns a distribution over jailbreak suffixes from optimization-derived attack corpora. Once trained, the model supports efficient sampling-based attacks. On open-source targets, it…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "cross",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "875a747b9f5bd1fe",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.32686",
+    "title": "CAPTA: Identifying LLMs Behind AI Agents",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Large language model (LLM)-based agents access remote services through tools to complete user tasks, often via API calls. In this setting, a remote service may want to identify the backend LLM of an agent to launch model-specific attacks, including prompt injection or selective delivery of manipulated content. However, the service cannot directly query the backend model and must instead collect observable responses through its interactions with the agent, making identification challenging. In this paper, we present Completely Automated…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "cross",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "3abaefefe49c0864",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.32710",
+    "title": "Red-Teaming a Sovereign LLM, Its Reasoning and Its Training Stages",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Open-weight large language models (LLMs) are increasingly deployed for applications with sensitive information. We investigate whether confidentiality instructions in system prompt can protect such information. We red-team Apertus v1.5, an open sovereign LLM, and five other model families across six languages and reasoning modes. We use synthetic personal records to evaluate direct disclosure, correction baits, yes/no verification, derived-value queries, reasoning leakage and authorisation checks. We also explore copyright attribution,…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "cross",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "ea3e0314786e220f",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31307",
+    "title": "When Successful Collaboration Becomes an Attack Surface: Insider Memory Poisoning in Multi-Agent Systems",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Recent Multi-Agent Systems (MAS) increasingly use shared memory to store and reuse successful collaboration records, enabling teams to improve across tasks. However, this memory introduces a new attack surface for malicious insiders. Unlike existing insider attacks that inject misleading information directly into the current collaboration, misinformation stored in shared memory can later appear as successful team experience and gain greater credibility and influence. We propose MIMPA (Multi-Agent Insider Memory Poisoning Attack), which…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "cross",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "6eb51df2aefb2b72",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31756",
+    "title": "TACT-Bench: Testing Adaptive Conversational Threats against Tool-Use Agents",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "The growing autonomy of AI agents in using external tools and making decisions has created an urgent need for comprehensive safety benchmarks. Existing benchmarks test compromised tool channels or adaptive multi-turn attacks, though they may not capture the unique capabilities of policy-governed tool-use agents, which must resist unauthorized requests without abandoning the legitimate work embedded in the same interaction. To fill this gap, we introduce TACT-Bench, a stateful benchmark built around scenario-specific stories, personas,…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "cross",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "25718390b6b19bdf",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.32957",
+    "title": "\"I Do Intend to Deliver\": Will LLMs Run a Marketplace Advance-Fee Scam?",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "Online fraud is traditionally limited by the cost of the human labor needed to talk to potential victims. We ask whether hosted large language models will now supply that labor. We prompted ten off-the-shelf models to play the seller in the \"free item, just pay delivery\" advance-fee scam common on buy-and-sell sites, using a plain system prompt with no jailbreak. Each model played 30 conversations against each of four buyer personas, from credulous to guarded, with the same model playing the buyer (1,200 conversations). We label each…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "cross",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "294d1be6def77426",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.31791",
+    "title": "SwarmLeak: Does Coordination Improve Privacy Attacks on LLM Agents?",
+    "published_at": "2026-11-25",
+    "publisher": "arXiv",
+    "hint": "LLM agents increasingly collaborate in group chats while holding tool access to confidential records, which makes the shared chat an attack surface. It remains unclear whether several colluding attackers extract such information more effectively than one. We introduce SwarmLeak, a red-teaming dataset of 24 synthetic group-chat scenarios across healthcare, law, finance, and software engineering, where attackers pose as colleagues to make a victim agent post protected fields despite an explicit confidentiality policy. With GLM 5.2 attacking five…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-25T14:06:23.626Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  }
+]

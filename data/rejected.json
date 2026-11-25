@@ -1,5 +1,55 @@
 [
   {
+    "key": "f152012614f85b7e",
+    "title": "Privacy Disclosure Control Benchmark (PDC-Bench): How Faithfully Do LLMs Keep Privacy Constraints on In-Context Disclosure Granularity?",
+    "url": "https://arxiv.org/abs/2611.32610",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: benchmark paper without demonstrated attack or vulnerability",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:06:31.332Z"
+  },
+  {
+    "key": "0077e08203570349",
+    "title": "Separating Measurement Failures from Defence Failures in Split Language-Model Privacy",
+    "url": "https://arxiv.org/abs/2611.31752",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: analysis paper without new attack or vulnerability",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:06:31.332Z"
+  },
+  {
+    "key": "87961df12f30574f",
+    "title": "Evaluating LLM Security Review Agents with Operationally Sourced Ground Truth",
+    "url": "https://arxiv.org/abs/2611.31606",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper evaluates LLM security review agents; does not demonstrate a concrete attack or vulnerability.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:06:31.332Z"
+  },
+  {
+    "key": "6f0a257a8665a3e9",
+    "title": "Trustworthy Edge AI: Security, Privacy, and Resilience for Distributed Intelligence",
+    "url": "https://arxiv.org/abs/2611.31331",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Survey chapter on Edge AI security; no specific incident reported.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:06:31.332Z"
+  },
+  {
+    "key": "506735e9529ab8af",
+    "title": "BODYBENCH: Evaluating Adversarial Image Defenses Against AI Nudification Inpainting",
+    "url": "https://arxiv.org/abs/2611.31774",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Benchmark evaluating defenses against AI nudification; no new attack or breach reported.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:06:31.332Z"
+  },
+  {
     "key": "6a8ceb0f7d1b2b64",
     "title": "Credential Remediation Is Slow When You Don’t Know What Will Break",
     "url": "https://thehackernews.com/2026/11/credential-remediation-is-slow-when-you.html",

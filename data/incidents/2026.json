@@ -1,5 +1,232 @@
 [
   {
+    "id": "AIR-2026-2191",
+    "slug": "bit-flip-attacks-on-quantized-neural-networks-without-knowle",
+    "title": "Bit‑Flip Attacks on Quantized Neural Networks without Knowledge of Model Parameters",
+    "summary": "The authors present CoarseHammer, a bit‑flip attack that degrades quantized neural networks by flipping bits in high‑precision tensors without any knowledge of model parameters. The attack reduces model accuracy to chance level on several large language models.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln",
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.32128",
+        "publisher": "arXiv",
+        "title": "Bit-Flip Attacks on Quantized Neural Networks without Knowledge of Model Parameters",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "bitflip",
+      "fault-injection",
+      "quantization",
+      "nn"
+    ],
+    "created_at": "2026-11-25T14:06:31.332Z",
+    "updated_at": "2026-11-25T14:06:31.332Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Bit-Flip Attacks on Quantized Neural Networks without Knowledge of Model Parameters",
+        "source_url": "https://arxiv.org/abs/2611.32128",
+        "added_at": "2026-11-25T14:06:31.332Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research demonstration of a fault‑injection vulnerability in quantized models.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2190",
+    "slug": "per-attack-blocking-hides-catalog-vulnerability-a-weakest-li",
+    "title": "Per-Attack Blocking Hides Catalog Vulnerability: A Weakest-Link Analysis of Tool Manifests",
+    "summary": "The authors reveal that per‑attack blocking metrics can conceal catalog‑wide vulnerabilities in tool manifests, and they demonstrate an exfiltration path that bypasses existing controls. The work is a proof‑of‑concept without reported exploitation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln",
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31338",
+        "publisher": "arXiv",
+        "title": "Per-Attack Blocking Hides Catalog Vulnerability: A Weakest-Link Analysis of Tool Manifests",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "tool",
+      "manifest",
+      "vulnerability",
+      "agent"
+    ],
+    "created_at": "2026-11-25T14:06:31.332Z",
+    "updated_at": "2026-11-25T14:06:31.332Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Per-Attack Blocking Hides Catalog Vulnerability: A Weakest-Link Analysis of Tool Manifests",
+        "source_url": "https://arxiv.org/abs/2611.31338",
+        "added_at": "2026-11-25T14:06:31.332Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "research demonstration, no known exploitation",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2189",
+    "slug": "where-agent-defenses-fail-a-case-study-of-policy-composition",
+    "title": "Where Agent Defenses Fail: A Case Study of Policy Compositions and Measurement Limits",
+    "summary": "The study shows that coding agents can be compromised by injecting instructions that bypass sandbox restrictions, revealing weaknesses in policy composition. The attack is demonstrated in controlled experiments without known real‑world incidents.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack",
+      "prompt_injection"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31541",
+        "publisher": "arXiv",
+        "title": "Where Agent Defenses Fail: A Case Study of Policy Compositions and Measurement Limits",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "agent",
+      "sandbox",
+      "injection",
+      "policy"
+    ],
+    "created_at": "2026-11-25T14:06:31.332Z",
+    "updated_at": "2026-11-25T14:06:31.332Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Where Agent Defenses Fail: A Case Study of Policy Compositions and Measurement Limits",
+        "source_url": "https://arxiv.org/abs/2611.31541",
+        "added_at": "2026-11-25T14:06:31.332Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "research demonstration, no known exploitation",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2188",
+    "slug": "spoofing-wireless-sensing-with-metasurfase-based-physical-de",
+    "title": "Spoofing Wireless Sensing with Metasurfase-based Physical Deepfakes",
+    "summary": "The paper demonstrates a method to spoof wireless sensing systems using metasurface‑generated physical deepfakes, allowing attackers to inject false environmental data. No real‑world exploitation is reported.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.32386",
+        "publisher": "arXiv",
+        "title": "Spoofing Wireless Sensing with Metasurfase-based Physical Deepfakes",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "wireless",
+      "deepfake",
+      "spoofing",
+      "physical"
+    ],
+    "created_at": "2026-11-25T14:06:31.332Z",
+    "updated_at": "2026-11-25T14:06:31.332Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Spoofing Wireless Sensing with Metasurfase-based Physical Deepfakes",
+        "source_url": "https://arxiv.org/abs/2611.32386",
+        "added_at": "2026-11-25T14:06:31.332Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "research demonstration, no known exploitation",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2187",
     "slug": "ransomware-attack-disrupts-operations-at-university-hospital",
     "title": "Ransomware Attack Disrupts Operations at University Hospital of Guadeloupe",
@@ -44318,9 +44545,15 @@
         "publisher": "arXiv",
         "title": "Compaction Laundering: Provenance Destruction in Context-Compacting Coding Agents",
         "published_at": "2026-10-22"
+      },
+      {
+        "url": "https://arxiv.org/abs/2611.32194",
+        "publisher": "arXiv",
+        "title": "LLM Agent Authorization Across Context Compaction",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -44330,7 +44563,7 @@
       "provenance-destruction"
     ],
     "created_at": "2026-10-22T04:45:27.696Z",
-    "updated_at": "2026-11-06T00:23:41.043Z",
+    "updated_at": "2026-11-25T14:06:31.332Z",
     "lane": "research",
     "state": "closed",
     "closed_at": "2026-11-05",
@@ -44344,6 +44577,12 @@
         "title": "Compaction Laundering: Provenance Destruction in Context-Compacting Coding Agents",
         "source_url": "https://arxiv.org/abs/2610.29869",
         "added_at": "2026-10-22T04:45:27.696Z"
+      },
+      {
+        "date": "2026-11-25",
+        "title": "LLM Agent Authorization Across Context Compaction",
+        "source_url": "https://arxiv.org/abs/2611.32194",
+        "added_at": "2026-11-25T14:06:31.332Z"
       }
     ],
     "action": "",
