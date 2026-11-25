@@ -888,9 +888,15 @@
         "publisher": "The Hacker News",
         "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack",
+        "publisher": "SecurityWeek",
+        "title": "Two Newly Disclosed GeoServer Vulnerabilities Under Attack",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -902,7 +908,7 @@
       "active-exploitation"
     ],
     "created_at": "2026-11-25T13:41:10.015Z",
-    "updated_at": "2026-11-25T13:41:10.015Z",
+    "updated_at": "2026-11-25T15:40:53.285Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -919,6 +925,12 @@
         "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
         "source_url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
         "added_at": "2026-11-25T13:41:10.015Z"
+      },
+      {
+        "date": "2026-11-25",
+        "title": "Two Newly Disclosed GeoServer Vulnerabilities Under Attack",
+        "source_url": "https://securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack",
+        "added_at": "2026-11-25T15:40:53.285Z"
       }
     ],
     "action": "Update GeoServer to the latest patched version immediately.",

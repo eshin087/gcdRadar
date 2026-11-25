@@ -1,17 +1,1 @@
-[
-  {
-    "key": "7560054da608813d",
-    "source_id": "bleepingcomputer",
-    "origin": "news",
-    "url": "https://bleepingcomputer.com/news/security/infratrust-warns-of-exploited-supply-chain-flaws-in-network-appliances",
-    "title": "InfraTrust warns of exploited supply chain flaws in network appliances",
-    "published_at": "2026-11-25",
-    "publisher": "BleepingComputer",
-    "hint": "Eclypsium's November InfraTrust report warns that most infrastructure security advisories addressing exploited vulnerabilities over the past month involve flaws in third-party software bundled into products rather than code developed by the vendors themselves.…",
-    "cve_ids": [],
-    "discovered_at": "2026-11-25T15:21:29.719Z",
-    "extra": {
-      "ai_hint": false
-    }
-  }
-]
+[]

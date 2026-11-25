@@ -1,5 +1,15 @@
 [
   {
+    "key": "7560054da608813d",
+    "title": "InfraTrust warns of exploited supply chain flaws in network appliances",
+    "url": "https://bleepingcomputer.com/news/security/infratrust-warns-of-exploited-supply-chain-flaws-in-network-appliances",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "out of scope, no AI role (0.50): report finds, no specific incident",
+    "confidence": 0.5,
+    "rejected_at": "2026-11-25T15:40:53.285Z"
+  },
+  {
     "key": "15259d9b42f58278",
     "title": "The AI Threat Horizon: Why Speed, Edge AI and Baselines Are Our Best Defense",
     "url": "https://unit42.paloaltonetworks.com/ai-threat-horizon",
