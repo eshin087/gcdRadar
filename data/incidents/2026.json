@@ -1,5 +1,125 @@
 [
   {
+    "id": "AIR-2026-2187",
+    "slug": "ransomware-attack-disrupts-operations-at-university-hospital",
+    "title": "Ransomware Attack Disrupts Operations at University Hospital of Guadeloupe",
+    "summary": "A suspected ransomware attack impaired computer systems at the University Hospital of Guadeloupe. The incident forced medical staff to postpone surgeries, suspend cancer treatments, and revert to manual operations.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "University Hospital of Guadeloupe computer systems"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://therecord.media/guadeloupe-ransomware-hospital-cyber",
+        "publisher": "The Record",
+        "title": "Suspected ransomware attack disrupts cancer treatments, surgeries at Guadeloupe hospital",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ransomware",
+      "healthcare",
+      "guadeloupe",
+      "extortion"
+    ],
+    "created_at": "2026-11-25T13:41:10.015Z",
+    "updated_at": "2026-11-25T13:41:10.015Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Suspected ransomware attack disrupts cancer treatments, surgeries at Guadeloupe hospital",
+        "source_url": "https://therecord.media/guadeloupe-ransomware-hospital-cyber",
+        "added_at": "2026-11-25T13:41:10.015Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world impact with patient care disrupted.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2186",
+    "slug": "cve-2026-120705-and-cve-2026-129243-geoserver-flaws-exploite",
+    "title": "CVE-2026-120705 and CVE-2026-129243: GeoServer Flaws Exploited",
+    "summary": "Threat actors are actively exploiting two security flaws in GeoServer, including an arbitrary file read vulnerability. WatchTowr warned of unauthenticated remote code execution chains resulting from these issues.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "GeoServer"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+        "publisher": "The Hacker News",
+        "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "CVE-2026-120705",
+      "CVE-2026-129243",
+      "geoserver",
+      "rce",
+      "active-exploitation"
+    ],
+    "created_at": "2026-11-25T13:41:10.015Z",
+    "updated_at": "2026-11-25T13:41:10.015Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-129243",
+      "CVE-2026-120705"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
+        "source_url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+        "added_at": "2026-11-25T13:41:10.015Z"
+      }
+    ],
+    "action": "Update GeoServer to the latest patched version immediately.",
+    "severity_note": "Exploited in the wild.",
+    "cvss": 8.6
+  },
+  {
     "id": "AIR-2026-2185",
     "slug": "fincen-takes-systems-offline-following-cybersecurity-inciden",
     "title": "FinCEN takes systems offline following cybersecurity incident",
@@ -24,9 +144,15 @@
         "publisher": "The Record",
         "title": "Treasury's FinCEN takes systems offline after cybersecurity incident",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/us-treasurys-fincen-takes-some-systems.html",
+        "publisher": "The Hacker News",
+        "title": "U.S. Treasury's Financial Crimes Agency Takes Some Systems Offline After Cyber Intrusion",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -36,7 +162,7 @@
       "treasury"
     ],
     "created_at": "2026-11-25T10:21:50.559Z",
-    "updated_at": "2026-11-25T10:21:50.559Z",
+    "updated_at": "2026-11-25T13:41:10.015Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
