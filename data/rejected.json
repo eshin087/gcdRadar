@@ -1,5 +1,15 @@
 [
   {
+    "key": "6a8ceb0f7d1b2b64",
+    "title": "Credential Remediation Is Slow When You Don’t Know What Will Break",
+    "url": "https://thehackernews.com/2026/11/credential-remediation-is-slow-when-you.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Survey or report findings piece without a specific software flaw or incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-25T12:06:26.177Z"
+  },
+  {
     "key": "35351ba93982344f",
     "title": "Bots exploited leaked AWS key from Docker image in under 8 seconds",
     "url": "https://helpnetsecurity.com/2026/11/25/docker-aws-key-exposure-bots",
