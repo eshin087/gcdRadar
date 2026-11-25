@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2183",
+    "slug": "palo-alto-networks-patches-fragnesia-flaw-used-in-attacks",
+    "title": "Palo Alto Networks Patches Fragnesia Flaw Used in Attacks",
+    "summary": "A threat group chained vulnerabilities in AI-assisted attacks affecting multiple servers. Palo Alto Networks released patches to address the issue.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Fragnesia",
+      "PHP2Shell"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://securityweek.com/palo-alto-networks-patches-fragnesia-flaw-used-to-root-firewalls",
+        "publisher": "SecurityWeek",
+        "title": "Palo Alto Networks Patches Fragnesia Flaw Used to Root Firewalls",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "fragnesia",
+      "php2shell",
+      "palo alto networks"
+    ],
+    "created_at": "2026-11-25T08:21:42.926Z",
+    "updated_at": "2026-11-25T08:21:42.926Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "patched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Palo Alto Networks Patches Fragnesia Flaw Used to Root Firewalls",
+        "source_url": "https://securityweek.com/palo-alto-networks-patches-fragnesia-flaw-used-to-root-firewalls",
+        "added_at": "2026-11-25T08:21:42.926Z"
+      }
+    ],
+    "action": "Update Palo Alto Networks firewalls to the latest patched version.",
+    "severity_note": "Confirmed exploitation in the wild against target servers.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2182",
     "slug": "com-affiliated-hackers-target-cloud-accounts-via-vishing-for",
     "title": "Com-Affiliated Hackers Target Cloud Accounts via Vishing for Extortion",
