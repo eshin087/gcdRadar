@@ -1,5 +1,292 @@
 [
   {
+    "id": "AIR-2026-2196",
+    "slug": "aftershock-yesterday-s-linux-kernel-bugs-tomorrow-s-android",
+    "title": "Aftershock: Yesterday's Linux Kernel Bugs, Tomorrow's Android Exploits",
+    "summary": "The study builds an automated pipeline that uses large‑language‑model agents to turn upstream Linux kernel patches into functional Android exploits. It demonstrates AI‑assisted exploit generation as a proof of concept.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Linux kernel",
+      "Android"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31547",
+        "publisher": "arXiv",
+        "title": "Aftershock: Yesterday's Linux Kernel Bugs, Tomorrow's Android Exploits",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ai_assisted_intrusion",
+      "android",
+      "linux",
+      "exploit"
+    ],
+    "created_at": "2026-11-25T14:21:49.820Z",
+    "updated_at": "2026-11-25T14:21:49.820Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Aftershock: Yesterday's Linux Kernel Bugs, Tomorrow's Android Exploits",
+        "source_url": "https://arxiv.org/abs/2611.31547",
+        "added_at": "2026-11-25T14:21:49.820Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrates AI‑assisted generation of Android exploits from upstream patches",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2195",
+    "slug": "leaks-by-installments-cross-session-answer-disclosure-in-llm",
+    "title": "Leaks by Installments: Cross-Session Answer Disclosure in LLM Tutors and a Ledger-Based Defense",
+    "summary": "Researchers identify a cross‑session answer disclosure vulnerability in large‑language‑model tutoring systems, allowing learners to retrieve answers over multiple sessions. They propose a persistent ledger defense to mitigate the leak.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31429",
+        "publisher": "arXiv",
+        "title": "Leaks by Installments: Cross-Session Answer Disclosure in LLM Tutors and a Ledger-Based Defense",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-leak",
+      "cross-session",
+      "llm"
+    ],
+    "created_at": "2026-11-25T14:21:49.820Z",
+    "updated_at": "2026-11-25T14:21:49.820Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Leaks by Installments: Cross-Session Answer Disclosure in LLM Tutors and a Ledger-Based Defense",
+        "source_url": "https://arxiv.org/abs/2611.31429",
+        "added_at": "2026-11-25T14:21:49.820Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof of concept showing cross‑session answer leakage in LLM tutoring systems",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2194",
+    "slug": "are-web-agents-still-detectable-stress-testing-bot-defenses",
+    "title": "Are Web Agents Still Detectable? Stress-Testing Bot Defenses with Coordinated Evasion",
+    "summary": "The paper presents DarkAgent, an autonomous web agent that coordinates evasion techniques across browser fingerprints and automation controls to bypass bot detection systems. It demonstrates that coordinated AI‑driven evasion can evade existing defenses.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "DarkAgent"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31962",
+        "publisher": "arXiv",
+        "title": "Are Web Agents Still Detectable? Stress-Testing Bot Defenses with Coordinated Evasion",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.94,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "adversarial-evasion",
+      "web-agent",
+      "bot-detection",
+      "darkagent"
+    ],
+    "created_at": "2026-11-25T14:21:49.820Z",
+    "updated_at": "2026-11-25T14:21:49.820Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Are Web Agents Still Detectable? Stress-Testing Bot Defenses with Coordinated Evasion",
+        "source_url": "https://arxiv.org/abs/2611.31962",
+        "added_at": "2026-11-25T14:21:49.820Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept coordinated evasion attack demonstrated",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2193",
+    "slug": "analyzing-single-bit-flips-on-llms-and-their-backbone-matche",
+    "title": "Analyzing Single-Bit Flips on LLMs and Their Backbone-Matched VLMs",
+    "summary": "Researchers analyze how single‑bit flips in the weights of open‑weight LLMs and related vision‑language models can induce malicious behavior. The work demonstrates a feasible fault‑injection attack but reports no real‑world exploitation.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.32503",
+        "publisher": "arXiv",
+        "title": "Analyzing Single-Bit Flips on LLMs and Their Backbone-Matched VLMs",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.94,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "bit-flip",
+      "infra-vuln",
+      "llm",
+      "vlm"
+    ],
+    "created_at": "2026-11-25T14:21:49.820Z",
+    "updated_at": "2026-11-25T14:21:49.820Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Analyzing Single-Bit Flips on LLMs and Their Backbone-Matched VLMs",
+        "source_url": "https://arxiv.org/abs/2611.32503",
+        "added_at": "2026-11-25T14:21:49.820Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept bit‑flip attack demonstrated",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2192",
+    "slug": "swarmleak-does-coordination-improve-privacy-attacks-on-llm-a",
+    "title": "SwarmLeak: Does Coordination Improve Privacy Attacks on LLM Agents?",
+    "summary": "The paper introduces SwarmLeak, a dataset of 24 synthetic group‑chat scenarios where colluding LLM agents attempt to extract confidential fields from a victim agent despite a confidentiality policy. The study shows coordinated prompt‑injection attacks can bypass the agent’s safeguards.",
+    "type": "attack_on_ai",
+    "categories": [
+      "jailbreak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [
+      "GLM 5.2"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31791",
+        "publisher": "arXiv",
+        "title": "SwarmLeak: Does Coordination Improve Privacy Attacks on LLM Agents?",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "jailbreak",
+      "prompt-injection",
+      "llm",
+      "swarmleak",
+      "privacy"
+    ],
+    "created_at": "2026-11-25T14:21:49.820Z",
+    "updated_at": "2026-11-25T14:21:49.820Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "SwarmLeak: Does Coordination Improve Privacy Attacks on LLM Agents?",
+        "source_url": "https://arxiv.org/abs/2611.31791",
+        "added_at": "2026-11-25T14:21:49.820Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept attack demonstrated in synthetic dataset",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2191",
     "slug": "bit-flip-attacks-on-quantized-neural-networks-without-knowle",
     "title": "Bit‑Flip Attacks on Quantized Neural Networks without Knowledge of Model Parameters",

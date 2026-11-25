@@ -1,5 +1,55 @@
 [
   {
+    "key": "b268cc76e06e6da4",
+    "title": "Not Just Any Example: Security Requirements and Fix Patterns for Guiding LLM Vulnerability Repair",
+    "url": "https://arxiv.org/abs/2611.31993",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper focuses on repair patterns and does not present a concrete attack or vulnerability",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-25T14:21:49.820Z"
+  },
+  {
+    "key": "df139b75e220aeb3",
+    "title": "Attestation is All You Need: Toward a Zero-Trust Architecture for HPC AI Agents",
+    "url": "https://arxiv.org/abs/2611.32958",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Paper proposes a defensive attestation system and does not describe a specific attack",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-25T14:21:49.820Z"
+  },
+  {
+    "key": "b7940f3d51e83d52",
+    "title": "AgentBank: Banking on Blockchain Agentic Payments",
+    "url": "https://arxiv.org/abs/2611.32389",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defense/utility paper, no attack or vulnerability demonstrated",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:21:49.820Z"
+  },
+  {
+    "key": "d0f7225165ac3170",
+    "title": "Query-Guided Visual Minimization for Selective Disclosure to Cloud VLMs",
+    "url": "https://arxiv.org/abs/2611.32302",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defense/utility paper, no attack or vulnerability demonstrated",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:21:49.820Z"
+  },
+  {
+    "key": "e19639456d8da21b",
+    "title": "PORTA: Systematic Discovery of Vulnerabilities in Identity Brokers",
+    "url": "https://arxiv.org/abs/2611.33015",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: methodology paper, no specific attack or vulnerability disclosed",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:21:49.820Z"
+  },
+  {
     "key": "f152012614f85b7e",
     "title": "Privacy Disclosure Control Benchmark (PDC-Bench): How Faithfully Do LLMs Keep Privacy Constraints on In-Context Disclosure Granularity?",
     "url": "https://arxiv.org/abs/2611.32610",
