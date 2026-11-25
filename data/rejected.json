@@ -1,5 +1,15 @@
 [
   {
+    "key": "13691a225bd6ca72",
+    "title": "Credential harvesting goes from fringe activity to major exploitation trend",
+    "url": "https://helpnetsecurity.com/2026/11/25/vulncheck-credential-harvesting-exploitat-records",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: This is a statistical overview and trends report on vulnerability exploitation, not a single specific incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-25T06:36:46.291Z"
+  },
+  {
     "key": "e9f71ae124a5ff98",
     "title": "Holiday scam losses force some victims to cut back on essentials",
     "url": "https://helpnetsecurity.com/2026/11/25/mcafee-holiday-shopping-scams-report",

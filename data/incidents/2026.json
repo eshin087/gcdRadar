@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2181",
+    "slug": "wordpress-blocks-six-backdoored-wp-connect-plugins-before-re",
+    "title": "WordPress blocks six backdoored WP Connect plugins before releases go live",
+    "summary": "WordPress removed six plugins developed by WP Connect after their developer account was compromised and backdoored on November 22, 2026. The security team successfully blocked the malicious releases before they affected live websites.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 2,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "WP Connect"
+    ],
+    "incident_date": "2026-11-22",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html",
+        "publisher": "The Hacker News",
+        "title": "WordPress Blocks Six Backdoored WP Connect Plugins Before Malicious Releases Go Live",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "supply-chain",
+      "wordpress",
+      "plugin-compromise",
+      "backdoor"
+    ],
+    "created_at": "2026-11-25T06:36:46.291Z",
+    "updated_at": "2026-11-25T06:36:46.291Z",
+    "lane": "supply_chain",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "WordPress Blocks Six Backdoored WP Connect Plugins Before Malicious Releases Go Live",
+        "source_url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html",
+        "added_at": "2026-11-25T06:36:46.291Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Malicious releases were detected and blocked by WordPress before reaching live users.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2180",
     "slug": "unclassified-intel-system-hit-by-hackers-affecting-cia-and-o",
     "title": "Unclassified intel system hit by hackers affecting CIA and ODNI",
