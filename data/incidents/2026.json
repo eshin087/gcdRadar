@@ -1,5 +1,60 @@
 [
   {
+    "id": "AIR-2026-2182",
+    "slug": "com-affiliated-hackers-target-cloud-accounts-via-vishing-for",
+    "title": "Com-Affiliated Hackers Target Cloud Accounts via Vishing for Extortion",
+    "summary": "Threat actors linked to Com have conducted multiple waves of vishing attacks since August 2026 to compromise cloud accounts. The campaign resulted in data theft and extortion attempts against financial, healthcare, and legal organizations.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-08",
+    "incident_date_precision": "month",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html",
+        "publisher": "The Hacker News",
+        "title": "Com-Affiliated Hackers Hijack Cloud Accounts via Vishing for Data Theft and Extortion",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "vishing",
+      "extortion",
+      "cloud-compromise"
+    ],
+    "created_at": "2026-11-25T07:06:44.146Z",
+    "updated_at": "2026-11-25T07:06:44.146Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Com-Affiliated Hackers Hijack Cloud Accounts via Vishing for Data Theft and Extortion",
+        "source_url": "https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html",
+        "added_at": "2026-11-25T07:06:44.146Z"
+      }
+    ],
+    "action": "Monitor cloud access logs for anomalous authentication activity and reinforce phishing-resistant MFA.",
+    "severity_note": "Confirmed real-world intrusions resulting in data theft and extortion.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2181",
     "slug": "wordpress-blocks-six-backdoored-wp-connect-plugins-before-re",
     "title": "WordPress blocks six backdoored WP Connect plugins before releases go live",
@@ -1636,9 +1691,15 @@
         "publisher": "BleepingComputer",
         "title": "Hackers compromise Check Point Servers in 22 organizations",
         "published_at": "2026-11-24"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html",
+        "publisher": "The Hacker News",
+        "title": "Hackers Compromise 24 Check Point Management Servers in Suspected AI-Driven Attack Campaign",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.92,
     "status": "published",
     "origin": "news",
@@ -1648,7 +1709,7 @@
       "campaign"
     ],
     "created_at": "2026-11-24T14:36:25.051Z",
-    "updated_at": "2026-11-24T16:21:24.656Z",
+    "updated_at": "2026-11-25T07:06:44.146Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
