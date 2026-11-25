@@ -1,5 +1,361 @@
 [
   {
+    "id": "AIR-2026-2208",
+    "slug": "cve-2026-133303-mitel-micollab-awv-xml-injection-vulnerabili",
+    "title": "CVE-2026-133303: Mitel MiCollab AWV XML Injection Vulnerability",
+    "summary": "Mitel MiCollab contains an XML injection vulnerability in its Audio, Web, and Video Conferencing component allowing unauthenticated command execution. CISA added the flaw to its Known Exploited Vulnerabilities catalog following confirmed in-the-wild exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Mitel MiCollab"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133303",
+        "publisher": "CISA",
+        "title": "CVE-2026-133303: Mitel MiCollab — Mitel MiCollab XML Injection Vulnerability",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133303",
+      "xml-injection",
+      "kev"
+    ],
+    "created_at": "2026-11-25T20:07:24.589Z",
+    "updated_at": "2026-11-25T20:07:24.589Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-133303"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "CVE-2026-133303: Mitel MiCollab — Mitel MiCollab XML Injection Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133303",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions and CISA guidance.",
+    "severity_note": "Exploitation in the wild is confirmed by CISA KEV.",
+    "cvss": 9
+  },
+  {
+    "id": "AIR-2026-2207",
+    "slug": "cve-2026-133311-mitel-micollab-weak-authentication-vulnerabi",
+    "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability",
+    "summary": "Mitel MiCollab contains a weak authentication flaw in its AWV component that allows unauthenticated attackers to access sensitive information using predictable identifiers. CISA added the vulnerability to its KEV catalog after confirming exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "MiCollab"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133311",
+        "publisher": "CISA",
+        "title": "CVE-2026-133311: Mitel MiCollab — Mitel MiCollab Weak Authentication Vulnerability",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133311",
+      "weak-authentication",
+      "kev"
+    ],
+    "created_at": "2026-11-25T20:07:24.589Z",
+    "updated_at": "2026-11-25T20:07:24.589Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-133311"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "CVE-2026-133311: Mitel MiCollab — Mitel MiCollab Weak Authentication Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133311",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions and CISA guidance.",
+    "severity_note": "Confirmed exploitation in the wild (CISA KEV).",
+    "cvss": 5.9
+  },
+  {
+    "id": "AIR-2026-2206",
+    "slug": "cve-2026-133324-mitel-micollab-authentication-bypass-vulnera",
+    "title": "CVE-2026-133324: Mitel MiCollab Authentication Bypass Vulnerability",
+    "summary": "Mitel MiCollab contains a failure to secure authentication controls in its AWV component, allowing unauthenticated attackers to perform unauthorized actions. CISA added the vulnerability to its KEV catalog due to confirmed exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "MiCollab"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133324",
+        "publisher": "CISA",
+        "title": "CVE-2026-133324: Mitel MiCollab — Mitel MiCollab Not Failing Securely Vulnerability",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133324",
+      "authentication-bypass",
+      "kev"
+    ],
+    "created_at": "2026-11-25T20:07:24.589Z",
+    "updated_at": "2026-11-25T20:07:24.589Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-133324"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "CVE-2026-133324: Mitel MiCollab — Mitel MiCollab Not Failing Securely Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133324",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions and CISA guidance.",
+    "severity_note": "Confirmed exploitation in the wild (CISA KEV).",
+    "cvss": 5.3
+  },
+  {
+    "id": "AIR-2026-2205",
+    "slug": "cve-2026-133323-mitel-micollab-os-command-injection-vulnerab",
+    "title": "CVE-2026-133323: Mitel MiCollab OS Command Injection Vulnerability",
+    "summary": "Mitel MiCollab contains an OS command injection vulnerability in its AWV component that enables unauthenticated attackers to execute arbitrary system commands. CISA added the issue to its KEV catalog following confirmed active exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "MiCollab"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133323",
+        "publisher": "CISA",
+        "title": "CVE-2026-133323: Mitel MiCollab — Mitel MiCollab OS Command Injection Vulnerability",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133323",
+      "command-injection",
+      "kev"
+    ],
+    "created_at": "2026-11-25T20:07:24.589Z",
+    "updated_at": "2026-11-25T20:07:24.589Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-133323"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "CVE-2026-133323: Mitel MiCollab — Mitel MiCollab OS Command Injection Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133323",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions and CISA guidance.",
+    "severity_note": "Confirmed exploitation in the wild (CISA KEV).",
+    "cvss": 10
+  },
+  {
+    "id": "AIR-2026-2204",
+    "slug": "cve-2026-133275-mitel-micollab-arbitrary-file-upload-vulnera",
+    "title": "CVE-2026-133275: Mitel MiCollab Arbitrary File Upload Vulnerability",
+    "summary": "Mitel MiCollab contains an unrestricted file upload vulnerability in its AWV component due to insufficient validation, allowing unauthenticated attackers to upload arbitrary files. CISA added the flaw to its KEV catalog after confirming active exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "MiCollab"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133275",
+        "publisher": "CISA",
+        "title": "CVE-2026-133275: Mitel MiCollab — Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133275",
+      "arbitrary-file-upload",
+      "kev"
+    ],
+    "created_at": "2026-11-25T20:07:24.589Z",
+    "updated_at": "2026-11-25T20:07:24.589Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-133275"
+    ],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "CVE-2026-133275: Mitel MiCollab — Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133275",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions and CISA guidance.",
+    "severity_note": "Confirmed exploitation in the wild (CISA KEV).",
+    "cvss": 5.3
+  },
+  {
+    "id": "AIR-2026-2203",
+    "slug": "cve-2026-133469-vates-xen-orchestra-authentication-bypass-vu",
+    "title": "CVE-2026-133469: Vates Xen Orchestra Authentication Bypass Vulnerability",
+    "summary": "Vates Xen Orchestra contains an input validation flaw that allows unauthenticated attackers to bypass authentication and execute administrative actions using a crafted token. CISA added the vulnerability to its KEV catalog following confirmed active exploitation.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Xen Orchestra"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133469",
+        "publisher": "CISA",
+        "title": "CVE-2026-133469: Vates Xen Orchestra — Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-133469",
+      "authentication-bypass",
+      "kev"
+    ],
+    "created_at": "2026-11-25T20:07:24.589Z",
+    "updated_at": "2026-11-25T20:07:24.589Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2026-133469"
+    ],
+    "affected": [
+      "xo-server <= 5.7.4"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "CVE-2026-133469: Vates Xen Orchestra — Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133469",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      }
+    ],
+    "action": "Apply mitigations in accordance with vendor instructions and CISA guidance.",
+    "severity_note": "Confirmed exploitation in the wild (CISA KEV).",
+    "cvss": 9.8
+  },
+  {
     "id": "AIR-2026-2202",
     "slug": "malicious-nuget-packages-used-in-fake-recruitment-campaign-c",
     "title": "Malicious NuGet packages used in fake recruitment campaign compromise .NET developers",
@@ -12916,7 +13272,7 @@
     "categories": [
       "general"
     ],
-    "severity": 2,
+    "severity": 3,
     "targets": [
       "n/a"
     ],
@@ -12938,24 +13294,46 @@
         "publisher": "BleepingComputer",
         "title": "CISA warns of critical unpatched flaw in Danfoss refrigeration controllers",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-41450",
+        "publisher": "CISA",
+        "title": "CVE-2025-41450: Danfoss AK-SM 800A Series — Danfoss AK-SM 800A Series Improper Authentication Vulnerability",
+        "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2023-25914",
+        "publisher": "CISA",
+        "title": "CVE-2023-25914: Danfoss AK-SM 800A Series — Danfoss AK-SM 800A Series Path Traversal Vulnerability",
+        "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2023-25915",
+        "publisher": "CISA",
+        "title": "CVE-2023-25915: Danfoss AK-SM 800A Series — Danfoss AK-SM 800A Series Improper Input Validation Vulnerability",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 2,
+    "source_count": 5,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
     "tags": [
       "iot",
       "unpatched",
-      "remotetakeover"
+      "remotetakeover",
+      "CVE-2025-41450",
+      "cisa-kev"
     ],
     "created_at": "2026-11-16T13:48:25.681Z",
-    "updated_at": "2026-11-25T16:21:27.794Z",
+    "updated_at": "2026-11-25T20:07:24.589Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
-    "patch_status": "unpatched",
-    "cve_ids": [],
+    "patch_status": "partial",
+    "cve_ids": [
+      "CVE-2025-41450"
+    ],
     "affected": [
       "AK-SM800A <= 5.4.0"
     ],
@@ -12966,6 +13344,24 @@
         "title": "Six Unpatched Danfoss Refrigeration Controller Flaws Could Allow Remote Takeover Without Login",
         "source_url": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html",
         "added_at": "2026-11-16T13:48:25.681Z"
+      },
+      {
+        "date": "2026-11-25",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2025-41450",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      },
+      {
+        "date": "2026-11-25",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2023-25914",
+        "added_at": "2026-11-25T20:07:24.589Z"
+      },
+      {
+        "date": "2026-11-25",
+        "title": "Added to the CISA KEV catalog (exploitation confirmed)",
+        "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2023-25915",
+        "added_at": "2026-11-25T20:07:24.589Z"
       }
     ],
     "action": "Review network exposure and follow guidance from national cybersecurity agencies.",
