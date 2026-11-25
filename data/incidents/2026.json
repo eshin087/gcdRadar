@@ -24895,9 +24895,15 @@
         "publisher": "Dark Reading",
         "title": "Artex: The AI Pen-Test Tool Hackers Turned Into a Weapon",
         "published_at": "2026-11-10"
+      },
+      {
+        "url": "https://microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse",
+        "publisher": "Microsoft Security",
+        "title": "What defenders need to know about ARTEX, the agentic AI framework threat actors abuse",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 4,
+    "source_count": 5,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -24908,10 +24914,10 @@
       "credential_access"
     ],
     "created_at": "2026-11-06T08:21:33.691Z",
-    "updated_at": "2026-11-25T00:00:46.523Z",
+    "updated_at": "2026-11-25T18:51:39.079Z",
     "lane": "breach",
-    "state": "closed",
-    "closed_at": "2026-11-24",
+    "state": "live",
+    "closed_at": null,
     "patch_status": "no_fix_needed",
     "cve_ids": [],
     "affected": [],
@@ -24934,9 +24940,15 @@
         "title": "Storm-3358 targeted the financial sector using the ARTEX framework in October 2026",
         "source_url": "https://microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
         "added_at": "2026-11-07T09:06:47.332Z"
+      },
+      {
+        "date": "2026-11-25",
+        "title": "Report identifies additional threat actor groups (Storm-0940, Onyx Sleet, Pearl Sleet, Crystal Typhoon, Salt Typhoon) using ARTEX.",
+        "source_url": "https://microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse",
+        "added_at": "2026-11-25T18:51:39.079Z"
       }
     ],
-    "action": "Audit GitHub repositories for exposed OAuth secrets and monitor for unauthorized tenant access.",
+    "action": "Add the newly identified actor groups to threat intel tracking for ARTEX.",
     "severity_note": "Confirmed active exploitation by threat actors using AI tools.",
     "cvss": null
   },
