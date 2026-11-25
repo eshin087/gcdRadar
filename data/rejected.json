@@ -1,5 +1,15 @@
 [
   {
+    "key": "7ef8b6638eb57fcc",
+    "title": "Hackers reportedly breached CIA intelligence analysis system",
+    "url": "https://bleepingcomputer.com/news/security/hackers-reportedly-breached-cia-intelligence-analysis-system",
+    "publisher": "BleepingComputer",
+    "source_id": "bleepingcomputer",
+    "reason": "below the curation bar: Breach not confirmed, lacks confirmed impact",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T07:51:38.062Z"
+  },
+  {
     "key": "13691a225bd6ca72",
     "title": "Credential harvesting goes from fringe activity to major exploitation trend",
     "url": "https://helpnetsecurity.com/2026/11/25/vulncheck-credential-harvesting-exploitat-records",
