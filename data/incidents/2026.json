@@ -7360,9 +7360,15 @@
         "publisher": "CISA",
         "title": "CVE-2026-132165: Drupal Core — Drupal Core Remote Code Execution Vulnerability",
         "published_at": "2026-11-24"
+      },
+      {
+        "url": "https://securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks",
+        "publisher": "SecurityWeek",
+        "title": "Drupal Flaw Found by Anthropic Scanner Exploited in Attacks",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 3,
+    "source_count": 4,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -7374,7 +7380,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T13:19:56.132Z",
-    "updated_at": "2026-11-24T18:07:03.091Z",
+    "updated_at": "2026-11-25T08:06:47.709Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
