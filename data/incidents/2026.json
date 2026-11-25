@@ -7684,9 +7684,15 @@
         "publisher": "The Hacker News",
         "title": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/25/drupal-installer-rce-cve-2026-132165-exploited",
+        "publisher": "Help Net Security",
+        "title": "Critical Drupal installer flaw under active attack (CVE-2026-132165)",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 6,
+    "source_count": 7,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -7698,7 +7704,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T13:19:56.132Z",
-    "updated_at": "2026-11-25T12:06:26.177Z",
+    "updated_at": "2026-11-25T13:51:32.546Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
