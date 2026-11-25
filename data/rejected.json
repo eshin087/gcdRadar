@@ -1,5 +1,45 @@
 [
   {
+    "key": "875a747b9f5bd1fe",
+    "title": "CAPTA: Identifying LLMs Behind AI Agents",
+    "url": "https://arxiv.org/abs/2611.32686",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defense‑only research; does not demonstrate an attack, vulnerability, or abuse",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:36:39.548Z"
+  },
+  {
+    "key": "6e1666fbd299543b",
+    "title": "Mixed-Initiative Mining of Root-Cause Analyses into Audit Priors for C/C++ Vulnerability Hunting",
+    "url": "https://arxiv.org/abs/2611.31744",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: defense/utility research; does not demonstrate an attack, vulnerability, or abuse",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-25T14:36:39.548Z"
+  },
+  {
+    "key": "6eb51df2aefb2b72",
+    "title": "TACT-Bench: Testing Adaptive Conversational Threats against Tool-Use Agents",
+    "url": "https://arxiv.org/abs/2611.31756",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Out of scope: benchmark paper without a specific attack or vulnerability",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-25T14:36:39.548Z"
+  },
+  {
+    "key": "25718390b6b19bdf",
+    "title": "\"I Do Intend to Deliver\": Will LLMs Run a Marketplace Advance-Fee Scam?",
+    "url": "https://arxiv.org/abs/2611.32957",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Out of scope: research paper analyzing LLM behavior, no real attack demonstrated",
+    "confidence": 0.8,
+    "rejected_at": "2026-11-25T14:36:39.548Z"
+  },
+  {
     "key": "b268cc76e06e6da4",
     "title": "Not Just Any Example: Security Requirements and Fix Patterns for Guiding LLM Vulnerability Repair",
     "url": "https://arxiv.org/abs/2611.31993",

@@ -1,5 +1,234 @@
 [
   {
+    "id": "AIR-2026-2200",
+    "slug": "prompt-injection-in-a-job-application-makes-ai-recruiting-ag",
+    "title": "Prompt injection in a job application makes AI recruiting agents leak salaries",
+    "summary": "A prompt‑injection crafted in a job application caused three AI recruiting agents to reveal employee IDs and salary information. Over 60,000 runs demonstrated the vulnerability, exposing sensitive payroll data.",
+    "type": "attack_on_ai",
+    "categories": [
+      "prompt_injection",
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://vortner.de/blog/prompt-injection-job-application",
+        "publisher": "vortner.de",
+        "title": "Prompt injection in a job application makes AI recruiting agents leak salaries",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt injection",
+      "data leak",
+      "salary leakage"
+    ],
+    "created_at": "2026-11-25T14:36:39.548Z",
+    "updated_at": "2026-11-25T14:36:39.548Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Prompt injection in a job application makes AI recruiting agents leak salaries",
+        "source_url": "https://vortner.de/blog/prompt-injection-job-application",
+        "added_at": "2026-11-25T14:36:39.548Z"
+      }
+    ],
+    "action": "Sanitize input handling and implement strict prompt validation to block injection attempts",
+    "severity_note": "Proof‑of‑concept prompt injection leading to data leakage, no known real‑world loss",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2199",
+    "slug": "when-successful-collaboration-becomes-an-attack-surface-insi",
+    "title": "When Successful Collaboration Becomes an Attack Surface: Insider Memory Poisoning in Multi-Agent Systems",
+    "summary": "The authors propose MIMPA, an insider attack that poisons shared memory in multi‑agent systems to inject malicious experience later. The paper demonstrates the feasibility of the attack in a simulated environment.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.31307",
+        "publisher": "arXiv",
+        "title": "When Successful Collaboration Becomes an Attack Surface: Insider Memory Poisoning in Multi-Agent Systems",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.93,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "agent_hijack",
+      "memory",
+      "multi-agent",
+      "insider",
+      "research"
+    ],
+    "created_at": "2026-11-25T14:36:39.548Z",
+    "updated_at": "2026-11-25T14:36:39.548Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "When Successful Collaboration Becomes an Attack Surface: Insider Memory Poisoning in Multi-Agent Systems",
+        "source_url": "https://arxiv.org/abs/2611.31307",
+        "added_at": "2026-11-25T14:36:39.548Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept insider memory poisoning; no real‑world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2198",
+    "slug": "red-teaming-a-sovereign-llm-its-reasoning-and-its-training-s",
+    "title": "Red-Teaming a Sovereign LLM, Its Reasoning and Its Training Stages",
+    "summary": "Researchers red‑team the open‑weight model Apertus v1.5 and several other LLM families, extracting synthetic personal records to test confidentiality. The study shows the models can disclose private information, demonstrating a data‑leak attack.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [
+      "Apertus"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.32710",
+        "publisher": "arXiv",
+        "title": "Red-Teaming a Sovereign LLM, Its Reasoning and Its Training Stages",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.94,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data_leak",
+      "llm",
+      "privacy",
+      "redteam",
+      "research"
+    ],
+    "created_at": "2026-11-25T14:36:39.548Z",
+    "updated_at": "2026-11-25T14:36:39.548Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Red-Teaming a Sovereign LLM, Its Reasoning and Its Training Stages",
+        "source_url": "https://arxiv.org/abs/2611.32710",
+        "added_at": "2026-11-25T14:36:39.548Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept data‑leak attack; no real‑world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2197",
+    "slug": "salsa-sampling-adversarial-suffixes-from-learned-distributio",
+    "title": "SALSA: Sampling Adversarial Suffixes from Learned Distributions for LLM Safety Assessment",
+    "summary": "Researchers introduce SALSA, a generative framework that learns distributions of jailbreak suffixes to efficiently bypass LLM safety filters. The paper demonstrates successful suffix sampling attacks against several open‑source language models.",
+    "type": "attack_on_ai",
+    "categories": [
+      "jailbreak"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33030",
+        "publisher": "arXiv",
+        "title": "SALSA: Sampling Adversarial Suffixes from Learned Distributions for LLM Safety Assessment",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.94,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "jailbreak",
+      "adversarial",
+      "llm",
+      "security",
+      "research"
+    ],
+    "created_at": "2026-11-25T14:36:39.548Z",
+    "updated_at": "2026-11-25T14:36:39.548Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "SALSA: Sampling Adversarial Suffixes from Learned Distributions for LLM Safety Assessment",
+        "source_url": "https://arxiv.org/abs/2611.33030",
+        "added_at": "2026-11-25T14:36:39.548Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Proof‑of‑concept attack on LLMs without known real‑world exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2196",
     "slug": "aftershock-yesterday-s-linux-kernel-bugs-tomorrow-s-android",
     "title": "Aftershock: Yesterday's Linux Kernel Bugs, Tomorrow's Android Exploits",
@@ -1591,9 +1820,15 @@
         "publisher": "BleepingComputer",
         "title": "New Inception extortion gang launches large-scale vishing campaign",
         "published_at": "2026-11-24"
+      },
+      {
+        "url": "https://securityweek.com/shinyhunters-claims-comeback-new-inception-group-rejects-alleged-ties",
+        "publisher": "SecurityWeek",
+        "title": "ShinyHunters Claims Comeback, New Inception Group Rejects Alleged Ties",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -1603,7 +1838,7 @@
       "inception"
     ],
     "created_at": "2026-11-24T21:15:41.685Z",
-    "updated_at": "2026-11-24T21:15:41.685Z",
+    "updated_at": "2026-11-25T14:36:39.548Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -1617,9 +1852,15 @@
         "title": "New Inception extortion gang launches large-scale vishing campaign",
         "source_url": "https://bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign",
         "added_at": "2026-11-24T21:15:41.685Z"
+      },
+      {
+        "date": "2026-11-25",
+        "title": "Okta reports possible links between Inception extortion group and ShinyHunters hackers",
+        "source_url": "https://securityweek.com/shinyhunters-claims-comeback-new-inception-group-rejects-alleged-ties",
+        "added_at": "2026-11-25T14:36:39.548Z"
       }
     ],
-    "action": "Monitor for credential theft and enforce multi‑factor authentication",
+    "action": "Update threat intel to include possible ShinyHunters involvement",
     "severity_note": "Active exploitation of stolen SSO credentials",
     "cvss": null
   },
