@@ -1,5 +1,15 @@
 [
   {
+    "key": "17a805c0d69ce858",
+    "title": "Microsoft: China’s Salt Typhoon hackers are using Artex",
+    "url": "https://therecord.media/microsoft-china-salt-typhoon-using-artex-ai-tool",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: General threat intelligence report on tooling usage without a specific isolated incident or product flaw",
+    "confidence": 0.85,
+    "rejected_at": "2026-11-25T21:40:57.975Z"
+  },
+  {
     "key": "4fcf01c31362b2a5",
     "title": "Florida ransomware recovery CEO indicted for allegedly paying hacker ransoms",
     "url": "https://therecord.media/ransomware-doj-indictment-recovery",

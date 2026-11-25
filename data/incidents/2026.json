@@ -1,5 +1,125 @@
 [
   {
+    "id": "AIR-2026-2211",
+    "slug": "1password-customer-data-stolen-after-employee-github-account",
+    "title": "1Password customer data stolen after employee GitHub account breach",
+    "summary": "1Password disclosed a data breach resulting from a compromised employee GitHub account used to deploy malicious code. Customer data was stolen during the incident.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "1Password"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach",
+        "publisher": "BleepingComputer",
+        "title": "1Password customer data stolen after employee GitHub account breach",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "github",
+      "credential-compromise"
+    ],
+    "created_at": "2026-11-25T21:40:57.975Z",
+    "updated_at": "2026-11-25T21:40:57.975Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "1Password customer data stolen after employee GitHub account breach",
+        "source_url": "https://bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach",
+        "added_at": "2026-11-25T21:40:57.975Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world data breach with customer data stolen.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2210",
+    "slug": "cve-2026-137057-llama-cpp-integer-underflow-in-grammar-parse",
+    "title": "CVE-2026-137057: llama.cpp integer underflow in grammar parser",
+    "summary": "An integer underflow vulnerability in llama.cpp allows unauthenticated attackers to cause a denial of service via crafted GBNF repetitions. A fixed release is available.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "llama.cpp"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137057",
+        "publisher": "NVD",
+        "title": "CVE-2026-137057: llama.cpp from b7118 before b12604 contains an integer underflow vulnerability in llama_grammar_parser::parse_sequence() that…",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-137057",
+      "integer-underflow",
+      "denial-of-service"
+    ],
+    "created_at": "2026-11-25T21:40:57.975Z",
+    "updated_at": "2026-11-25T21:40:57.975Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-25",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-137057"
+    ],
+    "affected": [
+      "llama.cpp b7118 to b12603"
+    ],
+    "fixed_in": [
+      "llama.cpp b12604"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "CVE-2026-137057: llama.cpp from b7118 before b12604 contains an integer underflow vulnerability in llama_grammar_parser::parse_sequence() that…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137057",
+        "added_at": "2026-11-25T21:40:57.975Z"
+      }
+    ],
+    "action": "Update to llama.cpp b12604 or later.",
+    "severity_note": "CVSS 8.7 high vulnerability with a patch available and no confirmed exploitation.",
+    "cvss": 8.7
+  },
+  {
     "id": "AIR-2026-2209",
     "slug": "fifa-discloses-cyberattack-resulting-in-access-to-personal-a",
     "title": "FIFA discloses cyberattack resulting in access to personal and business data",
