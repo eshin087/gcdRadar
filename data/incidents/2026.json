@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2202",
+    "slug": "malicious-nuget-packages-used-in-fake-recruitment-campaign-c",
+    "title": "Malicious NuGet packages used in fake recruitment campaign compromise .NET developers",
+    "summary": "Researchers identified 13 malicious NuGet packages distributed through a fake recruitment campaign that install malware on developers' machines. The packages give attackers remote access, prompting developers to remove the packages and review their dependency supply chain.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "NuGet"
+    ],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-25",
+    "sources": [
+      {
+        "url": "https://darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
+        "publisher": "Dark Reading",
+        "title": "Attackers Target .NET Developers With Poisoned Job Assessments",
+        "published_at": "2026-11-25"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "nuget",
+      "supply-chain",
+      "malware",
+      "recruitment",
+      "dotnet"
+    ],
+    "created_at": "2026-11-25T16:21:27.794Z",
+    "updated_at": "2026-11-25T16:21:27.794Z",
+    "lane": "supply_chain",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-25",
+        "title": "Attackers Target .NET Developers With Poisoned Job Assessments",
+        "source_url": "https://darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
+        "added_at": "2026-11-25T16:21:27.794Z"
+      }
+    ],
+    "action": "Remove the malicious packages and audit all dependencies for compromise",
+    "severity_note": "Exploitation confirmed via malware distribution to developers' machines",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2201",
     "slug": "cve-2026-103406-hpe-juniper-session-smart-conductor-and-rout",
     "title": "CVE-2026-103406: HPE Juniper Session Smart Conductor and Router OS Command Injection Vulnerability",
@@ -12873,9 +12932,15 @@
         "publisher": "The Hacker News",
         "title": "Six Unpatched Danfoss Refrigeration Controller Flaws Could Allow Remote Takeover Without Login",
         "published_at": "2026-11-16"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/cisa-warns-of-critical-unpatched-flaw-in-danfoss-refrigeration-controllers",
+        "publisher": "BleepingComputer",
+        "title": "CISA warns of critical unpatched flaw in Danfoss refrigeration controllers",
+        "published_at": "2026-11-25"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -12885,7 +12950,7 @@
       "remotetakeover"
     ],
     "created_at": "2026-11-16T13:48:25.681Z",
-    "updated_at": "2026-11-16T13:48:25.681Z",
+    "updated_at": "2026-11-25T16:21:27.794Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
