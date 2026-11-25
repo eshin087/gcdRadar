@@ -1,5 +1,15 @@
 [
   {
+    "key": "e9f71ae124a5ff98",
+    "title": "Holiday scam losses force some victims to cut back on essentials",
+    "url": "https://helpnetsecurity.com/2026/11/25/mcafee-holiday-shopping-scams-report",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Survey and statistics piece without a specific named incident or victim.",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-25T05:06:45.088Z"
+  },
+  {
     "key": "514acac696549382",
     "title": "'God Mode' Flaws Could Wreak Border-Control Havoc",
     "url": "https://darkreading.com/vulnerabilities-threats/god-mode-flaws-wreak-border-control-havoc",
