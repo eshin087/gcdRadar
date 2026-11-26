@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2225",
+    "slug": "goodguys-campaign-uses-fake-expert-interviews-to-steal-googl",
+    "title": "GoodGuys campaign uses fake expert interviews to steal Google logins",
+    "summary": "An ongoing phishing campaign named GoodGuys impersonates major brands to distribute fake interview invitations that steal corporate credentials. Affected organizations should be on alert for fraudulent interview lures.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Google Workspace",
+      "Okta"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/apple/fake-paid-expert-interviews-impersonate-brands-to-steal-google-logins",
+        "publisher": "BleepingComputer",
+        "title": "Fake paid expert interviews impersonate brands to steal Google logins",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "phishing",
+      "credential-theft",
+      "goodguys"
+    ],
+    "created_at": "2026-11-26T17:21:35.314Z",
+    "updated_at": "2026-11-26T17:21:35.314Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "Fake paid expert interviews impersonate brands to steal Google logins",
+        "source_url": "https://bleepingcomputer.com/news/apple/fake-paid-expert-interviews-impersonate-brands-to-steal-google-logins",
+        "added_at": "2026-11-26T17:21:35.314Z"
+      }
+    ],
+    "action": "Warn employees to be vigilant against unsolicited expert interview invitations requesting credential logins.",
+    "severity_note": "Confirmed active phishing campaign targeting multiple named organizations.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2224",
     "slug": "cve-2026-137567-llama-cpp-out-of-bounds-write-in-ggml-rpc-se",
     "title": "CVE-2026-137567: llama.cpp out-of-bounds write in ggml RPC server",
@@ -937,9 +995,15 @@
         "publisher": "The Record",
         "title": "FIFA says hackers accessed ‘limited set of personal and business information’",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://securityweek.com/fifa-says-it-has-been-victim-of-a-cyberattack-accessing-personal-and-business-information",
+        "publisher": "SecurityWeek",
+        "title": "FIFA Says It Has Been Victim of a Cyberattack Accessing ‘Personal and Business Information’",
+        "published_at": "2026-11-26"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -949,7 +1013,7 @@
       "unauthorized-access"
     ],
     "created_at": "2026-11-25T21:06:25.754Z",
-    "updated_at": "2026-11-25T21:06:25.754Z",
+    "updated_at": "2026-11-26T17:21:35.314Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
