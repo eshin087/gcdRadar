@@ -1,5 +1,25 @@
 [
   {
+    "key": "27c41b73faa55f9a",
+    "title": "Most Wanted: The Phishing Kits and Techniques Getting Past Security Controls",
+    "url": "https://thehackernews.com/2026/11/most-wanted-phishing-kits-and.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Roundup or overview of phishing kits without a specific incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T12:13:50.620Z"
+  },
+  {
+    "key": "c0ff4a7ff77afe9e",
+    "title": "UK’s long-awaited National Cyber Action Plan delayed until December",
+    "url": "https://therecord.media/britain-delays-national-cyber-action-plan-again",
+    "publisher": "The Record",
+    "source_id": "therecord",
+    "reason": "out of scope: Policy or government regulation news",
+    "confidence": 0.98,
+    "rejected_at": "2026-11-26T12:13:50.620Z"
+  },
+  {
     "key": "ba5c870601db6cd3",
     "title": "Onnx2TEE: Automated Graph-Aware Model Partitioning for TEE-based Edge AI Protection",
     "url": "https://arxiv.org/abs/2611.33262",

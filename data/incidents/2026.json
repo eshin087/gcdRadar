@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2220",
+    "slug": "sys010-malware-abuses-browser-management-to-spy-on-gmail-out",
+    "title": "SYS010 malware abuses browser management to spy on Gmail, Outlook",
+    "summary": "A new version of the SYS01 infostealer delivered via Meta ads abuses browser management to install data-stealing extensions. The campaign targets user email accounts like Gmail and Outlook.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "individual_victims"
+    ],
+    "products": [
+      "SYS010"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/sys010-malware-abuses-browser-management-to-spy-on-gmail-outlook",
+        "publisher": "BleepingComputer",
+        "title": "SYS010 malware abuses browser management to spy on Gmail, Outlook",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "sys010",
+      "infostealer",
+      "malware"
+    ],
+    "created_at": "2026-11-26T12:13:50.620Z",
+    "updated_at": "2026-11-26T12:13:50.620Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "SYS010 malware abuses browser management to spy on Gmail, Outlook",
+        "source_url": "https://bleepingcomputer.com/news/security/sys010-malware-abuses-browser-management-to-spy-on-gmail-outlook",
+        "added_at": "2026-11-26T12:13:50.620Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed active malware campaign abusing browser management",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2219",
     "slug": "beyond-the-efficiency-efficacy-dilemma-adversarial-malware-d",
     "title": "Beyond the Efficiency-Efficacy Dilemma: Adversarial Malware Detection Transferability",
@@ -875,9 +932,15 @@
         "publisher": "CISA",
         "title": "CVE-2026-133323: Mitel MiCollab — Mitel MiCollab OS Command Injection Vulnerability",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks",
+        "publisher": "SecurityWeek",
+        "title": "Mitel MiCollab Zero-Days Exploited in Suspected AI-Assisted Attacks",
+        "published_at": "2026-11-26"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "seed_nvd",
@@ -887,7 +950,7 @@
       "kev"
     ],
     "created_at": "2026-11-25T20:07:24.589Z",
-    "updated_at": "2026-11-25T20:07:24.589Z",
+    "updated_at": "2026-11-26T12:13:50.620Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -903,6 +966,12 @@
         "title": "CVE-2026-133323: Mitel MiCollab — Mitel MiCollab OS Command Injection Vulnerability",
         "source_url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-133323",
         "added_at": "2026-11-25T20:07:24.589Z"
+      },
+      {
+        "date": "2026-11-26",
+        "title": "Researchers attribute early zero-day exploitation of Mitel MiCollab flaws to a suspected AI-assisted extortion campaign",
+        "source_url": "https://securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks",
+        "added_at": "2026-11-26T12:13:50.620Z"
       }
     ],
     "action": "Apply mitigations in accordance with vendor instructions and CISA guidance.",
