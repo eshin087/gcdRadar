@@ -1,5 +1,15 @@
 [
   {
+    "key": "8b7022f6e9946843",
+    "title": "More than 4,400 malicious domains are waiting for holiday shoppers",
+    "url": "https://helpnetsecurity.com/2026/11/26/fortinet-holiday-shopping-cyber-threats-report",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Survey or statistics piece discussing general threat trends rather than a specific targeted breach or named incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T06:06:37.145Z"
+  },
+  {
     "key": "011e79ca1690d114",
     "title": "Google mandates MCP or CLI access for Workspace AI agents starting February 2027",
     "url": "https://helpnetsecurity.com/2026/11/26/google-ai-agent-security-requirements",
