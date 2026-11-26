@@ -1,5 +1,321 @@
 [
   {
+    "id": "AIR-2026-2230",
+    "slug": "cve-2026-137497-budibase-information-disclosure-exposes-lite",
+    "title": "CVE-2026-137497: Budibase information disclosure exposes LiteLLM credentials",
+    "summary": "Budibase contains an information disclosure vulnerability that lets unauthenticated attackers retrieve legacy LiteLLM credentials through a public settings endpoint. This allows unauthorized use of tenant LiteLLM resources.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_leak",
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Budibase"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137497",
+        "publisher": "NVD",
+        "title": "CVE-2026-137497: Budibase before 4.0.0 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve legacy…",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-137497",
+      "credential_disclosure",
+      "litellm"
+    ],
+    "created_at": "2026-11-26T18:27:39.464Z",
+    "updated_at": "2026-11-26T18:27:39.464Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-26",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-137497"
+    ],
+    "affected": [
+      "Budibase < 4.0.0"
+    ],
+    "fixed_in": [
+      "Budibase 4.0.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "CVE-2026-137497: Budibase before 4.0.0 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve legacy…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137497",
+        "added_at": "2026-11-26T18:27:39.464Z"
+      }
+    ],
+    "action": "Update Budibase to version 4.0.0 or later and rotate any exposed LiteLLM credentials.",
+    "severity_note": "CVSS 8.7 high severity advisory with a patch and no exploitation.",
+    "cvss": 8.7
+  },
+  {
+    "id": "AIR-2026-2229",
+    "slug": "cve-2026-137543-laradashboard-server-side-request-forgery-vi",
+    "title": "CVE-2026-137543: LaraDashboard server-side request forgery via Ollama URL",
+    "summary": "LaraDashboard contains a server-side request forgery vulnerability allowing authenticated users to reach internal services via unvalidated Ollama base URL settings. Attackers can exploit this to fetch internal data reflected in SEO fields.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "LaraDashboard"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137543",
+        "publisher": "NVD",
+        "title": "CVE-2026-137543: LaraDashboard before 1.5.2 contains a server-side request forgery vulnerability that allows authenticated users to reach internal…",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-137543",
+      "ssrf",
+      "infra_vuln"
+    ],
+    "created_at": "2026-11-26T18:27:39.464Z",
+    "updated_at": "2026-11-26T18:27:39.464Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-26",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-137543"
+    ],
+    "affected": [
+      "LaraDashboard < 1.5.2"
+    ],
+    "fixed_in": [
+      "LaraDashboard 1.5.2"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "CVE-2026-137543: LaraDashboard before 1.5.2 contains a server-side request forgery vulnerability that allows authenticated users to reach internal…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137543",
+        "added_at": "2026-11-26T18:27:39.464Z"
+      }
+    ],
+    "action": "Update LaraDashboard to version 1.5.2 or later.",
+    "severity_note": "CVSS 8.3 high severity advisory with a patch and no exploitation.",
+    "cvss": 8.3
+  },
+  {
+    "id": "AIR-2026-2228",
+    "slug": "cve-2026-137475-vllm-state-aliasing-flaw-in-thinkingbudgetst",
+    "title": "CVE-2026-137475: vLLM state aliasing flaw in ThinkingBudgetStateHolder",
+    "summary": "vLLM contains a state aliasing flaw in the ThinkingBudgetStateHolder component of the V1 model runner. Attackers can force reasoning-end token sequences into concurrent co-batched requests during mixed batch reordering.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "vLLM"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137475",
+        "publisher": "NVD",
+        "title": "CVE-2026-137475: vLLM 0.21.0 before 0.28.0, when using the V1 model runner, contains a state aliasing flaw in…",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-137475",
+      "infra_vuln"
+    ],
+    "created_at": "2026-11-26T18:27:39.464Z",
+    "updated_at": "2026-11-26T18:27:39.464Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-26",
+    "patch_status": "unpatched",
+    "cve_ids": [
+      "CVE-2026-137475"
+    ],
+    "affected": [
+      "vLLM >= 0.21.0, < 0.28.0"
+    ],
+    "fixed_in": [
+      "vLLM 0.28.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "CVE-2026-137475: vLLM 0.21.0 before 0.28.0, when using the V1 model runner, contains a state aliasing flaw in…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137475",
+        "added_at": "2026-11-26T18:27:39.464Z"
+      }
+    ],
+    "action": "Update vLLM to version 0.28.0 or later.",
+    "severity_note": "CVSS 2.3 low severity advisory with a fix and no confirmed exploitation.",
+    "cvss": 2.3
+  },
+  {
+    "id": "AIR-2026-2227",
+    "slug": "cve-2026-137477-vllm-token-data-leakage-between-users-in-v1",
+    "title": "CVE-2026-137477: vLLM token data leakage between users in V1 model runner",
+    "summary": "vLLM leaks token data between concurrent users when using async scheduling with pipeline parallelism in the V1 model runner. Stale tokens from prior requests can become model input and expose fragments of a user's context in another user's response.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln",
+      "data_leak"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "vLLM"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137477",
+        "publisher": "NVD",
+        "title": "CVE-2026-137477: vLLM 0.16.0 before 0.21.0 leaks token data between users when the V1 model runner uses async scheduling with pipeline…",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-137477",
+      "data_leak",
+      "infra_vuln"
+    ],
+    "created_at": "2026-11-26T18:27:39.464Z",
+    "updated_at": "2026-11-26T18:27:39.464Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-26",
+    "patch_status": "unpatched",
+    "cve_ids": [
+      "CVE-2026-137477"
+    ],
+    "affected": [
+      "vLLM >= 0.16.0, < 0.21.0"
+    ],
+    "fixed_in": [
+      "vLLM 0.21.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "CVE-2026-137477: vLLM 0.16.0 before 0.21.0 leaks token data between users when the V1 model runner uses async scheduling with pipeline…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137477",
+        "added_at": "2026-11-26T18:27:39.464Z"
+      }
+    ],
+    "action": "Update vLLM to version 0.21.0 or later.",
+    "severity_note": "CVSS 6.3 medium severity advisory with a fix and no confirmed exploitation.",
+    "cvss": 6.3
+  },
+  {
+    "id": "AIR-2026-2226",
+    "slug": "cve-2026-137476-vllm-response-amplification-vulnerability-in",
+    "title": "CVE-2026-137476: vLLM response amplification vulnerability in API server",
+    "summary": "vLLM contains a response amplification vulnerability in the shared validation error handler of its OpenAI-compatible API server. Unauthenticated attackers can send malformed requests to consume server resources and disrupt downstream clients.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "vLLM"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137476",
+        "publisher": "NVD",
+        "title": "CVE-2026-137476: vLLM 0.3.0 before 0.30.0 contains a response amplification vulnerability in the OpenAI-compatible API server's shared…",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-137476",
+      "dos",
+      "infra_vuln"
+    ],
+    "created_at": "2026-11-26T18:27:39.464Z",
+    "updated_at": "2026-11-26T18:27:39.464Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-26",
+    "patch_status": "unpatched",
+    "cve_ids": [
+      "CVE-2026-137476"
+    ],
+    "affected": [
+      "vLLM >= 0.3.0, < 0.30.0"
+    ],
+    "fixed_in": [
+      "vLLM 0.30.0"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "CVE-2026-137476: vLLM 0.3.0 before 0.30.0 contains a response amplification vulnerability in the OpenAI-compatible API server's shared…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137476",
+        "added_at": "2026-11-26T18:27:39.464Z"
+      }
+    ],
+    "action": "Update vLLM to version 0.30.0 or later.",
+    "severity_note": "CVSS 6.9 medium severity advisory with a fix and no confirmed exploitation.",
+    "cvss": 6.9
+  },
+  {
     "id": "AIR-2026-2225",
     "slug": "goodguys-campaign-uses-fake-expert-interviews-to-steal-googl",
     "title": "GoodGuys campaign uses fake expert interviews to steal Google logins",
