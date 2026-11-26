@@ -1,5 +1,15 @@
 [
   {
+    "key": "011e79ca1690d114",
+    "title": "Google mandates MCP or CLI access for Workspace AI agents starting February 2027",
+    "url": "https://helpnetsecurity.com/2026/11/26/google-ai-agent-security-requirements",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launches and vendor feature announcements are out of scope.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T05:40:31.747Z"
+  },
+  {
     "key": "17a805c0d69ce858",
     "title": "Microsoft: China’s Salt Typhoon hackers are using Artex",
     "url": "https://therecord.media/microsoft-china-salt-typhoon-using-artex-ai-tool",
