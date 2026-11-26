@@ -1,5 +1,15 @@
 [
   {
+    "key": "b8cd12659120030e",
+    "title": "Data recovery firm co-founder accused of cashing in on ransomware victims",
+    "url": "https://helpnetsecurity.com/2026/11/26/ransomware-recovery-fraud-florida-firm-co-founder-charged",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Indictment of individual for fraud, no specific breach or vulnerability, no named victims; considered a legal follow‑up",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:06:39.887Z"
+  },
+  {
     "key": "8b7022f6e9946843",
     "title": "More than 4,400 malicious domains are waiting for holiday shoppers",
     "url": "https://helpnetsecurity.com/2026/11/26/fortinet-holiday-shopping-cyber-threats-report",
