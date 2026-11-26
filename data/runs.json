@@ -1,237 +1,5 @@
 [
   {
-    "id": "run-20261121T112133",
-    "started_at": "2026-11-21T11:21:33.915Z",
-    "finished_at": "2026-11-21T11:26:08.511Z",
-    "mode": "scheduled",
-    "sources": [
-      {
-        "id": "securityweek",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 139
-      },
-      {
-        "id": "thn",
-        "ok": true,
-        "items": 11,
-        "duration_ms": 215
-      },
-      {
-        "id": "bleepingcomputer",
-        "ok": true,
-        "items": 9,
-        "duration_ms": 80
-      },
-      {
-        "id": "krebs",
-        "ok": true,
-        "items": 1,
-        "duration_ms": 239
-      },
-      {
-        "id": "cyberscoop",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 183
-      },
-      {
-        "id": "therecord",
-        "ok": true,
-        "items": 5,
-        "duration_ms": 273
-      },
-      {
-        "id": "helpnetsecurity",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 136
-      },
-      {
-        "id": "openai",
-        "ok": true,
-        "items": 3,
-        "duration_ms": 160
-      },
-      {
-        "id": "darkreading",
-        "ok": true,
-        "items": 3,
-        "duration_ms": 457
-      },
-      {
-        "id": "google-security",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 175
-      },
-      {
-        "id": "deepmind",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 119
-      },
-      {
-        "id": "ms-security",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 92
-      },
-      {
-        "id": "ms-threat-intel",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 118
-      },
-      {
-        "id": "ms-ai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 115
-      },
-      {
-        "id": "meta-eng",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 122
-      },
-      {
-        "id": "cisa-alerts",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 83
-      },
-      {
-        "id": "paloalto-psirt",
-        "ok": true,
-        "items": 2,
-        "duration_ms": 219
-      },
-      {
-        "id": "cisco-psirt",
-        "ok": true,
-        "items": 3,
-        "duration_ms": 486
-      },
-      {
-        "id": "simonw-pi",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 66
-      },
-      {
-        "id": "simonw-sec",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 238
-      },
-      {
-        "id": "embracethered",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 116
-      },
-      {
-        "id": "trailofbits",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 101
-      },
-      {
-        "id": "gtig",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 1693
-      },
-      {
-        "id": "unit42",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 56
-      },
-      {
-        "id": "talos",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 91
-      },
-      {
-        "id": "owasp-genai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 243
-      },
-      {
-        "id": "unit42-ai",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 865
-      },
-      {
-        "id": "straiker",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 175
-      },
-      {
-        "id": "checkmarx-zero",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 264
-      },
-      {
-        "id": "fortinet-psirt",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 2067
-      },
-      {
-        "id": "kev",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 39
-      },
-      {
-        "id": "ghsa",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 509
-      },
-      {
-        "id": "hn",
-        "ok": true,
-        "items": 0,
-        "duration_ms": 7527
-      },
-      {
-        "id": "nvd",
-        "ok": true,
-        "items": 10,
-        "duration_ms": 271387
-      }
-    ],
-    "counts": {
-      "fetched": 47,
-      "prefiltered": 35,
-      "merged": 0,
-      "classified": 0,
-      "published": 0,
-      "review": 0,
-      "rejected": 0,
-      "pending": 0,
-      "updated": 0,
-      "closed": 0,
-      "reopened": 0
-    },
-    "llm": {
-      "calls": 0,
-      "prompt_tokens": 0,
-      "completion_tokens": 0,
-      "by_model": {}
-    },
-    "errors": []
-  },
-  {
     "id": "run-20261121T113622",
     "started_at": "2026-11-21T11:36:22.327Z",
     "finished_at": "2026-11-21T11:37:10.606Z",
@@ -54569,6 +54337,248 @@
           "calls": 3,
           "prompt_tokens": 5166,
           "completion_tokens": 1833
+        }
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "run-20261126T110628",
+    "started_at": "2026-11-26T11:06:28.190Z",
+    "finished_at": "2026-11-26T11:06:56.023Z",
+    "mode": "scheduled",
+    "sources": [
+      {
+        "id": "krebs",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 140
+      },
+      {
+        "id": "securityweek",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 160
+      },
+      {
+        "id": "bleepingcomputer",
+        "ok": true,
+        "items": 10,
+        "duration_ms": 190
+      },
+      {
+        "id": "therecord",
+        "ok": true,
+        "items": 5,
+        "duration_ms": 133
+      },
+      {
+        "id": "thn",
+        "ok": true,
+        "items": 13,
+        "duration_ms": 475
+      },
+      {
+        "id": "helpnetsecurity",
+        "ok": true,
+        "items": 10,
+        "duration_ms": 56
+      },
+      {
+        "id": "cyberscoop",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 107
+      },
+      {
+        "id": "openai",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 178
+      },
+      {
+        "id": "deepmind",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 111
+      },
+      {
+        "id": "google-security",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 445
+      },
+      {
+        "id": "ms-security",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 68
+      },
+      {
+        "id": "ms-threat-intel",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 83
+      },
+      {
+        "id": "ms-ai",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 50
+      },
+      {
+        "id": "darkreading",
+        "ok": true,
+        "items": 5,
+        "duration_ms": 1177
+      },
+      {
+        "id": "meta-eng",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 115
+      },
+      {
+        "id": "cisa-alerts",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 46
+      },
+      {
+        "id": "paloalto-psirt",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 176
+      },
+      {
+        "id": "cisco-psirt",
+        "ok": true,
+        "items": 2,
+        "duration_ms": 565
+      },
+      {
+        "id": "simonw-pi",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 110
+      },
+      {
+        "id": "simonw-sec",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 36
+      },
+      {
+        "id": "embracethered",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 151
+      },
+      {
+        "id": "trailofbits",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 155
+      },
+      {
+        "id": "gtig",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 1805
+      },
+      {
+        "id": "unit42",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 28
+      },
+      {
+        "id": "talos",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 106
+      },
+      {
+        "id": "owasp-genai",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 79
+      },
+      {
+        "id": "straiker",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 101
+      },
+      {
+        "id": "unit42-ai",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 680
+      },
+      {
+        "id": "checkmarx-zero",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 151
+      },
+      {
+        "id": "kev",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 44
+      },
+      {
+        "id": "fortinet-psirt",
+        "ok": true,
+        "items": 0,
+        "duration_ms": 1908
+      },
+      {
+        "id": "ghsa",
+        "ok": true,
+        "items": 1,
+        "duration_ms": 918
+      },
+      {
+        "id": "hn",
+        "ok": true,
+        "items": 1,
+        "duration_ms": 7064
+      }
+    ],
+    "counts": {
+      "fetched": 47,
+      "prefiltered": 36,
+      "merged": 1,
+      "classified": 1,
+      "published": 0,
+      "review": 0,
+      "rejected": 0,
+      "pending": 0,
+      "updated": 0,
+      "closed": 0,
+      "reopened": 0
+    },
+    "llm": {
+      "calls": 5,
+      "prompt_tokens": 3929,
+      "completion_tokens": 568,
+      "by_model": {
+        "gemini-lite/gemini-3.5-flash-lite": {
+          "calls": 3,
+          "prompt_tokens": 3273,
+          "completion_tokens": 414
+        },
+        "gemini-flash/gemini-3.8-flash": {
+          "calls": 1,
+          "prompt_tokens": 0,
+          "completion_tokens": 0
+        },
+        "groq/openai/gpt-oss-120b": {
+          "calls": 1,
+          "prompt_tokens": 656,
+          "completion_tokens": 154
         }
       }
     },
