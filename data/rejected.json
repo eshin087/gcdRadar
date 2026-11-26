@@ -1,5 +1,85 @@
 [
   {
+    "key": "427d8bb5d081bb57",
+    "title": "SecID: An LLM-Guided Framework for Threat-Aware Secondary Asset Identification with Quantitative RTL Analysis",
+    "url": "https://arxiv.org/abs/2611.33453",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper proposes a defense and verification framework for hardware assets rather than demonstrating an attack or vulnerability.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
+    "key": "9ae0e0dfb2f1acec",
+    "title": "AgentLens: Graph-guided Security Auditing for LLM-based Agents",
+    "url": "https://arxiv.org/abs/2611.34380",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper introduces AgentLens, an auditing tool and benchmark framework for LLM agents rather than demonstrating an active exploit or new zero-day attack.",
+    "confidence": 0.9,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
+    "key": "18a9d86d77978f86",
+    "title": "WADJET: Whole-Job Authorization and Dispatch for Job Execution Trust on FPGA System-on-Chip Accelerators",
+    "url": "https://arxiv.org/abs/2611.33406",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper presents WADJET, a hardware architecture enforcement mechanism for FPGA system-on-chip accelerators, which is a defensive design.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
+    "key": "bf40509517f7fad8",
+    "title": "Benchmarking Open-Ended Vulnerability Discovery in Windows Kernel Binaries",
+    "url": "https://arxiv.org/abs/2611.33486",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: The paper introduces a benchmark (DeepBinary) to evaluate frontier models on vulnerability discovery, making it a benchmark study rather than an incident report or attack demonstration.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
+    "key": "edfbdcb3eb5202a6",
+    "title": "Make the Adversary Spend More: Stateful Deception as a Cost-Exchange Primitive for AI-Era Cyber Defense",
+    "url": "https://arxiv.org/abs/2611.34770",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is a defense-only paper proposing a new cyber deception primitive.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
+    "key": "4dddd1096949eac0",
+    "title": "Dynamic Reasoning in Next-Gen Detection and Response: An Empirical Study of LLM Triage, Reinforcement Tuning, and Adversarial Evasion",
+    "url": "https://arxiv.org/abs/2611.33470",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is a detection and response evaluation paper proposing architectural defenses.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
+    "key": "15d8153013220593",
+    "title": "Anti-AI in the Wild: From Toxic Discourse to Action",
+    "url": "https://arxiv.org/abs/2611.33254",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: It is a measurement and survey study of online conflict and anti-AI community actions.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
+    "key": "774b785a3629dab5",
+    "title": "Train-Only-Constrained LM for Synthetic Clinical Trajectories: Leak-Safe Calibration and Auditable Dynamics",
+    "url": "https://arxiv.org/abs/2611.34258",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: Proposes a defensive synthetic generation architecture rather than demonstrating a novel attack or security flaw",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:21:46.801Z"
+  },
+  {
     "key": "b8cd12659120030e",
     "title": "Data recovery firm co-founder accused of cashing in on ransomware victims",
     "url": "https://helpnetsecurity.com/2026/11/26/ransomware-recovery-fraud-florida-firm-co-founder-charged",

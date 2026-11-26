@@ -1,5 +1,235 @@
 [
   {
+    "id": "AIR-2026-2216",
+    "slug": "poisoning-attack-forces-denial-of-service-in-self-evolving-l",
+    "title": "Poisoning Attack Forces Denial-of-Service in Self-Evolving LLM Agent Defenses",
+    "summary": "Researchers demonstrated an attack against self-evolving security frameworks where an initial prompt injection poisons dynamic defense policies. The induced policy over-refuses legitimate agent actions across evaluated models.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_poisoning",
+      "prompt_injection",
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling",
+      "open_weight_model"
+    ],
+    "products": [
+      "AgentDojo",
+      "Nemotron"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33385",
+        "publisher": "arXiv",
+        "title": "Poisoning Self-Evolving Security Policies in LLM Agents",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.92,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "prompt-injection",
+      "data-poisoning",
+      "agentdojo",
+      "llm-agents"
+    ],
+    "created_at": "2026-11-26T10:21:46.801Z",
+    "updated_at": "2026-11-26T10:21:46.801Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "Poisoning Self-Evolving Security Policies in LLM Agents",
+        "source_url": "https://arxiv.org/abs/2611.33385",
+        "added_at": "2026-11-26T10:21:46.801Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated proof-of-concept attack in a laboratory evaluation with no in-the-wild exploitation",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2215",
+    "slug": "know-the-design-pick-the-attack-sentence-keyed-watermarks-fo",
+    "title": "Know the Design, Pick the Attack: Sentence-Keyed Watermarks for LLMs",
+    "summary": "This research paper demonstrates techniques to break or evade sentence-keyed watermarks implemented in language models. The findings show how attackers can reword text to erase watermarks or forge them onto unwatermarked text.",
+    "type": "attack_on_ai",
+    "categories": [
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.34505",
+        "publisher": "arXiv",
+        "title": "Know the Design, Pick the Attack: Sentence-Keyed Watermarks for LLMs",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "watermarking",
+      "evasion",
+      "provenance"
+    ],
+    "created_at": "2026-11-26T10:21:46.801Z",
+    "updated_at": "2026-11-26T10:21:46.801Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "Know the Design, Pick the Attack: Sentence-Keyed Watermarks for LLMs",
+        "source_url": "https://arxiv.org/abs/2611.34505",
+        "added_at": "2026-11-26T10:21:46.801Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated attack against model watermarks via research paper.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2214",
+    "slug": "the-detour-is-the-danger-preserving-security-during-llm-agen",
+    "title": "The Detour Is the Danger: Preserving Security During LLM Agent Recovery",
+    "summary": "This research paper investigates workflow security downgrade, an attack where LLM agents execute sensitive operations without satisfying original security requirements during recovery from failures. The study highlights security flaws in autonomous agent replanning.",
+    "type": "attack_on_ai",
+    "categories": [
+      "agent_hijack"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33605",
+        "publisher": "arXiv",
+        "title": "The Detour Is the Danger: Preserving Security During LLM Agent Recovery",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "agent_hijack",
+      "llm_agents",
+      "research"
+    ],
+    "created_at": "2026-11-26T10:21:46.801Z",
+    "updated_at": "2026-11-26T10:21:46.801Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "The Detour Is the Danger: Preserving Security During LLM Agent Recovery",
+        "source_url": "https://arxiv.org/abs/2611.33605",
+        "added_at": "2026-11-26T10:21:46.801Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated attack via research paper with no real-world exploitation reported.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2213",
+    "slug": "regionalign-manipulating-parameter-layouts-for-localized-fau",
+    "title": "RegionAlign: Manipulating Parameter Layouts for Localized Fault Injection on LLMs",
+    "summary": "Researchers introduce RegionAlign, a technique enabling malicious providers to manipulate model parameter layouts before deployment to concentrate vulnerable bits in specific memory regions. Experiments demonstrate how this facilitates targeted fault injection while preserving normal performance.",
+    "type": "attack_on_ai",
+    "categories": [
+      "supply_chain",
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [
+      "RegionAlign"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33370",
+        "publisher": "arXiv",
+        "title": "RegionAlign: Manipulating Parameter Layouts for Localized Fault Injection on LLMs and VLMs",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "fault-injection",
+      "supply-chain",
+      "weight-manipulation"
+    ],
+    "created_at": "2026-11-26T10:21:46.801Z",
+    "updated_at": "2026-11-26T10:21:46.801Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "RegionAlign: Manipulating Parameter Layouts for Localized Fault Injection on LLMs and VLMs",
+        "source_url": "https://arxiv.org/abs/2611.33370",
+        "added_at": "2026-11-26T10:21:46.801Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research attack with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2212",
     "slug": "volant-manticore-iranian-threat-group-targets-cypriot-organi",
     "title": "Volant Manticore Iranian Threat Group Targets Cypriot Organizations",

@@ -1,1 +1,87 @@
-[]
+[
+  {
+    "key": "ba5c870601db6cd3",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.33262",
+    "title": "Onnx2TEE: Automated Graph-Aware Model Partitioning for TEE-based Edge AI Protection",
+    "published_at": "2026-11-26",
+    "publisher": "arXiv",
+    "hint": "AI models are increasingly being deployed at the edge. Since these models often require significant research and development to produce, are often deployed in potentially hostile environments, and downstream systems often rely on accurate data; protecting them from theft or manipulation is worthy of serious consideration. Trusted Execution Environments (TEEs), which provide hardware-enforced separation of software execution, can protect model weights but impose strict resource constraints, making full-model execution impractical for large neural…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-26T10:21:40.579Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "ba37651d6e3eceb0",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.33243",
+    "title": "Beyond the Efficiency-Efficacy Dilemma: A Critical Analysis of Transferability in Adversarial Malware Detection",
+    "published_at": "2026-11-26",
+    "publisher": "arXiv",
+    "hint": "Machine Learning (ML) models are already being deployed at scale for malware detection. Therefore there is a pressing need to rigorously study adversarial robustness. To that end, we introduce the Adversarial AI Engine (AAIE): a platform for automated security stress-testing. We performed transfer attacks, via EMBER2018, against a Random Forest target. Counterintuitively, we found single-step FGSM to have the highest attack success rate (ASR) of 52.9% compared to iterative PGD with 45.2% (p < 0.002). Compared to iterative attacks which tend to…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-26T10:21:40.579Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "7cc653be901297f7",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.34684",
+    "title": "BridgeHammer: DNN Backdoor Attack via CPU-iGPU Shared-memory Rowhammer",
+    "published_at": "2026-11-26",
+    "publisher": "arXiv",
+    "hint": "Heterogeneous systems-on-chips (SoCs) share physical memory between CPUs and integrated GPUs (iGPUs), creating a path for CPU-side memory corruption to compromise the integrity of deep learning models used for iGPU inference. Implanting a backdoor that causes targeted misclassifications on trigger-bearing inputs while retaining accuracy on normal inputs requires carefully selected weight changes. However, realizing these changes presents two challenges: where to induce faults, since vulnerable DRAM locations may not contain the targeted weights,…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-26T10:21:40.580Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "1ef4fc7c2fc7563e",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.33519",
+    "title": "PRECEPT: Security Self-Improvement of Coding Agents via Evolving Principles",
+    "published_at": "2026-11-26",
+    "publisher": "arXiv",
+    "hint": "AI coding agents increasingly write and submit code with limited human review, and much of it passes functional tests while remaining insecure. We show that these failures persist. Across 14 task sequences, Codex, Claude Code, and Qwen Code fixed a vulnerability 85.7% of the time when shown the failing security test, then reintroduced the same vulnerability class in a new session 26.7% of the time, about as often as agents that had never seen it (27.5%). The capability is present; the retention is not. Neither recording the repair in the agent's…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-26T10:21:40.580Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  },
+  {
+    "key": "36be01f6b892cf18",
+    "source_id": "arxiv-cscr",
+    "origin": "news",
+    "url": "https://arxiv.org/abs/2611.34181",
+    "title": "Agentic-Level Adversarial Purification: Revisiting Diffusion Purifiers on Native-Resolution Agentic Inputs",
+    "published_at": "2026-11-26",
+    "publisher": "arXiv",
+    "hint": "Vision-language agents act on native-resolution renders of multi-element pages, where one perturbed photo or a few altered text strokes can redirect the decision. Any content provider can craft such a perturbation on the open model behind the agent, so a plug-in purifier is the natural first line of defense. Yet diffusion purifiers were designed and evaluated at the fixed resolution of the diffusion model on classifier or natural-image benchmarks, and defense evaluations for agents test JPEG, blur and noise but no diffusion purifier. We present…",
+    "cve_ids": [],
+    "discovered_at": "2026-11-26T10:21:40.580Z",
+    "extra": {
+      "classifier_hint": "arXiv preprint (research paper). Severity 1 unless the paper documents confirmed real-world exploitation. In scope only if it demonstrates an attack, vulnerability or abuse of AI systems, or AI used offensively; defence-only or benchmark papers are out of scope.",
+      "announce_type": "new",
+      "ai_hint": true
+    }
+  }
+]
