@@ -1,5 +1,61 @@
 [
   {
+    "id": "AIR-2026-2212",
+    "slug": "volant-manticore-iranian-threat-group-targets-cypriot-organi",
+    "title": "Volant Manticore Iranian Threat Group Targets Cypriot Organizations",
+    "summary": "An undocumented Iranian threat group named Volant Manticore is targeting organizations in Cyprus for intelligence gathering. The campaign highlights ongoing regional espionage activities by state-sponsored actors.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://darkreading.com/cyberattacks-data-breaches/cyprus-espionage-target-iranian-hackers",
+        "publisher": "Dark Reading",
+        "title": "Cyprus Becomes Espionage Target for Iranian Hackers",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.85,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "volant manticore",
+      "iran",
+      "espionage",
+      "cyprus"
+    ],
+    "created_at": "2026-11-26T08:06:21.960Z",
+    "updated_at": "2026-11-26T08:06:21.960Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "Cyprus Becomes Espionage Target for Iranian Hackers",
+        "source_url": "https://darkreading.com/cyberattacks-data-breaches/cyprus-espionage-target-iranian-hackers",
+        "added_at": "2026-11-26T08:06:21.960Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Targeted espionage campaign by a confirmed threat group.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2211",
     "slug": "1password-customer-data-stolen-after-employee-github-account",
     "title": "1Password customer data stolen after employee GitHub account breach",
