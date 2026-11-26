@@ -1,5 +1,66 @@
 [
   {
+    "id": "AIR-2026-2224",
+    "slug": "cve-2026-137567-llama-cpp-out-of-bounds-write-in-ggml-rpc-se",
+    "title": "CVE-2026-137567: llama.cpp out-of-bounds write in ggml RPC server",
+    "summary": "Llama.cpp contains an out-of-bounds write vulnerability in the ggml RPC server allowing unauthenticated attackers to write to arbitrary heap addresses. Affected deployments should update to version b12658 or later.",
+    "type": "attack_on_ai",
+    "categories": [
+      "infra_vuln"
+    ],
+    "severity": 2,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "llama.cpp"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137567",
+        "publisher": "NVD",
+        "title": "CVE-2026-137567: llama.cpp b11450 before b12658 contains an out-of-bounds write vulnerability in the ggml RPC server that allows unauthenticated…",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "seed_nvd",
+    "tags": [
+      "CVE-2026-137567",
+      "out-of-bounds-write",
+      "rpc"
+    ],
+    "created_at": "2026-11-26T16:26:11.088Z",
+    "updated_at": "2026-11-26T16:26:11.088Z",
+    "lane": "patch",
+    "state": "closed",
+    "closed_at": "2026-11-26",
+    "patch_status": "patched",
+    "cve_ids": [
+      "CVE-2026-137567"
+    ],
+    "affected": [],
+    "fixed_in": [
+      "llama.cpp b12658"
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "CVE-2026-137567: llama.cpp b11450 before b12658 contains an out-of-bounds write vulnerability in the ggml RPC server that allows unauthenticated…",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137567",
+        "added_at": "2026-11-26T16:26:11.088Z"
+      }
+    ],
+    "action": "Update llama.cpp to version b12658 or later.",
+    "severity_note": "Critical rating (CVSS 9.3) with a vendor fix available and no reported in-the-wild exploitation.",
+    "cvss": 9.3
+  },
+  {
     "id": "AIR-2026-2223",
     "slug": "remus-malware-steals-gmail-messages-via-fake-google-sheets-e",
     "title": "Remus Malware Steals Gmail Messages via Fake Google Sheets Extension",
