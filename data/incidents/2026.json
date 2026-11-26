@@ -9228,9 +9228,15 @@
         "publisher": "The Hacker News",
         "title": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
         "published_at": "2026-11-26"
+      },
+      {
+        "url": "https://securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting",
+        "publisher": "SecurityWeek",
+        "title": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
+        "published_at": "2026-11-26"
       }
     ],
-    "source_count": 8,
+    "source_count": 9,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -9242,7 +9248,7 @@
       "cisa-kev"
     ],
     "created_at": "2026-11-19T13:19:56.132Z",
-    "updated_at": "2026-11-26T07:41:09.231Z",
+    "updated_at": "2026-11-26T09:21:43.244Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -9276,9 +9282,15 @@
         "title": "Drupal warns of a new highly critical vulnerability under active exploitation tracked as CVE-2026-136716 addressing installation states",
         "source_url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
         "added_at": "2026-11-26T07:41:09.231Z"
+      },
+      {
+        "date": "2026-11-26",
+        "title": "Drupal warns that the previous installer patch left a gap that is actively exploited.",
+        "source_url": "https://securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting",
+        "added_at": "2026-11-26T09:21:43.244Z"
       }
     ],
-    "action": "Federal agencies must apply the Drupal patch by 27 Nov 2026.",
+    "action": "Apply the updated security release immediately to address the remaining installer gap.",
     "severity_note": "Critical rating with a patch issued by the vendor.",
     "cvss": 9.8
   },
