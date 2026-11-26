@@ -92,9 +92,21 @@
         "publisher": "The Hacker News",
         "title": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
         "published_at": "2026-11-26"
+      },
+      {
+        "url": "https://securityweek.com/1password-breach-exposes-customer-data-internal-source-code",
+        "publisher": "SecurityWeek",
+        "title": "1Password Breach Exposes Customer Data, Internal Source Code",
+        "published_at": "2026-11-26"
+      },
+      {
+        "url": "https://helpnetsecurity.com/2026/11/26/1password-breach-github-customer-records",
+        "publisher": "Help Net Security",
+        "title": "1Password breached through hijacked employee GitHub account, customer names and emails stolen",
+        "published_at": "2026-11-26"
       }
     ],
-    "source_count": 3,
+    "source_count": 5,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -104,7 +116,7 @@
       "credential-compromise"
     ],
     "created_at": "2026-11-25T21:40:57.975Z",
-    "updated_at": "2026-11-26T05:21:54.264Z",
+    "updated_at": "2026-11-26T08:51:35.682Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
@@ -124,6 +136,12 @@
         "title": "Company clarifies that vaults and stored passwords were not exposed in the breach",
         "source_url": "https://theverge.com/tech/1042409/1password-data-breach-leak",
         "added_at": "2026-11-25T23:32:00.980Z"
+      },
+      {
+        "date": "2026-11-26",
+        "title": "Company confirms attacker copied customer names and emails and private repository source code.",
+        "source_url": "https://helpnetsecurity.com/2026/11/26/1password-breach-github-customer-records",
+        "added_at": "2026-11-26T08:51:35.682Z"
       }
     ],
     "action": "",
