@@ -30,9 +30,15 @@
         "publisher": "The Verge",
         "title": "1Password breach leaked customer names and emails, but not passwords",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
+        "publisher": "The Hacker News",
+        "title": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
+        "published_at": "2026-11-26"
       }
     ],
-    "source_count": 2,
+    "source_count": 3,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -42,7 +48,7 @@
       "credential-compromise"
     ],
     "created_at": "2026-11-25T21:40:57.975Z",
-    "updated_at": "2026-11-25T23:32:00.980Z",
+    "updated_at": "2026-11-26T05:21:54.264Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
