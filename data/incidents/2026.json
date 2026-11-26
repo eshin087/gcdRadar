@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2221",
+    "slug": "keenadu-and-triada-malware-preinstalled-on-over-220-000-andr",
+    "title": "Keenadu and Triada malware preinstalled on over 220,000 Android devices",
+    "summary": "Kaspersky reported that preinstalled malware families Keenadu and Triada infected over 220,000 Android devices in the first ten months of 2026. The malicious software is embedded directly within device firmware prior to user purchase.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Android"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/26/keenadu-malware-android-devices",
+        "publisher": "Help Net Security",
+        "title": "Preinstalled Keenadu malware turns up on 220,000+ Android devices",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "android",
+      "malware",
+      "supply_chain",
+      "triada",
+      "keenadu"
+    ],
+    "created_at": "2026-11-26T13:06:50.218Z",
+    "updated_at": "2026-11-26T13:06:50.218Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "Preinstalled Keenadu malware turns up on 220,000+ Android devices",
+        "source_url": "https://helpnetsecurity.com/2026/11/26/keenadu-malware-android-devices",
+        "added_at": "2026-11-26T13:06:50.218Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world infections across over 220,000 devices.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2220",
     "slug": "sys010-malware-abuses-browser-management-to-spy-on-gmail-out",
     "title": "SYS010 malware abuses browser management to spy on Gmail, Outlook",
