@@ -1,5 +1,180 @@
 [
   {
+    "id": "AIR-2026-2219",
+    "slug": "beyond-the-efficiency-efficacy-dilemma-adversarial-malware-d",
+    "title": "Beyond the Efficiency-Efficacy Dilemma: Adversarial Malware Detection Transferability",
+    "summary": "Researchers introduced an automated security stress-testing platform called AAIE to evaluate machine learning malware detectors. They demonstrated that single-step FGSM transfer attacks achieved higher success rates against random forest models than iterative PGD attacks.",
+    "type": "attack_on_ai",
+    "categories": [
+      "adversarial_evasion"
+    ],
+    "severity": 1,
+    "targets": [
+      "framework_or_tooling"
+    ],
+    "products": [
+      "EMBER2018"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33243",
+        "publisher": "arXiv",
+        "title": "Beyond the Efficiency-Efficacy Dilemma: A Critical Analysis of Transferability in Adversarial Malware Detection",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "malware-detection",
+      "adversarial-evasion",
+      "fgsm",
+      "transfer-attacks"
+    ],
+    "created_at": "2026-11-26T10:36:35.254Z",
+    "updated_at": "2026-11-26T10:36:35.254Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "Beyond the Efficiency-Efficacy Dilemma: A Critical Analysis of Transferability in Adversarial Malware Detection",
+        "source_url": "https://arxiv.org/abs/2611.33243",
+        "added_at": "2026-11-26T10:36:35.254Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research attack with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2218",
+    "slug": "precept-security-self-improvement-of-coding-agents-via-evolv",
+    "title": "PRECEPT: Security Self-Improvement of Coding Agents via Evolving Principles",
+    "summary": "Researchers evaluated AI coding agents and found they frequently reintroduce previously fixed vulnerability classes in new sessions despite fixing them when explicitly tested. The study highlights persistent security failure patterns in automated coding assistants.",
+    "type": "attack_on_ai",
+    "categories": [
+      "other"
+    ],
+    "severity": 1,
+    "targets": [
+      "Anthropic",
+      "OpenAI",
+      "framework_or_tooling"
+    ],
+    "products": [
+      "Codex",
+      "Claude Code",
+      "Qwen Code"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.33519",
+        "publisher": "arXiv",
+        "title": "PRECEPT: Security Self-Improvement of Coding Agents via Evolving Principles",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "coding-agents",
+      "vulnerability-reintroduction",
+      "ai-code-generation"
+    ],
+    "created_at": "2026-11-26T10:36:35.254Z",
+    "updated_at": "2026-11-26T10:36:35.254Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "PRECEPT: Security Self-Improvement of Coding Agents via Evolving Principles",
+        "source_url": "https://arxiv.org/abs/2611.33519",
+        "added_at": "2026-11-26T10:36:35.254Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Research paper demonstrating security failure patterns.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2217",
+    "slug": "bridgehammer-dnn-backdoor-attack-via-cpu-igpu-shared-memory",
+    "title": "BridgeHammer: DNN Backdoor Attack via CPU-iGPU Shared-memory Rowhammer",
+    "summary": "Researchers demonstrated a hardware-based rowhammer attack that implants backdoors into deep neural network models running on heterogeneous SoCs. The technique induces targeted misclassifications by corrupting shared memory locations.",
+    "type": "attack_on_ai",
+    "categories": [
+      "data_poisoning"
+    ],
+    "severity": 1,
+    "targets": [
+      "open_weight_model"
+    ],
+    "products": [],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2611.34684",
+        "publisher": "arXiv",
+        "title": "BridgeHammer: DNN Backdoor Attack via CPU-iGPU Shared-memory Rowhammer",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "rowhammer",
+      "backdoor",
+      "dnn",
+      "hardware-attack"
+    ],
+    "created_at": "2026-11-26T10:36:35.254Z",
+    "updated_at": "2026-11-26T10:36:35.254Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "BridgeHammer: DNN Backdoor Attack via CPU-iGPU Shared-memory Rowhammer",
+        "source_url": "https://arxiv.org/abs/2611.34684",
+        "added_at": "2026-11-26T10:36:35.254Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Demonstrated research attack with no known real-world exploitation.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2216",
     "slug": "poisoning-attack-forces-denial-of-service-in-self-evolving-l",
     "title": "Poisoning Attack Forces Denial-of-Service in Self-Evolving LLM Agent Defenses",

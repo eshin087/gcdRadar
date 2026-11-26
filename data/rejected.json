@@ -1,5 +1,25 @@
 [
   {
+    "key": "ba5c870601db6cd3",
+    "title": "Onnx2TEE: Automated Graph-Aware Model Partitioning for TEE-based Edge AI Protection",
+    "url": "https://arxiv.org/abs/2611.33262",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks are out of scope",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:36:35.254Z"
+  },
+  {
+    "key": "36be01f6b892cf18",
+    "title": "Agentic-Level Adversarial Purification: Revisiting Diffusion Purifiers on Native-Resolution Agentic Inputs",
+    "url": "https://arxiv.org/abs/2611.34181",
+    "publisher": "arXiv",
+    "source_id": "arxiv-cscr",
+    "reason": "out of scope: papers that only propose defences or benchmarks are out of scope",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-26T10:36:35.254Z"
+  },
+  {
     "key": "427d8bb5d081bb57",
     "title": "SecID: An LLM-Guided Framework for Threat-Aware Secondary Asset Identification with Quantitative RTL Analysis",
     "url": "https://arxiv.org/abs/2611.33453",
