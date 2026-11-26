@@ -1,5 +1,64 @@
 [
   {
+    "id": "AIR-2026-2222",
+    "slug": "polinrider-campaign-poisons-over-7-600-github-repositories-w",
+    "title": "PolinRider Campaign Poisons Over 7,600 GitHub Repositories with Malware",
+    "summary": "Threat actors linked to North Korea poisoned more than 7,600 GitHub repositories to distribute a Python loader. The malicious loader conceals itself within utility packages or configuration files to initiate infections.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "GitHub"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-26",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+        "publisher": "The Hacker News",
+        "title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
+        "published_at": "2026-11-26"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "supply-chain",
+      "malware",
+      "polinrider",
+      "github",
+      "python"
+    ],
+    "created_at": "2026-11-26T15:21:47.764Z",
+    "updated_at": "2026-11-26T15:21:47.764Z",
+    "lane": "supply_chain",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
+        "source_url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+        "added_at": "2026-11-26T15:21:47.764Z"
+      }
+    ],
+    "action": "Audit repositories for unauthorized packages and rotate compromised credentials.",
+    "severity_note": "Confirmed malicious campaign affecting thousands of repositories.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2221",
     "slug": "keenadu-and-triada-malware-preinstalled-on-over-220-000-andr",
     "title": "Keenadu and Triada malware preinstalled on over 220,000 Android devices",
