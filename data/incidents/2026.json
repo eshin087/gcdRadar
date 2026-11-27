@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2243",
+    "slug": "pcloud-confirms-password-manager-breach-affecting-user-accou",
+    "title": "pCloud confirms password manager breach affecting user accounts",
+    "summary": "The pCloud Pass password manager suffered an intrusion allowing unauthorized devices to connect despite enabled two-factor authentication. The organization confirmed the incident following user reports of suspicious account activity.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "pCloud Pass"
+    ],
+    "incident_date": "2026-11-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts",
+        "publisher": "BleepingComputer",
+        "title": "pCloud confirms password manager hack after suspicious login alerts",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "password-manager",
+      "breach",
+      "unauthorized-access",
+      "2fa-bypass"
+    ],
+    "created_at": "2026-11-27T19:36:25.131Z",
+    "updated_at": "2026-11-27T19:36:25.131Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "pCloud confirms password manager hack after suspicious login alerts",
+        "source_url": "https://bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts",
+        "added_at": "2026-11-27T19:36:25.131Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed cyberattack and unauthorized account access against a password manager service.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2242",
     "slug": "boston-scientific-data-breach-exposes-personal-and-medical-i",
     "title": "Boston Scientific data breach exposes personal and medical information",
