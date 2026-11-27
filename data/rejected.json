@@ -1,5 +1,15 @@
 [
   {
+    "key": "1dea03b2350e1b2e",
+    "title": "AI Finds 28 Zero-Day Flaws in Physical Robotics Software",
+    "url": "https://spectrum.ieee.org/zero-day-robotics-vulnerabilities-vicone-security",
+    "publisher": "spectrum.ieee.org",
+    "source_id": "hn",
+    "reason": "out of scope: Article discusses research findings and general implications of AI-assisted vulnerability discovery without detailing a specific live incident or individual exploitable flaw.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-27T11:51:44.308Z"
+  },
+  {
     "key": "415efee3262bc9c4",
     "title": "How to Keep Your Security Picture Current When Attackers Move at AI Speed",
     "url": "https://thehackernews.com/2026/11/how-to-keep-your-security-picture.html",
