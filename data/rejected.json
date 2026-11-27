@@ -1,5 +1,15 @@
 [
   {
+    "key": "415efee3262bc9c4",
+    "title": "How to Keep Your Security Picture Current When Attackers Move at AI Speed",
+    "url": "https://thehackernews.com/2026/11/how-to-keep-your-security-picture.html",
+    "publisher": "The Hacker News",
+    "source_id": "thn",
+    "reason": "out of scope: Opinion and discussion piece on security metrics without a specific incident.",
+    "confidence": 0.99,
+    "rejected_at": "2026-11-27T11:21:39.965Z"
+  },
+  {
     "key": "91d8956f6be2234c",
     "title": "In Other News: Tanker Cyberattacks, EU Quantum Act, New VirusTotal Capabilities",
     "url": "https://securityweek.com/in-other-news-tanker-cyberattacks-eu-quantum-act-new-virustotal-capabilities",

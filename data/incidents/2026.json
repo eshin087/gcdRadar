@@ -1,5 +1,67 @@
 [
   {
+    "id": "AIR-2026-2237",
+    "slug": "hackers-trojanize-official-q-dir-and-desktopok-downloads-to",
+    "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+    "summary": "Attackers compromised official download and update mechanisms for Q-Dir and DesktopOK on the SoftwareOK website to distribute remote access malware. Security researchers disclosed the supply chain compromise affecting installer files.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Q-Dir",
+      "DesktopOK"
+    ],
+    "incident_date": "2026-11-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+        "publisher": "The Hacker News",
+        "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "supply-chain",
+      "trojan",
+      "malware",
+      "softwareok"
+    ],
+    "created_at": "2026-11-27T11:21:39.965Z",
+    "updated_at": "2026-11-27T11:21:39.965Z",
+    "lane": "supply_chain",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [
+      "Q-Dir installer",
+      "DesktopOK installer"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+        "source_url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+        "added_at": "2026-11-27T11:21:39.965Z"
+      }
+    ],
+    "action": "Check downloaded installation files from SoftwareOK and verify integrity before running.",
+    "severity_note": "Confirmed malicious tampering of official software downloads.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2236",
     "slug": "drupal-site-takeover-vulnerability-exploited-in-attacks",
     "title": "Drupal site takeover vulnerability exploited in attacks",
