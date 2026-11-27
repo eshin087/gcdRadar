@@ -1,5 +1,15 @@
 [
   {
+    "key": "91d8956f6be2234c",
+    "title": "In Other News: Tanker Cyberattacks, EU Quantum Act, New VirusTotal Capabilities",
+    "url": "https://securityweek.com/in-other-news-tanker-cyberattacks-eu-quantum-act-new-virustotal-capabilities",
+    "publisher": "SecurityWeek",
+    "source_id": "securityweek",
+    "reason": "out of scope: Roundup or newsletter without a specific detailed incident write-up",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-27T11:06:33.258Z"
+  },
+  {
     "key": "eb4ace68efbbd1c3",
     "title": "Product showcase: Norton helps Claude users uncover the telltale signs of fraud",
     "url": "https://helpnetsecurity.com/2026/11/27/product-showcase-norton-claude-scam-detection",
