@@ -1,5 +1,121 @@
 [
   {
+    "id": "AIR-2026-2232",
+    "slug": "unpatched-cacti-zero-day-enables-rce-via-guest-access",
+    "title": "Unpatched Cacti Zero-Day Enables RCE via Guest Access",
+    "summary": "A zero-day vulnerability in the open-source Cacti network monitoring tool allows unauthenticated remote code execution in four HTTP requests. A proof-of-concept exploit has been published without an existing CVE or patch.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 1,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Cacti"
+    ],
+    "incident_date": "2026-11-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+        "publisher": "The Hacker News",
+        "title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "zero-day",
+      "rce",
+      "cacti",
+      "unauthenticated"
+    ],
+    "created_at": "2026-11-27T06:21:50.161Z",
+    "updated_at": "2026-11-27T06:21:50.161Z",
+    "lane": "research",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unknown",
+    "cve_ids": [],
+    "affected": [
+      "Cacti"
+    ],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+        "source_url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+        "added_at": "2026-11-27T06:21:50.161Z"
+      }
+    ],
+    "action": "Disable guest access or restrict unauthenticated HTTP access to Cacti servers until a patch is released.",
+    "severity_note": "Demonstrated unpatched zero-day vulnerability with public proof-of-concept.",
+    "cvss": null
+  },
+  {
+    "id": "AIR-2026-2231",
+    "slug": "switzerland-confirms-ai-assisted-attacks-on-critical-infrast",
+    "title": "Switzerland Confirms AI-Assisted Attacks on Critical Infrastructure",
+    "summary": "Attackers using AI agents breached computer systems at Swiss critical infrastructure operators in confirmed intrusions. The incidents resulted in no major operational disruptions and victims remain unnamed.",
+    "type": "ai_enabled_attack",
+    "categories": [
+      "ai_assisted_intrusion"
+    ],
+    "severity": 3,
+    "targets": [
+      "enterprise_deployment"
+    ],
+    "products": [],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+        "publisher": "The Hacker News",
+        "title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "ai-assisted",
+      "critical-infrastructure",
+      "switzerland",
+      "breach"
+    ],
+    "created_at": "2026-11-27T06:21:50.161Z",
+    "updated_at": "2026-11-27T06:21:50.161Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+        "source_url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+        "added_at": "2026-11-27T06:21:50.161Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world intrusion using AI tooling against critical infrastructure.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2230",
     "slug": "cve-2026-137497-budibase-information-disclosure-exposes-lite",
     "title": "CVE-2026-137497: Budibase information disclosure exposes LiteLLM credentials",
