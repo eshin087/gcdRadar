@@ -1,5 +1,63 @@
 [
   {
+    "id": "AIR-2026-2233",
+    "slug": "sap-confirms-cyberattack-involving-stolen-employee-tokens-on",
+    "title": "SAP Confirms Cyberattack Involving Stolen Employee Tokens on GitHub",
+    "summary": "SAP identified unauthorized activity on GitHub where attackers utilized stolen employee tokens. The intruders reportedly accessed and modified source code repositories.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "GitHub"
+    ],
+    "incident_date": "2026-11-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised",
+        "publisher": "SecurityWeek",
+        "title": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.9,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "sap",
+      "github",
+      "credential_theft",
+      "breach"
+    ],
+    "created_at": "2026-11-27T07:51:46.967Z",
+    "updated_at": "2026-11-27T07:51:46.967Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+        "source_url": "https://securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised",
+        "added_at": "2026-11-27T07:51:46.967Z"
+      }
+    ],
+    "action": "Revoke and rotate any compromised employee tokens and audit GitHub access logs.",
+    "severity_note": "A confirmed cyberattack against a named organisation resulting in source code access.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2232",
     "slug": "unpatched-cacti-zero-day-enables-rce-via-guest-access",
     "title": "Unpatched Cacti Zero-Day Enables RCE via Guest Access",
@@ -2942,9 +3000,15 @@
         "publisher": "The Hacker News",
         "title": "Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw to Compromise 6 Package Registry Servers",
         "published_at": "2026-11-25"
+      },
+      {
+        "url": "https://securityweek.com/hex-package-manager-warns-of-potential-data-breach",
+        "publisher": "SecurityWeek",
+        "title": "Hex Package Manager Warns of Potential Data Breach",
+        "published_at": "2026-11-27"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -2956,7 +3020,7 @@
       "erlang"
     ],
     "created_at": "2026-11-25T09:51:51.045Z",
-    "updated_at": "2026-11-25T09:51:51.045Z",
+    "updated_at": "2026-11-27T07:51:46.967Z",
     "lane": "patch",
     "state": "live",
     "closed_at": null,
@@ -2970,6 +3034,12 @@
         "title": "Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw to Compromise 6 Package Registry Servers",
         "source_url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
         "added_at": "2026-11-25T09:51:51.045Z"
+      },
+      {
+        "date": "2026-11-27",
+        "title": "Investigation reveals database reads are not logged despite no evidence of data modification",
+        "source_url": "https://securityweek.com/hex-package-manager-warns-of-potential-data-breach",
+        "added_at": "2026-11-27T07:51:46.967Z"
       }
     ],
     "action": "Ensure all Hex.pm registry server deployments are running the latest patched build.",
