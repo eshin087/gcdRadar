@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2244",
+    "slug": "easydns-discloses-aws-account-breach-and-customer-data-expos",
+    "title": "easyDNS Discloses AWS Account Breach and Customer Data Exposure",
+    "summary": "easyDNS suffered a security incident involving unauthorized access to its AWS account. The breach resulted in the exposure of certain customer data.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "easyDNS"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://easydns.com/blog/2026/11/27/easydns-data-breach",
+        "publisher": "easydns.com",
+        "title": "EasyDNS Data Breach",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "breach",
+      "aws",
+      "unauthorized-access"
+    ],
+    "created_at": "2026-11-27T21:51:42.782Z",
+    "updated_at": "2026-11-27T21:51:42.782Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "EasyDNS Data Breach",
+        "source_url": "https://easydns.com/blog/2026/11/27/easydns-data-breach",
+        "added_at": "2026-11-27T21:51:42.782Z"
+      }
+    ],
+    "action": "Review account security settings and monitor for suspicious activity.",
+    "severity_note": "Confirmed unauthorized access and customer data exposure.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2243",
     "slug": "pcloud-confirms-password-manager-breach-affecting-user-accou",
     "title": "pCloud confirms password manager breach affecting user accounts",
