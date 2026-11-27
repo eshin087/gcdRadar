@@ -1,5 +1,60 @@
 [
   {
+    "id": "AIR-2026-2240",
+    "slug": "japan-education-ministry-discloses-government-procurement-sy",
+    "title": "Japan Education Ministry Discloses Government Procurement System Breach",
+    "summary": "Hackers breached Japan's education ministry government procurement system, potentially exposing business records and email addresses. The ministry disclosed the incident earlier this week.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [],
+    "incident_date": "2026-11-25",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://therecord.media/japan-education-ministry-cyberattack",
+        "publisher": "The Record",
+        "title": "Japan’s education ministry discloses breach of government procurement system",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "breach",
+      "government",
+      "japan"
+    ],
+    "created_at": "2026-11-27T14:21:21.500Z",
+    "updated_at": "2026-11-27T14:21:21.500Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "Japan’s education ministry discloses breach of government procurement system",
+        "source_url": "https://therecord.media/japan-education-ministry-cyberattack",
+        "added_at": "2026-11-27T14:21:21.500Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed intrusion and data exposure at a named government organization.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2239",
     "slug": "microsoft-store-app-found-delivering-vinci-rat-capable-of-re",
     "title": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
