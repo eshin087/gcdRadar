@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2242",
+    "slug": "boston-scientific-data-breach-exposes-personal-and-medical-i",
+    "title": "Boston Scientific data breach exposes personal and medical information",
+    "summary": "Medical technology company Boston Scientific is notifying individuals of a cyberattack that compromised personal and medical data. The organization is currently addressing the breach and issuing required notifications.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Boston Scientific"
+    ],
+    "incident_date": "2026-11-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/new-boston-scientific-data-breach-exposes-personal-medical-info",
+        "publisher": "BleepingComputer",
+        "title": "New Boston Scientific data breach exposes personal, medical info",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "boston-scientific",
+      "cyberattack"
+    ],
+    "created_at": "2026-11-27T19:06:51.496Z",
+    "updated_at": "2026-11-27T19:06:51.496Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "New Boston Scientific data breach exposes personal, medical info",
+        "source_url": "https://bleepingcomputer.com/news/security/new-boston-scientific-data-breach-exposes-personal-medical-info",
+        "added_at": "2026-11-27T19:06:51.496Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed real-world PII and medical data breach.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2241",
     "slug": "us-air-force-cloud-one-platform-reportedly-breached",
     "title": "US Air Force Cloud One platform reportedly breached",
