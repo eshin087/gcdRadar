@@ -1,5 +1,15 @@
 [
   {
+    "key": "eb4ace68efbbd1c3",
+    "title": "Product showcase: Norton helps Claude users uncover the telltale signs of fraud",
+    "url": "https://helpnetsecurity.com/2026/11/27/product-showcase-norton-claude-scam-detection",
+    "publisher": "Help Net Security",
+    "source_id": "helpnetsecurity",
+    "reason": "out of scope: Product launch and vendor feature announcement without a security incident.",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-27T06:06:34.201Z"
+  },
+  {
     "key": "0be1cfba8b75b230",
     "title": "US seizes nearly $17 billion in global war on scam rings",
     "url": "https://helpnetsecurity.com/2026/11/27/doj-scam-crackdown-800-scammers",
