@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2236",
+    "slug": "drupal-site-takeover-vulnerability-exploited-in-attacks",
+    "title": "Drupal site takeover vulnerability exploited in attacks",
+    "summary": "The Drupal security team warns that a second critical flaw is actively being exploited in the wild to breach unpatched websites. Administrators should apply the latest security updates immediately.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Drupal"
+    ],
+    "incident_date": "2026-11-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks",
+        "publisher": "BleepingComputer",
+        "title": "Drupal warns of new site takeover flaw exploited in attacks",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "drupal",
+      "exploitation-in-the-wild",
+      "site-takeover"
+    ],
+    "created_at": "2026-11-27T10:21:26.638Z",
+    "updated_at": "2026-11-27T10:21:26.638Z",
+    "lane": "patch",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "unpatched",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "Drupal warns of new site takeover flaw exploited in attacks",
+        "source_url": "https://bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks",
+        "added_at": "2026-11-27T10:21:26.638Z"
+      }
+    ],
+    "action": "Update Drupal to the latest security release.",
+    "severity_note": "Confirmed exploitation in the wild.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2235",
     "slug": "flight-centre-travel-group-discloses-customer-data-breach",
     "title": "Flight Centre Travel Group Discloses Customer Data Breach",
