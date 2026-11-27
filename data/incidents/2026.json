@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2235",
+    "slug": "flight-centre-travel-group-discloses-customer-data-breach",
+    "title": "Flight Centre Travel Group Discloses Customer Data Breach",
+    "summary": "Flight Centre Travel Group reported unauthorized access to a third-party accommodation booking system. The incident exposed customer names, and in some cases, passport and health details.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 4,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "Flight Centre accommodation booking system"
+    ],
+    "incident_date": "2026-11-27",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-27",
+    "sources": [
+      {
+        "url": "https://helpnetsecurity.com/2026/11/27/flight-centre-travel-group-data-breach-booking-system",
+        "publisher": "Help Net Security",
+        "title": "Flight Centre Travel Group warns of customer data breach involving some passport details",
+        "published_at": "2026-11-27"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "third-party",
+      "passport-leak"
+    ],
+    "created_at": "2026-11-27T09:36:50.169Z",
+    "updated_at": "2026-11-27T09:36:50.169Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-27",
+        "title": "Flight Centre Travel Group warns of customer data breach involving some passport details",
+        "source_url": "https://helpnetsecurity.com/2026/11/27/flight-centre-travel-group-data-breach-booking-system",
+        "added_at": "2026-11-27T09:36:50.169Z"
+      }
+    ],
+    "action": "Review booking system logs and monitor accounts for potential misuse.",
+    "severity_note": "Confirmed real-world data breach impacting customer PI and passport details.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2234",
     "slug": "cve-2026-99362-linux-kernel-nfs-server-flaw-lets-attackers-g",
     "title": "CVE-2026-99362: Linux kernel NFS server flaw lets attackers gain root",
@@ -4017,9 +4074,15 @@
         "publisher": "The Record",
         "title": "Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen",
         "published_at": "2026-11-24"
+      },
+      {
+        "url": "https://securityweek.com/100000-potentially-impacted-by-colorado-data-breach",
+        "publisher": "SecurityWeek",
+        "title": "100,000 Potentially Impacted by Colorado Data Breach",
+        "published_at": "2026-11-27"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -4029,7 +4092,7 @@
       "mycolorado"
     ],
     "created_at": "2026-11-24T21:15:41.685Z",
-    "updated_at": "2026-11-24T21:15:41.685Z",
+    "updated_at": "2026-11-27T09:36:50.169Z",
     "lane": "breach",
     "state": "live",
     "closed_at": null,
