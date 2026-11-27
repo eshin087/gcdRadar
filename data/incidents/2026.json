@@ -554,9 +554,15 @@
         "publisher": "The Hacker News",
         "title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
         "published_at": "2026-11-27"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/unpatched-cacti-zero-day-with-public-poc-gives-remote-code-execution",
+        "publisher": "BleepingComputer",
+        "title": "Unpatched Cacti zero-day with public PoC gives remote code execution",
+        "published_at": "2026-11-27"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.9,
     "status": "published",
     "origin": "news",
@@ -567,7 +573,7 @@
       "unauthenticated"
     ],
     "created_at": "2026-11-27T06:21:50.161Z",
-    "updated_at": "2026-11-27T06:21:50.161Z",
+    "updated_at": "2026-11-27T17:06:28.952Z",
     "lane": "research",
     "state": "live",
     "closed_at": null,
