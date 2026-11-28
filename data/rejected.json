@@ -1,5 +1,15 @@
 [
   {
+    "key": "c8c3bd08742dac26",
+    "title": "Denmark arrests teenager over data breach affecting 11,000 people",
+    "url": "https://euronews.com/2026/11/27/denmark-arrests-teenager-over-data-breach-affecting-11000-people",
+    "publisher": "euronews.com",
+    "source_id": "hn",
+    "reason": "out of scope: an arrest or follow-up report on a known campaign is not a new incident",
+    "confidence": 0.95,
+    "rejected_at": "2026-11-28T16:36:42.260Z"
+  },
+  {
     "key": "1dea03b2350e1b2e",
     "title": "AI Finds 28 Zero-Day Flaws in Physical Robotics Software",
     "url": "https://spectrum.ieee.org/zero-day-robotics-vulnerabilities-vicone-security",
