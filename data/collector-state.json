@@ -14,99 +14,99 @@
    "last_success_at": "2026-11-12T01:55:35.122Z"
   },
   "bleepingcomputer": {
-   "last_success_at": "2026-11-28T10:51:15.602Z",
-   "etag": "bc2d6a764263784de12bcce8923b5aad",
-   "last_modified": "Sat, 28 Nov 2026 10:46:10 GMT"
+   "last_success_at": "2026-11-28T11:07:57.869Z",
+   "etag": "19ecffd929ea4b682abbb5e3bd01f10e",
+   "last_modified": "Sat, 28 Nov 2026 11:06:10 GMT"
   },
   "cert-eu": {
    "last_success_at": "2026-11-28T02:51:38.777Z"
   },
   "checkmarx-zero": {
-   "last_success_at": "2026-11-28T10:51:18.816Z",
+   "last_success_at": "2026-11-28T11:08:00.840Z",
    "etag": "\"f36a533fa8c1d7b5f0d9a72170f4c429\"",
    "last_modified": "Thu, 26 Nov 2026 15:03:14 GMT"
   },
   "cisa-alerts": {
-   "last_success_at": "2026-11-28T10:51:16.850Z"
+   "last_success_at": "2026-11-28T11:07:58.775Z"
   },
   "cisco-psirt": {
-   "last_success_at": "2026-11-28T10:51:17.095Z"
+   "last_success_at": "2026-11-28T11:07:59.124Z"
   },
   "cyberscoop": {
-   "last_success_at": "2026-11-28T10:51:16.029Z",
+   "last_success_at": "2026-11-28T11:07:58.155Z",
    "etag": "W/\"e946939f639f83421438bfeea83666a7\"",
    "last_modified": "Wed, 25 Nov 2026 14:42:39 GMT"
   },
   "darkreading": {
-   "last_success_at": "2026-11-28T10:51:16.394Z",
-   "last_modified": "Sat, 28 Nov 2026 10:51:16 GMT"
+   "last_success_at": "2026-11-28T11:07:58.420Z",
+   "last_modified": "Sat, 28 Nov 2026 11:07:58 GMT"
   },
   "deepmind": {
-   "last_success_at": "2026-11-28T10:51:16.518Z",
+   "last_success_at": "2026-11-28T11:07:58.506Z",
    "etag": "\"ybSI4Q\""
   },
   "embracethered": {
-   "last_success_at": "2026-11-28T10:51:17.915Z",
+   "last_success_at": "2026-11-28T11:07:59.759Z",
    "etag": "W/\"6acec2fd-4c1cd\"",
    "last_modified": "Tue, 13 Oct 2026 23:47:09 GMT"
   },
   "fortinet-psirt": {
-   "last_success_at": "2026-11-28T10:51:18.800Z",
-   "etag": "\"6b0ab0b6-c705\"",
-   "last_modified": "Sat, 28 Nov 2026 10:45:10 GMT"
+   "last_success_at": "2026-11-28T11:08:00.955Z",
+   "etag": "\"6b0ab43b-c705\"",
+   "last_modified": "Sat, 28 Nov 2026 11:00:11 GMT"
   },
   "gdelt": {
    "last_success_at": "2026-11-28T11:06:48.127Z"
   },
   "ghsa": {
-   "last_success_at": "2026-11-28T10:51:19.389Z"
+   "last_success_at": "2026-11-28T11:08:01.437Z"
   },
   "google-security": {
-   "last_success_at": "2026-11-28T10:51:16.510Z",
+   "last_success_at": "2026-11-28T11:07:58.638Z",
    "etag": "W/\"e775b7891d39ff8fdad3864d500504fc48543cace3436238a200ecc7cae0d27d\"",
    "last_modified": "Fri, 27 Nov 2026 08:15:17 GMT"
   },
   "gtig": {
-   "last_success_at": "2026-11-28T10:51:17.669Z"
+   "last_success_at": "2026-11-28T11:08:00.069Z"
   },
   "helpnetsecurity": {
-   "last_success_at": "2026-11-28T10:51:16.203Z",
+   "last_success_at": "2026-11-28T11:07:58.224Z",
    "last_modified": "Fri, 27 Nov 2026 13:22:26 GMT"
   },
   "hibp": {
-   "last_success_at": "2026-11-28T05:36:40.223Z"
+   "last_success_at": "2026-11-28T11:08:01.354Z"
   },
   "hiddenlayer": {
    "last_success_at": "2026-11-28T02:51:39.532Z"
   },
   "hn": {
-   "last_success_at": "2026-11-28T10:51:22.504Z"
+   "last_success_at": "2026-11-28T11:08:05.275Z"
   },
   "kev": {
-   "last_success_at": "2026-11-28T10:51:18.875Z",
+   "last_success_at": "2026-11-28T11:08:00.917Z",
    "last_modified": "Fri, 27 Nov 2026 18:03:12 GMT"
   },
   "krebs": {
-   "last_success_at": "2026-11-28T10:51:16.164Z",
+   "last_success_at": "2026-11-28T11:07:57.897Z",
    "last_modified": "Sat, 28 Nov 2026 10:49:53 GMT"
   },
   "meta-eng": {
-   "last_success_at": "2026-11-28T10:51:16.769Z",
+   "last_success_at": "2026-11-28T11:07:58.871Z",
    "etag": "W/\"c6b3c4e8b8707d2549b0f19ccbf79ee2\"",
    "last_modified": "Fri, 20 Nov 2026 20:54:01 GMT"
   },
   "ms-ai": {
-   "last_success_at": "2026-11-28T10:51:16.623Z",
+   "last_success_at": "2026-11-28T11:07:58.624Z",
    "etag": "\"4523f079f426d084d25a72d859a56fae-gzip\"",
    "last_modified": "Wed, 25 Nov 2026 18:14:06 GMT"
   },
   "ms-security": {
-   "last_success_at": "2026-11-28T10:51:16.561Z",
+   "last_success_at": "2026-11-28T11:07:58.547Z",
    "etag": "\"4523f079f426d084d25a72d859a56fae-gzip\"",
    "last_modified": "Wed, 25 Nov 2026 18:14:06 GMT"
   },
   "ms-threat-intel": {
-   "last_success_at": "2026-11-28T10:51:16.563Z",
+   "last_success_at": "2026-11-28T11:07:58.594Z",
    "etag": "\"4523f079f426d084d25a72d859a56fae-gzip\"",
    "last_modified": "Wed, 25 Nov 2026 18:14:06 GMT"
   },
@@ -124,47 +124,47 @@
    "last_success_at": "2026-11-28T10:58:26.016Z"
   },
   "openai": {
-   "last_success_at": "2026-11-28T10:51:16.322Z"
+   "last_success_at": "2026-11-28T11:07:58.364Z"
   },
   "owasp-genai": {
-   "last_success_at": "2026-11-28T10:51:18.450Z",
+   "last_success_at": "2026-11-28T11:08:00.447Z",
    "etag": "W/\"7ab51e852136f04eb50b6c61687cef16\"",
    "last_modified": "Fri, 27 Nov 2026 22:19:26 GMT"
   },
   "paloalto-psirt": {
-   "last_success_at": "2026-11-28T10:51:17.008Z",
+   "last_success_at": "2026-11-28T11:07:59.039Z",
    "etag": "W/\"2124-7kt0EOwFW9PIKZCwh3HT4iSPUyM\""
   },
   "securityweek": {
-   "last_success_at": "2026-11-28T10:51:15.506Z",
+   "last_success_at": "2026-11-28T11:07:57.789Z",
    "etag": "W/\"75e962e085b573afec980d40d474af49\"",
    "last_modified": "Fri, 27 Nov 2026 11:00:00 GMT"
   },
   "simonw-pi": {
-   "last_success_at": "2026-11-28T10:51:17.436Z",
+   "last_success_at": "2026-11-28T11:07:59.222Z",
    "last_modified": "Thu, 17 Sep 2026 20:57:55 GMT"
   },
   "simonw-sec": {
-   "last_success_at": "2026-11-28T10:51:17.724Z",
+   "last_success_at": "2026-11-28T11:07:59.552Z",
    "last_modified": "Wed, 18 Nov 2026 15:58:27 GMT"
   },
   "straiker": {
-   "last_success_at": "2026-11-28T10:51:18.584Z",
+   "last_success_at": "2026-11-28T11:08:00.584Z",
    "last_modified": "Thu, 26 Nov 2026 11:21:38 GMT"
   },
   "talos": {
-   "last_success_at": "2026-11-28T10:51:18.309Z",
+   "last_success_at": "2026-11-28T11:08:00.326Z",
    "etag": "W/\"10e793-3KozUPPBd2dKj7l5GtsMoLdQKbU\""
   },
   "therecord": {
-   "last_success_at": "2026-11-28T10:51:15.874Z"
+   "last_success_at": "2026-11-28T11:07:58.046Z"
   },
   "thn": {
-   "last_success_at": "2026-11-28T10:51:15.646Z",
-   "last_modified": "Sat, 28 Nov 2026 10:13:31 GMT"
+   "last_success_at": "2026-11-28T11:07:57.944Z",
+   "last_modified": "Sat, 28 Nov 2026 10:54:56 GMT"
   },
   "trailofbits": {
-   "last_success_at": "2026-11-28T10:51:17.992Z",
+   "last_success_at": "2026-11-28T11:08:00.071Z",
    "etag": "W/\"f10fd7653fb22199a4d1e9f0c8b951c5-ssl\""
   },
   "trendmicro": {
@@ -172,12 +172,12 @@
    "last_modified": "Sun, 15 Nov 2026 10:15:03 GMT"
   },
   "unit42": {
-   "last_success_at": "2026-11-28T10:51:18.227Z",
+   "last_success_at": "2026-11-28T11:08:00.220Z",
    "etag": "\"b8a62d2c0b5304329f6c9f5ef0cc35a6-gzip\"",
    "last_modified": "Fri, 27 Nov 2026 17:40:52 GMT"
   },
   "unit42-ai": {
-   "last_success_at": "2026-11-28T10:51:18.753Z",
+   "last_success_at": "2026-11-28T11:08:00.866Z",
    "etag": "\"b8a62d2c0b5304329f6c9f5ef0cc35a6-gzip\"",
    "last_modified": "Fri, 27 Nov 2026 17:40:52 GMT"
   }
