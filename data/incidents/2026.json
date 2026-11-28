@@ -439,9 +439,15 @@
         "publisher": "The Hacker News",
         "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
         "published_at": "2026-11-27"
+      },
+      {
+        "url": "https://bleepingcomputer.com/news/security/q-dir-and-desktopok-windows-utilities-compromised-to-push-python-rat",
+        "publisher": "BleepingComputer",
+        "title": "Q-Dir and DesktopOK Windows utilities compromised to push Python RAT",
+        "published_at": "2026-11-28"
       }
     ],
-    "source_count": 1,
+    "source_count": 2,
     "confidence": 0.95,
     "status": "published",
     "origin": "news",
@@ -452,7 +458,7 @@
       "softwareok"
     ],
     "created_at": "2026-11-27T11:21:39.965Z",
-    "updated_at": "2026-11-27T11:21:39.965Z",
+    "updated_at": "2026-11-28T15:36:45.210Z",
     "lane": "supply_chain",
     "state": "live",
     "closed_at": null,
