@@ -1,5 +1,62 @@
 [
   {
+    "id": "AIR-2026-2245",
+    "slug": "college-board-confirms-data-breach-after-unauthorized-passwo",
+    "title": "College Board confirms data breach after unauthorized password changes",
+    "summary": "College Board confirmed a data breach impacting account registration and financial aid systems following unauthorized password resets. Threat actors gained access to these platforms during the Thanksgiving holiday.",
+    "type": "not_ai",
+    "categories": [
+      "general"
+    ],
+    "severity": 3,
+    "targets": [
+      "n/a"
+    ],
+    "products": [
+      "College Board account registration"
+    ],
+    "incident_date": "2026-11-26",
+    "incident_date_precision": "day",
+    "first_reported": "2026-11-28",
+    "sources": [
+      {
+        "url": "https://bleepingcomputer.com/news/security/college-board-confirms-data-breach-after-unauthorized-password-changes",
+        "publisher": "BleepingComputer",
+        "title": "College Board confirms data breach after unauthorized password changes",
+        "published_at": "2026-11-28"
+      }
+    ],
+    "source_count": 1,
+    "confidence": 0.95,
+    "status": "published",
+    "origin": "news",
+    "tags": [
+      "data-breach",
+      "account-takeover",
+      "college-board"
+    ],
+    "created_at": "2026-11-28T17:51:36.618Z",
+    "updated_at": "2026-11-28T17:51:36.618Z",
+    "lane": "breach",
+    "state": "live",
+    "closed_at": null,
+    "patch_status": "no_fix_needed",
+    "cve_ids": [],
+    "affected": [],
+    "fixed_in": [],
+    "timeline": [
+      {
+        "date": "2026-11-28",
+        "title": "College Board confirms data breach after unauthorized password changes",
+        "source_url": "https://bleepingcomputer.com/news/security/college-board-confirms-data-breach-after-unauthorized-password-changes",
+        "added_at": "2026-11-28T17:51:36.618Z"
+      }
+    ],
+    "action": "",
+    "severity_note": "Confirmed data breach affecting named organisation systems.",
+    "cvss": null
+  },
+  {
     "id": "AIR-2026-2244",
     "slug": "easydns-discloses-aws-account-breach-and-customer-data-expos",
     "title": "easyDNS Discloses AWS Account Breach and Customer Data Exposure",
